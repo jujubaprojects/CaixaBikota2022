@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0585928A-F197-453C-8182-E6FA57A79D96}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Caixa</RootNamespace>
+    <AssemblyName>Caixa</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Componentes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ClassesJujuba\Componentes\bin\Debug\Componentes.dll</HintPath>
+    </Reference>
+    <Reference Include="dal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ClassesJujuba\dal\bin\Debug\dal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.6.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.6\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caixa\frmRetiradaCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caixa\frmRetiradaCaixa.Designer.cs">
+      <DependentUpon>frmRetiradaCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsRelatorios.cs">
+      <DependentUpon>dsRelatorios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsRelatorios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRelatorios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagamentos.designer.cs">
+      <DependentUpon>frmPagamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagar.designer.cs">
+      <DependentUpon>frmPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagarDividido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagarDividido.designer.cs">
+      <DependentUpon>frmPagarDividido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagarNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamentos\frmPagarNota.designer.cs">
+      <DependentUpon>frmPagarNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmNovoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmNovoPedido.Designer.cs">
+      <DependentUpon>frmNovoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmNovoPedidoImagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmNovoPedidoImagem.Designer.cs">
+      <DependentUpon>frmNovoPedidoImagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmPedidoRapido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmPedidoRapido.Designer.cs">
+      <DependentUpon>frmPedidoRapido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP2032.cs" />
+    <Compile Include="Pedidos\frmPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmPedidos.Designer.cs">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRelatorio.Designer.cs">
+      <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmRelVendasDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRelVendasDia.Designer.cs">
+      <DependentUpon>frmRelVendasDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmRelVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRelVendas.Designer.cs">
+      <DependentUpon>frmRelVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="SQL\SQL.cs" />
+    <EmbeddedResource Include="Caixa\frmRetiradaCaixa.resx">
+      <DependentUpon>frmRetiradaCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamentos\frmPagamentos.resx">
+      <DependentUpon>frmPagamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamentos\frmPagar.resx">
+      <DependentUpon>frmPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamentos\frmPagarDividido.resx">
+      <DependentUpon>frmPagarDividido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamentos\frmPagarNota.resx">
+      <DependentUpon>frmPagarNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmNovoPedido.resx">
+      <DependentUpon>frmNovoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmNovoPedidoImagem.resx">
+      <DependentUpon>frmNovoPedidoImagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmPedidoRapido.resx">
+      <DependentUpon>frmPedidoRapido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmPedidos.resx">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRelatorio.resx">
+      <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRelVendasDia.resx">
+      <DependentUpon>frmRelVendasDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRelVendas.resx">
+      <DependentUpon>frmRelVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\relVendasDia.rdlc" />
+    <EmbeddedResource Include="Reports\relVendas.rdlc" />
+    <EmbeddedResource Include="Reports\ModeloRetrato.rdlc" />
+    <EmbeddedResource Include="Reports\ModeloPaisagem.rdlc" />
+    <None Include="DataSet\dsRelatorios.xsc">
+      <DependentUpon>dsRelatorios.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsRelatorios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRelatorios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\dsRelatorios.xss">
+      <DependentUpon>dsRelatorios.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black-and-white-credit-cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-editar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancelar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-editar-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancelar-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-editar-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-mais-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-preço-baixo-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-visa-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancelar-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-editar-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-marcador-duplo-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-iniciar-transferência-de-dinheiro-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-marcador-duplo-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancelar-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-salvar-e-fechar-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-títulos-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-caixa-de-seleção-marcada-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-caixa-de-seleção-marcada-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-títulos-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-equity-security-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-adicionar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-adicionar-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-contabilidade-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-adicionar-regra-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-doar-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-documentos-do-produto-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sair-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sorvete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sweets_Ice_cream_Strawberry_White_background_Jug_521481_1920x1080.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-termos-e-condições-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

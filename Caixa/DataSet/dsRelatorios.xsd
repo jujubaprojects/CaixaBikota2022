@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsRelatorios" targetNamespace="http://tempuri.org/dsRelatorios.xsd" xmlns:mstns="http://tempuri.org/dsRelatorios.xsd" xmlns="http://tempuri.org/dsRelatorios.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsRelatorios" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsRelatorios" msprop:Generator_UserDSName="dsRelatorios">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtRelVendas" msprop:Generator_TableClassName="dtRelVendasDataTable" msprop:Generator_TableVarName="tabledtRelVendas" msprop:Generator_RowChangedName="dtRelVendasRowChanged" msprop:Generator_TablePropName="dtRelVendas" msprop:Generator_RowDeletingName="dtRelVendasRowDeleting" msprop:Generator_RowChangingName="dtRelVendasRowChanging" msprop:Generator_RowEvHandlerName="dtRelVendasRowChangeEventHandler" msprop:Generator_RowDeletedName="dtRelVendasRowDeleted" msprop:Generator_RowClassName="dtRelVendasRow" msprop:Generator_UserTableName="dtRelVendas" msprop:Generator_RowEvArgName="dtRelVendasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PRODUTO_PAI" msprop:Generator_ColumnVarNameInTable="columnPRODUTO_PAI" msprop:Generator_ColumnPropNameInRow="PRODUTO_PAI" msprop:Generator_ColumnPropNameInTable="PRODUTO_PAIColumn" msprop:Generator_UserColumnName="PRODUTO_PAI" type="xs:string" minOccurs="0" />
+              <xs:element name="PRODUTO_FILHO" msprop:Generator_ColumnVarNameInTable="columnPRODUTO_FILHO" msprop:Generator_ColumnPropNameInRow="PRODUTO_FILHO" msprop:Generator_ColumnPropNameInTable="PRODUTO_FILHOColumn" msprop:Generator_UserColumnName="PRODUTO_FILHO" type="xs:string" minOccurs="0" />
+              <xs:element name="PRODUTO_DESCRICAO" msprop:Generator_ColumnVarNameInTable="columnPRODUTO_DESCRICAO" msprop:Generator_ColumnPropNameInRow="PRODUTO_DESCRICAO" msprop:Generator_ColumnPropNameInTable="PRODUTO_DESCRICAOColumn" msprop:Generator_UserColumnName="PRODUTO_DESCRICAO" type="xs:string" minOccurs="0" />
+              <xs:element name="QT" msprop:Generator_ColumnVarNameInTable="columnQT" msprop:Generator_ColumnPropNameInRow="QT" msprop:Generator_ColumnPropNameInTable="QTColumn" msprop:Generator_UserColumnName="QT" type="xs:string" minOccurs="0" />
+              <xs:element name="VALOR" msprop:Generator_ColumnVarNameInTable="columnVALOR" msprop:Generator_ColumnPropNameInRow="VALOR" msprop:Generator_ColumnPropNameInTable="VALORColumn" msprop:Generator_UserColumnName="VALOR" type="xs:string" minOccurs="0" />
+              <xs:element name="DT_HORA" msprop:Generator_ColumnVarNameInTable="columnDT_HORA" msprop:Generator_ColumnPropNameInRow="DT_HORA" msprop:Generator_ColumnPropNameInTable="DT_HORAColumn" msprop:Generator_UserColumnName="DT_HORA" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtRelVendasDia" msprop:Generator_TableClassName="dtRelVendasDiaDataTable" msprop:Generator_TableVarName="tabledtRelVendasDia" msprop:Generator_TablePropName="dtRelVendasDia" msprop:Generator_RowDeletingName="dtRelVendasDiaRowDeleting" msprop:Generator_RowChangingName="dtRelVendasDiaRowChanging" msprop:Generator_RowEvHandlerName="dtRelVendasDiaRowChangeEventHandler" msprop:Generator_RowDeletedName="dtRelVendasDiaRowDeleted" msprop:Generator_UserTableName="dtRelVendasDia" msprop:Generator_RowChangedName="dtRelVendasDiaRowChanged" msprop:Generator_RowEvArgName="dtRelVendasDiaRowChangeEvent" msprop:Generator_RowClassName="dtRelVendasDiaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DESCRICAO" msprop:Generator_ColumnVarNameInTable="columnDESCRICAO" msprop:Generator_ColumnPropNameInRow="DESCRICAO" msprop:Generator_ColumnPropNameInTable="DESCRICAOColumn" msprop:Generator_UserColumnName="DESCRICAO" type="xs:string" minOccurs="0" />
+              <xs:element name="VALOR" msprop:Generator_ColumnVarNameInTable="columnVALOR" msprop:Generator_ColumnPropNameInRow="VALOR" msprop:Generator_ColumnPropNameInTable="VALORColumn" msprop:Generator_UserColumnName="VALOR" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPO" msprop:Generator_ColumnVarNameInTable="columnTIPO" msprop:Generator_ColumnPropNameInRow="TIPO" msprop:Generator_ColumnPropNameInTable="TIPOColumn" msprop:Generator_UserColumnName="TIPO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
