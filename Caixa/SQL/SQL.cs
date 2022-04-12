@@ -132,6 +132,32 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+
+        public void insertBalde(string pNome, string pEnd, string pTel, string pBalde, int pColher = 0)
+        {
+            string sql = queryInsertBalde(pNome, pEnd, pTel, pBalde);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pNome", pNome.ToUpper());
+            sqlc.Parameters.AddWithValue("@pEnd", pEnd.ToUpper());
+            sqlc.Parameters.AddWithValue("@pTel", pTel);
+            sqlc.Parameters.AddWithValue("@pBalde", pBalde);
+            sqlc.Parameters.AddWithValue("@pColher", pColher);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertBalde(string pNome, string pEnd, string pTel, string pBalde)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO BALDES (NOME, ENDERECO, BALDE, TELEFONE, COLHER, DATA, ENTREGUE) ");
+            sql.Append("VALUES (@pNome, @pEnd, @pBalde, @pTel, @pColher, getdate(), 0)");
+
+            return sql.ToString();
+        }
+
         public void insertPagamentoPedidoID(int pPedidoID, double pValor, int pTipoPagamento)
         {
             string sql = queryInsertPagamentoPedidoID(pPedidoID, pValor, pTipoPagamento);
@@ -326,13 +352,34 @@ namespace Caixa.SQL
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        private string queryUpdateSituacaoPedido (int pPedidoID, string pDescricao, int pSituacao)
+        private string queryUpdateSituacaoPedido(int pPedidoID, string pDescricao, int pSituacao)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("UPDATE PEDIDO SET SITUACAO = @pSituacao ");
             if (!string.IsNullOrEmpty(pDescricao))
                 sql.Append(", MESA = CONCAT(MESA, @pDescricao), DT_FINAL = DATE_TRUNC('second',now())");
             sql.Append("WHERE ID = @pPedidoID ");
+
+            return sql.ToString();
+        }
+        public void updateBaldes(int pID, int pEntregue)
+        {
+            string sql = queryUpdateBaldes(pID, pEntregue);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pEntregue", pEntregue);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateBaldes(int pID, int pEntregue)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE BALDES SET ENTREGUE = @pEntregue, DATA_ENTREGUE = GETDATE() ");
+            sql.Append("WHERE ID = @pID ");
 
             return sql.ToString();
         }
@@ -359,9 +406,33 @@ namespace Caixa.SQL
             sql.Append("LEFT JOIN PRODUTO P ON(PP.PRODUTO = P.ID) ");
             sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
             //sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN (@pPedidos) ");
-            sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN ("+pPedidos+") ");
+            sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN (" + pPedidos + ") ");
             sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.QT_PRODUTO, PP.DESCRICAO ");
             sql.Append("HAVING (PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO,0)) != 0 ");
+
+            return sql.ToString();
+        }
+
+        public DataTable buscaBaldes(int pEntregue)
+        {
+            string sql = queryBuscaBaldes(pEntregue);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pEntregue", pEntregue);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaBaldes(int pEntregue)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, NOME, ENDERECO, BALDE, COLHER, TELEFONE, DATA, ENTREGUE ");
+            sql.Append("FROM BALDES ");
+            if (pEntregue != -1)
+                sql.Append("WHERE ENTREGUE = @pEntregue ");
+            sql.Append("ORDER BY ID DESC");
 
             return sql.ToString();
         }

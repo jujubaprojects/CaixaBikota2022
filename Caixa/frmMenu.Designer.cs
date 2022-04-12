@@ -37,14 +37,15 @@
             this.novoPedidoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosAbertoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +121,22 @@
             this.recebimentoDeNotaToolStripMenuItem.Text = "Recebimento de Nota";
             this.recebimentoDeNotaToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoDeNotaToolStripMenuItem_Click);
             // 
+            // caixaToolStripMenuItem
+            // 
+            this.caixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.retiradaCaixaToolStripMenuItem,
+            this.baldesToolStripMenuItem});
+            this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(48, 52);
+            this.caixaToolStripMenuItem.Text = "Caixa";
+            // 
+            // retiradaCaixaToolStripMenuItem
+            // 
+            this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
+            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.retiradaCaixaToolStripMenuItem.Text = "Retirada Caixa";
+            this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
+            // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
@@ -170,20 +187,12 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
-            // caixaToolStripMenuItem
+            // baldesToolStripMenuItem
             // 
-            this.caixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.retiradaCaixaToolStripMenuItem});
-            this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(48, 52);
-            this.caixaToolStripMenuItem.Text = "Caixa";
-            // 
-            // retiradaCaixaToolStripMenuItem
-            // 
-            this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
-            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.retiradaCaixaToolStripMenuItem.Text = "Retirada Caixa";
-            this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
+            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.baldesToolStripMenuItem.Text = "Baldes";
+            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -222,6 +231,7 @@
         private System.Windows.Forms.ToolStripMenuItem recebimentoDeNotaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retiradaCaixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baldesToolStripMenuItem;
     }
 }
 

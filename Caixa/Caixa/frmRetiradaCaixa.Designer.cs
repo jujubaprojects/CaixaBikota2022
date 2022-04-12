@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.txtValor = new Componentes.TextBoxJCS(this.components);
             this.lblValor = new Componentes.LabelJCS(this.components);
-            this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.lblDescricao = new Componentes.LabelJCS(this.components);
             this.txtDescricao = new Componentes.TextBoxJCS(this.components);
+            this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.SuspendLayout();
             // 
             // txtValor
@@ -47,6 +47,7 @@
             this.txtValor.Size = new System.Drawing.Size(100, 24);
             this.txtValor.TabIndex = 0;
             this.txtValor.TipoCampo = "MONETARIO";
+            this.txtValor.TextChanged += new System.EventHandler(this.TxtValor_TextChanged);
             // 
             // lblValor
             // 
@@ -57,22 +58,7 @@
             this.lblValor.Size = new System.Drawing.Size(42, 17);
             this.lblValor.TabIndex = 55;
             this.lblValor.Text = "Valor:";
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackColor = System.Drawing.Color.Gold;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSalvar.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
-            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(193, 10);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(100, 25);
-            this.btnSalvar.TabIndex = 2;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
+            this.lblValor.Click += new System.EventHandler(this.LblValor_Click);
             // 
             // lblDescricao
             // 
@@ -96,6 +82,22 @@
             this.txtDescricao.Size = new System.Drawing.Size(206, 66);
             this.txtDescricao.TabIndex = 1;
             this.txtDescricao.TipoCampo = null;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.BackColor = System.Drawing.Color.Gold;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSalvar.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Location = new System.Drawing.Point(193, 10);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(100, 25);
+            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // frmRetiradaCaixa
             // 

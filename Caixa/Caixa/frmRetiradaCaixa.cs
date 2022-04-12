@@ -66,5 +66,15 @@ namespace Caixa.Caixa
 
             return true;
         }
+
+        private void LblValor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtValor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -261,5 +261,11 @@ namespace Caixa
             frmRetiradaCaixa frm = new frmRetiradaCaixa();
             frm.ShowDialog();
         }
+
+        private void BaldesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBaldes frm = new frmBaldes();
+            frm.ShowDialog();
+        }
     }
 }

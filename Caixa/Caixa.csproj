@@ -111,6 +111,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caixa\frmBaldes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caixa\frmBaldes.Designer.cs">
+      <DependentUpon>frmBaldes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caixa\frmRetiradaCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SQL\SQL.cs" />
+    <EmbeddedResource Include="Caixa\frmBaldes.resx">
+      <DependentUpon>frmBaldes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmRetiradaCaixa.resx">
       <DependentUpon>frmRetiradaCaixa.cs</DependentUpon>
     </EmbeddedResource>
