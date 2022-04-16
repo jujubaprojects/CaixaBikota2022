@@ -714,6 +714,17 @@ namespace Caixa.SQL
             return conexao.executarSelect(sql.ToString());
         }
 
+        public DataTable retornaPedidosAdds(int pPP)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT PED.ID, PED.PEDIDO_PRODUTO, P.DESCRICAO PRODUTO, PED.DESCRICAO, PED.QT_PRODUTO, PED.DT_ALTERACAO, PED.QT_PRODUTO * P.VALOR AS VALOR ");
+            sql.Append("FROM PEDIDO_PRODUTO_ADDS PED ");
+            sql.Append("JOIN PRODUTO P ON(PED.PRODUTO = P.ID) ");
+            sql.Append("WHERE PED.PEDIDO_PRODUTO = "+ pPP);
+
+            return conexao.executarSelect(sql.ToString());
+        }
+
         public DataTable relVendas(int pSituacao, string pProdutoPai, string pProdutoFilho, string pDescricao, Nullable<DateTime> pDTInicial, Nullable<DateTime> pDTFinal)
         {
             SqlConnection conn = conexao.retornaConexao();

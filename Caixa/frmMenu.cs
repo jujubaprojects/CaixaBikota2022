@@ -60,7 +60,7 @@ namespace Caixa
 
             iRetorno = MP2032.VerificaPapelPresenter();
             if (iRetorno > 0)
-            mensagemErro = "Impressora sem papel!!!";
+                mensagemErro = "Impressora sem papel!!!";
 
             if (!string.IsNullOrEmpty(mensagemErro))
             {
@@ -76,8 +76,10 @@ namespace Caixa
             while (true)
             {                              
                 DataTable dt = auxSQL.retornaTeste();
+                DataTable dtAdds;
                 StringBuilder sImpressao = new StringBuilder();
                 int indexAux;
+                double valor = 0;
                 string descricao, observacao, cobertura;
                 string auxDescPedido = "";
 
@@ -136,7 +138,20 @@ namespace Caixa
                                     sImpressao.Append("           " + observacao + "\r\n");
                             }
 
-                            sImpressao.Append("Valor: " + dt.Rows[i]["VL_TOTAL"].ToString() + "\r\n");
+
+                            dtAdds = auxSQL.retornaPedidosAdds(int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
+                            valor = double.Parse(dt.Rows[i]["VL_TOTAL"].ToString());
+                            for (int j = 0; j < dtAdds.Rows.Count; j++)
+                            {
+                                valor += double.Parse(dtAdds.Rows[j]["VALOR"].ToString());
+                                if (!string.IsNullOrEmpty(dtAdds.Rows[j]["DESCRICAO"].ToString()))
+                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + dtAdds.Rows[j]["DESCRICAO"].ToString());
+                                    else
+                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["PRODUTO"].ToString());
+                                sImpressao.Append("\r\n");
+                            }
+
+                            sImpressao.Append("Valor: " + valor + "\r\n");
                             sImpressao.Append("------------------------------------------------" + "\r\n");
 
 
@@ -147,6 +162,7 @@ namespace Caixa
                             sqlc.Parameters.AddWithValue("@situacao", 2);
                             auxSQL.executaQueryTransaction(conn, sqlc); //DESCOMENTAR DEPOIS
                         }
+
                         sImpressao.Append("PAGAMENTO SOMENTE NO CAIXA!!!" + "\r\n");
                         sImpressao.Append("\r\n\r\n\r\n");
                         //iRetorno = MP2032.FormataTX(sImpressao + "\r\n\r\n", 1, 1, 0, 0, 0);
@@ -158,8 +174,9 @@ namespace Caixa
                             iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
                             return;
                         }
-
+                        
                         iRetorno = MP2032.BematechTX("\r" + sImpressao.ToString());//ao ser clicado, imprime o texto da Text Box
+                        //iRetorno = MP2032.FormataTX("\r" + sImpressao.ToString(),1,1,1,1,1);//ao ser clicado, imprime o texto da Text Box
                         if (iRetorno <= 0)
                         {
                             MessageBox.Show("Problema ao imprimir, verifique se a impressora está ligada!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
