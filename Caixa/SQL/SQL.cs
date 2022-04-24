@@ -73,10 +73,40 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
 
-            sql.Append("SELECT TAB.PEDIDO ID, TAB.DESCRICAO, TAB.HORA, SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) VL_TOTAL,  ");
-            sql.Append("SUM(COALESCE(PG.VL_PAGO, 0)) VL_PAGO, SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) - SUM(COALESCE(PG.VL_PAGO, 0)) VL_ABERTO ");
-            sql.Append("FROM(SELECT PED.ID PEDIDO, PP.ID PED_PROD_ID, PED.MESA DESCRICAO, PP.DESCRICAO PED_DESCRICAO, convert(varchar, DT_INICIAL, 24) HORA, ");
-            sql.Append("P.VALOR AS VL_PRODUTO, PP.QT_PRODUTO ");
+            //sql.Append("SELECT TAB.PEDIDO ID, TAB.DESCRICAO, TAB.HORA, SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) VL_TOTAL,  ");
+            //sql.Append("SUM(COALESCE(PG.VL_PAGO, 0)) VL_PAGO, SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) - SUM(COALESCE(PG.VL_PAGO, 0)) VL_ABERTO ");
+            //sql.Append("FROM ( ");
+            //sql.Append("SELECT PED.ID PEDIDO, PP.ID PED_PROD_ID, PED.MESA DESCRICAO, PP.DESCRICAO PED_DESCRICAO, convert(varchar, DT_INICIAL, 24) HORA, P.VALOR AS VL_PRODUTO, PP.QT_PRODUTO ");
+            //sql.Append("FROM PEDIDO PED ");
+            //sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
+            //sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
+            //if (pSituacao <= 3 && pSituacao > 0)//ABERTO;FILA;ANDAMENTO
+            //    sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN (1,2,3) AND PED.TIPO = @pTipo ");
+            //else
+            //    sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) AND PED.TIPO = @pTipo ");
+            //sql.Append("AND convert(varchar, DT_INICIAL, 103) = @pData ");
+            //sql.Append("UNION ALL ");
+            //sql.Append("SELECT PED.ID, PED_ADD.PEDIDO_PRODUTO PED_PROD_ID, PED.MESA DESCRICAO, PED_ADD.DESCRICAO PED_DESCRICAO, convert(varchar, DT_INICIAL, 24) HORA, P2.VALOR VL_PRODUTO, PED_ADD.QT_PRODUTO ");
+            //sql.Append("FROM PEDIDO PED ");
+            //sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
+            //sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
+            //sql.Append("LEFT JOIN PEDIDO_PRODUTO_ADDS PED_ADD ON(PP.ID = PED_ADD.PEDIDO_PRODUTO) ");
+            //sql.Append("LEFT JOIN PRODUTO P2 ON(PED_ADD.PRODUTO = P2.ID) ");
+            //if (pSituacao <= 3 && pSituacao > 0)//ABERTO;FILA;ANDAMENTO
+            //    sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN (1,2,3) AND PED.TIPO = @pTipo ");
+            //else
+            //    sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) AND PED.TIPO = @pTipo ");
+            //sql.Append("AND convert(varchar, DT_INICIAL, 103) = @pData) TAB ");
+            //sql.Append("LEFT JOIN ");
+            //sql.Append("(SELECT PEDIDO_PRODUTO, SUM(VL_PAGO) VL_PAGO FROM PAGAMENTO GROUP BY PEDIDO_PRODUTO) PG ON(TAB.PED_PROD_ID = PG.PEDIDO_PRODUTO) ");
+            //sql.Append("GROUP BY TAB.PEDIDO, TAB.DESCRICAO, TAB.HORA ");
+
+            sql.Append("SELECT AUX.ID, AUX.DESCRICAO, AUX.HORA, SUM(AUX.VL_TOTAL) VL_TOTAL, SUM(AUX.VL_PAGO) VL_PAGO, SUM(AUX.VL_ABERTO) VL_ABERTO ");
+            sql.Append("FROM ");
+            sql.Append("(SELECT TAB.PEDIDO ID, TAB.DESCRICAO, TAB.HORA, SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) VL_TOTAL, COALESCE(PG.VL_PAGO, 0) VL_PAGO, ");
+            sql.Append("CASE WHEN SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) - SUM(COALESCE(PG.VL_PAGO, 0)) < 0 THEN 0 ELSE SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) - SUM(COALESCE(PG.VL_PAGO, 0)) END VL_ABERTO ");
+            sql.Append("FROM( ");
+        sql.Append("SELECT PED.ID PEDIDO, PP.ID PED_PROD_ID, PED.MESA DESCRICAO, PP.DESCRICAO PED_DESCRICAO, convert(varchar, DT_INICIAL, 24) HORA, P.VALOR AS VL_PRODUTO, PP.QT_PRODUTO ");
             sql.Append("FROM PEDIDO PED ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
             sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
@@ -84,27 +114,30 @@ namespace Caixa.SQL
                 sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN (1,2,3) AND PED.TIPO = @pTipo ");
             else
                 sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) AND PED.TIPO = @pTipo ");
-            sql.Append("AND convert(varchar, DT_INICIAL, 103) = @pData) TAB ");
-            sql.Append("LEFT JOIN ");
-            sql.Append("(SELECT PEDIDO_PRODUTO, SUM(VL_PAGO) VL_PAGO FROM PAGAMENTO GROUP BY PEDIDO_PRODUTO) PG ON(TAB.PED_PROD_ID = PG.PEDIDO_PRODUTO) ");
-            sql.Append("GROUP BY TAB.PEDIDO, TAB.DESCRICAO, TAB.HORA ");
+            sql.Append("AND convert(varchar, DT_INICIAL, 103) = @pData ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT PED.ID, PED_ADD.PEDIDO_PRODUTO PED_PROD_ID, PED.MESA DESCRICAO, PED_ADD.DESCRICAO PED_DESCRICAO, convert(varchar, DT_INICIAL, 24) HORA, P2.VALOR VL_PRODUTO, ");
+            sql.Append("PED_ADD.QT_PRODUTO ");
+            sql.Append("FROM PEDIDO PED ");
+            sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
+            sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
+            sql.Append("LEFT JOIN PEDIDO_PRODUTO_ADDS PED_ADD ON(PP.ID = PED_ADD.PEDIDO_PRODUTO) ");
+            sql.Append("LEFT JOIN PRODUTO P2 ON(PED_ADD.PRODUTO = P2.ID) ");
+            if (pSituacao <= 3 && pSituacao > 0)//ABERTO;FILA;ANDAMENTO
+                sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN (1,2,3) AND PED.TIPO = @pTipo ");
+            else
+                sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) AND PED.TIPO = @pTipo ");
+            sql.Append("AND convert(varchar, DT_INICIAL, 103) = @pData ");
+            sql.Append(") TAB ");
+            sql.Append("LEFT JOIN( ");
+            sql.Append("SELECT PEDIDO_PRODUTO, SUM(VL_PAGO) VL_PAGO ");
+            sql.Append("FROM PAGAMENTO ");
+            sql.Append("GROUP BY PEDIDO_PRODUTO ");
+            sql.Append(") PG ON(TAB.PED_PROD_ID = PG.PEDIDO_PRODUTO) ");
+            sql.Append("GROUP BY TAB.PEDIDO, TAB.DESCRICAO, TAB.HORA, PG.VL_PAGO ");
+            sql.Append(") AUX ");
+            sql.Append("GROUP BY ID, DESCRICAO, HORA ");
 
-
-            //sql.Append("SELECT PED.ID, PED.MESA DESCRICAO, TO_CHAR(DT_INICIAL, 'HH24:MI:SS') HORA, ");
-            //sql.Append("Coalesce(SUM(PP.QT_PRODUTO * P.VALOR), 0) VL_TOTAL, ");
-            //sql.Append("Coalesce(SUM(PG.VL_PAGO), 0) VL_PAGO, ");
-            //sql.Append("Coalesce(SUM(PP.QT_PRODUTO * P.VALOR), 0) - Coalesce(SUM(PG.VL_PAGO), 0) VL_ABERTO ");
-            //sql.Append("FROM PEDIDO PED ");
-            //sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
-            //sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
-            //sql.Append("LEFT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
-
-            //if (pSituacao <= 3 && pSituacao > 0)//ABERTO;FILA;ANDAMENTO
-            //    sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN (1,2,3) AND PED.TIPO = @pTipo ");
-            //else
-            //    sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) AND PED.TIPO = @pTipo ");
-            //sql.Append("AND TO_CHAR(DT_INICIAL, 'DD/MM/YYYY') = @pData ");
-            //sql.Append("GROUP BY PED.ID, PED.MESA ");
 
             return sql.ToString();
 
@@ -409,6 +442,15 @@ namespace Caixa.SQL
             sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN (" + pPedidos + ") ");
             sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.QT_PRODUTO, PP.DESCRICAO ");
             sql.Append("HAVING (PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO,0)) != 0 ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT PP.ID AS PED_PROD_ID, P2.DESCRICAO PRODUTO, PED_ADD.DESCRICAO DESC_PRODUTO, (PED_ADD.QT_PRODUTO * P2.VALOR) -SUM(Coalesce(PAG.VL_PAGO, 0)) VL_ABERTO, @pCheckBox CHKDIVIDIR ");
+            sql.Append("FROM PEDIDO_PRODUTO PP ");
+            sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
+            sql.Append("LEFT JOIN PEDIDO_PRODUTO_ADDS PED_ADD ON(PP.ID = PED_ADD.PEDIDO_PRODUTO) ");
+            sql.Append("LEFT JOIN PRODUTO P2 ON(P2.ID = PED_ADD.PRODUTO) ");
+            sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN(" + pPedidos + ")  ");
+            sql.Append("GROUP BY PP.ID, PED_ADD.QT_PRODUTO, P2.VALOR, P2.DESCRICAO, PED_ADD.DESCRICAO HAVING(PED_ADD.QT_PRODUTO* P2.VALOR) -SUM(Coalesce(PAG.VL_PAGO, 0)) != 0 ");
+            sql.Append("ORDER BY VL_ABERTO DESC ");
 
             return sql.ToString();
         }
@@ -453,6 +495,18 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
 
+            //sql.Append("SELECT PP.ID AS PED_PROD_ID, P.DESCRICAO PRODUTO, PP.DESCRICAO DESC_PRODUTO, PP.QT_PRODUTO, P.VALOR VL_PRODUTO, ");
+            //sql.Append("(PP.QT_PRODUTO * P.VALOR) VL_TOTAL, SUM(Coalesce(PAG.VL_PAGO, 0)) VL_PAGO, ");
+            //sql.Append("(PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO, 0)) VL_ABERTO, ");
+            //sql.Append("CASE WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) > (PP.QT_PRODUTO * P.VALOR) THEN 3 WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) = (PP.QT_PRODUTO * P.VALOR) THEN 4 WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) > 0 THEN 2 ELSE 1 END ORDEM ");
+            //sql.Append("FROM PEDIDO_PRODUTO PP ");
+            //sql.Append("LEFT JOIN PRODUTO P ON(PP.PRODUTO = P.ID) ");
+            //sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
+            //sql.Append("WHERE SITUACAO IN(1, 2) AND PEDIDO = @pPedidoID ");
+            //sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.DESCRICAO, PP.QT_PRODUTO ");
+            //sql.Append("ORDER BY ORDEM, PRODUTO ");
+            sql.Append("SELECT AUX.PED_PROD_ID, P.DESCRICAO PRODUTO, coalesce(dbo.retorna_adicionais(AUX.PED_PROD_ID),PP.DESCRICAO) DESC_PRODUTO, AUX.QT_PRODUTO, SUM(VL_PRODUTO) VL_PRODUTO, SUM(AUX.VL_TOTAL) VL_TOTAL, AUX.VL_PAGO, SUM(AUX.VL_ABERTO) VL_ABERTO, AUX.ORDEM ");
+            sql.Append("FROM( ");
             sql.Append("SELECT PP.ID AS PED_PROD_ID, P.DESCRICAO PRODUTO, PP.DESCRICAO DESC_PRODUTO, PP.QT_PRODUTO, P.VALOR VL_PRODUTO, ");
             sql.Append("(PP.QT_PRODUTO * P.VALOR) VL_TOTAL, SUM(Coalesce(PAG.VL_PAGO, 0)) VL_PAGO, ");
             sql.Append("(PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO, 0)) VL_ABERTO, ");
@@ -462,7 +516,22 @@ namespace Caixa.SQL
             sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
             sql.Append("WHERE SITUACAO IN(1, 2) AND PEDIDO = @pPedidoID ");
             sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.DESCRICAO, PP.QT_PRODUTO ");
-            sql.Append("ORDER BY ORDEM, PRODUTO ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT PP.ID AS PED_PROD_ID, NULL PRODUTO, NULL DESC_PRODUTO, PED_ADD.QT_PRODUTO, P2.VALOR VL_PRODUTO, (PED_ADD.QT_PRODUTO * P2.VALOR) VL_TOTAL, ");
+            sql.Append("SUM(Coalesce(PAG.VL_PAGO, 0)) VL_PAGO, (PED_ADD.QT_PRODUTO * P2.VALOR) - SUM(Coalesce(PAG.VL_PAGO, 0)) VL_ABERTO, ");
+            sql.Append("CASE WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) > (PED_ADD.QT_PRODUTO * P2.VALOR) THEN 3 ");
+            sql.Append("WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) = (PED_ADD.QT_PRODUTO * P2.VALOR) THEN 4 ");
+            sql.Append("WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) > 0 THEN 2 ELSE 1 END ORDEM ");
+            sql.Append("FROM  PEDIDO_PRODUTO_ADDS PED_ADD ");
+            sql.Append("LEFT JOIN  PEDIDO_PRODUTO PP ON(PED_ADD.PEDIDO_PRODUTO = PP.ID) ");
+            sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
+            sql.Append("LEFT JOIN PRODUTO P2 ON(P2.ID = PED_ADD.PRODUTO) ");
+            sql.Append("WHERE SITUACAO IN(1, 2) AND PEDIDO = @pPedidoID ");
+            sql.Append("GROUP BY PP.ID, PED_ADD.DESCRICAO, PP.QT_PRODUTO, P2.DESCRICAO, P2.VALOR, PED_ADD.QT_PRODUTO ");
+            sql.Append(") AUX ");
+            sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PP.ID = AUX.PED_PROD_ID) ");
+            sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
+            sql.Append("GROUP BY AUX.PED_PROD_ID, AUX.QT_PRODUTO, AUX.VL_PAGO,  AUX.ORDEM, P.DESCRICAO, PP.DESCRICAO ");
 
             return sql.ToString();
         }

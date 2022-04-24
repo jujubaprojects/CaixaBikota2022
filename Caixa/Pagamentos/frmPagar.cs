@@ -162,7 +162,7 @@ namespace Caixa
                     if (e.RowIndex == i)
                         dt.Rows.Add(dgvPedProdAberto["colPedidoProdutoID", e.RowIndex].Value, dgvPedProdAberto["colProduto", e.RowIndex].Value, dgvPedProdAberto["colDescricao", e.RowIndex].Value, dgvPedProdAberto["colValor", e.RowIndex].Value, !bool.Parse(dgvPedProdAberto["colChkDividir", e.RowIndex].Value.ToString()));
                     else
-                        dt.Rows.Add(dgvPedProdAberto["colPedidoProdutoID", e.RowIndex].Value, dgvPedProdAberto["colProduto", e.RowIndex].Value, dgvPedProdAberto["colDescricao", e.RowIndex].Value, dgvPedProdAberto["colValor", e.RowIndex].Value, bool.Parse(dgvPedProdAberto["colChkDividir",i].Value.ToString()));
+                        dt.Rows.Add(dgvPedProdAberto["colPedidoProdutoID", i].Value, dgvPedProdAberto["colProduto", i].Value, dgvPedProdAberto["colDescricao", i].Value, dgvPedProdAberto["colValor", i].Value, bool.Parse(dgvPedProdAberto["colChkDividir",i].Value.ToString()));
                 }
 
                 dgvPedProdAberto.DataSource = dt;
