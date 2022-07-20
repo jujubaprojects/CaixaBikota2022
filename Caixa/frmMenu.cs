@@ -31,12 +31,12 @@ namespace Caixa
         {
             InitializeComponent();
 
-            if (verificarImpressora())
-            {
+            //if (verificarImpressora())
+            //{
                 Thread trd = new Thread(new ThreadStart(this.ThreadTarefa));
                 trd.IsBackground = true;
                 trd.Start();
-            }
+            //}
 
 
             frmPedidos frm = new frmPedidos();
@@ -60,7 +60,7 @@ namespace Caixa
 
             iRetorno = MP2032.VerificaPapelPresenter();
             if (iRetorno > 0)
-                mensagemErro = "Impressora sem papel!!!";
+               mensagemErro = "Impressora sem papel!!!";
 
             if (!string.IsNullOrEmpty(mensagemErro))
             {
@@ -79,13 +79,17 @@ namespace Caixa
                 DataTable dtAdds;
                 StringBuilder sImpressao = new StringBuilder();
                 int indexAux;
-                double valor = 0;
-                string descricao, observacao, cobertura;
+                double valor = 0, vlTotal = 0;
+                string descricao, observacao, observacaoPed= "", endereco = "", cobertura;
                 string auxDescPedido = "";
+                int tipo = 0;
+                
 
                 if (dt.Rows.Count > 0)
                 {
-                    conn = conexao.retornaConexao();
+                    if (verificarImpressora())
+                    {
+                        conn = conexao.retornaConexao();
                     transacao = conexao.startTransaction(conn);
 
                     StringBuilder sql = new StringBuilder();
@@ -101,27 +105,24 @@ namespace Caixa
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
 
-                            if (!auxDescPedido.Equals(dt.Rows[i]["DESC_PEDIDO"].ToString()))
-                            {
-                                auxDescPedido = dt.Rows[i]["DESC_PEDIDO"].ToString();
-                                sImpressao.Append("Desc. Ped.: " + auxDescPedido + "\r\n\r\n");
-                            }
+                            //if (!auxDescPedido.Equals(dt.Rows[i]["DESC_PEDIDO"].ToString()))
+                            //{
+                            //    auxDescPedido = dt.Rows[i]["DESC_PEDIDO"].ToString();
+                            //    sImpressao.Append("Desc. Ped.: " + auxDescPedido + "\r\n\r\n");
+                            //}
 
                             cobertura = "";
-                            observacao = "";
+                            observacao = dt.Rows[i]["OBS_PRODUTO"].ToString();
                             descricao = dt.Rows[i]["DESC_PRODUTO"].ToString();
                             sImpressao.Append((i + 1).ToString("00") + "  -      QT. " + dt.Rows[i]["QT_PRODUTO"].ToString() + "  -  " + dt.Rows[i]["PRODUTO"].ToString() + "\r\n");
+                            observacaoPed = dt.Rows[i]["OBS_PED"].ToString();
+                            endereco = dt.Rows[i]["ENDERECO"].ToString();
+                            tipo = int.Parse(dt.Rows[i]["TIPO"].ToString());
+
 
                             //sImpressao.Append("   " + dt.Rows[");");
                             if (!string.IsNullOrEmpty(descricao))
                             {
-                                if (descricao.Contains("OBS.:"))
-                                {
-                                    indexAux = descricao.IndexOf("OBS.:");
-                                    observacao = descricao.Substring(indexAux);
-                                    descricao = descricao.Substring(0, descricao.Length - observacao.Length);
-                                }
-
                                 if (descricao.Contains("COB.:"))
                                 {
                                     indexAux = descricao.IndexOf("COB.:");
@@ -134,9 +135,10 @@ namespace Caixa
 
                                 if (!string.IsNullOrEmpty(cobertura))
                                     sImpressao.Append("           " + cobertura + "\r\n");
+                                }
+
                                 if (!string.IsNullOrEmpty(observacao))
-                                    sImpressao.Append("           " + observacao + "\r\n");
-                            }
+                                    sImpressao.Append("           OBS.: " + observacao + "\r\n");
 
 
                             dtAdds = auxSQL.retornaPedidosAdds(int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
@@ -150,7 +152,7 @@ namespace Caixa
                                         sImpressao.Append("Adicional: " + dtAdds.Rows[j]["PRODUTO"].ToString());
                                 sImpressao.Append("\r\n");
                             }
-
+                            vlTotal+= valor;
                             sImpressao.Append("Valor: " + valor + "\r\n");
                             sImpressao.Append("------------------------------------------------" + "\r\n");
 
@@ -162,6 +164,22 @@ namespace Caixa
                             sqlc.Parameters.AddWithValue("@situacao", 2);
                             auxSQL.executaQueryTransaction(conn, sqlc); //DESCOMENTAR DEPOIS
                         }
+                        
+                        if (tipo == 3)
+                                {
+                                sImpressao.Append("ENDEREÇO: " + endereco + "\r\n");
+                                if (!string.IsNullOrEmpty(observacaoPed))
+                                    sImpressao.Append("OBSERVAÇÃO: " + observacaoPed + "\r\n");
+
+
+}
+                        if (tipo == 2)
+                                {
+                                sImpressao.Append("*********************LEVAR*********************" + "\r\n");
+
+
+}
+                        sImpressao.Append("VALOR TOTAL:" + vlTotal + "\r\n");
 
                         sImpressao.Append("PAGAMENTO SOMENTE NO CAIXA!!!" + "\r\n");
                         sImpressao.Append("\r\n\r\n\r\n");
@@ -200,9 +218,11 @@ namespace Caixa
                         conn.Close();
                     }
                 }
+                
 
-                Thread.Sleep(5000);
             }
+                Thread.Sleep(5000);
+                }
         }
 
         private void NovoPedidoToolStripMenuItem_Click(object sender, EventArgs e)

@@ -222,7 +222,7 @@
             "CARTÃO DÉBITO",
             "CARTÃO CRÉDITO",
             "PIX",
-            "ANOTAR"});
+            "NOTA"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(126, 9);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
             this.cboTipoPagamento.Size = new System.Drawing.Size(135, 23);

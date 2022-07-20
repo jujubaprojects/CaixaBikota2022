@@ -26,6 +26,7 @@ namespace Caixa
         private double vlTotalPedidoAberto = 0;
         private double vlProdutosSemHaver = 0;
         private bool controleEsc = true;
+        private double auxVlAberto = 0;
 
         public frmPagar(int pPedidoID, string pPedidos, bool pTipo, double pVlAbertoTotalPedido)
         {
@@ -46,7 +47,6 @@ namespace Caixa
             DataTable dt = auxSql.buscaPedidosProdutosAberto(pedidos, marcarTodos);
             dgvPedProdAberto.DataSource = dt;
 
-            double auxVlAberto = 0;
             for (int i =0; i < dt.Rows.Count; i++)
             {
                 auxVlAberto += double.Parse(dt.Rows[i]["VL_ABERTO"].ToString());
@@ -86,7 +86,7 @@ namespace Caixa
 
         private void CboTipoPagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tipoPagamento = cboTipoPagamento.SelectedIndex + 1;
+            tipoPagamento = int.Parse(auxSql.retornaDataTable("SELECT ID FROM TIPO_PAGAMENTO WHERE DESCRICAO LIKE '" + cboTipoPagamento.SelectedItem.ToString() + "'").Rows[0][0].ToString() );
             escondeCampos();
         }
 
@@ -233,6 +233,7 @@ namespace Caixa
                 auxVl = double.Parse(txtValorAberto.Text);
 
             double vlInserir = 0;
+            double vlPago = 0;
             for (int i = 0; i < dgvPedProdAberto.Rows.Count; i++)
             {
                 if (auxVl > 0)
@@ -259,10 +260,10 @@ namespace Caixa
 
                             //vlInserir = Math.Floor(vlInserir);// Math.Round(vlInserir, );
                             auxVl -= vlInserir;
-
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir);
 
-                            if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
+                            //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
+                            if (vlDividido >= auxVlAberto)
                                 auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
                         }
                         else

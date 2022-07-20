@@ -39,13 +39,13 @@
             this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,9 +133,16 @@
             // retiradaCaixaToolStripMenuItem
             // 
             this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
-            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.retiradaCaixaToolStripMenuItem.Text = "Retirada Caixa";
             this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
+            // 
+            // baldesToolStripMenuItem
+            // 
+            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.baldesToolStripMenuItem.Text = "Baldes";
+            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -157,20 +164,20 @@
             this.vendasPedidosDetalhadoToolStripMenuItem,
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
             // 
             this.vendasPedidosDetalhadoToolStripMenuItem.Name = "vendasPedidosDetalhadoToolStripMenuItem";
-            this.vendasPedidosDetalhadoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.vendasPedidosDetalhadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasPedidosDetalhadoToolStripMenuItem.Text = "Pedidos Detalhado";
             this.vendasPedidosDetalhadoToolStripMenuItem.Click += new System.EventHandler(this.VendasPedidosDetalhadoToolStripMenuItem_Click);
             // 
             // valorPorDiaToolStripMenuItem
             // 
             this.valorPorDiaToolStripMenuItem.Name = "valorPorDiaToolStripMenuItem";
-            this.valorPorDiaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.valorPorDiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.valorPorDiaToolStripMenuItem.Text = "Valor Dia";
             this.valorPorDiaToolStripMenuItem.Click += new System.EventHandler(this.ValorPorDiaToolStripMenuItem_Click);
             // 
@@ -186,13 +193,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
-            // 
-            // baldesToolStripMenuItem
-            // 
-            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.baldesToolStripMenuItem.Text = "Baldes";
-            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
