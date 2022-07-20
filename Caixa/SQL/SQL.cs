@@ -429,6 +429,8 @@ namespace Caixa.SQL
         private string queryBuscaPedidosProdutosAberto(string pPedidos)
         {
             StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT AUX.PED_PROD_ID, AUX.PRODUTO, AUX.DESC_PRODUTO, SUM(VL_ABERTO) VL_ABERTO, AUX.CHKDIVIDIR ");
+            sql.Append("FROM( ");
             sql.Append("SELECT PP.ID AS PED_PROD_ID, P.DESCRICAO PRODUTO, PP.DESCRICAO DESC_PRODUTO, ");
             //sql.Append("(PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO,0)) VL_ABERTO, true CHKDIVIDIR ");
             sql.Append("(PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO,0)) VL_ABERTO, @pCheckBox CHKDIVIDIR ");
@@ -440,15 +442,16 @@ namespace Caixa.SQL
             sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.QT_PRODUTO, PP.DESCRICAO ");
             sql.Append("HAVING (PP.QT_PRODUTO * P.VALOR) - SUM(Coalesce(PAG.VL_PAGO,0)) != 0 ");
             sql.Append("UNION ALL ");
-            sql.Append("SELECT PP.ID AS PED_PROD_ID, P2.DESCRICAO PRODUTO, PED_ADD.DESCRICAO DESC_PRODUTO, (PED_ADD.QT_PRODUTO * P2.VALOR) -SUM(Coalesce(PAG.VL_PAGO, 0)) VL_ABERTO, @pCheckBox CHKDIVIDIR ");
+            sql.Append("SELECT PP.ID AS PED_PROD_ID, P.DESCRICAO PRODUTO, PED_ADD.DESCRICAO DESC_PRODUTO, (P2.VALOR* PED_ADD.QT_PRODUTO) VL_ABERTO, @pCheckBox CHKDIVIDIR ");
             sql.Append("FROM PEDIDO_PRODUTO PP ");
             sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
+            sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO_ADDS PED_ADD ON(PP.ID = PED_ADD.PEDIDO_PRODUTO) ");
-            sql.Append("LEFT JOIN PRODUTO P2 ON(P2.ID = PED_ADD.PRODUTO) ");
+            sql.Append("LEFT JOIN PRODUTO P2 ON(PED_ADD.PRODUTO = P2.ID) ");
             sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN(" + pPedidos + ")  ");
-            sql.Append("GROUP BY PP.ID, PED_ADD.QT_PRODUTO, P2.VALOR, P2.DESCRICAO, PED_ADD.DESCRICAO HAVING(PED_ADD.QT_PRODUTO* P2.VALOR) -SUM(Coalesce(PAG.VL_PAGO, 0)) != 0 ");
-            sql.Append("ORDER BY VL_ABERTO DESC ");
-
+            sql.Append("GROUP BY PP.ID, PED_ADD.QT_PRODUTO, P2.VALOR, P.DESCRICAO, PED_ADD.DESCRICAO HAVING(PED_ADD.QT_PRODUTO* P2.VALOR) -SUM(Coalesce(PAG.VL_PAGO, 0)) != 0 ");
+            sql.Append(") AUX ");
+            sql.Append("GROUP BY AUX.PED_PROD_ID, AUX.PRODUTO, AUX.DESC_PRODUTO, AUX.CHKDIVIDIR ");
             return sql.ToString();
         }
 
