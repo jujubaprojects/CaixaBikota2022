@@ -31,7 +31,7 @@ namespace Caixa.Caixa
                 {
 
                     conn = conexao.retornaConexao();
-                    string sql = "INSERT INTO RETIRADA_CAIXA (DESCRICAO, VALOR, DATA) VALUES (@pDescricao, @pValor, getdate())";
+                    string sql = "INSERT INTO RETIRADA_CAIXA (DESCRICAO, VALOR, DATA) VALUES (UPPER(@pDescricao), @pValor, getdate())";
                     SqlCommand sqlc = new SqlCommand(sql, conn);
                     sqlc.CommandType = CommandType.Text;
                     sqlc.Parameters.AddWithValue("@pDescricao", txtDescricao.Text);

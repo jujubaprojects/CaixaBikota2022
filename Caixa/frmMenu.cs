@@ -304,5 +304,11 @@ namespace Caixa
             frmBaldes frm = new frmBaldes();
             frm.ShowDialog();
         }
+
+        private void RecebimentoRápidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPedidoRapido frm = new frmPedidoRapido();
+            frm.ShowDialog();
+        }
     }
 }

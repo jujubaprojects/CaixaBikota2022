@@ -128,7 +128,7 @@ namespace Caixa
 
         private bool validaCamposNota()
         {
-            if (tipoPagamento == 4 && string.IsNullOrEmpty(txtDescricao.Text.Trim()))
+            if (tipoPagamento == 5 && string.IsNullOrEmpty(txtDescricao.Text.Trim()))
             {
                 MessageBox.Show("Informe a descrição da nota, ao lado do Tipo de Pagamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
@@ -163,8 +163,8 @@ namespace Caixa
 
         private void CboTipoPagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tipoPagamento = cboTipoPagamento.SelectedIndex + 1;
-
+            tipoPagamento = int.Parse(auxSQL.retornaDataTable("SELECT ID FROM TIPO_PAGAMENTO WHERE DESCRICAO LIKE '" + cboTipoPagamento.SelectedItem.ToString() + "'").Rows[0][0].ToString());
+            
             switch (tipoPagamento)
             {
                 case 1:
@@ -195,7 +195,7 @@ namespace Caixa
             {
                 if (validaCamposNota())
                 {
-                    auxSQL.insertPedido("PAGAMENTO RÁPIDO", "CONSUMIR", 4);
+                    auxSQL.insertPedido("PAGAMENTO RÁPIDO", "LEVAR", 4);
                     int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO RÁPIDO").Rows[0][0].ToString());
                     int pedidoProdutoID = 0;
                     for (int i = 0; i < dtGrid.Rows.Count; i++)
@@ -208,6 +208,7 @@ namespace Caixa
                         {
                             auxSQL.insertPagamentoNota(pedidoProdutoID, txtDescricao.Text);
                         }
+
                     }
                     this.Close();
                 }

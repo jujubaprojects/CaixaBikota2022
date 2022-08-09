@@ -13,7 +13,7 @@ namespace Caixa
 {
     public partial class frmPedidos : FormJCS
     {
-        private int tipo = 1;
+        private int tipo = 0;
         private int situacao = 1;
         private SQL.SQL sqlAux = new SQL.SQL();
         private bool controleEsc = true;
@@ -62,6 +62,11 @@ namespace Caixa
             dgvPedidos.DataSource = sqlAux.buscaPedidos(situacao, tipo, dtpDataPedido.Value.ToShortDateString().ToString());
         }
 
+        private void RbtTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            tipo = 0;
+            preencherPedidos();
+        }
         private void RbtMesas_CheckedChanged(object sender, EventArgs e)
         {
             tipo = 1;
@@ -148,5 +153,6 @@ namespace Caixa
         {
             preencherPedidos();
         }
+
     }
 }

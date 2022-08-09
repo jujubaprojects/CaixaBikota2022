@@ -34,10 +34,14 @@ namespace Caixa.Caixa
                     string tel = txtTelefone.Text;
                     string balde = cboBalde.SelectedItem.ToString();
 
-                    if (string.IsNullOrEmpty(txtNumero.Text))
-                        balde += " - SEM Nº ";
-                    else
-                        balde += " - Nº " + int.Parse(txtNumero.Text).ToString("00");
+                    if (cboBalde.SelectedIndex != 3)
+                    {
+                        if (string.IsNullOrEmpty(txtNumero.Text))
+                            balde += " - SEM Nº ";
+                        else
+                            balde += " - Nº " + int.Parse(txtNumero.Text).ToString("00");
+                    }
+
                     int colher = string.IsNullOrEmpty(txtColher.Text) ? 0 : int.Parse(txtColher.Text);
 
                     auxSQL.insertBalde(nome,end,tel,balde,colher);
@@ -77,6 +81,9 @@ namespace Caixa.Caixa
                 return false;
             if (cboBalde.SelectedIndex < 0)
                 return false;
+            if (cboBalde.SelectedIndex == 3)
+                if (string.IsNullOrEmpty(txtColher.Text.Trim()))
+                    return false;
 
             return true;
         }

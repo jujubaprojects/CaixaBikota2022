@@ -233,7 +233,8 @@ namespace Caixa
                 auxVl = double.Parse(txtValorAberto.Text);
 
             double vlInserir = 0;
-            double vlPago = 0;
+            double vlPago = double.Parse(txtVlRecebido.Text);
+            double vlAberto = double.Parse(txtValorAberto.Text);
             for (int i = 0; i < dgvPedProdAberto.Rows.Count; i++)
             {
                 if (auxVl > 0)
@@ -263,7 +264,7 @@ namespace Caixa
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir);
 
                             //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
-                            if (vlDividido >= auxVlAberto)
+                            if (vlDividido >= auxVlAberto || vlAberto >= auxVlAberto)
                                 auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
                         }
                         else

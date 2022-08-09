@@ -34,7 +34,6 @@
             this.menu = new System.Windows.Forms.MenuStrip();
             this.pedidosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novoPedidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoPedidoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosAbertoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +45,7 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recebimentoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@
             this.sairToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(800, 56);
+            this.menu.Size = new System.Drawing.Size(800, 72);
             this.menu.TabIndex = 3;
             this.menu.Text = "menuStrip2";
             // 
@@ -78,13 +78,12 @@
             // 
             this.pedidosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoPedidoToolStripMenuItem1,
-            this.novoPedidoRápidoToolStripMenuItem,
             this.pedidosAbertoToolStripMenuItem1,
             this.recebimentoDeNotaToolStripMenuItem});
             this.pedidosToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_contabilidade_48;
             this.pedidosToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosToolStripMenuItem1.Name = "pedidosToolStripMenuItem1";
-            this.pedidosToolStripMenuItem1.Size = new System.Drawing.Size(109, 52);
+            this.pedidosToolStripMenuItem1.Size = new System.Drawing.Size(109, 68);
             this.pedidosToolStripMenuItem1.Text = "Pedidos";
             // 
             // novoPedidoToolStripMenuItem1
@@ -95,15 +94,6 @@
             this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(197, 30);
             this.novoPedidoToolStripMenuItem1.Text = "Novo Pedido";
             this.novoPedidoToolStripMenuItem1.Click += new System.EventHandler(this.NovoPedidoToolStripMenuItem_Click);
-            // 
-            // novoPedidoRápidoToolStripMenuItem
-            // 
-            this.novoPedidoRápidoToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_doar_24;
-            this.novoPedidoRápidoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.novoPedidoRápidoToolStripMenuItem.Name = "novoPedidoRápidoToolStripMenuItem";
-            this.novoPedidoRápidoToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
-            this.novoPedidoRápidoToolStripMenuItem.Text = "Recebimento Rápido";
-            this.novoPedidoRápidoToolStripMenuItem.Click += new System.EventHandler(this.NovoPedidoRápidoToolStripMenuItem_Click);
             // 
             // pedidosAbertoToolStripMenuItem1
             // 
@@ -124,30 +114,37 @@
             // caixaToolStripMenuItem
             // 
             this.caixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recebimentoRápidoToolStripMenuItem,
             this.retiradaCaixaToolStripMenuItem,
             this.baldesToolStripMenuItem});
+            this.caixaToolStripMenuItem.Image = global::Caixa.Properties.Resources.black_and_white_credit_cards;
+            this.caixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(48, 52);
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(112, 68);
             this.caixaToolStripMenuItem.Text = "Caixa";
             // 
             // retiradaCaixaToolStripMenuItem
             // 
+            this.retiradaCaixaToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_iniciar_transferência_de_dinheiro_20;
+            this.retiradaCaixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
-            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
             this.retiradaCaixaToolStripMenuItem.Text = "Retirada Caixa";
             this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
             // 
             // baldesToolStripMenuItem
             // 
+            this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
+            this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
             this.baldesToolStripMenuItem.Text = "Baldes";
             this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 52);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 68);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // relatóriosToolStripMenuItem
@@ -155,7 +152,7 @@
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vendasToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 52);
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 68);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // vendasToolStripMenuItem
@@ -164,20 +161,20 @@
             this.vendasPedidosDetalhadoToolStripMenuItem,
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
             // 
             this.vendasPedidosDetalhadoToolStripMenuItem.Name = "vendasPedidosDetalhadoToolStripMenuItem";
-            this.vendasPedidosDetalhadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasPedidosDetalhadoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.vendasPedidosDetalhadoToolStripMenuItem.Text = "Pedidos Detalhado";
             this.vendasPedidosDetalhadoToolStripMenuItem.Click += new System.EventHandler(this.VendasPedidosDetalhadoToolStripMenuItem_Click);
             // 
             // valorPorDiaToolStripMenuItem
             // 
             this.valorPorDiaToolStripMenuItem.Name = "valorPorDiaToolStripMenuItem";
-            this.valorPorDiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.valorPorDiaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.valorPorDiaToolStripMenuItem.Text = "Valor Dia";
             this.valorPorDiaToolStripMenuItem.Click += new System.EventHandler(this.ValorPorDiaToolStripMenuItem_Click);
             // 
@@ -193,6 +190,15 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
+            // 
+            // recebimentoRápidoToolStripMenuItem
+            // 
+            this.recebimentoRápidoToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_doar_24;
+            this.recebimentoRápidoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.recebimentoRápidoToolStripMenuItem.Name = "recebimentoRápidoToolStripMenuItem";
+            this.recebimentoRápidoToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
+            this.recebimentoRápidoToolStripMenuItem.Text = "Recebimento Rápido";
+            this.recebimentoRápidoToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoRápidoToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -220,7 +226,6 @@
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem novoPedidoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem novoPedidoRápidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosAbertoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
@@ -232,6 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retiradaCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baldesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recebimentoRápidoToolStripMenuItem;
     }
 }
 

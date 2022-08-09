@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtpDataPedido = new Componentes.dateTimePickerJCS(this.components);
             this.lblSituacaoPed = new Componentes.LabelJCS(this.components);
             this.dgvPedidos = new Componentes.DataGridViewJCS(this.components);
@@ -58,6 +58,7 @@
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnNovoPedido = new Componentes.ButtonJCS(this.components);
             this.btnAtualizar = new Componentes.ButtonJCS(this.components);
+            this.rbtTodos = new Componentes.RadioButtonJCScs(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -92,14 +93,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPedidos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPedido,
@@ -111,28 +112,28 @@
             this.colEditar,
             this.colPagar,
             this.colCancelar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPedidos.EnableHeadersVisualStyles = false;
             this.dgvPedidos.Location = new System.Drawing.Point(0, 90);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(800, 360);
+            this.dgvPedidos.Size = new System.Drawing.Size(912, 360);
             this.dgvPedidos.TabIndex = 4;
             this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellClick);
             // 
@@ -218,12 +219,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbtTodos);
             this.groupBox1.Controls.Add(this.rbtLevar);
             this.groupBox1.Controls.Add(this.rbtEntregas);
             this.groupBox1.Controls.Add(this.rbtMesas);
             this.groupBox1.Location = new System.Drawing.Point(260, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(268, 59);
+            this.groupBox1.Size = new System.Drawing.Size(380, 59);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo";
@@ -233,11 +235,10 @@
             this.rbtLevar.AutoSize = true;
             this.rbtLevar.BackColor = System.Drawing.Color.White;
             this.rbtLevar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.rbtLevar.Location = new System.Drawing.Point(93, 19);
+            this.rbtLevar.Location = new System.Drawing.Point(205, 19);
             this.rbtLevar.Name = "rbtLevar";
             this.rbtLevar.Size = new System.Drawing.Size(58, 21);
             this.rbtLevar.TabIndex = 2;
-            this.rbtLevar.TabStop = true;
             this.rbtLevar.Text = "Levar";
             this.rbtLevar.UseVisualStyleBackColor = false;
             this.rbtLevar.CheckedChanged += new System.EventHandler(this.RbtLevar_CheckedChanged);
@@ -247,7 +248,7 @@
             this.rbtEntregas.AutoSize = true;
             this.rbtEntregas.BackColor = System.Drawing.Color.White;
             this.rbtEntregas.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.rbtEntregas.Location = new System.Drawing.Point(184, 19);
+            this.rbtEntregas.Location = new System.Drawing.Point(296, 19);
             this.rbtEntregas.Name = "rbtEntregas";
             this.rbtEntregas.Size = new System.Drawing.Size(78, 21);
             this.rbtEntregas.TabIndex = 1;
@@ -259,13 +260,11 @@
             // 
             this.rbtMesas.AutoSize = true;
             this.rbtMesas.BackColor = System.Drawing.Color.White;
-            this.rbtMesas.Checked = true;
             this.rbtMesas.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.rbtMesas.Location = new System.Drawing.Point(6, 19);
+            this.rbtMesas.Location = new System.Drawing.Point(112, 19);
             this.rbtMesas.Name = "rbtMesas";
             this.rbtMesas.Size = new System.Drawing.Size(64, 21);
             this.rbtMesas.TabIndex = 0;
-            this.rbtMesas.TabStop = true;
             this.rbtMesas.Text = "Mesas";
             this.rbtMesas.UseVisualStyleBackColor = false;
             this.rbtMesas.CheckedChanged += new System.EventHandler(this.RbtMesas_CheckedChanged);
@@ -352,7 +351,7 @@
             this.btnNovoPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnNovoPedido.Image = global::Caixa.Properties.Resources.icons8_mais_48;
             this.btnNovoPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNovoPedido.Location = new System.Drawing.Point(636, 18);
+            this.btnNovoPedido.Location = new System.Drawing.Point(748, 18);
             this.btnNovoPedido.Name = "btnNovoPedido";
             this.btnNovoPedido.Size = new System.Drawing.Size(152, 53);
             this.btnNovoPedido.TabIndex = 8;
@@ -368,7 +367,7 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtualizar.Location = new System.Drawing.Point(534, 18);
+            this.btnAtualizar.Location = new System.Drawing.Point(646, 18);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(77, 53);
             this.btnAtualizar.TabIndex = 9;
@@ -376,11 +375,25 @@
             this.btnAtualizar.UseVisualStyleBackColor = false;
             this.btnAtualizar.Click += new System.EventHandler(this.BtnAtualizar_Click);
             // 
+            // rbtTodos
+            // 
+            this.rbtTodos.AutoSize = true;
+            this.rbtTodos.BackColor = System.Drawing.Color.White;
+            this.rbtTodos.Checked = true;
+            this.rbtTodos.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.rbtTodos.Location = new System.Drawing.Point(18, 19);
+            this.rbtTodos.Name = "rbtTodos";
+            this.rbtTodos.Size = new System.Drawing.Size(62, 21);
+            this.rbtTodos.TabIndex = 3;
+            this.rbtTodos.Text = "Todos";
+            this.rbtTodos.UseVisualStyleBackColor = false;
+            this.rbtTodos.CheckedChanged += new System.EventHandler(this.RbtTodos_CheckedChanged);
+            // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(912, 450);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnNovoPedido);
             this.Controls.Add(this.cboSituacao);
@@ -430,5 +443,6 @@
         private System.Windows.Forms.DataGridViewImageColumn colPagar;
         private System.Windows.Forms.DataGridViewImageColumn colCancelar;
         private Componentes.ButtonJCS btnAtualizar;
+        private Componentes.RadioButtonJCScs rbtTodos;
     }
 }

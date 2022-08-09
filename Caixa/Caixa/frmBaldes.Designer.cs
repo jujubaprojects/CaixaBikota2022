@@ -55,6 +55,7 @@
             this.colColher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DT_DEVOLUCAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEntregue = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaldes)).BeginInit();
@@ -146,11 +147,13 @@
             this.cboBalde.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboBalde.FormattingEnabled = true;
             this.cboBalde.Items.AddRange(new object[] {
+            "04 LITROS",
             "05 LITROS",
-            "10 LITROS"});
+            "10 LITROS",
+            "APENAS COLHER"});
             this.cboBalde.Location = new System.Drawing.Point(80, 96);
             this.cboBalde.Name = "cboBalde";
-            this.cboBalde.Size = new System.Drawing.Size(93, 23);
+            this.cboBalde.Size = new System.Drawing.Size(165, 23);
             this.cboBalde.TabIndex = 3;
             // 
             // txtNumero
@@ -188,6 +191,7 @@
             this.colColher,
             this.colTelefone,
             this.colData,
+            this.DT_DEVOLUCAO,
             this.colEntregue,
             this.colEditar});
             this.dgvBaldes.Cursor = System.Windows.Forms.Cursors.Default;
@@ -346,6 +350,14 @@
             this.colData.ReadOnly = true;
             this.colData.Width = 61;
             // 
+            // DT_DEVOLUCAO
+            // 
+            this.DT_DEVOLUCAO.DataPropertyName = "DATA_ENTREGA";
+            this.DT_DEVOLUCAO.HeaderText = "Devolução";
+            this.DT_DEVOLUCAO.Name = "DT_DEVOLUCAO";
+            this.DT_DEVOLUCAO.ReadOnly = true;
+            this.DT_DEVOLUCAO.Width = 96;
+            // 
             // colEntregue
             // 
             this.colEntregue.DataPropertyName = "ENTREGUE";
@@ -421,6 +433,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colColher;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTelefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn colData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DT_DEVOLUCAO;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colEntregue;
         private System.Windows.Forms.DataGridViewImageColumn colEditar;
     }

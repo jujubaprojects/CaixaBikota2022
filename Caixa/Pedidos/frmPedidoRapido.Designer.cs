@@ -118,7 +118,7 @@
             this.cboProdutoPai.Location = new System.Drawing.Point(101, 9);
             this.cboProdutoPai.Name = "cboProdutoPai";
             this.cboProdutoPai.Size = new System.Drawing.Size(109, 23);
-            this.cboProdutoPai.TabIndex = 26;
+            this.cboProdutoPai.TabIndex = 0;
             this.cboProdutoPai.SelectedIndexChanged += new System.EventHandler(this.CboProdutoPai_SelectedIndexChanged);
             // 
             // cboProdutoFilho
@@ -129,7 +129,7 @@
             this.cboProdutoFilho.Location = new System.Drawing.Point(216, 9);
             this.cboProdutoFilho.Name = "cboProdutoFilho";
             this.cboProdutoFilho.Size = new System.Drawing.Size(180, 23);
-            this.cboProdutoFilho.TabIndex = 27;
+            this.cboProdutoFilho.TabIndex = 1;
             // 
             // cboTipoPagamento
             // 
@@ -140,11 +140,12 @@
             "DINHEIRO",
             "CARTÃO DÉBITO",
             "CARTÃO CRÉDITO",
+            "PIX",
             "ANOTAR"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 70);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
             this.cboTipoPagamento.Size = new System.Drawing.Size(109, 23);
-            this.cboTipoPagamento.TabIndex = 25;
+            this.cboTipoPagamento.TabIndex = 4;
             this.cboTipoPagamento.SelectedIndexChanged += new System.EventHandler(this.CboTipoPagamento_SelectedIndexChanged);
             // 
             // lblTroco
@@ -167,7 +168,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Preenchimento = null;
             this.txtDescricao.Size = new System.Drawing.Size(180, 24);
-            this.txtDescricao.TabIndex = 23;
+            this.txtDescricao.TabIndex = 5;
             this.txtDescricao.TipoCampo = null;
             this.txtDescricao.Visible = false;
             // 
@@ -190,7 +191,7 @@
             this.txtVlRecebido.Name = "txtVlRecebido";
             this.txtVlRecebido.Preenchimento = null;
             this.txtVlRecebido.Size = new System.Drawing.Size(109, 24);
-            this.txtVlRecebido.TabIndex = 18;
+            this.txtVlRecebido.TabIndex = 6;
             this.txtVlRecebido.TipoCampo = "DOUBLE";
             this.txtVlRecebido.TextChanged += new System.EventHandler(this.TxtVlRecebido_TextChanged);
             // 
@@ -238,7 +239,7 @@
             this.btnAdddProduto.Location = new System.Drawing.Point(216, 42);
             this.btnAdddProduto.Name = "btnAdddProduto";
             this.btnAdddProduto.Size = new System.Drawing.Size(180, 24);
-            this.btnAdddProduto.TabIndex = 11;
+            this.btnAdddProduto.TabIndex = 3;
             this.btnAdddProduto.Text = "Adicionar";
             this.btnAdddProduto.UseVisualStyleBackColor = false;
             this.btnAdddProduto.Click += new System.EventHandler(this.BtnAdddProduto_Click);
@@ -252,7 +253,7 @@
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Preenchimento = null;
             this.txtQuantidade.Size = new System.Drawing.Size(109, 24);
-            this.txtQuantidade.TabIndex = 10;
+            this.txtQuantidade.TabIndex = 2;
             this.txtQuantidade.Text = "1";
             this.txtQuantidade.TipoCampo = "INTEIRO";
             // 
