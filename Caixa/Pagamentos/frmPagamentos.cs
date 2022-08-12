@@ -88,6 +88,26 @@ namespace Caixa
                     }
                 }
             }
+
+            if (e.RowIndex > -1 && e.ColumnIndex == dgvProdutosAbertos.Columns["colCancelar"].Index && dgvProdutosAbertos.Rows.Count > 0 && e.RowIndex != dgvProdutosAbertos.Rows.Count)
+            {
+                DialogResult result = MessageBox.Show("Deseja cancelar este produto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        frmInputBoxJCS frm = new frmInputBoxJCS("Informe o motivo do cancelamento.", 3);
+                        frm.ShowDialog();
+
+                        cancelarPedidoProduto(int.Parse(dgvProdutosAbertos["colPedidoProdutoID", e.RowIndex].Value.ToString()), frm.retorno);
+                        preencherCampos();
+                    }
+                }
+            }
+        }
+
+        private void cancelarPedidoProduto(int pPedProdID, string pCancelDesc)
+        {
+            sqlAux.updateSituacaoPedidoProduto(pPedProdID, 0, pCancelDesc);
         }
         private void validaPedidos(bool pTipo)
         {

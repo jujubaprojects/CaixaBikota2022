@@ -152,7 +152,8 @@ namespace Caixa
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
             preencherPedidos();
+            sqlAux.alteraSituacaoPedProdPago();
         }
-
+        
     }
 }

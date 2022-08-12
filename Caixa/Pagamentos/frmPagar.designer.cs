@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPagar = new Componentes.ButtonJCS(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.chkVlHaver = new Componentes.CheckBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.txtVlRecebido = new Componentes.TextBoxJCS(this.components);
             this.lblTroco = new Componentes.LabelJCS(this.components);
-            this.txtDescPagamento = new Componentes.TextBoxJCS(this.components);
             this.lblAnotou = new Componentes.LabelJCS(this.components);
-            this.btnDividirPagamento = new Componentes.ButtonJCS(this.components);
             this.txtValorAberto = new Componentes.TextBoxJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.cboTipoPagamento = new Componentes.ComboBoxJCS(this.components);
@@ -53,6 +50,10 @@
             this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChkDividir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnDividirPagamento = new Componentes.ButtonJCS(this.components);
+            this.btnPagar = new Componentes.ButtonJCS(this.components);
+            this.txtDescPagamento = new Componentes.TextBoxJCS(this.components);
+            this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,24 +69,9 @@
             this.panel1.Size = new System.Drawing.Size(434, 30);
             this.panel1.TabIndex = 8;
             // 
-            // btnPagar
-            // 
-            this.btnPagar.BackColor = System.Drawing.Color.Gold;
-            this.btnPagar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnPagar.Image = global::Caixa.Properties.Resources.icons8_marcador_duplo_48;
-            this.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagar.Location = new System.Drawing.Point(0, 0);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(434, 30);
-            this.btnPagar.TabIndex = 0;
-            this.btnPagar.Text = "Finalizar Pagamento";
-            this.btnPagar.UseVisualStyleBackColor = false;
-            this.btnPagar.Click += new System.EventHandler(this.BtnPagar_Click);
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboAnotar);
             this.panel2.Controls.Add(this.chkVlHaver);
             this.panel2.Controls.Add(this.labelJCS3);
             this.panel2.Controls.Add(this.txtVlRecebido);
@@ -149,19 +135,6 @@
             this.lblTroco.TabIndex = 19;
             this.lblTroco.Text = "Troco: R$ 00.00";
             // 
-            // txtDescPagamento
-            // 
-            this.txtDescPagamento.BackColor = System.Drawing.Color.White;
-            this.txtDescPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtDescPagamento.IconeKeyDown = null;
-            this.txtDescPagamento.Location = new System.Drawing.Point(127, 127);
-            this.txtDescPagamento.Name = "txtDescPagamento";
-            this.txtDescPagamento.Preenchimento = null;
-            this.txtDescPagamento.Size = new System.Drawing.Size(296, 24);
-            this.txtDescPagamento.TabIndex = 16;
-            this.txtDescPagamento.TipoCampo = null;
-            this.txtDescPagamento.Visible = false;
-            // 
             // lblAnotou
             // 
             this.lblAnotou.AutoSize = true;
@@ -172,22 +145,6 @@
             this.lblAnotou.TabIndex = 15;
             this.lblAnotou.Text = "Anotou Para:";
             this.lblAnotou.Visible = false;
-            // 
-            // btnDividirPagamento
-            // 
-            this.btnDividirPagamento.BackColor = System.Drawing.Color.Gold;
-            this.btnDividirPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDividirPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDividirPagamento.Image = global::Caixa.Properties.Resources.icons8_equity_security_48;
-            this.btnDividirPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDividirPagamento.Location = new System.Drawing.Point(267, 9);
-            this.btnDividirPagamento.Name = "btnDividirPagamento";
-            this.btnDividirPagamento.Size = new System.Drawing.Size(155, 53);
-            this.btnDividirPagamento.TabIndex = 11;
-            this.btnDividirPagamento.Text = "Dividir Prod.";
-            this.btnDividirPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDividirPagamento.UseVisualStyleBackColor = false;
-            this.btnDividirPagamento.Click += new System.EventHandler(this.BtnDividirPagamento_Click);
             // 
             // txtValorAberto
             // 
@@ -255,14 +212,14 @@
             this.dgvPedProdAberto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPedProdAberto.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedProdAberto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedProdAberto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedProdAberto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPedProdAberto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedProdAberto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPedidoProdutoID,
@@ -270,27 +227,27 @@
             this.colDescricao,
             this.colValor,
             this.colChkDividir});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedProdAberto.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedProdAberto.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPedProdAberto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPedProdAberto.EnableHeadersVisualStyles = false;
             this.dgvPedProdAberto.Location = new System.Drawing.Point(0, 0);
             this.dgvPedProdAberto.Name = "dgvPedProdAberto";
             this.dgvPedProdAberto.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedProdAberto.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedProdAberto.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPedProdAberto.RowHeadersVisible = false;
             this.dgvPedProdAberto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedProdAberto.Size = new System.Drawing.Size(434, 148);
@@ -343,6 +300,62 @@
             this.colChkDividir.TrueValue = "true";
             this.colChkDividir.Width = 70;
             // 
+            // btnDividirPagamento
+            // 
+            this.btnDividirPagamento.BackColor = System.Drawing.Color.Gold;
+            this.btnDividirPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDividirPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDividirPagamento.Image = global::Caixa.Properties.Resources.icons8_equity_security_48;
+            this.btnDividirPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDividirPagamento.Location = new System.Drawing.Point(267, 9);
+            this.btnDividirPagamento.Name = "btnDividirPagamento";
+            this.btnDividirPagamento.Size = new System.Drawing.Size(155, 53);
+            this.btnDividirPagamento.TabIndex = 11;
+            this.btnDividirPagamento.Text = "Dividir Prod.";
+            this.btnDividirPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDividirPagamento.UseVisualStyleBackColor = false;
+            this.btnDividirPagamento.Click += new System.EventHandler(this.BtnDividirPagamento_Click);
+            // 
+            // btnPagar
+            // 
+            this.btnPagar.BackColor = System.Drawing.Color.Gold;
+            this.btnPagar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPagar.Image = global::Caixa.Properties.Resources.icons8_marcador_duplo_48;
+            this.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagar.Location = new System.Drawing.Point(0, 0);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(434, 30);
+            this.btnPagar.TabIndex = 0;
+            this.btnPagar.Text = "Finalizar Pagamento";
+            this.btnPagar.UseVisualStyleBackColor = false;
+            this.btnPagar.Click += new System.EventHandler(this.BtnPagar_Click);
+            // 
+            // txtDescPagamento
+            // 
+            this.txtDescPagamento.BackColor = System.Drawing.Color.White;
+            this.txtDescPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtDescPagamento.IconeKeyDown = null;
+            this.txtDescPagamento.Location = new System.Drawing.Point(127, 127);
+            this.txtDescPagamento.Name = "txtDescPagamento";
+            this.txtDescPagamento.Preenchimento = null;
+            this.txtDescPagamento.Size = new System.Drawing.Size(296, 24);
+            this.txtDescPagamento.TabIndex = 16;
+            this.txtDescPagamento.TipoCampo = null;
+            this.txtDescPagamento.Visible = false;
+            // 
+            // cboAnotar
+            // 
+            this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAnotar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboAnotar.FormattingEnabled = true;
+            this.cboAnotar.Location = new System.Drawing.Point(126, 127);
+            this.cboAnotar.Name = "cboAnotar";
+            this.cboAnotar.Size = new System.Drawing.Size(296, 23);
+            this.cboAnotar.TabIndex = 23;
+            this.cboAnotar.Visible = false;
+            // 
             // frmPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +391,6 @@
         private Componentes.LabelJCS labelJCS1;
         private System.Windows.Forms.Panel panel3;
         private Componentes.DataGridViewJCS dgvPedProdAberto;
-        private Componentes.TextBoxJCS txtDescPagamento;
         private Componentes.LabelJCS lblAnotou;
         private Componentes.LabelJCS lblTroco;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPedidoProdutoID;
@@ -389,5 +401,7 @@
         private Componentes.LabelJCS labelJCS3;
         private Componentes.TextBoxJCS txtVlRecebido;
         private Componentes.CheckBoxJCS chkVlHaver;
+        private Componentes.TextBoxJCS txtDescPagamento;
+        private Componentes.ComboBoxJCS cboAnotar;
     }
 }

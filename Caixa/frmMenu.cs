@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Caixa.Cadastro;
 using Caixa.Caixa;
 using Caixa.Reports;
 using Componentes;
@@ -147,9 +148,9 @@ namespace Caixa
                             {
                                 valor += double.Parse(dtAdds.Rows[j]["VALOR"].ToString());
                                 if (!string.IsNullOrEmpty(dtAdds.Rows[j]["DESCRICAO"].ToString()))
-                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + dtAdds.Rows[j]["DESCRICAO"].ToString());
+                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x "  + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + dtAdds.Rows[j]["DESCRICAO"].ToString());
                                     else
-                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["PRODUTO"].ToString());
+                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x " + dtAdds.Rows[j]["PRODUTO"].ToString());
                                 sImpressao.Append("\r\n");
                             }
                             vlTotal+= valor;
@@ -308,6 +309,24 @@ namespace Caixa
         private void RecebimentoRápidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPedidoRapido frm = new frmPedidoRapido();
+            frm.ShowDialog();
+        }
+
+        private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroCliente frm = new frmCadastroCliente();
+            frm.ShowDialog();
+        }
+
+        private void BaldesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmBaldes frm = new frmBaldes();
+            frm.ShowDialog();
+        }
+
+        private void RecebimentoDeNotaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmPagarNota frm = new frmPagarNota();
             frm.ShowDialog();
         }
     }

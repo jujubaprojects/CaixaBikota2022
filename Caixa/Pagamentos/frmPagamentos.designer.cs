@@ -57,6 +57,7 @@
             this.colVlAberto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrdem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChkPagar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCancelar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosAbertos)).BeginInit();
@@ -264,7 +265,8 @@
             this.colValorPago,
             this.colVlAberto,
             this.colOrdem,
-            this.colChkPagar});
+            this.colChkPagar,
+            this.colCancelar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
@@ -385,6 +387,15 @@
             this.colChkPagar.TrueValue = "true";
             this.colChkPagar.Width = 75;
             // 
+            // colCancelar
+            // 
+            this.colCancelar.DataPropertyName = "CANCELAR";
+            this.colCancelar.HeaderText = "Cancelar";
+            this.colCancelar.Image = global::Caixa.Properties.Resources.icons8_cancelar_16;
+            this.colCancelar.Name = "colCancelar";
+            this.colCancelar.ReadOnly = true;
+            this.colCancelar.Width = 64;
+            // 
             // frmPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +431,9 @@
         private Componentes.TextBoxJCS txtPedidoID;
         private Componentes.LabelJCS labelJCS1;
         private Componentes.DataGridViewJCS dgvProdutosAbertos;
+        private Componentes.LabelJCS labelJCS4;
+        private Componentes.TextBoxJCS txtVlTotal;
+        private Componentes.LabelJCS lblSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPedidoProdutoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
@@ -430,8 +444,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colVlAberto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrdem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colChkPagar;
-        private Componentes.LabelJCS labelJCS4;
-        private Componentes.TextBoxJCS txtVlTotal;
-        private Componentes.LabelJCS lblSituacao;
+        private System.Windows.Forms.DataGridViewImageColumn colCancelar;
     }
 }

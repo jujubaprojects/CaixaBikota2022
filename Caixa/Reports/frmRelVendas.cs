@@ -44,7 +44,7 @@ namespace Caixa.Reports
 
             if (cboSituacao.SelectedIndex > 0)
             {
-                situacao = cboSituacao.SelectedIndex;
+                situacao = cboSituacao.SelectedIndex-1;
                 if (cboSituacao.SelectedIndex == 5)
                     situacao = 8;
             }
@@ -61,7 +61,7 @@ namespace Caixa.Reports
 
         private void preencherCampos()
         {
-            preencherCombo(auxSQL.retornaDataTable("SELECT 'TODOS' DESCRICAO UNION ALL SELECT DESCRICAO FROM PRODUTO_PAI"), cboProdutoPai);
+            preencherCombo(auxSQL.retornaDataTable("SELECT 'TODOS' DESCRICAO UNION ALL SELECT DESCRICAO FROM CATEGORIA"), cboProdutoPai);
 
         }
 

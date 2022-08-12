@@ -1,4 +1,5 @@
-﻿using Componentes;
+﻿using Caixa.Pedidos;
+using Componentes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -276,6 +277,19 @@ namespace Caixa
                         cancelarProduto();
 
                         preencherGrid(int.Parse(txtPedidoID.Text));
+                    }
+                }
+            }
+
+            if (e.ColumnIndex == dgvProdutos.Columns["colAddAdicionais"].Index && dgvProdutos.Rows.Count > 0 && e.RowIndex + 1 != dgvProdutos.Rows.Count)
+            {
+                DialogResult result = MessageBox.Show("Deseja adicionar adicionais a este produto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        pedidoProdutoID = int.Parse(dgvProdutos["colPedidoProdutoID", e.RowIndex].Value.ToString());
+                        frmNovoPedidoAdicionais frm = new frmNovoPedidoAdicionais(pedidoProdutoID, double.Parse(dgvProdutos["colValor", e.RowIndex].Value.ToString()));
+                        frm.ShowDialog();
                     }
                 }
             }

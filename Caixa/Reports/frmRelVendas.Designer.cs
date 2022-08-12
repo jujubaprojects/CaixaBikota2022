@@ -55,7 +55,7 @@
             // 
             // dtpDataInicial
             // 
-            this.dtpDataInicial.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dtpDataInicial.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dtpDataInicial.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataInicial.Location = new System.Drawing.Point(100, 12);
@@ -65,7 +65,7 @@
             // 
             // dtpDataFinal
             // 
-            this.dtpDataFinal.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dtpDataFinal.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dtpDataFinal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataFinal.Location = new System.Drawing.Point(276, 12);

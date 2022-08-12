@@ -111,6 +111,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastro\frmCadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroCliente.Designer.cs">
+      <DependentUpon>frmCadastroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caixa\frmBaldes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,12 @@
     <Compile Include="Pedidos\frmNovoPedido.Designer.cs">
       <DependentUpon>frmNovoPedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\frmNovoPedidoAdicionais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmNovoPedidoAdicionais.Designer.cs">
+      <DependentUpon>frmNovoPedidoAdicionais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedidos\frmNovoPedidoImagem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +225,9 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SQL\SQL.cs" />
+    <EmbeddedResource Include="Cadastro\frmCadastroCliente.resx">
+      <DependentUpon>frmCadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmBaldes.resx">
       <DependentUpon>frmBaldes.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmNovoPedido.resx">
       <DependentUpon>frmNovoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmNovoPedidoAdicionais.resx">
+      <DependentUpon>frmNovoPedidoAdicionais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmNovoPedidoImagem.resx">
       <DependentUpon>frmNovoPedidoImagem.cs</DependentUpon>

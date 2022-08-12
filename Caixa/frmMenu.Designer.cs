@@ -35,17 +35,18 @@
             this.pedidosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novoPedidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosAbertoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recebimentoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recebimentoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,19 +80,20 @@
             this.pedidosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoPedidoToolStripMenuItem1,
             this.pedidosAbertoToolStripMenuItem1,
-            this.recebimentoDeNotaToolStripMenuItem});
+            this.baldesToolStripMenuItem,
+            this.clienteToolStripMenuItem});
             this.pedidosToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_contabilidade_48;
             this.pedidosToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosToolStripMenuItem1.Name = "pedidosToolStripMenuItem1";
-            this.pedidosToolStripMenuItem1.Size = new System.Drawing.Size(109, 68);
-            this.pedidosToolStripMenuItem1.Text = "Pedidos";
+            this.pedidosToolStripMenuItem1.Size = new System.Drawing.Size(114, 68);
+            this.pedidosToolStripMenuItem1.Text = "Cadastro";
             // 
             // novoPedidoToolStripMenuItem1
             // 
             this.novoPedidoToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
             this.novoPedidoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.novoPedidoToolStripMenuItem1.Name = "novoPedidoToolStripMenuItem1";
-            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(197, 30);
+            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
             this.novoPedidoToolStripMenuItem1.Text = "Novo Pedido";
             this.novoPedidoToolStripMenuItem1.Click += new System.EventHandler(this.NovoPedidoToolStripMenuItem_Click);
             // 
@@ -100,46 +102,39 @@
             this.pedidosAbertoToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_termos_e_condições_24;
             this.pedidosAbertoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosAbertoToolStripMenuItem1.Name = "pedidosAbertoToolStripMenuItem1";
-            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(197, 30);
+            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
             this.pedidosAbertoToolStripMenuItem1.Text = "Pedidos Aberto";
             this.pedidosAbertoToolStripMenuItem1.Click += new System.EventHandler(this.PedidosAbertoToolStripMenuItem_Click);
-            // 
-            // recebimentoDeNotaToolStripMenuItem
-            // 
-            this.recebimentoDeNotaToolStripMenuItem.Name = "recebimentoDeNotaToolStripMenuItem";
-            this.recebimentoDeNotaToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
-            this.recebimentoDeNotaToolStripMenuItem.Text = "Recebimento de Nota";
-            this.recebimentoDeNotaToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoDeNotaToolStripMenuItem_Click);
             // 
             // caixaToolStripMenuItem
             // 
             this.caixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.recebimentoRápidoToolStripMenuItem,
             this.retiradaCaixaToolStripMenuItem,
-            this.baldesToolStripMenuItem});
+            this.recebimentoDeNotaToolStripMenuItem});
             this.caixaToolStripMenuItem.Image = global::Caixa.Properties.Resources.black_and_white_credit_cards;
             this.caixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
             this.caixaToolStripMenuItem.Size = new System.Drawing.Size(112, 68);
             this.caixaToolStripMenuItem.Text = "Caixa";
             // 
+            // recebimentoRápidoToolStripMenuItem
+            // 
+            this.recebimentoRápidoToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_doar_24;
+            this.recebimentoRápidoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.recebimentoRápidoToolStripMenuItem.Name = "recebimentoRápidoToolStripMenuItem";
+            this.recebimentoRápidoToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
+            this.recebimentoRápidoToolStripMenuItem.Text = "Recebimento Rápido";
+            this.recebimentoRápidoToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoRápidoToolStripMenuItem_Click);
+            // 
             // retiradaCaixaToolStripMenuItem
             // 
             this.retiradaCaixaToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_iniciar_transferência_de_dinheiro_20;
             this.retiradaCaixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
-            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
+            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
             this.retiradaCaixaToolStripMenuItem.Text = "Retirada Caixa";
             this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
-            // 
-            // baldesToolStripMenuItem
-            // 
-            this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
-            this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
-            this.baldesToolStripMenuItem.Text = "Baldes";
-            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -191,14 +186,29 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
-            // recebimentoRápidoToolStripMenuItem
+            // clienteToolStripMenuItem
             // 
-            this.recebimentoRápidoToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_doar_24;
-            this.recebimentoRápidoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.recebimentoRápidoToolStripMenuItem.Name = "recebimentoRápidoToolStripMenuItem";
-            this.recebimentoRápidoToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
-            this.recebimentoRápidoToolStripMenuItem.Text = "Recebimento Rápido";
-            this.recebimentoRápidoToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoRápidoToolStripMenuItem_Click);
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
+            // 
+            // baldesToolStripMenuItem
+            // 
+            this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
+            this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.baldesToolStripMenuItem.Text = "Baldes";
+            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click_1);
+            // 
+            // recebimentoDeNotaToolStripMenuItem
+            // 
+            this.recebimentoDeNotaToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_títulos_48;
+            this.recebimentoDeNotaToolStripMenuItem.Name = "recebimentoDeNotaToolStripMenuItem";
+            this.recebimentoDeNotaToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
+            this.recebimentoDeNotaToolStripMenuItem.Text = "Recebimento de Nota";
+            this.recebimentoDeNotaToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoDeNotaToolStripMenuItem_Click_1);
             // 
             // frmMenu
             // 
@@ -233,11 +243,12 @@
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasPedidosDetalhadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valorPorDiaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem recebimentoDeNotaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retiradaCaixaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem baldesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recebimentoRápidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baldesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recebimentoDeNotaToolStripMenuItem;
     }
 }
 

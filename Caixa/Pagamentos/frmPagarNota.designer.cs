@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtProduto = new Componentes.TextBoxJCS(this.components);
             this.cboTipoPagamento = new Componentes.ComboBoxJCS(this.components);
             this.lblTroco = new Componentes.LabelJCS(this.components);
+            this.labelJCS6 = new Componentes.LabelJCS(this.components);
             this.txtVlRecebido = new Componentes.TextBoxJCS(this.components);
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
             this.txtVlNota = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
-            this.labelJCS6 = new Componentes.LabelJCS(this.components);
-            this.txtProduto = new Componentes.TextBoxJCS(this.components);
-            this.txtDescNota = new Componentes.TextBoxJCS(this.components);
+            this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
+            this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,28 +52,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 30);
+            this.panel1.Size = new System.Drawing.Size(453, 30);
             this.panel1.TabIndex = 7;
-            // 
-            // btnFinalizarPagamento
-            // 
-            this.btnFinalizarPagamento.BackColor = System.Drawing.Color.Gold;
-            this.btnFinalizarPagamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFinalizarPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizarPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnFinalizarPagamento.Image = global::Caixa.Properties.Resources.icons8_marcador_duplo_48;
-            this.btnFinalizarPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinalizarPagamento.Location = new System.Drawing.Point(0, 0);
-            this.btnFinalizarPagamento.Name = "btnFinalizarPagamento";
-            this.btnFinalizarPagamento.Size = new System.Drawing.Size(370, 30);
-            this.btnFinalizarPagamento.TabIndex = 4;
-            this.btnFinalizarPagamento.Text = "Finalizar Pagamento";
-            this.btnFinalizarPagamento.UseVisualStyleBackColor = false;
-            this.btnFinalizarPagamento.Click += new System.EventHandler(this.BtnFinalizarPagamento_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtDescNota);
+            this.panel2.Controls.Add(this.cboAnotar);
             this.panel2.Controls.Add(this.txtProduto);
             this.panel2.Controls.Add(this.cboTipoPagamento);
             this.panel2.Controls.Add(this.lblTroco);
@@ -86,8 +70,21 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(370, 141);
+            this.panel2.Size = new System.Drawing.Size(453, 141);
             this.panel2.TabIndex = 8;
+            // 
+            // txtProduto
+            // 
+            this.txtProduto.BackColor = System.Drawing.Color.White;
+            this.txtProduto.Enabled = false;
+            this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtProduto.IconeKeyDown = null;
+            this.txtProduto.Location = new System.Drawing.Point(101, 12);
+            this.txtProduto.Name = "txtProduto";
+            this.txtProduto.Preenchimento = null;
+            this.txtProduto.Size = new System.Drawing.Size(109, 24);
+            this.txtProduto.TabIndex = 26;
+            this.txtProduto.TipoCampo = "STRING";
             // 
             // cboTipoPagamento
             // 
@@ -97,7 +94,7 @@
             this.cboTipoPagamento.Items.AddRange(new object[] {
             "DINHEIRO",
             "CARTÃO DÉBITO",
-            "CARTÃO CRÉDITO"});
+            "PIX"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 72);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
             this.cboTipoPagamento.Size = new System.Drawing.Size(109, 23);
@@ -114,6 +111,16 @@
             this.lblTroco.Size = new System.Drawing.Size(138, 24);
             this.lblTroco.TabIndex = 24;
             this.lblTroco.Text = "Troco: R$ 00.00";
+            // 
+            // labelJCS6
+            // 
+            this.labelJCS6.AutoSize = true;
+            this.labelJCS6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS6.Location = new System.Drawing.Point(29, 75);
+            this.labelJCS6.Name = "labelJCS6";
+            this.labelJCS6.Size = new System.Drawing.Size(66, 17);
+            this.labelJCS6.TabIndex = 21;
+            this.labelJCS6.Text = "Tipo Pag.:";
             // 
             // txtVlRecebido
             // 
@@ -171,48 +178,37 @@
             this.labelJCS1.TabIndex = 6;
             this.labelJCS1.Text = "Produto:";
             // 
-            // labelJCS6
+            // btnFinalizarPagamento
             // 
-            this.labelJCS6.AutoSize = true;
-            this.labelJCS6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS6.Location = new System.Drawing.Point(29, 75);
-            this.labelJCS6.Name = "labelJCS6";
-            this.labelJCS6.Size = new System.Drawing.Size(66, 17);
-            this.labelJCS6.TabIndex = 21;
-            this.labelJCS6.Text = "Tipo Pag.:";
+            this.btnFinalizarPagamento.BackColor = System.Drawing.Color.Gold;
+            this.btnFinalizarPagamento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinalizarPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizarPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnFinalizarPagamento.Image = global::Caixa.Properties.Resources.icons8_marcador_duplo_48;
+            this.btnFinalizarPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinalizarPagamento.Location = new System.Drawing.Point(0, 0);
+            this.btnFinalizarPagamento.Name = "btnFinalizarPagamento";
+            this.btnFinalizarPagamento.Size = new System.Drawing.Size(453, 30);
+            this.btnFinalizarPagamento.TabIndex = 4;
+            this.btnFinalizarPagamento.Text = "Finalizar Pagamento";
+            this.btnFinalizarPagamento.UseVisualStyleBackColor = false;
+            this.btnFinalizarPagamento.Click += new System.EventHandler(this.BtnFinalizarPagamento_Click);
             // 
-            // txtProduto
+            // cboAnotar
             // 
-            this.txtProduto.BackColor = System.Drawing.Color.White;
-            this.txtProduto.Enabled = false;
-            this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtProduto.IconeKeyDown = null;
-            this.txtProduto.Location = new System.Drawing.Point(101, 12);
-            this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Preenchimento = null;
-            this.txtProduto.Size = new System.Drawing.Size(109, 24);
-            this.txtProduto.TabIndex = 26;
-            this.txtProduto.TipoCampo = "STRING";
-            // 
-            // txtDescNota
-            // 
-            this.txtDescNota.BackColor = System.Drawing.Color.White;
-            this.txtDescNota.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtDescNota.IconeKeyDown = null;
-            this.txtDescNota.Location = new System.Drawing.Point(216, 12);
-            this.txtDescNota.Name = "txtDescNota";
-            this.txtDescNota.Preenchimento = null;
-            this.txtDescNota.Size = new System.Drawing.Size(142, 24);
-            this.txtDescNota.TabIndex = 27;
-            this.txtDescNota.Text = "Nome Pessoa";
-            this.txtDescNota.TipoCampo = null;
-            this.txtDescNota.Click += new System.EventHandler(this.TxtDescNota_Click);
+            this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAnotar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboAnotar.FormattingEnabled = true;
+            this.cboAnotar.Location = new System.Drawing.Point(216, 12);
+            this.cboAnotar.Name = "cboAnotar";
+            this.cboAnotar.Size = new System.Drawing.Size(225, 23);
+            this.cboAnotar.TabIndex = 28;
             // 
             // frmPagarNota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 171);
+            this.ClientSize = new System.Drawing.Size(453, 171);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
@@ -240,6 +236,6 @@
         private Componentes.ComboBoxJCS cboTipoPagamento;
         private Componentes.TextBoxJCS txtProduto;
         private Componentes.LabelJCS labelJCS6;
-        private Componentes.TextBoxJCS txtDescNota;
+        private Componentes.ComboBoxJCS cboAnotar;
     }
 }

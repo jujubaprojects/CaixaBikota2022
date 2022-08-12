@@ -57,10 +57,16 @@ namespace Caixa
 
         private void escondeCampos()
         {
+            cboAnotar.Items.Clear();
+
             if (tipoPagamento == 5)
             {
                 lblAnotou.Visible = true;
-                txtDescPagamento.Visible = true;
+                cboAnotar.Visible = true;
+
+                DataTable dt = auxSql.buscaCliente(0);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    cboAnotar.Items.Add(dt.Rows[i]["NOME"].ToString());
             }
 
             if (vlHaver)
@@ -92,7 +98,7 @@ namespace Caixa
 
         private bool validaCampos()
         {         
-            if (tipoPagamento == 5 && string.IsNullOrEmpty(txtDescPagamento.Text))
+            if (tipoPagamento == 5 && cboAnotar.SelectedIndex < 0)
             {
                 MessageBox.Show("Informe o nome da pessoa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
@@ -264,8 +270,8 @@ namespace Caixa
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir);
 
                             //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
-                            if (vlDividido >= auxVlAberto || vlAberto >= auxVlAberto)
-                                auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
+                            //if (vlDividido >= auxVlAberto || vlAberto >= auxVlAberto)
+                                //auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
                         }
                         else
                         {
@@ -284,9 +290,9 @@ namespace Caixa
             auxSql.insertPagamento(int.Parse(pID), pValor, tipoPagamento);
             //conexao.executarInsUpDel(auxSql.queryInsertPagamento(pID,pValor, tipoPagamento));
 
-            if (tipoPagamento == 4)
-            {
-                auxSql.insertPagamentoNota(int.Parse(pID), txtDescPagamento.Text);
+            if (tipoPagamento == 5)
+            {                
+                auxSql.insertPagamentoNota(int.Parse(pID), cboAnotar.SelectedItem.ToString());
             }
 
             if (double.Parse(txtValorAberto.Text.ToString()) == 0)

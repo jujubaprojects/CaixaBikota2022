@@ -35,6 +35,10 @@ namespace Caixa
             //transacao = conexao.startTransaction(conn);
 
             txtProduto.Text = "PAGAMENTO NOTA";
+
+            DataTable dt = auxSQL.buscaCliente(0);
+            for (int i = 0; i < dt.Rows.Count; i++)
+                cboAnotar.Items.Add(dt.Rows[i]["NOME"].ToString());
         }
 
 
@@ -71,15 +75,32 @@ namespace Caixa
 
         private void CboTipoPagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tipoPagamento = cboTipoPagamento.SelectedIndex + 1;
+            switch (cboTipoPagamento.SelectedIndex)
+            {
+                case 0:
+                    tipoPagamento = 1;
+                    txtVlRecebido.Enabled = true;
+                    txtVlRecebido.Text = "";
+                    break;
+                case 1:
+                    txtVlRecebido.Text = txtVlNota.Text;
+                    txtVlRecebido.Enabled = false;
+                    tipoPagamento = 3;
+                    break;
+                case 3:
+                    txtVlRecebido.Text = txtVlNota.Text;
+                    txtVlRecebido.Enabled = false;
+                    tipoPagamento = 2;
+                    break;
+            }
         }
 
         private bool validaCampos()
         {
-            if (string.IsNullOrEmpty(txtDescNota.Text) || txtDescNota.Text.ToUpper().Equals("NOME PESSOA"))
+            if (cboAnotar.SelectedIndex < 0)
             {
                 MessageBox.Show("Informe o nome da pessoa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDescNota.Focus();
+                cboAnotar.Focus();
                 return false;
             }
 
@@ -104,7 +125,7 @@ namespace Caixa
         {
             if (validaCampos())
             {
-                auxSQL.insertPedido("PAGAMENTO DE NOTA", "CONSUMIR", 4);
+                auxSQL.insertPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString(), "LEVAR", 4);
 
                 int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO DE NOTA").Rows[0][0].ToString());
 
@@ -144,11 +165,5 @@ namespace Caixa
             controleEsc = false;
             this.MouseMove -= FrmPedidoRapido_MouseMove;
         }
-
-        private void TxtDescNota_Click(object sender, EventArgs e)
-        {
-            if (txtDescNota.Text == "Nome Pessoa")
-                txtDescNota.Text = "";
-        }
-    }
+            }
 }

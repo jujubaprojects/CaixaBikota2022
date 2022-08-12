@@ -128,7 +128,7 @@ namespace Caixa
 
         private bool validaCamposNota()
         {
-            if (tipoPagamento == 5 && string.IsNullOrEmpty(txtDescricao.Text.Trim()))
+            if (tipoPagamento == 5 && cboAnotar.SelectedIndex < 0)
             {
                 MessageBox.Show("Informe a descrição da nota, ao lado do Tipo de Pagamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
@@ -163,26 +163,37 @@ namespace Caixa
 
         private void CboTipoPagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tipoPagamento = int.Parse(auxSQL.retornaDataTable("SELECT ID FROM TIPO_PAGAMENTO WHERE DESCRICAO LIKE '" + cboTipoPagamento.SelectedItem.ToString() + "'").Rows[0][0].ToString());
+            string aux = cboTipoPagamento.SelectedItem.ToString();
+            if (aux.Equals("ANOTAR"))
+                aux = "NOTA";
+
+            tipoPagamento = int.Parse(auxSQL.retornaDataTable("SELECT ID FROM TIPO_PAGAMENTO WHERE DESCRICAO LIKE '" + aux + "'").Rows[0][0].ToString());
             
             switch (tipoPagamento)
             {
                 case 1:
                     lblTroco.Visible = true;
-                    txtDescricao.Visible = false;
+                    cboAnotar.Visible = false;
                     txtVlRecebido.Enabled = true;
+                    cboAnotar.Items.Clear();
                     break;
 
-                case 4:
+                case 5:
+                    cboAnotar.Items.Clear();
                     lblTroco.Visible = false;
-                    txtDescricao.Visible = true;
+                    cboAnotar.Visible = true;
                     txtVlRecebido.Enabled = false;
                     txtVlRecebido.Text = txtVlTotal.Text;
+
+                    DataTable dt = auxSQL.buscaCliente(0);
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        cboAnotar.Items.Add(dt.Rows[i]["NOME"].ToString());
                     break;
 
                 default:
+                    cboAnotar.Items.Clear();
                     lblTroco.Visible = false;
-                    txtDescricao.Visible = false;
+                    cboAnotar.Visible = false;
                     txtVlRecebido.Enabled = false;
                     txtVlRecebido.Text = txtVlTotal.Text;
                     break;
@@ -204,9 +215,9 @@ namespace Caixa
                         pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
                         auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(dtGrid.Rows[i]["VL_TOTAL"].ToString()), tipoPagamento);
 
-                        if (tipoPagamento == 4)
+                        if (tipoPagamento == 5)
                         {
-                            auxSQL.insertPagamentoNota(pedidoProdutoID, txtDescricao.Text);
+                            auxSQL.insertPagamentoNota(pedidoProdutoID, cboAnotar.SelectedItem.ToString()) ;
                         }
 
                     }
