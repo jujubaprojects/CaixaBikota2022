@@ -46,7 +46,7 @@
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -240,10 +240,12 @@
             // colStatus
             // 
             this.colStatus.DataPropertyName = "STATUS";
-            this.colStatus.HeaderText = "Status";
+            this.colStatus.HeaderText = "Ativo";
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
-            this.colStatus.Width = 71;
+            this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colStatus.Width = 64;
             // 
             // colEditar
             // 
@@ -295,7 +297,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colContato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewImageColumn colEditar;
     }
 }

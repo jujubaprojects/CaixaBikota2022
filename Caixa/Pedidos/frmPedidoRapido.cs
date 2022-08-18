@@ -128,16 +128,33 @@ namespace Caixa
 
         private bool validaCamposNota()
         {
-            if (tipoPagamento == 5 && cboAnotar.SelectedIndex < 0)
+            if (tipoPagamento == 5 )
             {
-                MessageBox.Show("Informe a descrição da nota, ao lado do Tipo de Pagamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
+                if (cboAnotar.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Informe a descrição da nota, ao lado do Tipo de Pagamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+
+                if (auxSQL.buscaClienteInativo(cboAnotar.SelectedItem.ToString()).Rows.Count > 0)
+                {
+                    MessageBox.Show("Cliente inativo, por favor fale com o responsável!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
             }
 
             if (tipoPagamento == 1 && string.IsNullOrEmpty(txtVlRecebido.Text))
             {
                 MessageBox.Show("Informe o valor recebido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
+            }
+            else
+            {
+                if (double.Parse(txtVlRecebido.Text) < double.Parse(txtVlTotal.Text))
+                {
+                    MessageBox.Show("Valor recebido menor que o valor total!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
             }
 
             return true;

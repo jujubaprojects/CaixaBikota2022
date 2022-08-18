@@ -130,7 +130,7 @@ namespace Caixa.SQL
             sql.Append("GROUP BY PED.ID, PP.ID, PED.DESCRICAO, PP.DESCRICAO, DT_INICIAL, P.VALOR, PP.QT_PRODUTO, PP.SITUACAO ");
             sql.Append("UNION ALL ");
             sql.Append("SELECT PED.ID, PED_ADD.PEDIDO_PRODUTO PED_PROD_ID, PED.DESCRICAO DESCRICAO, PED_ADD.DESCRICAO PED_DESCRICAO, convert(varchar, DT_INICIAL, 24) HORA, P2.VALOR VL_PRODUTO, ");
-            sql.Append("PED_ADD.QT_PRODUTO, 0 VL_PAGO ");
+            sql.Append("PP.QT_PRODUTO, 0 VL_PAGO ");
             sql.Append("FROM PEDIDO PED ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
             sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
@@ -355,8 +355,26 @@ namespace Caixa.SQL
             sql.Append("SELECT ID, NOME, ENDERECO, CONTATO, STATUS ");
             sql.Append("FROM CLIENTE ");
             if (pID > 0)
-                sql.Append("WHERE ID = @pID");
+                sql.Append("WHERE ID = @pID ");
+            sql.Append("ORDER BY NOME ");
+            return sql.ToString();
+        }
+        public DataTable buscaClienteInativo(string pNome)
+        {
+            string sql = queryBuscaClienteInativo();
 
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pNome", pNome);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaClienteInativo()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM CLIENTE WHERE NOME = @pNome AND STATUS = 0");
             return sql.ToString();
         }
         public void updateCliente(int pID, string pNome, string pEnd, string pContato, int pStatus)
@@ -501,9 +519,9 @@ namespace Caixa.SQL
         }
 
 
-        public void updatePedido(int pPedidoID, int pSituacao, string pDescricao)
+        public void updatePedido(int pPedidoID, int pSituacao, string pDescricao, string pEndereco, string pObservacao)
         {
-            string sql = queryUpdatePedido(pPedidoID, pSituacao, pDescricao);
+            string sql = queryUpdatePedido(pPedidoID, pSituacao, pDescricao, pEndereco, pObservacao);
 
             SqlConnection conn = conexao.retornaConexao();
 
@@ -512,15 +530,20 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pSituacao", pSituacao);
             sqlc.Parameters.AddWithValue("@pPedidoID", pPedidoID);
             sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pEndereco", pEndereco);
+            sqlc.Parameters.AddWithValue("@pObservacao", pObservacao);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        private string queryUpdatePedido(int pPedidoID, int pSituacao, string pDescricao)
+        private string queryUpdatePedido(int pPedidoID, int pSituacao, string pDescricao, string pEndereco, string pObservacao)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("UPDATE PEDIDO SET MESA = CONCAT('CANCELADO ', MESA, ' - Motivo: ' , @pDescricao),");
-            sql.Append("DT_FINAL = DATE_TRUNC('second',now()), ");
-            sql.Append("SITUACAO = @pSituacao WHERE ID = @pPedidoID ");
+            sql.Append("UPDATE PEDIDO SET DESCRICAO = @pDescricao,");
+            sql.Append("DT_FINAL = getdate(), ");
+            sql.Append("SITUACAO = @pSituacao, ");
+            sql.Append("ENDERECO = @pEndereco, ");
+                sql.Append("OBSERVACAO = @pObservacao ");
+                 sql.Append("WHERE ID = @pPedidoID ");
 
             return sql.ToString();
         }
@@ -625,9 +648,9 @@ namespace Caixa.SQL
             sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN(" + pPedidos + ") ");
             sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.DESCRICAO, PP.QT_PRODUTO ");
             sql.Append("UNION ALL ");
-            sql.Append("SELECT PP.ID AS PED_PROD_ID, NULL PRODUTO, NULL DESC_PRODUTO, PED_ADD.QT_PRODUTO, P2.VALOR VL_PRODUTO, (PED_ADD.QT_PRODUTO * P2.VALOR) VL_TOTAL, 0  VL_PAGO, ");
-            sql.Append("CASE WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*) > (PED_ADD.QT_PRODUTO * P2.VALOR) THEN 3 ");
-            sql.Append(" WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*) = (PED_ADD.QT_PRODUTO * P2.VALOR) THEN 4 ");
+            sql.Append("SELECT PP.ID AS PED_PROD_ID, NULL PRODUTO, NULL DESC_PRODUTO, PED_ADD.QT_PRODUTO, P2.VALOR VL_PRODUTO, (PP.QT_PRODUTO * P2.VALOR) VL_TOTAL, 0  VL_PAGO, ");
+            sql.Append("CASE WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*) > (PP.QT_PRODUTO * P2.VALOR) THEN 3 ");
+            sql.Append(" WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*) = (PP.QT_PRODUTO * P2.VALOR) THEN 4 ");
             sql.Append("WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*) > 0 THEN 2 ELSE 1 END ORDEM, @pCheckBox CHKDIVIDIR ");
             sql.Append("FROM PEDIDO_PRODUTO_ADDS PED_ADD ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED_ADD.PEDIDO_PRODUTO = PP.ID) ");
@@ -757,8 +780,8 @@ namespace Caixa.SQL
             sql.Append(" WHERE SITUACAO IN(1, 2) AND PEDIDO =  @pPedidoID ");
             sql.Append("GROUP BY PP.ID, P.VALOR, P.DESCRICAO, PP.DESCRICAO, PP.QT_PRODUTO ");
             sql.Append(" UNION ALL ");
-            sql.Append("SELECT PP.ID AS PED_PROD_ID, NULL PRODUTO, NULL DESC_PRODUTO, PED_ADD.QT_PRODUTO, P2.VALOR VL_PRODUTO, (PED_ADD.QT_PRODUTO * P2.VALOR) VL_TOTAL, ");
-            sql.Append("0  VL_PAGO /*, (PED_ADD.QT_PRODUTO * P2.VALOR) - (SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*)) VL_ABERTO*/,  ");
+            sql.Append("SELECT PP.ID AS PED_PROD_ID, NULL PRODUTO, NULL DESC_PRODUTO, PP.QT_PRODUTO, P2.VALOR VL_PRODUTO, (PP.QT_PRODUTO * P2.VALOR) VL_TOTAL, ");
+            sql.Append("0  VL_PAGO /*, (PP.QT_PRODUTO * P2.VALOR) - (SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*)) VL_ABERTO*/,  ");
             sql.Append("CASE WHEN SUM(Coalesce(PAG.VL_PAGO, 0)) / COUNT(*) > (PED_ADD.QT_PRODUTO * P2.VALOR) THEN 3 ");
             sql.Append("WHEN SUM(Coalesce(PAG.VL_PAGO, 0))/ COUNT(*) = (PED_ADD.QT_PRODUTO * P2.VALOR) THEN 4 ");
             sql.Append("WHEN SUM(Coalesce(PAG.VL_PAGO, 0))/ COUNT(*) > 0 THEN 2 ELSE 1 END ORDEM ");
@@ -1025,9 +1048,10 @@ namespace Caixa.SQL
         public DataTable retornaPedidosAdds(int pPP)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT PED.ID, PED.PEDIDO_PRODUTO, P.DESCRICAO PRODUTO, PED.DESCRICAO, PED.QT_PRODUTO, PED.DT_ALTERACAO, PED.QT_PRODUTO * P.VALOR AS VALOR ");
+            sql.Append("SELECT PED.ID, PED.PEDIDO_PRODUTO, P.DESCRICAO PRODUTO, PED.DESCRICAO, PED.QT_PRODUTO, PED.DT_ALTERACAO, PP.QT_PRODUTO * P.VALOR AS VALOR ");
             sql.Append("FROM PEDIDO_PRODUTO_ADDS PED ");
             sql.Append("JOIN PRODUTO P ON(PED.PRODUTO = P.ID) ");
+            sql.Append("JOIN PEDIDO_PRODUTO PP ON (PP.ID = PED.PEDIDO_PRODUTO) ");
             sql.Append("WHERE PED.PEDIDO_PRODUTO = "+ pPP);
 
             return conexao.executarSelect(sql.ToString());

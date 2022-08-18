@@ -35,18 +35,18 @@
             this.pedidosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novoPedidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosAbertoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recebimentoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +106,22 @@
             this.pedidosAbertoToolStripMenuItem1.Text = "Pedidos Aberto";
             this.pedidosAbertoToolStripMenuItem1.Click += new System.EventHandler(this.PedidosAbertoToolStripMenuItem_Click);
             // 
+            // baldesToolStripMenuItem
+            // 
+            this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
+            this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.baldesToolStripMenuItem.Text = "Baldes";
+            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click_1);
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
+            // 
             // caixaToolStripMenuItem
             // 
             this.caixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,8 +149,16 @@
             this.retiradaCaixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
             this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
-            this.retiradaCaixaToolStripMenuItem.Text = "Retirada Caixa";
+            this.retiradaCaixaToolStripMenuItem.Text = "Retirada do Caixa";
             this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
+            // 
+            // recebimentoDeNotaToolStripMenuItem
+            // 
+            this.recebimentoDeNotaToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_títulos_48;
+            this.recebimentoDeNotaToolStripMenuItem.Name = "recebimentoDeNotaToolStripMenuItem";
+            this.recebimentoDeNotaToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
+            this.recebimentoDeNotaToolStripMenuItem.Text = "Recebimento de Nota";
+            this.recebimentoDeNotaToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoDeNotaToolStripMenuItem_Click_1);
             // 
             // produtosToolStripMenuItem
             // 
@@ -185,30 +209,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
-            // 
-            // clienteToolStripMenuItem
-            // 
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.clienteToolStripMenuItem.Text = "Cliente";
-            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
-            // 
-            // baldesToolStripMenuItem
-            // 
-            this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
-            this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.baldesToolStripMenuItem.Text = "Baldes";
-            this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click_1);
-            // 
-            // recebimentoDeNotaToolStripMenuItem
-            // 
-            this.recebimentoDeNotaToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_títulos_48;
-            this.recebimentoDeNotaToolStripMenuItem.Name = "recebimentoDeNotaToolStripMenuItem";
-            this.recebimentoDeNotaToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
-            this.recebimentoDeNotaToolStripMenuItem.Text = "Recebimento de Nota";
-            this.recebimentoDeNotaToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoDeNotaToolStripMenuItem_Click_1);
             // 
             // frmMenu
             // 

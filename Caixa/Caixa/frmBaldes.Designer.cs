@@ -42,12 +42,6 @@
             this.cboBalde = new Componentes.ComboBoxJCS(this.components);
             this.txtNumero = new Componentes.TextBoxJCS(this.components);
             this.dgvBaldes = new Componentes.DataGridViewJCS(this.components);
-            this.labelJCS4 = new Componentes.LabelJCS(this.components);
-            this.txtTelefone = new Componentes.TextBoxJCS(this.components);
-            this.cboFiltro = new Componentes.ComboBoxJCS(this.components);
-            this.lblFiltro = new Componentes.LabelJCS(this.components);
-            this.labelJCS5 = new Componentes.LabelJCS(this.components);
-            this.txtColher = new Componentes.TextBoxJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +52,12 @@
             this.DT_DEVOLUCAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEntregue = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.labelJCS4 = new Componentes.LabelJCS(this.components);
+            this.txtTelefone = new Componentes.TextBoxJCS(this.components);
+            this.cboFiltro = new Componentes.ComboBoxJCS(this.components);
+            this.lblFiltro = new Componentes.LabelJCS(this.components);
+            this.labelJCS5 = new Componentes.LabelJCS(this.components);
+            this.txtColher = new Componentes.TextBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaldes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,6 +172,9 @@
             // 
             this.dgvBaldes.AllowUserToAddRows = false;
             this.dgvBaldes.AllowUserToDeleteRows = false;
+            this.dgvBaldes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBaldes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvBaldes.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -203,7 +206,6 @@
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBaldes.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvBaldes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvBaldes.EnableHeadersVisualStyles = false;
             this.dgvBaldes.Location = new System.Drawing.Point(0, 169);
             this.dgvBaldes.Name = "dgvBaldes";
@@ -218,80 +220,10 @@
             this.dgvBaldes.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBaldes.RowHeadersVisible = false;
             this.dgvBaldes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBaldes.Size = new System.Drawing.Size(908, 281);
+            this.dgvBaldes.Size = new System.Drawing.Size(1103, 281);
             this.dgvBaldes.TabIndex = 101;
             this.dgvBaldes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBaldes_CellClick);
             this.dgvBaldes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvBaldes_CellFormatting);
-            // 
-            // labelJCS4
-            // 
-            this.labelJCS4.AutoSize = true;
-            this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS4.Location = new System.Drawing.Point(12, 39);
-            this.labelJCS4.Name = "labelJCS4";
-            this.labelJCS4.Size = new System.Drawing.Size(62, 17);
-            this.labelJCS4.TabIndex = 102;
-            this.labelJCS4.Text = "Telefone:";
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.BackColor = System.Drawing.Color.White;
-            this.txtTelefone.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtTelefone.IconeKeyDown = null;
-            this.txtTelefone.Location = new System.Drawing.Point(80, 36);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Preenchimento = null;
-            this.txtTelefone.Size = new System.Drawing.Size(309, 24);
-            this.txtTelefone.TabIndex = 1;
-            this.txtTelefone.TipoCampo = "INTEIRO";
-            this.txtTelefone.Leave += new System.EventHandler(this.TxtTelefone_Leave);
-            // 
-            // cboFiltro
-            // 
-            this.cboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFiltro.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.cboFiltro.FormattingEnabled = true;
-            this.cboFiltro.Items.AddRange(new object[] {
-            "BALDES NÃO ENTREGUES",
-            "BALDES ENTREGUES",
-            "TODOS OS BALDES"});
-            this.cboFiltro.Location = new System.Drawing.Point(712, 112);
-            this.cboFiltro.Name = "cboFiltro";
-            this.cboFiltro.Size = new System.Drawing.Size(184, 23);
-            this.cboFiltro.TabIndex = 7;
-            this.cboFiltro.SelectedIndexChanged += new System.EventHandler(this.CboFiltro_SelectedIndexChanged);
-            // 
-            // lblFiltro
-            // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.lblFiltro.Location = new System.Drawing.Point(664, 115);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(42, 17);
-            this.lblFiltro.TabIndex = 104;
-            this.lblFiltro.Text = "Filtro:";
-            // 
-            // labelJCS5
-            // 
-            this.labelJCS5.AutoSize = true;
-            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS5.Location = new System.Drawing.Point(154, 129);
-            this.labelJCS5.Name = "labelJCS5";
-            this.labelJCS5.Size = new System.Drawing.Size(124, 17);
-            this.labelJCS5.TabIndex = 105;
-            this.labelJCS5.Text = "Quantidade Colher:";
-            // 
-            // txtColher
-            // 
-            this.txtColher.BackColor = System.Drawing.Color.White;
-            this.txtColher.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtColher.IconeKeyDown = null;
-            this.txtColher.Location = new System.Drawing.Point(284, 126);
-            this.txtColher.Name = "txtColher";
-            this.txtColher.Preenchimento = null;
-            this.txtColher.Size = new System.Drawing.Size(105, 24);
-            this.txtColher.TabIndex = 5;
-            this.txtColher.TipoCampo = "INTEIRO";
             // 
             // colID
             // 
@@ -379,11 +311,85 @@
             this.colEditar.ReadOnly = true;
             this.colEditar.Width = 49;
             // 
+            // labelJCS4
+            // 
+            this.labelJCS4.AutoSize = true;
+            this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS4.Location = new System.Drawing.Point(12, 39);
+            this.labelJCS4.Name = "labelJCS4";
+            this.labelJCS4.Size = new System.Drawing.Size(62, 17);
+            this.labelJCS4.TabIndex = 102;
+            this.labelJCS4.Text = "Telefone:";
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.BackColor = System.Drawing.Color.White;
+            this.txtTelefone.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtTelefone.IconeKeyDown = null;
+            this.txtTelefone.Location = new System.Drawing.Point(80, 36);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Preenchimento = null;
+            this.txtTelefone.Size = new System.Drawing.Size(309, 24);
+            this.txtTelefone.TabIndex = 1;
+            this.txtTelefone.TipoCampo = "INTEIRO";
+            this.txtTelefone.Leave += new System.EventHandler(this.TxtTelefone_Leave);
+            // 
+            // cboFiltro
+            // 
+            this.cboFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFiltro.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboFiltro.FormattingEnabled = true;
+            this.cboFiltro.Items.AddRange(new object[] {
+            "BALDES NÃO ENTREGUES",
+            "BALDES ENTREGUES",
+            "TODOS OS BALDES"});
+            this.cboFiltro.Location = new System.Drawing.Point(907, 126);
+            this.cboFiltro.Name = "cboFiltro";
+            this.cboFiltro.Size = new System.Drawing.Size(184, 23);
+            this.cboFiltro.TabIndex = 7;
+            this.cboFiltro.SelectedIndexChanged += new System.EventHandler(this.CboFiltro_SelectedIndexChanged);
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFiltro.Location = new System.Drawing.Point(859, 129);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(42, 17);
+            this.lblFiltro.TabIndex = 104;
+            this.lblFiltro.Text = "Filtro:";
+            // 
+            // labelJCS5
+            // 
+            this.labelJCS5.AutoSize = true;
+            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS5.Location = new System.Drawing.Point(154, 129);
+            this.labelJCS5.Name = "labelJCS5";
+            this.labelJCS5.Size = new System.Drawing.Size(124, 17);
+            this.labelJCS5.TabIndex = 105;
+            this.labelJCS5.Text = "Quantidade Colher:";
+            // 
+            // txtColher
+            // 
+            this.txtColher.BackColor = System.Drawing.Color.White;
+            this.txtColher.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtColher.IconeKeyDown = null;
+            this.txtColher.Location = new System.Drawing.Point(284, 126);
+            this.txtColher.Name = "txtColher";
+            this.txtColher.Preenchimento = null;
+            this.txtColher.Size = new System.Drawing.Size(105, 24);
+            this.txtColher.TabIndex = 5;
+            this.txtColher.TipoCampo = "INTEIRO";
+            // 
             // frmBaldes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 450);
+            this.ClientSize = new System.Drawing.Size(1103, 450);
             this.Controls.Add(this.txtColher);
             this.Controls.Add(this.labelJCS5);
             this.Controls.Add(this.cboFiltro);
@@ -400,6 +406,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnSalvar);
+            this.MinimumSize = new System.Drawing.Size(1119, 489);
             this.Name = "frmBaldes";
             this.Text = "frmBaldes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaldes)).EndInit();

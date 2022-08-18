@@ -99,6 +99,7 @@ namespace Caixa
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, cboTipo.SelectedItem.ToString(), 1);
                     auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, 1);
 
+                    cboTipo.Enabled = false;
                 }
                 else
                 {
@@ -133,7 +134,7 @@ namespace Caixa
         }
         private void cancelarPedido(string pDescricao)
         {
-            auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 0, pDescricao);
+            auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 0, pDescricao, "", "");
         }
 
         private void BtnEnviarPedido_Click(object sender, EventArgs e)
@@ -144,6 +145,9 @@ namespace Caixa
                 {
                     if (result == DialogResult.Yes)
                     {
+                        if (cboTipo.SelectedIndex == 2)
+                            auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
+
                         enviarPedido();
                         Close();
                     }
@@ -183,7 +187,7 @@ namespace Caixa
             for (int i = 0; i < dgvProdutos.Rows.Count-1; i++)
             {
                 auxID = int.Parse(dgvProdutos["colPedidoProdutoID", i].Value.ToString());
-                auxSQL.updateSituacaoPedidoProduto(auxID, 8, "");
+                auxSQL.updateSituacaoPedidoProduto(auxID, 8, "");                
             }
         }
 
@@ -451,6 +455,30 @@ namespace Caixa
                 cboDesc2.Enabled = false;
                 cboDesc1.Focus();
             }
+        }
+
+        private void TxtEndereco_Enter(object sender, EventArgs e)
+        {
+            txtEndereco.Text = "";
+        }
+
+        private void CboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTipo.SelectedIndex == 2)
+            {
+                txtEndereco.Visible = true;
+                txtObservacaoPedido.Visible = true;
+            }
+            else
+            {
+                txtEndereco.Visible = false;
+                txtObservacaoPedido.Visible = false;
+            }
+        }
+
+        private void TxtObservacaoPedido_Enter(object sender, EventArgs e)
+        {
+            txtObservacaoPedido.Text = "";
         }
 
 

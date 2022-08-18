@@ -57,6 +57,7 @@ namespace Caixa
 
         private void escondeCampos()
         {
+            cboAnotar.Visible = false;
             cboAnotar.Items.Clear();
 
             if (tipoPagamento == 5)
@@ -98,10 +99,19 @@ namespace Caixa
 
         private bool validaCampos()
         {         
-            if (tipoPagamento == 5 && cboAnotar.SelectedIndex < 0)
+            if (tipoPagamento == 5)
             {
-                MessageBox.Show("Informe o nome da pessoa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
+                if (cboAnotar.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Informe o nome da pessoa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+
+                if (auxSql.buscaClienteInativo(cboAnotar.SelectedItem.ToString()).Rows.Count > 0)
+                {
+                    MessageBox.Show("Cliente inativo, por favor fale com o responsável!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
             }
 
             if (cboTipoPagamento.SelectedIndex == -1)

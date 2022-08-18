@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNovoPedido));
             this.lblProduto = new Componentes.LabelJCS(this.components);
             this.cboProdutoFilho = new Componentes.ComboBoxJCS(this.components);
@@ -47,6 +47,16 @@
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.txtObservacao = new Componentes.TextBoxJCS(this.components);
             this.dgvProdutos = new Componentes.DataGridViewJCS(this.components);
+            this.colPedidoProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colAddAdicionais = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.cboTipo = new Componentes.ComboBoxJCS(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -61,16 +71,8 @@
             this.cboDesc6 = new Componentes.ComboBoxJCS(this.components);
             this.cboDesc5 = new Componentes.ComboBoxJCS(this.components);
             this.cboDesc4 = new Componentes.ComboBoxJCS(this.components);
-            this.colPedidoProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colAddAdicionais = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtEndereco = new Componentes.TextBoxJCS(this.components);
+            this.txtObservacaoPedido = new Componentes.TextBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,14 +235,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPedidoProdutoID,
@@ -254,31 +256,115 @@
             this.colAddAdicionais,
             this.colExcluir});
             this.dgvProdutos.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
             this.dgvProdutos.Location = new System.Drawing.Point(0, 226);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(1098, 273);
             this.dgvProdutos.TabIndex = 100;
             this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellClick);
+            // 
+            // colPedidoProdutoID
+            // 
+            this.colPedidoProdutoID.DataPropertyName = "ID_PEDIDO_PRODUTO";
+            this.colPedidoProdutoID.HeaderText = "PedidoProduto";
+            this.colPedidoProdutoID.Name = "colPedidoProdutoID";
+            this.colPedidoProdutoID.ReadOnly = true;
+            this.colPedidoProdutoID.Visible = false;
+            this.colPedidoProdutoID.Width = 104;
+            // 
+            // colProdutoID
+            // 
+            this.colProdutoID.DataPropertyName = "ID_PRODUTO";
+            this.colProdutoID.HeaderText = "IDProduto";
+            this.colProdutoID.Name = "colProdutoID";
+            this.colProdutoID.ReadOnly = true;
+            this.colProdutoID.Visible = false;
+            this.colProdutoID.Width = 76;
+            // 
+            // colProduto
+            // 
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProduto.DataPropertyName = "PRODUTO";
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            this.colProduto.Width = 82;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            // 
+            // colTipo
+            // 
+            this.colTipo.DataPropertyName = "TIPO";
+            this.colTipo.HeaderText = "Tipo";
+            this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
+            this.colTipo.Visible = false;
+            this.colTipo.Width = 59;
+            // 
+            // colQuantidade
+            // 
+            this.colQuantidade.DataPropertyName = "QUANTIDADE";
+            this.colQuantidade.HeaderText = "Quant.";
+            this.colQuantidade.Name = "colQuantidade";
+            this.colQuantidade.ReadOnly = true;
+            this.colQuantidade.Width = 75;
+            // 
+            // colValor
+            // 
+            this.colValor.DataPropertyName = "VALOR";
+            this.colValor.HeaderText = "Valor";
+            this.colValor.Name = "colValor";
+            this.colValor.ReadOnly = true;
+            this.colValor.Width = 63;
+            // 
+            // colEditar
+            // 
+            this.colEditar.HeaderText = "Editar";
+            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_editar_20;
+            this.colEditar.Name = "colEditar";
+            this.colEditar.ReadOnly = true;
+            this.colEditar.Width = 49;
+            // 
+            // colAddAdicionais
+            // 
+            this.colAddAdicionais.HeaderText = "Add. Adicionais";
+            this.colAddAdicionais.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
+            this.colAddAdicionais.Name = "colAddAdicionais";
+            this.colAddAdicionais.ReadOnly = true;
+            this.colAddAdicionais.Width = 105;
+            // 
+            // colExcluir
+            // 
+            this.colExcluir.HeaderText = "Excluir";
+            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.colExcluir.Name = "colExcluir";
+            this.colExcluir.ReadOnly = true;
+            this.colExcluir.Width = 52;
             // 
             // labelJCS1
             // 
@@ -299,6 +385,7 @@
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(200, 23);
             this.cboTipo.TabIndex = 14;
+            this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.CboTipo_SelectedIndexChanged);
             // 
             // dataGridViewImageColumn1
             // 
@@ -450,95 +537,45 @@
             this.cboDesc4.TabIndex = 8;
             this.cboDesc4.SelectedIndexChanged += new System.EventHandler(this.CboDesc4_SelectedIndexChanged);
             // 
-            // colPedidoProdutoID
+            // txtEndereco
             // 
-            this.colPedidoProdutoID.DataPropertyName = "ID_PEDIDO_PRODUTO";
-            this.colPedidoProdutoID.HeaderText = "PedidoProduto";
-            this.colPedidoProdutoID.Name = "colPedidoProdutoID";
-            this.colPedidoProdutoID.ReadOnly = true;
-            this.colPedidoProdutoID.Visible = false;
-            this.colPedidoProdutoID.Width = 104;
+            this.txtEndereco.BackColor = System.Drawing.Color.White;
+            this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEndereco.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtEndereco.IconeKeyDown = null;
+            this.txtEndereco.Location = new System.Drawing.Point(526, 159);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Preenchimento = null;
+            this.txtEndereco.Size = new System.Drawing.Size(253, 24);
+            this.txtEndereco.TabIndex = 101;
+            this.txtEndereco.Text = "ENDEREÇO";
+            this.txtEndereco.TipoCampo = null;
+            this.txtEndereco.Visible = false;
+            this.txtEndereco.Enter += new System.EventHandler(this.TxtEndereco_Enter);
             // 
-            // colProdutoID
+            // txtObservacaoPedido
             // 
-            this.colProdutoID.DataPropertyName = "ID_PRODUTO";
-            this.colProdutoID.HeaderText = "IDProduto";
-            this.colProdutoID.Name = "colProdutoID";
-            this.colProdutoID.ReadOnly = true;
-            this.colProdutoID.Visible = false;
-            this.colProdutoID.Width = 76;
-            // 
-            // colProduto
-            // 
-            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProduto.DataPropertyName = "PRODUTO";
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            this.colProduto.Width = 82;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            // 
-            // colTipo
-            // 
-            this.colTipo.DataPropertyName = "TIPO";
-            this.colTipo.HeaderText = "Tipo";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            this.colTipo.Visible = false;
-            this.colTipo.Width = 59;
-            // 
-            // colQuantidade
-            // 
-            this.colQuantidade.DataPropertyName = "QUANTIDADE";
-            this.colQuantidade.HeaderText = "Quant.";
-            this.colQuantidade.Name = "colQuantidade";
-            this.colQuantidade.ReadOnly = true;
-            this.colQuantidade.Width = 75;
-            // 
-            // colValor
-            // 
-            this.colValor.DataPropertyName = "VALOR";
-            this.colValor.HeaderText = "Valor";
-            this.colValor.Name = "colValor";
-            this.colValor.ReadOnly = true;
-            this.colValor.Width = 63;
-            // 
-            // colEditar
-            // 
-            this.colEditar.HeaderText = "Editar";
-            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_editar_20;
-            this.colEditar.Name = "colEditar";
-            this.colEditar.ReadOnly = true;
-            this.colEditar.Width = 49;
-            // 
-            // colAddAdicionais
-            // 
-            this.colAddAdicionais.HeaderText = "Add. Adicionais";
-            this.colAddAdicionais.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
-            this.colAddAdicionais.Name = "colAddAdicionais";
-            this.colAddAdicionais.ReadOnly = true;
-            this.colAddAdicionais.Width = 105;
-            // 
-            // colExcluir
-            // 
-            this.colExcluir.HeaderText = "Excluir";
-            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.colExcluir.Name = "colExcluir";
-            this.colExcluir.ReadOnly = true;
-            this.colExcluir.Width = 52;
+            this.txtObservacaoPedido.BackColor = System.Drawing.Color.White;
+            this.txtObservacaoPedido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtObservacaoPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtObservacaoPedido.IconeKeyDown = null;
+            this.txtObservacaoPedido.Location = new System.Drawing.Point(785, 159);
+            this.txtObservacaoPedido.Name = "txtObservacaoPedido";
+            this.txtObservacaoPedido.Preenchimento = null;
+            this.txtObservacaoPedido.Size = new System.Drawing.Size(253, 24);
+            this.txtObservacaoPedido.TabIndex = 102;
+            this.txtObservacaoPedido.Text = "TROCO";
+            this.txtObservacaoPedido.TipoCampo = null;
+            this.txtObservacaoPedido.Visible = false;
+            this.txtObservacaoPedido.Enter += new System.EventHandler(this.TxtObservacaoPedido_Enter);
             // 
             // frmNovoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 499);
+            this.Controls.Add(this.txtObservacaoPedido);
+            this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.cboDesc6);
             this.Controls.Add(this.cboDesc5);
             this.Controls.Add(this.cboDesc4);
@@ -616,5 +653,7 @@
         private System.Windows.Forms.DataGridViewImageColumn colEditar;
         private System.Windows.Forms.DataGridViewImageColumn colAddAdicionais;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
+        private Componentes.TextBoxJCS txtEndereco;
+        private Componentes.TextBoxJCS txtObservacaoPedido;
     }
 }
