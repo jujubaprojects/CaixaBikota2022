@@ -150,6 +150,27 @@ namespace Caixa
                 return false;
             }
 
+            if (tipoPagamento == 9)
+            {
+                if (acessoFrmsRestrito())
+                    return true;
+                else
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool acessoFrmsRestrito()
+        {
+            frmInputBoxJCS frm = new frmInputBoxJCS("Informe a senha.", 3, true);
+            frm.ShowDialog();
+            if (frm.retorno != "acessobikota")
+            {
+                MessageBox.Show("Senha incorreta!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
             return true;
         }
 

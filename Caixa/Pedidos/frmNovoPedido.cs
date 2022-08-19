@@ -46,6 +46,7 @@ namespace Caixa
             preencherCampos();
             btnCancelarPedido.Visible = true;
             txtDescPedido.Enabled = false;
+            cboTipo.Enabled = false;
         }
 
         private void BtnAddProduto_Click(object sender, EventArgs e)

@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.cboProdutoPai = new Componentes.ComboBoxJCS(this.components);
             this.cboProdutoFilho = new Componentes.ComboBoxJCS(this.components);
             this.cboTipoPagamento = new Componentes.ComboBoxJCS(this.components);
@@ -56,7 +57,6 @@
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVlTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -110,6 +110,22 @@
             this.panel2.Size = new System.Drawing.Size(471, 166);
             this.panel2.TabIndex = 8;
             // 
+            // cboAnotar
+            // 
+            this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAnotar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboAnotar.FormattingEnabled = true;
+            this.cboAnotar.Items.AddRange(new object[] {
+            "DINHEIRO",
+            "CARTÃO DÉBITO",
+            "CARTÃO CRÉDITO",
+            "PIX",
+            "ANOTAR"});
+            this.cboAnotar.Location = new System.Drawing.Point(216, 72);
+            this.cboAnotar.Name = "cboAnotar";
+            this.cboAnotar.Size = new System.Drawing.Size(243, 23);
+            this.cboAnotar.TabIndex = 25;
+            // 
             // cboProdutoPai
             // 
             this.cboProdutoPai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -141,7 +157,8 @@
             "CARTÃO DÉBITO",
             "CARTÃO CRÉDITO",
             "PIX",
-            "ANOTAR"});
+            "ANOTAR",
+            "DESCONTO"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 72);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
             this.cboTipoPagamento.Size = new System.Drawing.Size(109, 23);
@@ -279,14 +296,14 @@
             this.dgvProdutos.AllowUserToDeleteRows = false;
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProdutoID,
@@ -295,27 +312,27 @@
             this.colValor,
             this.colVlTotal,
             this.colExcluir});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
             this.dgvProdutos.Location = new System.Drawing.Point(0, 0);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(471, 148);
             this.dgvProdutos.TabIndex = 0;
@@ -373,22 +390,6 @@
             this.colExcluir.Name = "colExcluir";
             this.colExcluir.ReadOnly = true;
             this.colExcluir.Width = 33;
-            // 
-            // cboAnotar
-            // 
-            this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAnotar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.cboAnotar.FormattingEnabled = true;
-            this.cboAnotar.Items.AddRange(new object[] {
-            "DINHEIRO",
-            "CARTÃO DÉBITO",
-            "CARTÃO CRÉDITO",
-            "PIX",
-            "ANOTAR"});
-            this.cboAnotar.Location = new System.Drawing.Point(216, 72);
-            this.cboAnotar.Name = "cboAnotar";
-            this.cboAnotar.Size = new System.Drawing.Size(243, 23);
-            this.cboAnotar.TabIndex = 25;
             // 
             // frmPedidoRapido
             // 

@@ -175,7 +175,7 @@ namespace Caixa.SQL
             sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PED.ID = PP.PEDIDO) ");
             sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
             sql.Append("LEFT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
-            sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN(1, 2, 3, 4) AND convert(varchar, PED.DT_INICIAL, 103) = convert(varchar, getdate(), 103) ");
+            sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN(1, 2, 3, 4)  AND PP.SITUACAO != 3 AND PED.DT_INICIAL-7 <= getdate() ");
             sql.Append("GROUP BY PED.ID, PP.ID, PED.DESCRICAO, PP.DESCRICAO, DT_INICIAL, P.VALOR, PP.QT_PRODUTO ");
             sql.Append("UNION ALL ");
             sql.Append("SELECT PED.ID, PP.ID AS PED_PROD, P2.VALOR VL_PRODUTO, PED_ADD.QT_PRODUTO, 0 VL_PAGO ");
@@ -184,7 +184,7 @@ namespace Caixa.SQL
             sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO_ADDS PED_ADD ON(PP.ID = PED_ADD.PEDIDO_PRODUTO) ");
             sql.Append("LEFT JOIN PRODUTO P2 ON(PED_ADD.PRODUTO = P2.ID) ");
-            sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN(1, 2, 3, 4) AND convert(varchar, PED.DT_INICIAL, 103) = convert(varchar, getdate(), 103) ");
+            sql.Append("WHERE  PP.SITUACAO != 0  AND PED.SITUACAO IN(1, 2, 3, 4) AND PP.SITUACAO != 3 AND PED.DT_INICIAL-7 <=  getdate() ");
             sql.Append(") TAB ");
             sql.Append("GROUP BY TAB.PEDIDO, TAB.PED_PROD ");
             sql.Append(") A ");
@@ -1145,7 +1145,7 @@ namespace Caixa.SQL
             sql.Append("RIGHT JOIN PRODUTO PFILHO ON(PPAI.TIPO = PFILHO.TIPO) ");
             sql.Append("RIGHT JOIN PEDIDO_PRODUTO PP ON(PP.PRODUTO = PFILHO.ID) ");
             sql.Append("RIGHT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
-            sql.Append("WHERE PP.SITUACAO = 3 AND convert(varchar, PP.DT_ALTERACAO, 103) = '" + pData + "' ");
+            sql.Append("WHERE PP.SITUACAO = 3 AND convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
             sql.Append("GROUP BY PPAI.DESCRICAO ");
             sql.Append("UNION ALL ");
             sql.Append("SELECT TP.DESCRICAO DESCRICAO, SUM(PG.VL_PAGO) VALOR, 2 TIPO ");
@@ -1153,7 +1153,7 @@ namespace Caixa.SQL
             sql.Append("JOIN PEDIDO_PRODUTO PP ON(PP.PRODUTO = PFILHO.ID) ");
             sql.Append("JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
             sql.Append("JOIN TIPO_PAGAMENTO TP ON (TP.ID = PG.TIPO_PAGAMENTO) ");
-            sql.Append("WHERE PP.SITUACAO = 3 AND convert(varchar, PP.DT_ALTERACAO, 103) = '" + pData + "' ");
+            sql.Append("WHERE PP.SITUACAO = 3 AND convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
             sql.Append("GROUP BY TP.DESCRICAO ");
             sql.Append("UNION ALL ");
             sql.Append("SELECT DESCRICAO, VALOR, 3 TIPO ");
