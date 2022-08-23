@@ -42,10 +42,6 @@
             this.labelJCS7 = new Componentes.LabelJCS(this.components);
             this.btnAddAdicional = new Componentes.ButtonJCS(this.components);
             this.dgvAdicionais = new Componentes.DataGridViewJCS(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.colPedProdAddID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +49,10 @@
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVlTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSalvar = new Componentes.ButtonJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdicionais)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,7 +64,7 @@
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lblValor.ForeColor = System.Drawing.Color.Red;
-            this.lblValor.Location = new System.Drawing.Point(227, 133);
+            this.lblValor.Location = new System.Drawing.Point(344, 134);
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(182, 24);
             this.lblValor.TabIndex = 0;
@@ -78,7 +78,7 @@
             this.txtObservacao.Location = new System.Drawing.Point(100, 70);
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Preenchimento = null;
-            this.txtObservacao.Size = new System.Drawing.Size(295, 24);
+            this.txtObservacao.Size = new System.Drawing.Size(426, 24);
             this.txtObservacao.TabIndex = 4;
             this.txtObservacao.TipoCampo = null;
             // 
@@ -87,7 +87,7 @@
             this.txtQuantidade.BackColor = System.Drawing.Color.White;
             this.txtQuantidade.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQuantidade.IconeKeyDown = null;
-            this.txtQuantidade.Location = new System.Drawing.Point(286, 40);
+            this.txtQuantidade.Location = new System.Drawing.Point(417, 44);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Preenchimento = null;
             this.txtQuantidade.Size = new System.Drawing.Size(109, 24);
@@ -112,7 +112,7 @@
             this.cboAdicional.FormattingEnabled = true;
             this.cboAdicional.Location = new System.Drawing.Point(100, 41);
             this.cboAdicional.Name = "cboAdicional";
-            this.cboAdicional.Size = new System.Drawing.Size(180, 23);
+            this.cboAdicional.Size = new System.Drawing.Size(309, 23);
             this.cboAdicional.TabIndex = 2;
             // 
             // txtProduto
@@ -124,7 +124,7 @@
             this.txtProduto.Location = new System.Drawing.Point(100, 11);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Preenchimento = null;
-            this.txtProduto.Size = new System.Drawing.Size(295, 24);
+            this.txtProduto.Size = new System.Drawing.Size(426, 24);
             this.txtProduto.TabIndex = 1;
             this.txtProduto.TipoCampo = "STRING";
             // 
@@ -157,7 +157,7 @@
             this.btnAddAdicional.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddAdicional.Location = new System.Drawing.Point(100, 100);
             this.btnAddAdicional.Name = "btnAddAdicional";
-            this.btnAddAdicional.Size = new System.Drawing.Size(295, 24);
+            this.btnAddAdicional.Size = new System.Drawing.Size(426, 24);
             this.btnAddAdicional.TabIndex = 5;
             this.btnAddAdicional.Text = "Adicionar";
             this.btnAddAdicional.UseVisualStyleBackColor = false;
@@ -209,61 +209,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAdicionais.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAdicionais.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAdicionais.Size = new System.Drawing.Size(412, 282);
+            this.dgvAdicionais.Size = new System.Drawing.Size(538, 282);
             this.dgvAdicionais.TabIndex = 42;
             this.dgvAdicionais.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAdicionais_CellClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cboAdicional);
-            this.panel1.Controls.Add(this.labelJCS1);
-            this.panel1.Controls.Add(this.lblValor);
-            this.panel1.Controls.Add(this.labelJCS7);
-            this.panel1.Controls.Add(this.txtQuantidade);
-            this.panel1.Controls.Add(this.labelJCS5);
-            this.panel1.Controls.Add(this.btnAddAdicional);
-            this.panel1.Controls.Add(this.txtProduto);
-            this.panel1.Controls.Add(this.txtObservacao);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(412, 168);
-            this.panel1.TabIndex = 43;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dgvAdicionais);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 168);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(412, 282);
-            this.panel2.TabIndex = 44;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSalvar);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 414);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(412, 36);
-            this.panel3.TabIndex = 42;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackColor = System.Drawing.Color.Gold;
-            this.btnSalvar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.btnSalvar.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
-            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(0, 0);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(412, 36);
-            this.btnSalvar.TabIndex = 7;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // colPedProdAddID
             // 
@@ -326,15 +274,68 @@
             this.colExcluir.ReadOnly = true;
             this.colExcluir.Width = 33;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cboAdicional);
+            this.panel1.Controls.Add(this.labelJCS1);
+            this.panel1.Controls.Add(this.lblValor);
+            this.panel1.Controls.Add(this.labelJCS7);
+            this.panel1.Controls.Add(this.txtQuantidade);
+            this.panel1.Controls.Add(this.labelJCS5);
+            this.panel1.Controls.Add(this.btnAddAdicional);
+            this.panel1.Controls.Add(this.txtProduto);
+            this.panel1.Controls.Add(this.txtObservacao);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.MaximumSize = new System.Drawing.Size(538, 168);
+            this.panel1.MinimumSize = new System.Drawing.Size(538, 168);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(538, 168);
+            this.panel1.TabIndex = 43;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvAdicionais);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 168);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(538, 282);
+            this.panel2.TabIndex = 44;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnSalvar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 414);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(538, 36);
+            this.panel3.TabIndex = 42;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.BackColor = System.Drawing.Color.Gold;
+            this.btnSalvar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.btnSalvar.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Location = new System.Drawing.Point(0, 0);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(538, 36);
+            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
+            // 
             // frmNovoPedidoAdicionais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 450);
+            this.ClientSize = new System.Drawing.Size(538, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(428, 489);
             this.MinimumSize = new System.Drawing.Size(428, 489);
             this.Name = "frmNovoPedidoAdicionais";
             this.Text = "frmNovoPedidoAdicionais";

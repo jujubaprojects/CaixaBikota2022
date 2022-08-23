@@ -18,7 +18,7 @@ namespace Caixa.Pedidos
         private int pedidoProdID = 0;
         private double valorProdSemAdd = 0, valorAdd = 0;
        
-        public frmNovoPedidoAdicionais(int pPedidoProduto, double pValor)
+        public frmNovoPedidoAdicionais(int pPedidoProduto, double pValor, int pQuantidadeProd)
         {
             InitializeComponent();
 
@@ -26,12 +26,13 @@ namespace Caixa.Pedidos
 
             pedidoProdID = pPedidoProduto;
             valorProdSemAdd = pValor;
+            qtProduto = pQuantidadeProd;
 
 
             DataTable dt = auxSQL.buscaPedidoProdutoCampos(pedidoProdID);
             txtProduto.Text = dt.Rows[0]["PRODUTO"].ToString();
 
-            preencherGrid();
+            preencherGrid(0);
         }
         private void preencherCombo(DataTable pDTable, ComboBox pCombo, int pOcultar)
         {
@@ -90,16 +91,23 @@ namespace Caixa.Pedidos
             }
         }
 
-        private void preencherGrid ()
+        private void preencherGrid (int pEntrada = 1)
         {
             valorAdd = 0;
             DataTable dt = auxSQL.buscaPedidoProdutoAdd(pedidoProdID);
+            
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 valorAdd += double.Parse(dt.Rows[i]["VL_TOTAL"].ToString());
             }
 
-            lblValor.Text = "Valor Total: R$ " + (valorAdd + valorProdSemAdd).ToString("0.00");
+            if (pEntrada == 1)
+                lblValor.Text = "Valor Total: R$ " + ((qtProduto * valorAdd) + valorProdSemAdd).ToString("0.00");
+            else
+            {
+                valorProdSemAdd = valorProdSemAdd - valorAdd;
+                lblValor.Text = "Valor Total: R$ " + (valorAdd + valorProdSemAdd).ToString("0.00");
+            }
             dgvAdicionais.DataSource = dt;
         }
     }

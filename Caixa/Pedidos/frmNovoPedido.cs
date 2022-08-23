@@ -91,7 +91,13 @@ namespace Caixa
                         }
                         else
                         {
-                            auxSQL.insertPedido(txtDescPedido.Text.ToString(), cboTipo.SelectedItem.ToString(), 1);
+                            string endereco = "", obsPedido = "";
+                            if (!txtObservacaoPedido.Text.Equals("TROCO OU CARTÃO"))
+                                obsPedido = txtObservacaoPedido.Text;
+                            if (!txtEndereco.Text.Equals("ENDEREÇO"))
+                                endereco = txtEndereco.Text;
+
+                            auxSQL.insertPedido(txtDescPedido.Text.ToString(), cboTipo.SelectedItem.ToString(), 1, endereco, obsPedido);
 
                             txtPedidoID.Text = auxSQL.buscaUltimoPedido(txtDescPedido.Text.ToString()).Rows[0][0].ToString();
                         }
@@ -225,6 +231,13 @@ namespace Caixa
                 return false;
             }
 
+            if (cboTipo.SelectedIndex == 2 && (txtEndereco.Text.Equals("ENDEREÇO")  || string.IsNullOrEmpty(txtEndereco.Text)))
+            {
+                MessageBox.Show("Informe o endereço da entrega.");
+                txtEndereco.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -293,8 +306,10 @@ namespace Caixa
                     if (result == DialogResult.Yes)
                     {
                         pedidoProdutoID = int.Parse(dgvProdutos["colPedidoProdutoID", e.RowIndex].Value.ToString());
-                        frmNovoPedidoAdicionais frm = new frmNovoPedidoAdicionais(pedidoProdutoID, double.Parse(dgvProdutos["colValor", e.RowIndex].Value.ToString()));
+                        frmNovoPedidoAdicionais frm = new frmNovoPedidoAdicionais(pedidoProdutoID, double.Parse(dgvProdutos["colValor", e.RowIndex].Value.ToString()), int.Parse(dgvProdutos["colQuantidade", e.RowIndex].Value.ToString()));
                         frm.ShowDialog();
+
+                        preencherGrid(int.Parse(txtPedidoID.Text));
                     }
                 }
             }

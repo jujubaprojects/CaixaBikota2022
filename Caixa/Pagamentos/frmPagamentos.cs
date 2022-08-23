@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -51,6 +52,12 @@ namespace Caixa
 
         private void preencherCampos()
         {
+            while (sqlAux.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID + " AND SITUACAO = 8").Rows.Count > 0)
+            {
+                MessageBox.Show("Pedido ainda não foi impresso, clique em ok e aguarde o programa voltar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Thread.Sleep(5000);
+            }
+
             DataTable dt = sqlAux.buscaValoresPedido(pedidoID);
             dgvProdutosAbertos.DataSource = dt;
 

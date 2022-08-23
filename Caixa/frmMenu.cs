@@ -270,6 +270,7 @@ namespace Caixa
         {
             if (acessoFrmsRestrito())
             {
+                auxSQL.alteraSituacaoPedProdPago();
                 frmRelVendasDia frm = new frmRelVendasDia();
                 frm.ShowDialog();
             }

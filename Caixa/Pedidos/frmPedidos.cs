@@ -59,7 +59,11 @@ namespace Caixa
         {
             //DataTable dt = conexao.executarSelect(sqlAux.queryBuscaPedidos(situacao,tipo, dtpDataPedido.Value.ToShortDateString().ToString()));
             //dgvPedidos.DataSource = dt;
-            dgvPedidos.DataSource = sqlAux.buscaPedidos(situacao, tipo, dtpDataPedido.Value.ToShortDateString().ToString());
+            string data = "";
+            if (!chkDataEspec.Checked)
+                data = dtpDataPedido.Value.ToShortDateString().ToString();
+
+            dgvPedidos.DataSource = sqlAux.buscaPedidos(situacao, tipo, data);
         }
 
         private void RbtTodos_CheckedChanged(object sender, EventArgs e)
@@ -152,8 +156,12 @@ namespace Caixa
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
             preencherPedidos();
-            sqlAux.alteraSituacaoPedProdPago();
+            //sqlAux.alteraSituacaoPedProdPago();
         }
-        
+
+        private void ChkDataEspec_CheckedChanged(object sender, EventArgs e)
+        {
+            preencherPedidos();
+        }
     }
 }
