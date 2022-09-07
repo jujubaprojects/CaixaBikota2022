@@ -97,7 +97,7 @@ namespace Caixa
                             if (!txtEndereco.Text.Equals("ENDEREÇO"))
                                 endereco = txtEndereco.Text;
 
-                            auxSQL.insertPedido(txtDescPedido.Text.ToString(), cboTipo.SelectedItem.ToString(), 1, endereco, obsPedido);
+                            auxSQL.insertPedido(txtDescPedido.Text.ToString(), cboTipo.SelectedItem.ToString(), 1, endereco, obsPedido, 1);
 
                             txtPedidoID.Text = auxSQL.buscaUltimoPedido(txtDescPedido.Text.ToString()).Rows[0][0].ToString();
                         }
@@ -153,7 +153,10 @@ namespace Caixa
                     if (result == DialogResult.Yes)
                     {
                         if (cboTipo.SelectedIndex == 2)
+                        {
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
+                            auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 8);
+                        }
 
                         enviarPedido();
                         Close();

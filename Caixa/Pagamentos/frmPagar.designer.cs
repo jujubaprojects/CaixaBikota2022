@@ -126,6 +126,7 @@
             this.chkVlHaver.TabIndex = 22;
             this.chkVlHaver.Text = "Deixar valor em haver?";
             this.chkVlHaver.UseVisualStyleBackColor = true;
+            this.chkVlHaver.Visible = false;
             this.chkVlHaver.CheckedChanged += new System.EventHandler(this.ChkVlHaver_CheckedChanged);
             // 
             // labelJCS3

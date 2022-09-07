@@ -300,7 +300,7 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
-        public void insertPedido(string pDescricao, string pTipoPedido, int pSituacao, string pEnd = "", string pObs = "")
+        public void insertPedido(string pDescricao, string pTipoPedido, int pSituacao, string pEnd = "", string pObs = "", int pInseridoPor = 0)
         {
             string sql = queryInsertPedido();
 
@@ -313,15 +313,16 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pSituacao", pSituacao);
             sqlc.Parameters.AddWithValue("@pEndereco", pEnd);
             sqlc.Parameters.AddWithValue("@pObservacao", pObs);
+            sqlc.Parameters.AddWithValue("@pInseridoPor", pInseridoPor);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
         private string queryInsertPedido()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO PEDIDO (DESCRICAO, TIPO, SITUACAO, DT_INICIAL, ENDERECO, OBSERVACAO) VALUES ( ");
+            sql.Append("INSERT INTO PEDIDO (DESCRICAO, TIPO, SITUACAO, DT_INICIAL, ENDERECO, OBSERVACAO, INSERIDO_POR) VALUES ( ");
             //sql.Append("UPPER(@pDescricao), (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido), @pSituacao)");
-            sql.Append("UPPER(@pDescricao), (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido), @pSituacao, getdate(), @pEndereco, @pObservacao)");
+            sql.Append("UPPER(@pDescricao), (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido), @pSituacao, getdate(), @pEndereco, @pObservacao, @pInseridoPor)");
 
             return sql.ToString();
         }
@@ -672,7 +673,7 @@ namespace Caixa.SQL
             sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
             sql.Append("LEFT JOIN PRODUTO P2 ON(P2.ID = PED_ADD.PRODUTO) ");
             sql.Append("WHERE SITUACAO IN(1, 2) AND PP.ID IN(" + pPedidos + ") ");
-            sql.Append("GROUP BY PP.ID, PED_ADD.DESCRICAO, PP.QT_PRODUTO, P2.DESCRICAO, P2.VALOR, PED_ADD.QT_PRODUTO ");
+            sql.Append("GROUP BY PP.ID, PED_ADD.DESCRICAO, PP.QT_PRODUTO, P2.DESCRICAO, P2.VALOR, PED_ADD.QT_PRODUTO, PED_ADD.ID ");
             sql.Append(") AUX ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PP.ID = AUX.PED_PROD_ID) ");
             sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
@@ -808,7 +809,7 @@ namespace Caixa.SQL
             sql.Append("LEFT JOIN PAGAMENTO PAG ON(PAG.PEDIDO_PRODUTO = PP.ID) ");
             sql.Append("LEFT JOIN PRODUTO P2 ON(P2.ID = PED_ADD.PRODUTO) ");
             sql.Append("WHERE PP.SITUACAO IN(1, 2,8) AND PEDIDO =  @pPedidoID ");
-            sql.Append(" GROUP BY PP.ID, PED_ADD.DESCRICAO, PP.QT_PRODUTO, P2.DESCRICAO, P2.VALOR, PED_ADD.QT_PRODUTO ");
+            sql.Append(" GROUP BY PP.ID, PED_ADD.DESCRICAO, PP.QT_PRODUTO, P2.DESCRICAO, P2.VALOR, PED_ADD.QT_PRODUTO, PED_ADD.ID ");
             sql.Append(") AUX ");
             sql.Append("LEFT JOIN PEDIDO_PRODUTO PP ON(PP.ID = AUX.PED_PROD_ID) ");
             sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
