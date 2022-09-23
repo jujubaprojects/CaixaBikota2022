@@ -230,6 +230,26 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
+        public void reimprimirPedido(int pID)
+        {
+            string sql = queryReimprimirPedido();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryReimprimirPedido()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE PEDIDO_PRODUTO SET SITUACAO = 8 WHERE PEDIDO = @pID and SITUACAO != 0 ");
+
+            return sql.ToString();
+        }
+
         public void insertBalde(string pNome, string pEnd, string pTel, string pBalde, int pColher = 0)
         {
             string sql = queryInsertBalde(pNome, pEnd, pTel, pBalde);
@@ -1047,11 +1067,13 @@ namespace Caixa.SQL
             StringBuilder sql = new StringBuilder();
 
             sql.Append("SELECT PED.ID, PED.DESCRICAO DESCRICAO, (SELECT DESCRICAO FROM TIPO_PEDIDO WHERE ID =  PED.TIPO) TIPO, ");
-            sql.Append("PED.SITUACAO SITUACAO_ID, CASE WHEN SITUACAO BETWEEN 1 AND 3 THEN 'ABERTO' WHEN SITUACAO = 0 THEN 'CANCELADO' WHEN SITUACAO = 4 THEN 'PAGO' ELSE 'ENTREGA' END DESC_SITUACAO ");
+            sql.Append("PED.SITUACAO SITUACAO_ID, CASE WHEN SITUACAO BETWEEN 1 AND 3 THEN 'ABERTO' WHEN SITUACAO = 0 THEN 'CANCELADO' WHEN SITUACAO = 4 THEN 'PAGO' ELSE 'ENTREGA' END DESC_SITUACAO, CONCAT(ENDERECO, ' - ', OBSERVACAO) AS END_OBS ");
             sql.Append("FROM PEDIDO PED WHERE PED.ID = @pPedidoID ");
 
             return sql.ToString();
         }
+
+        
 
         public DataTable retornaDataTable(string pSQL)
             {
@@ -1220,7 +1242,7 @@ namespace Caixa.SQL
             sql.Append("RIGHT JOIN PRODUTO PFILHO ON(PPAI.TIPO = PFILHO.TIPO) ");
             sql.Append("RIGHT JOIN PEDIDO_PRODUTO PP ON(PP.PRODUTO = PFILHO.ID) ");
             sql.Append("RIGHT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
-            sql.Append("WHERE PP.SITUACAO = 3 AND convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
+            sql.Append("WHERE /*PP.SITUACAO = 3 AND*/ convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
             sql.Append("GROUP BY PPAI.DESCRICAO ");
             sql.Append("UNION ALL ");
             sql.Append("SELECT TP.DESCRICAO DESCRICAO, SUM(PG.VL_PAGO) VALOR, 2 TIPO ");
@@ -1228,7 +1250,7 @@ namespace Caixa.SQL
             sql.Append("JOIN PEDIDO_PRODUTO PP ON(PP.PRODUTO = PFILHO.ID) ");
             sql.Append("JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
             sql.Append("JOIN TIPO_PAGAMENTO TP ON (TP.ID = PG.TIPO_PAGAMENTO) ");
-            sql.Append("WHERE PP.SITUACAO = 3 AND convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
+            sql.Append("WHERE /*PP.SITUACAO = 3 AND*/ convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
             sql.Append("GROUP BY TP.DESCRICAO ");
             sql.Append("UNION ALL ");
             sql.Append("SELECT DESCRICAO, VALOR, 3 TIPO ");

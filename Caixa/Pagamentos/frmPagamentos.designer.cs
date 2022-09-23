@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPagarTudo = new Componentes.ButtonJCS(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblSituacao = new Componentes.LabelJCS(this.components);
+            this.txtEndereco = new Componentes.TextBoxJCS(this.components);
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
             this.txtVlTotal = new Componentes.TextBoxJCS(this.components);
             this.btnPagarSelecionados = new Componentes.ButtonJCS(this.components);
@@ -67,7 +68,7 @@
             // 
             this.panel2.Controls.Add(this.btnPagarTudo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 350);
+            this.panel2.Location = new System.Drawing.Point(0, 453);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(896, 100);
             this.panel2.TabIndex = 11;
@@ -92,6 +93,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.lblSituacao);
+            this.panel3.Controls.Add(this.txtEndereco);
             this.panel3.Controls.Add(this.labelJCS4);
             this.panel3.Controls.Add(this.txtVlTotal);
             this.panel3.Controls.Add(this.btnPagarSelecionados);
@@ -105,7 +107,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(896, 103);
+            this.panel3.Size = new System.Drawing.Size(896, 123);
             this.panel3.TabIndex = 12;
             // 
             // lblSituacao
@@ -113,11 +115,24 @@
             this.lblSituacao.AutoSize = true;
             this.lblSituacao.Font = new System.Drawing.Font("Calibri", 25F, System.Drawing.FontStyle.Bold);
             this.lblSituacao.ForeColor = System.Drawing.Color.Red;
-            this.lblSituacao.Location = new System.Drawing.Point(328, 51);
+            this.lblSituacao.Location = new System.Drawing.Point(328, 69);
             this.lblSituacao.Name = "lblSituacao";
             this.lblSituacao.Size = new System.Drawing.Size(319, 41);
             this.lblSituacao.TabIndex = 20;
             this.lblSituacao.Text = "PEDIDO: CANCELADO";
+            // 
+            // txtEndereco
+            // 
+            this.txtEndereco.BackColor = System.Drawing.Color.White;
+            this.txtEndereco.Enabled = false;
+            this.txtEndereco.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtEndereco.IconeKeyDown = null;
+            this.txtEndereco.Location = new System.Drawing.Point(170, 42);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Preenchimento = null;
+            this.txtEndereco.Size = new System.Drawing.Size(477, 24);
+            this.txtEndereco.TabIndex = 21;
+            this.txtEndereco.TipoCampo = null;
             // 
             // labelJCS4
             // 
@@ -151,7 +166,7 @@
             this.btnPagarSelecionados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagarSelecionados.Location = new System.Drawing.Point(658, 42);
             this.btnPagarSelecionados.Name = "btnPagarSelecionados";
-            this.btnPagarSelecionados.Size = new System.Drawing.Size(226, 54);
+            this.btnPagarSelecionados.Size = new System.Drawing.Size(226, 68);
             this.btnPagarSelecionados.TabIndex = 17;
             this.btnPagarSelecionados.Text = "Pagar Selecionados";
             this.btnPagarSelecionados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -246,14 +261,14 @@
             this.dgvProdutosAbertos.AllowUserToDeleteRows = false;
             this.dgvProdutosAbertos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutosAbertos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosAbertos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosAbertos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProdutosAbertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutosAbertos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPedidoProdutoID,
@@ -267,29 +282,29 @@
             this.colOrdem,
             this.colChkPagar,
             this.colCancelar});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutosAbertos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutosAbertos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutosAbertos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProdutosAbertos.EnableHeadersVisualStyles = false;
-            this.dgvProdutosAbertos.Location = new System.Drawing.Point(0, 103);
+            this.dgvProdutosAbertos.Location = new System.Drawing.Point(0, 123);
             this.dgvProdutosAbertos.Name = "dgvProdutosAbertos";
             this.dgvProdutosAbertos.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosAbertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosAbertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProdutosAbertos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvProdutosAbertos.Size = new System.Drawing.Size(896, 247);
+            this.dgvProdutosAbertos.Size = new System.Drawing.Size(896, 330);
             this.dgvProdutosAbertos.TabIndex = 13;
             this.dgvProdutosAbertos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutosAbertos_CellContentClick);
             this.dgvProdutosAbertos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProdutosAbertos_CellFormatting);
@@ -400,7 +415,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 450);
+            this.ClientSize = new System.Drawing.Size(896, 553);
             this.Controls.Add(this.dgvProdutosAbertos);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -445,5 +460,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrdem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colChkPagar;
         private System.Windows.Forms.DataGridViewImageColumn colCancelar;
+        private Componentes.TextBoxJCS txtEndereco;
     }
 }

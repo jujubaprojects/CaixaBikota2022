@@ -34,6 +34,7 @@ namespace Caixa
                 case 0:
                     dgvPedidos.Columns["colEditar"].Visible = true;
                     dgvPedidos.Columns["colCancelar"].Visible = true;
+                    dgvPedidos.Columns["colReimprimir"].Visible = true;
                     situacao = 1;
                     break;
 
@@ -41,6 +42,7 @@ namespace Caixa
                 case 1:
                     dgvPedidos.Columns["colEditar"].Visible = false;
                     dgvPedidos.Columns["colCancelar"].Visible = false;
+                    dgvPedidos.Columns["colReimprimir"].Visible = false;
                     situacao = 4;
                     break;
 
@@ -48,6 +50,7 @@ namespace Caixa
                 case 2:
                     dgvPedidos.Columns["colEditar"].Visible = false;
                     dgvPedidos.Columns["colCancelar"].Visible = false;
+                    dgvPedidos.Columns["colReimprimir"].Visible = false;
                     situacao = 0;
                     break;
             }
@@ -103,7 +106,7 @@ namespace Caixa
         {
             if (e.RowIndex > -1 && e.ColumnIndex == dgvPedidos.Columns["colCancelar"].Index && dgvPedidos.Rows.Count > 0 && e.RowIndex != dgvPedidos.Rows.Count)
             {
-                DialogResult result = MessageBox.Show("Deseja cancelar esse pedido?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Deseja cancelar este pedido?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
                     if (result == DialogResult.Yes)
                     {
@@ -131,6 +134,14 @@ namespace Caixa
                 frm.ShowDialog();
 
                 preencherPedidos();
+            }
+
+            if (e.RowIndex > -1 && e.ColumnIndex == dgvPedidos.Columns["colReimprimir"].Index && dgvPedidos.Rows.Count > 0 && e.RowIndex != dgvPedidos.Rows.Count && cboSituacao.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Deseja reimprimir este pedido?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    sqlAux.reimprimirPedido(int.Parse(dgvPedidos["colPedido", e.RowIndex].Value.ToString()));
+                }
             }
         }
 

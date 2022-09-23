@@ -75,8 +75,10 @@ namespace Caixa
             txtVlAberto.Text = auxVlAberto.ToString("0.00");
             txtVlPago.Text = auxVlPago.ToString("0.00");
             txtVlTotal.Text = (auxVlAberto + auxVlPago).ToString("0.00");
+            DataTable dtInfPedido = sqlAux.buscaInformacoesPedido(pedidoID);
 
-            lblSituacao.Text = "PEDIDO: " + sqlAux.buscaInformacoesPedido(pedidoID).Rows[0]["DESC_SITUACAO"].ToString();
+            lblSituacao.Text = "PEDIDO: " + dtInfPedido.Rows[0]["DESC_SITUACAO"].ToString();
+            txtEndereco.Text =  dtInfPedido.Rows[0]["END_OBS"].ToString();
         }
 
         private void DgvProdutosAbertos_CellContentClick(object sender, DataGridViewCellEventArgs e)
