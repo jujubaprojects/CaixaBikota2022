@@ -158,7 +158,7 @@ namespace Caixa
                             auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 8);
                         }
 
-                        enviarPedido();
+                        enviarPedido(8);
                         Close();
                     }
                 }
@@ -191,13 +191,13 @@ namespace Caixa
             }
         }
 
-        private void enviarPedido()
+        private void enviarPedido(int pSituacao)
         {
             int auxID = 0;
             for (int i = 0; i < dgvProdutos.Rows.Count-1; i++)
             {
                 auxID = int.Parse(dgvProdutos["colPedidoProdutoID", i].Value.ToString());
-                auxSQL.updateSituacaoPedidoProduto(auxID, 8, "");                
+                auxSQL.updateSituacaoPedidoProduto(auxID, pSituacao, "");                
             }
         }
 
@@ -255,9 +255,15 @@ namespace Caixa
             DataTable dt = auxSQL.buscaPedidoProdutoAberto(pID);
             dgvProdutos.DataSource = dt;
             if (dt.Rows.Count > 0)
+            {
                 btnEnviarPedido.Visible = true;
+                btnEnviarPedidoSemImprimir.Visible = true;
+            }
             else
+            {
                 btnEnviarPedido.Visible = false;
+                btnEnviarPedidoSemImprimir.Visible = false;
+            }
         }
 
         private void preencherCampos()
@@ -500,6 +506,26 @@ namespace Caixa
             txtObservacaoPedido.Text = "";
         }
 
+        private void BtnEnviarPedidoSemImprimir_Click(object sender, EventArgs e)
+        {
+            if (validarCampos() && dgvProdutos.Rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Deseja enviar o pedido pra cozinha?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        if (cboTipo.SelectedIndex == 2)
+                        {
+                            auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
+                            auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 2);
+                        }
+
+                        enviarPedido(2);
+                        Close();
+                    }
+                }
+            }
+        }
 
         private void CboDesc5_SelectedIndexChanged(object sender, EventArgs e)
         {

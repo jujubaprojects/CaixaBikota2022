@@ -47,6 +47,16 @@
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.txtObservacao = new Componentes.TextBoxJCS(this.components);
             this.dgvProdutos = new Componentes.DataGridViewJCS(this.components);
+            this.colPedidoProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colAddAdicionais = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.cboTipo = new Componentes.ComboBoxJCS(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -63,16 +73,7 @@
             this.cboDesc4 = new Componentes.ComboBoxJCS(this.components);
             this.txtEndereco = new Componentes.TextBoxJCS(this.components);
             this.txtObservacaoPedido = new Componentes.TextBoxJCS(this.components);
-            this.colPedidoProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdutoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colAddAdicionais = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnEnviarPedidoSemImprimir = new Componentes.ButtonJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -282,6 +283,91 @@
             this.dgvProdutos.TabIndex = 100;
             this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellClick);
             // 
+            // colPedidoProdutoID
+            // 
+            this.colPedidoProdutoID.DataPropertyName = "ID_PEDIDO_PRODUTO";
+            this.colPedidoProdutoID.HeaderText = "PedidoProduto";
+            this.colPedidoProdutoID.Name = "colPedidoProdutoID";
+            this.colPedidoProdutoID.ReadOnly = true;
+            this.colPedidoProdutoID.Visible = false;
+            this.colPedidoProdutoID.Width = 104;
+            // 
+            // colProdutoID
+            // 
+            this.colProdutoID.DataPropertyName = "ID_PRODUTO";
+            this.colProdutoID.HeaderText = "IDProduto";
+            this.colProdutoID.Name = "colProdutoID";
+            this.colProdutoID.ReadOnly = true;
+            this.colProdutoID.Visible = false;
+            this.colProdutoID.Width = 76;
+            // 
+            // colProduto
+            // 
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProduto.DataPropertyName = "PRODUTO";
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            this.colProduto.Width = 82;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            // 
+            // colTipo
+            // 
+            this.colTipo.DataPropertyName = "TIPO";
+            this.colTipo.HeaderText = "Tipo";
+            this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
+            this.colTipo.Visible = false;
+            this.colTipo.Width = 59;
+            // 
+            // colQuantidade
+            // 
+            this.colQuantidade.DataPropertyName = "QUANTIDADE";
+            this.colQuantidade.HeaderText = "Quant.";
+            this.colQuantidade.Name = "colQuantidade";
+            this.colQuantidade.ReadOnly = true;
+            this.colQuantidade.Width = 75;
+            // 
+            // colValor
+            // 
+            this.colValor.DataPropertyName = "VALOR";
+            this.colValor.HeaderText = "Valor";
+            this.colValor.Name = "colValor";
+            this.colValor.ReadOnly = true;
+            this.colValor.Width = 63;
+            // 
+            // colEditar
+            // 
+            this.colEditar.HeaderText = "Editar";
+            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_editar_20;
+            this.colEditar.Name = "colEditar";
+            this.colEditar.ReadOnly = true;
+            this.colEditar.Visible = false;
+            this.colEditar.Width = 49;
+            // 
+            // colAddAdicionais
+            // 
+            this.colAddAdicionais.HeaderText = "Add. Adicionais";
+            this.colAddAdicionais.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
+            this.colAddAdicionais.Name = "colAddAdicionais";
+            this.colAddAdicionais.ReadOnly = true;
+            this.colAddAdicionais.Width = 105;
+            // 
+            // colExcluir
+            // 
+            this.colExcluir.HeaderText = "Excluir";
+            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.colExcluir.Name = "colExcluir";
+            this.colExcluir.ReadOnly = true;
+            this.colExcluir.Width = 52;
+            // 
             // labelJCS1
             // 
             this.labelJCS1.AutoSize = true;
@@ -485,96 +571,30 @@
             this.txtObservacaoPedido.Visible = false;
             this.txtObservacaoPedido.Enter += new System.EventHandler(this.TxtObservacaoPedido_Enter);
             // 
-            // colPedidoProdutoID
+            // btnEnviarPedidoSemImprimir
             // 
-            this.colPedidoProdutoID.DataPropertyName = "ID_PEDIDO_PRODUTO";
-            this.colPedidoProdutoID.HeaderText = "PedidoProduto";
-            this.colPedidoProdutoID.Name = "colPedidoProdutoID";
-            this.colPedidoProdutoID.ReadOnly = true;
-            this.colPedidoProdutoID.Visible = false;
-            this.colPedidoProdutoID.Width = 104;
-            // 
-            // colProdutoID
-            // 
-            this.colProdutoID.DataPropertyName = "ID_PRODUTO";
-            this.colProdutoID.HeaderText = "IDProduto";
-            this.colProdutoID.Name = "colProdutoID";
-            this.colProdutoID.ReadOnly = true;
-            this.colProdutoID.Visible = false;
-            this.colProdutoID.Width = 76;
-            // 
-            // colProduto
-            // 
-            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProduto.DataPropertyName = "PRODUTO";
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            this.colProduto.Width = 82;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            // 
-            // colTipo
-            // 
-            this.colTipo.DataPropertyName = "TIPO";
-            this.colTipo.HeaderText = "Tipo";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            this.colTipo.Visible = false;
-            this.colTipo.Width = 59;
-            // 
-            // colQuantidade
-            // 
-            this.colQuantidade.DataPropertyName = "QUANTIDADE";
-            this.colQuantidade.HeaderText = "Quant.";
-            this.colQuantidade.Name = "colQuantidade";
-            this.colQuantidade.ReadOnly = true;
-            this.colQuantidade.Width = 75;
-            // 
-            // colValor
-            // 
-            this.colValor.DataPropertyName = "VALOR";
-            this.colValor.HeaderText = "Valor";
-            this.colValor.Name = "colValor";
-            this.colValor.ReadOnly = true;
-            this.colValor.Width = 63;
-            // 
-            // colEditar
-            // 
-            this.colEditar.HeaderText = "Editar";
-            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_editar_20;
-            this.colEditar.Name = "colEditar";
-            this.colEditar.ReadOnly = true;
-            this.colEditar.Visible = false;
-            this.colEditar.Width = 49;
-            // 
-            // colAddAdicionais
-            // 
-            this.colAddAdicionais.HeaderText = "Add. Adicionais";
-            this.colAddAdicionais.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
-            this.colAddAdicionais.Name = "colAddAdicionais";
-            this.colAddAdicionais.ReadOnly = true;
-            this.colAddAdicionais.Width = 105;
-            // 
-            // colExcluir
-            // 
-            this.colExcluir.HeaderText = "Excluir";
-            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.colExcluir.Name = "colExcluir";
-            this.colExcluir.ReadOnly = true;
-            this.colExcluir.Width = 52;
+            this.btnEnviarPedidoSemImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnviarPedidoSemImprimir.BackColor = System.Drawing.Color.Gold;
+            this.btnEnviarPedidoSemImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarPedidoSemImprimir.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEnviarPedidoSemImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarPedidoSemImprimir.Image")));
+            this.btnEnviarPedidoSemImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnviarPedidoSemImprimir.Location = new System.Drawing.Point(785, 189);
+            this.btnEnviarPedidoSemImprimir.Name = "btnEnviarPedidoSemImprimir";
+            this.btnEnviarPedidoSemImprimir.Size = new System.Drawing.Size(301, 24);
+            this.btnEnviarPedidoSemImprimir.TabIndex = 103;
+            this.btnEnviarPedidoSemImprimir.Text = "Enviar Pedido Sem Imprimir";
+            this.btnEnviarPedidoSemImprimir.UseVisualStyleBackColor = false;
+            this.btnEnviarPedidoSemImprimir.Visible = false;
+            this.btnEnviarPedidoSemImprimir.Click += new System.EventHandler(this.BtnEnviarPedidoSemImprimir_Click);
             // 
             // frmNovoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 499);
+            this.Controls.Add(this.btnEnviarPedidoSemImprimir);
             this.Controls.Add(this.txtObservacaoPedido);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.cboDesc6);
@@ -656,5 +676,6 @@
         private System.Windows.Forms.DataGridViewImageColumn colEditar;
         private System.Windows.Forms.DataGridViewImageColumn colAddAdicionais;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
+        private Componentes.ButtonJCS btnEnviarPedidoSemImprimir;
     }
 }
