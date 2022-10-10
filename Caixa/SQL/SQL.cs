@@ -230,6 +230,28 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
+        public void insertLinkProdutoxMateriaPrima(int pProduto, int pEstoque)
+        {
+            string sql = queryinsertLinkProdutoxMateriaPrima();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pEstoque", pEstoque);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryinsertLinkProdutoxMateriaPrima()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO SUB_ESTOQUE (PRODUTO, CONTROLE_ESTOQUE) ");
+            sql.Append("VALUES (@pProduto, @pEstoque)");
+
+            return sql.ToString();
+        }
+
         public void reimprimirPedido(int pID)
         {
             string sql = queryReimprimirPedido();
@@ -346,6 +368,39 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertControleEstoque(string pProduto, string pDescricao, int pQtEstoque, string pUnidade, int pQtEstoqueIdeal, int pEntregaFornecedor, double pCusto, bool pStatus)
+        {
+            string sql = queryInsertControleEstoque();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pQtEstoque", pQtEstoque);
+            sqlc.Parameters.AddWithValue("@pUnidade", pUnidade);
+            sqlc.Parameters.AddWithValue("@pQtEstoqueIdeal", pQtEstoqueIdeal);
+            sqlc.Parameters.AddWithValue("@pEntregaFornecedor", pEntregaFornecedor);
+            sqlc.Parameters.AddWithValue("@pCusto", pCusto);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+            //sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            //sqlc.Parameters.AddWithValue("@pSituacao", pSituacao);
+            //sqlc.Parameters.AddWithValue("@pEndereco", pEnd);
+            //sqlc.Parameters.AddWithValue("@pObservacao", pObs);
+            //sqlc.Parameters.AddWithValue("@pInseridoPor", pInseridoPor);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertControleEstoque()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO CONTROLE_ESTOQUE (PRODUTO, DESCRICAO, QT_ESTOQUE, UNIDADE_MEDIDA, QT_ESTOQUE_IDEAL, QT_ENTREGUE_FORNECEDOR, CUSTO, STATUS) VALUES ( ");
+            //sql.Append("UPPER(@pDescricao), (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido), @pSituacao)");
+            sql.Append("@pProduto, @pDescricao, @pQtEstoque, @pUnidade, @pQtEstoqueIdeal, @pEntregaFornecedor, @pCusto, @pStatus)");
+
+            return sql.ToString();
+        }
         public void insertCliente(string pNome, string pEnd, string pTel, int pSituacao)
         {
             string sql = queryInsertCliente();
@@ -390,6 +445,30 @@ namespace Caixa.SQL
             if (pID > 0)
                 sql.Append("WHERE ID = @pID ");
             sql.Append("ORDER BY NOME ");
+            return sql.ToString();
+        }
+
+        public DataTable buscaControleEstoque(int pID, int pStatus = 1)
+        {
+            string sql = queryBuscaControleEstoque(pID);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaControleEstoque(int pID)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, PRODUTO, DESCRICAO, QT_ESTOQUE, UNIDADE_MEDIDA, QT_ESTOQUE_IDEAL, QT_ENTREGUE_FORNECEDOR, CUSTO, STATUS ");
+            sql.Append("FROM CONTROLE_ESTOQUE WHERE STATUS = @pStatus ");
+            if (pID > 0)
+                sql.Append(" AND ID = @pID ");
+            sql.Append("ORDER BY PRODUTO, DESCRICAO ");
             return sql.ToString();
         }
         public DataTable buscaClienteInativo(string pNome)
@@ -520,6 +599,38 @@ namespace Caixa.SQL
             sql.Append("DESCRICAO = @pDescricao, ");
             sql.Append("TIPO = (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido) ");
             sql.Append("WHERE ID = @pPedidoProdutoID");
+
+            return sql.ToString();
+        }
+        public void updateControleEstoqueCusto(int pID, double pCusto = 0, int pSituacao = -1, int pAddEstoque = 0)
+        {
+            string sql = queryupdateControleEstoqueCusto(pID, pCusto, pSituacao, pAddEstoque);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pCusto", pCusto);
+            sqlc.Parameters.AddWithValue("@pSituacao", pSituacao);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryupdateControleEstoqueCusto(int pID, double pCusto = 0, int pSituacao = -1, int pAddEstoque = 0)
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE CONTROLE_ESTOQUE SET ");
+            if (pCusto != 0)
+                sql.Append("CUSTO = @pCusto,");
+            if (pSituacao != -1)
+                sql.Append("SITUACAO = @pSituacao,");
+            if (pAddEstoque > 0)
+                sql.Append("QT_ESTOQUE = QT_ESTOQUE + QT_ENTREGUE_FORNECEDOR,");
+            if (pAddEstoque < 0)
+                sql.Append("QT_ESTOQUE = QT_ESTOQUE -1,");
+            sql.Remove(sql.Length - 1, 1);
+            sql.Append(" WHERE ID = @pID");
 
             return sql.ToString();
         }

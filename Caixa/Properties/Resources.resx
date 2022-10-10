@@ -130,11 +130,17 @@
   <data name="icons8-adicionar-regra-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-adicionar-regra-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menos16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menos16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sweets_Ice_cream_Strawberry_White_background_Jug_521481_1920x1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sweets_Ice_cream_Strawberry_White_background_Jug_521481_1920x1080.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-sair-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-sair-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-cancelar-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-cancelar-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,6 +175,12 @@
   <data name="icons8-caixa-de-seleção-marcada-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-caixa-de-seleção-marcada-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="mais" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mais.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marketing-de-busca20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marketing-de-busca20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-contabilidade-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-contabilidade-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,11 +190,17 @@
   <data name="icons8-mais-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-mais-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-títulos-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-títulos-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shopping-cart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shopping-cart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="impressora 20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\impressora 20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-doar-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-doar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,6 +211,9 @@
   <data name="icons8-preço-baixo-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-preço-baixo-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="mais16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mais16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-equity-security-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-equity-security-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,7 +223,10 @@
   <data name="icons8-termos-e-condições-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-termos-e-condições-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="impressora 20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\impressora 20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelar16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelar16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mecanismo-de-pesquisa-na-web20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mecanismo-de-pesquisa-na-web20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

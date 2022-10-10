@@ -73,6 +73,26 @@ namespace Caixa.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelar {
+            get {
+                object obj = ResourceManager.GetObject("cancelar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancelar16x16 {
+            get {
+                object obj = ResourceManager.GetObject("cancelar16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_adicionar_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8-adicionar-20", resourceCulture);
@@ -316,6 +336,66 @@ namespace Caixa.Properties {
         internal static System.Drawing.Bitmap impressora_20x20 {
             get {
                 object obj = ResourceManager.GetObject("impressora 20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mais {
+            get {
+                object obj = ResourceManager.GetObject("mais", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mais16x16 {
+            get {
+                object obj = ResourceManager.GetObject("mais16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marketing_de_busca20x20 {
+            get {
+                object obj = ResourceManager.GetObject("marketing-de-busca20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mecanismo_de_pesquisa_na_web20x20 {
+            get {
+                object obj = ResourceManager.GetObject("mecanismo-de-pesquisa-na-web20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menos {
+            get {
+                object obj = ResourceManager.GetObject("menos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menos16x16 {
+            get {
+                object obj = ResourceManager.GetObject("menos16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

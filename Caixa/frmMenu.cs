@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Caixa.Cadastro;
 using Caixa.Caixa;
+using Caixa.Estoque;
 using Caixa.Reports;
 using Componentes;
 using Npgsql;
@@ -328,6 +329,21 @@ namespace Caixa
         private void RecebimentoDeNotaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmPagarNota frm = new frmPagarNota();
+            frm.ShowDialog();
+        }
+
+        private void EstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (acessoFrmsRestrito())
+            //{
+                frmControleEstoque frm = new frmControleEstoque();
+                frm.ShowDialog();
+            //}
+        }
+
+        private void LinkEstoqueXProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
             frm.ShowDialog();
         }
     }
