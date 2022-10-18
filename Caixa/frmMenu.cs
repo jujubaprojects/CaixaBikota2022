@@ -346,5 +346,11 @@ namespace Caixa
             frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
             frm.ShowDialog();
         }
+
+        private void ProdutosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmCadastroProduto frm = new frmCadastroProduto();
+            frm.ShowDialog();
+        }
     }
 }

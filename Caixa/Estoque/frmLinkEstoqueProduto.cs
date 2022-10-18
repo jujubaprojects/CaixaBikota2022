@@ -68,7 +68,7 @@ namespace Caixa.Estoque
         {
             if (materiaVal && produtoVal)
             {
-                auxSQL.insertLinkProdutoxMateriaPrima(int.Parse(txtIDProd.Text), int.Parse(txtIdEstoque.Text));
+                auxSQL.insertLinkProdutoxMateriaPrima(int.Parse(txtIDProd.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtSub.Text));
                 MessageBox.Show("Link criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 preencherCampos();
                 limparCampos();
@@ -87,7 +87,7 @@ namespace Caixa.Estoque
         private void preencherCampos()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT SE.ID, P.DESCRICAO AS PRODUTO, CONCAT(CE.PRODUTO, ' - ', CE.DESCRICAO) AS MATERIA_PRIMA ");
+            sql.Append("SELECT SE.ID, P.DESCRICAO AS PRODUTO, CONCAT(CE.PRODUTO, ' - ', CE.DESCRICAO) AS MATERIA_PRIMA, QT_SUB ");
             sql.Append("FROM PRODUTO P ");
             sql.Append("JOIN SUB_ESTOQUE SE ON(P.ID = SE.PRODUTO) ");
             sql.Append("JOIN CONTROLE_ESTOQUE CE ON(CE.ID = SE.CONTROLE_ESTOQUE) ");

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
             this.txtIDProd = new Componentes.TextBoxJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
@@ -43,9 +43,12 @@
             this.btnBuscaMateriaPrima = new Componentes.ButtonJCS(this.components);
             this.btnBuscaProduto = new Componentes.ButtonJCS(this.components);
             this.btnLinkar = new Componentes.ButtonJCS(this.components);
+            this.txtQtSub = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMateriaPrima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtSub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.SuspendLayout();
@@ -57,44 +60,45 @@
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLink.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLink.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colProduto,
             this.colMateriaPrima,
+            this.colQtSub,
             this.colExcluir});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLink.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvLink.EnableHeadersVisualStyles = false;
-            this.dgvLink.Location = new System.Drawing.Point(0, 188);
+            this.dgvLink.Location = new System.Drawing.Point(0, 204);
             this.dgvLink.Name = "dgvLink";
             this.dgvLink.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLink.RowHeadersVisible = false;
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLink.Size = new System.Drawing.Size(695, 262);
+            this.dgvLink.Size = new System.Drawing.Size(695, 358);
             this.dgvLink.TabIndex = 47;
             // 
             // txtIDProd
@@ -214,13 +218,36 @@
             this.btnLinkar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.btnLinkar.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_96;
             this.btnLinkar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLinkar.Location = new System.Drawing.Point(12, 75);
+            this.btnLinkar.Location = new System.Drawing.Point(12, 110);
             this.btnLinkar.Name = "btnLinkar";
             this.btnLinkar.Size = new System.Drawing.Size(671, 88);
             this.btnLinkar.TabIndex = 53;
             this.btnLinkar.Text = "Linkar Produto Final a Materia Prima";
             this.btnLinkar.UseVisualStyleBackColor = false;
             this.btnLinkar.Click += new System.EventHandler(this.BtnLinkar_Click);
+            // 
+            // txtQtSub
+            // 
+            this.txtQtSub.BackColor = System.Drawing.Color.White;
+            this.txtQtSub.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtQtSub.IconeKeyDown = null;
+            this.txtQtSub.Location = new System.Drawing.Point(112, 75);
+            this.txtQtSub.Name = "txtQtSub";
+            this.txtQtSub.Preenchimento = null;
+            this.txtQtSub.Size = new System.Drawing.Size(47, 24);
+            this.txtQtSub.TabIndex = 54;
+            this.txtQtSub.Text = "1";
+            this.txtQtSub.TipoCampo = "INTEIRO";
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(24, 78);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(82, 17);
+            this.labelJCS3.TabIndex = 55;
+            this.labelJCS3.Text = "Qt. Subtrair:";
             // 
             // colID
             // 
@@ -247,6 +274,14 @@
             this.colMateriaPrima.Name = "colMateriaPrima";
             this.colMateriaPrima.ReadOnly = true;
             // 
+            // colQtSub
+            // 
+            this.colQtSub.DataPropertyName = "QT_SUB";
+            this.colQtSub.HeaderText = "Qt. Sub.";
+            this.colQtSub.Name = "colQtSub";
+            this.colQtSub.ReadOnly = true;
+            this.colQtSub.Width = 82;
+            // 
             // colExcluir
             // 
             this.colExcluir.HeaderText = "Excluir";
@@ -259,7 +294,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 450);
+            this.ClientSize = new System.Drawing.Size(695, 562);
+            this.Controls.Add(this.labelJCS3);
+            this.Controls.Add(this.txtQtSub);
             this.Controls.Add(this.btnLinkar);
             this.Controls.Add(this.btnBuscaMateriaPrima);
             this.Controls.Add(this.txtDescricaoEstoque);
@@ -290,10 +327,13 @@
         private Componentes.TextBoxJCS txtDescricaoEstoque;
         private Componentes.TextBoxJCS txtIdEstoque;
         private Componentes.ButtonJCS btnBuscaMateriaPrima;
+        private Componentes.ButtonJCS btnLinkar;
+        private Componentes.TextBoxJCS txtQtSub;
+        private Componentes.LabelJCS labelJCS3;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMateriaPrima;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQtSub;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
-        private Componentes.ButtonJCS btnLinkar;
     }
 }

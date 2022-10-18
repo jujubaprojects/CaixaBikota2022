@@ -29,19 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEstoque = new Componentes.DataGridViewJCS(this.components);
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtEstoqueIdeal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtEntregueFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtProduto = new Componentes.TextBoxJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
@@ -61,6 +52,21 @@
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAdd = new Componentes.ButtonJCS(this.components);
+            this.labelJCS8 = new Componentes.LabelJCS(this.components);
+            this.dtpDataEntrega = new Componentes.dateTimePickerJCS(this.components);
+            this.txtFornecedor = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS9 = new Componentes.LabelJCS(this.components);
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtEstoqueIdeal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtEntregueFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAumentarEstoque = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDiminuirEstoque = new System.Windows.Forms.DataGridViewImageColumn();
             this.colAlterar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -78,14 +84,14 @@
             this.dgvEstoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEstoque.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEstoque.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEstoque.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEstoque.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEstoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstoque.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -96,118 +102,38 @@
             this.colQtEstoqueIdeal,
             this.colQtEntregueFornecedor,
             this.colCusto,
+            this.colFornecedor,
+            this.colData,
             this.STATUS,
             this.colAumentarEstoque,
             this.colDiminuirEstoque,
             this.colAlterar,
             this.colDesativar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEstoque.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEstoque.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEstoque.EnableHeadersVisualStyles = false;
-            this.dgvEstoque.Location = new System.Drawing.Point(0, 124);
+            this.dgvEstoque.Location = new System.Drawing.Point(0, 143);
             this.dgvEstoque.Name = "dgvEstoque";
             this.dgvEstoque.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEstoque.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEstoque.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEstoque.RowHeadersVisible = false;
             this.dgvEstoque.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstoque.Size = new System.Drawing.Size(800, 326);
+            this.dgvEstoque.Size = new System.Drawing.Size(800, 307);
             this.dgvEstoque.TabIndex = 44;
             this.dgvEstoque.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEstoque_CellClick);
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            this.colID.Width = 27;
-            // 
-            // colProduto
-            // 
-            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProduto.DataPropertyName = "PRODUTO";
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            this.colProduto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            this.colDescricao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colEstoque
-            // 
-            this.colEstoque.DataPropertyName = "QT_ESTOQUE";
-            this.colEstoque.HeaderText = "QT. Estoque";
-            this.colEstoque.Name = "colEstoque";
-            this.colEstoque.ReadOnly = true;
-            this.colEstoque.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colEstoque.Width = 105;
-            // 
-            // colUnidadeMedida
-            // 
-            this.colUnidadeMedida.DataPropertyName = "UNIDADE_MEDIDA";
-            this.colUnidadeMedida.HeaderText = "Unidade";
-            this.colUnidadeMedida.Name = "colUnidadeMedida";
-            this.colUnidadeMedida.ReadOnly = true;
-            this.colUnidadeMedida.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colUnidadeMedida.Visible = false;
-            this.colUnidadeMedida.Width = 83;
-            // 
-            // colQtEstoqueIdeal
-            // 
-            this.colQtEstoqueIdeal.DataPropertyName = "QT_ESTOQUE_IDEAL";
-            this.colQtEstoqueIdeal.HeaderText = "Estoque Ideal";
-            this.colQtEstoqueIdeal.Name = "colQtEstoqueIdeal";
-            this.colQtEstoqueIdeal.ReadOnly = true;
-            this.colQtEstoqueIdeal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colQtEstoqueIdeal.Width = 114;
-            // 
-            // colQtEntregueFornecedor
-            // 
-            this.colQtEntregueFornecedor.DataPropertyName = "QT_ENTREGUE_FORNECEDOR";
-            this.colQtEntregueFornecedor.HeaderText = "QT. Entregue";
-            this.colQtEntregueFornecedor.Name = "colQtEntregueFornecedor";
-            this.colQtEntregueFornecedor.ReadOnly = true;
-            this.colQtEntregueFornecedor.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colQtEntregueFornecedor.Width = 110;
-            // 
-            // colCusto
-            // 
-            this.colCusto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colCusto.DataPropertyName = "CUSTO";
-            this.colCusto.HeaderText = "Custo";
-            this.colCusto.Name = "colCusto";
-            this.colCusto.ReadOnly = true;
-            this.colCusto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "STATUS";
-            this.STATUS.HeaderText = "colStatus";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.ReadOnly = true;
-            this.STATUS.Visible = false;
-            this.STATUS.Width = 88;
             // 
             // txtProduto
             // 
@@ -219,7 +145,7 @@
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Preenchimento = null;
             this.txtProduto.Size = new System.Drawing.Size(324, 24);
-            this.txtProduto.TabIndex = 45;
+            this.txtProduto.TabIndex = 0;
             this.txtProduto.TipoCampo = "STRING";
             // 
             // labelJCS1
@@ -252,7 +178,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Preenchimento = null;
             this.txtDescricao.Size = new System.Drawing.Size(280, 24);
-            this.txtDescricao.TabIndex = 48;
+            this.txtDescricao.TabIndex = 1;
             this.txtDescricao.TipoCampo = "STRING";
             // 
             // labelJCS3
@@ -274,7 +200,7 @@
             this.txtQTEstoque.Name = "txtQTEstoque";
             this.txtQTEstoque.Preenchimento = null;
             this.txtQTEstoque.Size = new System.Drawing.Size(126, 24);
-            this.txtQTEstoque.TabIndex = 50;
+            this.txtQTEstoque.TabIndex = 2;
             this.txtQTEstoque.TipoCampo = "INTEIRO";
             // 
             // txtUnidadeMedida
@@ -287,7 +213,7 @@
             this.txtUnidadeMedida.Name = "txtUnidadeMedida";
             this.txtUnidadeMedida.Preenchimento = null;
             this.txtUnidadeMedida.Size = new System.Drawing.Size(124, 24);
-            this.txtUnidadeMedida.TabIndex = 52;
+            this.txtUnidadeMedida.TabIndex = 3;
             this.txtUnidadeMedida.TipoCampo = "STRING";
             // 
             // labelJCS4
@@ -309,7 +235,7 @@
             this.txtEstoqueIdeaal.Name = "txtEstoqueIdeaal";
             this.txtEstoqueIdeaal.Preenchimento = null;
             this.txtEstoqueIdeaal.Size = new System.Drawing.Size(126, 24);
-            this.txtEstoqueIdeaal.TabIndex = 54;
+            this.txtEstoqueIdeaal.TabIndex = 4;
             this.txtEstoqueIdeaal.TipoCampo = "INTEIRO";
             // 
             // labelJCS5
@@ -331,7 +257,7 @@
             this.txtCusto.Name = "txtCusto";
             this.txtCusto.Preenchimento = null;
             this.txtCusto.Size = new System.Drawing.Size(126, 24);
-            this.txtCusto.TabIndex = 56;
+            this.txtCusto.TabIndex = 5;
             this.txtCusto.TipoCampo = "MONETARIO";
             // 
             // labelJCS6
@@ -353,7 +279,7 @@
             this.txtQtEntregueFornecedor.Name = "txtQtEntregueFornecedor";
             this.txtQtEntregueFornecedor.Preenchimento = null;
             this.txtQtEntregueFornecedor.Size = new System.Drawing.Size(126, 24);
-            this.txtQtEntregueFornecedor.TabIndex = 58;
+            this.txtQtEntregueFornecedor.TabIndex = 6;
             this.txtQtEntregueFornecedor.TipoCampo = "INTEIRO";
             // 
             // labelJCS7
@@ -402,16 +328,160 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Gold;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.btnAdd.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.Location = new System.Drawing.Point(640, 42);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(148, 54);
-            this.btnAdd.TabIndex = 59;
+            this.btnAdd.Size = new System.Drawing.Size(148, 84);
+            this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Adicionar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            // 
+            // labelJCS8
+            // 
+            this.labelJCS8.AutoSize = true;
+            this.labelJCS8.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS8.Location = new System.Drawing.Point(33, 105);
+            this.labelJCS8.Name = "labelJCS8";
+            this.labelJCS8.Size = new System.Drawing.Size(40, 17);
+            this.labelJCS8.TabIndex = 61;
+            this.labelJCS8.Text = "Data:";
+            // 
+            // dtpDataEntrega
+            // 
+            this.dtpDataEntrega.CustomFormat = "dd/MM/yyyy";
+            this.dtpDataEntrega.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpDataEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDataEntrega.Location = new System.Drawing.Point(79, 102);
+            this.dtpDataEntrega.Name = "dtpDataEntrega";
+            this.dtpDataEntrega.Size = new System.Drawing.Size(126, 24);
+            this.dtpDataEntrega.TabIndex = 7;
+            // 
+            // txtFornecedor
+            // 
+            this.txtFornecedor.BackColor = System.Drawing.Color.White;
+            this.txtFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtFornecedor.IconeKeyDown = null;
+            this.txtFornecedor.Location = new System.Drawing.Point(304, 102);
+            this.txtFornecedor.Name = "txtFornecedor";
+            this.txtFornecedor.Preenchimento = null;
+            this.txtFornecedor.Size = new System.Drawing.Size(330, 24);
+            this.txtFornecedor.TabIndex = 8;
+            this.txtFornecedor.TipoCampo = "STRING";
+            // 
+            // labelJCS9
+            // 
+            this.labelJCS9.AutoSize = true;
+            this.labelJCS9.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS9.Location = new System.Drawing.Point(218, 105);
+            this.labelJCS9.Name = "labelJCS9";
+            this.labelJCS9.Size = new System.Drawing.Size(80, 17);
+            this.labelJCS9.TabIndex = 63;
+            this.labelJCS9.Text = "Fornecedor:";
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            this.colID.Width = 27;
+            // 
+            // colProduto
+            // 
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProduto.DataPropertyName = "PRODUTO";
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            this.colProduto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colProduto.Width = 82;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            this.colDescricao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colDescricao.Width = 90;
+            // 
+            // colEstoque
+            // 
+            this.colEstoque.DataPropertyName = "QT_ESTOQUE";
+            this.colEstoque.HeaderText = "QT. Estoque";
+            this.colEstoque.Name = "colEstoque";
+            this.colEstoque.ReadOnly = true;
+            this.colEstoque.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colEstoque.Width = 105;
+            // 
+            // colUnidadeMedida
+            // 
+            this.colUnidadeMedida.DataPropertyName = "UNIDADE_MEDIDA";
+            this.colUnidadeMedida.HeaderText = "Unidade";
+            this.colUnidadeMedida.Name = "colUnidadeMedida";
+            this.colUnidadeMedida.ReadOnly = true;
+            this.colUnidadeMedida.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colUnidadeMedida.Visible = false;
+            this.colUnidadeMedida.Width = 83;
+            // 
+            // colQtEstoqueIdeal
+            // 
+            this.colQtEstoqueIdeal.DataPropertyName = "QT_ESTOQUE_IDEAL";
+            this.colQtEstoqueIdeal.HeaderText = "Estoque Ideal";
+            this.colQtEstoqueIdeal.Name = "colQtEstoqueIdeal";
+            this.colQtEstoqueIdeal.ReadOnly = true;
+            this.colQtEstoqueIdeal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colQtEstoqueIdeal.Width = 114;
+            // 
+            // colQtEntregueFornecedor
+            // 
+            this.colQtEntregueFornecedor.DataPropertyName = "QT_ENTREGUE_FORNECEDOR";
+            this.colQtEntregueFornecedor.HeaderText = "QT. Entregue";
+            this.colQtEntregueFornecedor.Name = "colQtEntregueFornecedor";
+            this.colQtEntregueFornecedor.ReadOnly = true;
+            this.colQtEntregueFornecedor.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colQtEntregueFornecedor.Width = 110;
+            // 
+            // colCusto
+            // 
+            this.colCusto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colCusto.DataPropertyName = "CUSTO";
+            this.colCusto.HeaderText = "Custo";
+            this.colCusto.Name = "colCusto";
+            this.colCusto.ReadOnly = true;
+            this.colCusto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colCusto.Width = 67;
+            // 
+            // colFornecedor
+            // 
+            this.colFornecedor.DataPropertyName = "FORNECEDOR";
+            this.colFornecedor.HeaderText = "Fornecedor";
+            this.colFornecedor.Name = "colFornecedor";
+            this.colFornecedor.ReadOnly = true;
+            this.colFornecedor.Width = 101;
+            // 
+            // colData
+            // 
+            this.colData.DataPropertyName = "DATA_ENTREGA";
+            this.colData.HeaderText = "Ult. Entrega";
+            this.colData.Name = "colData";
+            this.colData.ReadOnly = true;
+            this.colData.Width = 103;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "colStatus";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            this.STATUS.Visible = false;
+            this.STATUS.Width = 88;
             // 
             // colAumentarEstoque
             // 
@@ -450,6 +520,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtFornecedor);
+            this.Controls.Add(this.labelJCS9);
+            this.Controls.Add(this.dtpDataEntrega);
+            this.Controls.Add(this.labelJCS8);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtQtEntregueFornecedor);
             this.Controls.Add(this.labelJCS7);
@@ -495,6 +569,11 @@
         private Componentes.TextBoxJCS txtQtEntregueFornecedor;
         private Componentes.LabelJCS labelJCS7;
         private Componentes.ButtonJCS btnAdd;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
+        private Componentes.LabelJCS labelJCS8;
+        private Componentes.dateTimePickerJCS dtpDataEntrega;
+        private Componentes.TextBoxJCS txtFornecedor;
+        private Componentes.LabelJCS labelJCS9;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
@@ -503,11 +582,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtEstoqueIdeal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtEntregueFornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCusto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colData;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewImageColumn colAumentarEstoque;
         private System.Windows.Forms.DataGridViewImageColumn colDiminuirEstoque;
         private System.Windows.Forms.DataGridViewImageColumn colAlterar;
         private System.Windows.Forms.DataGridViewImageColumn colDesativar;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
     }
 }
