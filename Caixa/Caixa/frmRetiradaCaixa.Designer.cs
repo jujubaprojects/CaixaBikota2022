@@ -73,6 +73,7 @@
             // txtDescricao
             // 
             this.txtDescricao.BackColor = System.Drawing.Color.White;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescricao.IconeKeyDown = null;
             this.txtDescricao.Location = new System.Drawing.Point(87, 42);

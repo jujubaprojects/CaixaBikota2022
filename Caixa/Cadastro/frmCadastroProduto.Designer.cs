@@ -45,13 +45,13 @@
             this.labelJCS6 = new Componentes.LabelJCS(this.components);
             this.txtQtSubEstoque = new Componentes.TextBoxJCS(this.components);
             this.dgvProdutos = new Componentes.DataGridViewJCS(this.components);
-            this.cboExibirApp = new Componentes.ComboBoxJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQtDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExibirApp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQtSub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboExibirApp = new Componentes.ComboBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +73,7 @@
             this.txtID.IconeKeyDown = null;
             this.txtID.Location = new System.Drawing.Point(79, 59);
             this.txtID.Name = "txtID";
-            this.txtID.Preenchimento = null;
+            this.txtID.Preenchimento = "";
             this.txtID.Size = new System.Drawing.Size(100, 24);
             this.txtID.TabIndex = 2;
             this.txtID.TipoCampo = "INTEIRO";
@@ -120,7 +120,7 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BackColor = System.Drawing.Color.White;
+            this.txtDescricao.BackColor = System.Drawing.Color.LightYellow;
             this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescricao.IconeKeyDown = null;
             this.txtDescricao.Location = new System.Drawing.Point(185, 59);
@@ -142,7 +142,7 @@
             // 
             // txtValor
             // 
-            this.txtValor.BackColor = System.Drawing.Color.White;
+            this.txtValor.BackColor = System.Drawing.Color.Red;
             this.txtValor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtValor.IconeKeyDown = null;
             this.txtValor.Location = new System.Drawing.Point(79, 118);
@@ -154,7 +154,7 @@
             // 
             // txtQtDesc
             // 
-            this.txtQtDesc.BackColor = System.Drawing.Color.White;
+            this.txtQtDesc.BackColor = System.Drawing.Color.Red;
             this.txtQtDesc.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQtDesc.IconeKeyDown = null;
             this.txtQtDesc.Location = new System.Drawing.Point(442, 89);
@@ -162,7 +162,7 @@
             this.txtQtDesc.Preenchimento = "Required";
             this.txtQtDesc.Size = new System.Drawing.Size(100, 24);
             this.txtQtDesc.TabIndex = 10;
-            this.txtQtDesc.TipoCampo = "INTEIRO";
+            this.txtQtDesc.TipoCampo = "";
             // 
             // labelJCS6
             // 
@@ -176,7 +176,7 @@
             // 
             // txtQtSubEstoque
             // 
-            this.txtQtSubEstoque.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtQtSubEstoque.BackColor = System.Drawing.Color.Red;
             this.txtQtSubEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQtSubEstoque.IconeKeyDown = null;
             this.txtQtSubEstoque.Location = new System.Drawing.Point(442, 119);
@@ -234,19 +234,6 @@
             this.dgvProdutos.TabIndex = 14;
             this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellClick);
             // 
-            // cboExibirApp
-            // 
-            this.cboExibirApp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboExibirApp.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.cboExibirApp.FormattingEnabled = true;
-            this.cboExibirApp.Items.AddRange(new object[] {
-            "NÃO",
-            "SIM"});
-            this.cboExibirApp.Location = new System.Drawing.Point(262, 89);
-            this.cboExibirApp.Name = "cboExibirApp";
-            this.cboExibirApp.Size = new System.Drawing.Size(100, 23);
-            this.cboExibirApp.TabIndex = 15;
-            // 
             // colID
             // 
             this.colID.DataPropertyName = "ID";
@@ -289,6 +276,19 @@
             this.colQtSub.HeaderText = "QT. Sub.";
             this.colQtSub.Name = "colQtSub";
             this.colQtSub.Width = 83;
+            // 
+            // cboExibirApp
+            // 
+            this.cboExibirApp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboExibirApp.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboExibirApp.FormattingEnabled = true;
+            this.cboExibirApp.Items.AddRange(new object[] {
+            "NÃO",
+            "SIM"});
+            this.cboExibirApp.Location = new System.Drawing.Point(262, 89);
+            this.cboExibirApp.Name = "cboExibirApp";
+            this.cboExibirApp.Size = new System.Drawing.Size(100, 23);
+            this.cboExibirApp.TabIndex = 15;
             // 
             // frmCadastroProduto
             // 

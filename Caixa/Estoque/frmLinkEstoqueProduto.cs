@@ -46,7 +46,7 @@ namespace Caixa.Estoque
         private void BtnBuscaMateriaPrima_Click(object sender, EventArgs e)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ID, PRODUTO, DESCRICAO, UNIDADE_MEDIDA FROM CONTROLE_ESTOQUE");
+            sql.Append("SELECT ID, PRODUTO, DESCRICAO, UNIDADE_MEDIDA FROM CONTROLE_ESTOQUE order by PRODUTO");
 
             frmBusca frm = new frmBusca(sql, "Materia Prima");
             frm.ShowDialog();
@@ -68,6 +68,13 @@ namespace Caixa.Estoque
         {
             if (materiaVal && produtoVal)
             {
+                DataTable dt = auxSQL.retornaDataTable("select * from SUB_ESTOQUE where produto = " + int.Parse(txtIDProd.Text) + "  and CONTROLE_ESTOQUE = " + int.Parse(txtIdEstoque.Text));
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Este link já foi cadastrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                //if ()
                 auxSQL.insertLinkProdutoxMateriaPrima(int.Parse(txtIDProd.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtSub.Text));
                 MessageBox.Show("Link criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 preencherCampos();
@@ -90,7 +97,7 @@ namespace Caixa.Estoque
             sql.Append("SELECT SE.ID, P.DESCRICAO AS PRODUTO, CONCAT(CE.PRODUTO, ' - ', CE.DESCRICAO) AS MATERIA_PRIMA, QT_SUB ");
             sql.Append("FROM PRODUTO P ");
             sql.Append("JOIN SUB_ESTOQUE SE ON(P.ID = SE.PRODUTO) ");
-            sql.Append("JOIN CONTROLE_ESTOQUE CE ON(CE.ID = SE.CONTROLE_ESTOQUE) ");
+            sql.Append("JOIN CONTROLE_ESTOQUE CE ON(CE.ID = SE.CONTROLE_ESTOQUE) ORDER BY PRODUTO ");
             dgvLink.DataSource = auxSQL.retornaDataTable(sql.ToString());
         }
     }

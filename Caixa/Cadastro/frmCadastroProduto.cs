@@ -119,8 +119,12 @@ namespace Caixa.Cadastro
 
         private void DgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = int.Parse(dgvProdutos["colID", e.RowIndex].Value.ToString());
-            produto = dgvProdutos["colDescricao", e.RowIndex].Value.ToString();
+            if (e.RowIndex > -1)
+            {
+                id = int.Parse(dgvProdutos["colID", e.RowIndex].Value.ToString());
+                produto = dgvProdutos["colDescricao", e.RowIndex].Value.ToString();
+            }
+
         }
     }
 }

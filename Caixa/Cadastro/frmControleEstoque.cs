@@ -48,7 +48,7 @@ namespace Caixa.Cadastro
                 DialogResult result = MessageBox.Show("Deseja desativar o ' + " + dgvEstoque["colProduto", e.RowIndex].Value.ToString() + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    auxSQL.updateControleEstoqueCusto(int.Parse(dgvEstoque["colID", e.RowIndex].Value.ToString()), 0, 0);
+                    auxSQL.updateControleEstoqueCusto(int.Parse(dgvEstoque["colID", e.RowIndex].Value.ToString()));
                     preencherCampos();
                 }
             }
@@ -57,7 +57,7 @@ namespace Caixa.Cadastro
                 DialogResult result = MessageBox.Show("Deseja adicionar  + " + dgvEstoque["colQtEntregueFornecedor", e.RowIndex].Value.ToString() + " ao estoque?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    auxSQL.updateControleEstoqueCusto(int.Parse(dgvEstoque["colID", e.RowIndex].Value.ToString()), 0, 0, 0, "", "", -1, 1);
+                    auxSQL.updateControleEstoqueCusto(int.Parse(dgvEstoque["colID", e.RowIndex].Value.ToString()),"", 0, 0, 0, "","", "", -1, 1);
                     preencherCampos();
                 }
             }
@@ -66,7 +66,7 @@ namespace Caixa.Cadastro
                 DialogResult result = MessageBox.Show("Deseja subtrair 1 - " + dgvEstoque["colProduto", e.RowIndex].Value.ToString() + " ao estoque?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    auxSQL.updateControleEstoqueCusto(int.Parse(dgvEstoque["colID", e.RowIndex].Value.ToString()), 0, 0, 0, "", "", -1, -1);
+                    auxSQL.updateControleEstoqueCusto(int.Parse(dgvEstoque["colID", e.RowIndex].Value.ToString()), "", 0, 0, 0, "", "", "", -1, -1);
                     preencherCampos();
                 }
             }
@@ -96,7 +96,7 @@ namespace Caixa.Cadastro
                 else
                 {
 
-                    auxSQL.updateControleEstoqueCusto(id, estoque, estoqueIdeal, custo, fornecedor, dataEntrega.ToString(), -1, 0);
+                    auxSQL.updateControleEstoqueCusto(id,produto, estoque, estoqueIdeal, custo, unidade, fornecedor, dataEntrega.ToString(), -1, 0);
                     //auxSQL.updateControleEstoqueCusto(id, estoque, estoqueIdeal, custo, fonecedor);
                     MessageBox.Show("Produto criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -163,7 +163,7 @@ namespace Caixa.Cadastro
             fornecedor = txtFornecedor.Text;
             dataEntrega = DateTime.Parse(dtpDataEntrega.Text);
 
-            if (estoque <= 0)
+            if (estoque < 0)
             {
                 MessageBox.Show("Por favor, preencha o campo de estoque.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;

@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMateriaPrima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtSub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtIDProd = new Componentes.TextBoxJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtProduto = new Componentes.TextBoxJCS(this.components);
@@ -45,11 +50,6 @@
             this.btnLinkar = new Componentes.ButtonJCS(this.components);
             this.txtQtSub = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMateriaPrima = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtSub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,17 +57,20 @@
             // 
             this.dgvLink.AllowUserToAddRows = false;
             this.dgvLink.AllowUserToDeleteRows = false;
+            this.dgvLink.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLink.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLink.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -75,179 +78,30 @@
             this.colMateriaPrima,
             this.colQtSub,
             this.colExcluir});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLink.Dock = System.Windows.Forms.DockStyle.Bottom;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvLink.EnableHeadersVisualStyles = false;
             this.dgvLink.Location = new System.Drawing.Point(0, 204);
             this.dgvLink.Name = "dgvLink";
             this.dgvLink.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLink.RowHeadersVisible = false;
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLink.Size = new System.Drawing.Size(695, 358);
             this.dgvLink.TabIndex = 47;
-            // 
-            // txtIDProd
-            // 
-            this.txtIDProd.BackColor = System.Drawing.Color.White;
-            this.txtIDProd.Enabled = false;
-            this.txtIDProd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtIDProd.IconeKeyDown = null;
-            this.txtIDProd.Location = new System.Drawing.Point(112, 15);
-            this.txtIDProd.Name = "txtIDProd";
-            this.txtIDProd.Preenchimento = null;
-            this.txtIDProd.Size = new System.Drawing.Size(47, 24);
-            this.txtIDProd.TabIndex = 44;
-            this.txtIDProd.TipoCampo = "STRING";
-            // 
-            // labelJCS1
-            // 
-            this.labelJCS1.AutoSize = true;
-            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS1.Location = new System.Drawing.Point(15, 18);
-            this.labelJCS1.Name = "labelJCS1";
-            this.labelJCS1.Size = new System.Drawing.Size(91, 17);
-            this.labelJCS1.TabIndex = 45;
-            this.labelJCS1.Text = "Produto Final:";
-            // 
-            // txtProduto
-            // 
-            this.txtProduto.BackColor = System.Drawing.Color.White;
-            this.txtProduto.Enabled = false;
-            this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtProduto.IconeKeyDown = null;
-            this.txtProduto.Location = new System.Drawing.Point(165, 15);
-            this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Preenchimento = null;
-            this.txtProduto.Size = new System.Drawing.Size(310, 24);
-            this.txtProduto.TabIndex = 48;
-            this.txtProduto.TipoCampo = "STRING";
-            // 
-            // labelJCS2
-            // 
-            this.labelJCS2.AutoSize = true;
-            this.labelJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS2.Location = new System.Drawing.Point(12, 48);
-            this.labelJCS2.Name = "labelJCS2";
-            this.labelJCS2.Size = new System.Drawing.Size(94, 17);
-            this.labelJCS2.TabIndex = 49;
-            this.labelJCS2.Text = "Materia Prima:";
-            // 
-            // txtDescricaoEstoque
-            // 
-            this.txtDescricaoEstoque.BackColor = System.Drawing.Color.White;
-            this.txtDescricaoEstoque.Enabled = false;
-            this.txtDescricaoEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtDescricaoEstoque.IconeKeyDown = null;
-            this.txtDescricaoEstoque.Location = new System.Drawing.Point(165, 45);
-            this.txtDescricaoEstoque.Name = "txtDescricaoEstoque";
-            this.txtDescricaoEstoque.Preenchimento = null;
-            this.txtDescricaoEstoque.Size = new System.Drawing.Size(310, 24);
-            this.txtDescricaoEstoque.TabIndex = 51;
-            this.txtDescricaoEstoque.TipoCampo = "STRING";
-            // 
-            // txtIdEstoque
-            // 
-            this.txtIdEstoque.BackColor = System.Drawing.Color.White;
-            this.txtIdEstoque.Enabled = false;
-            this.txtIdEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtIdEstoque.IconeKeyDown = null;
-            this.txtIdEstoque.Location = new System.Drawing.Point(112, 45);
-            this.txtIdEstoque.Name = "txtIdEstoque";
-            this.txtIdEstoque.Preenchimento = null;
-            this.txtIdEstoque.Size = new System.Drawing.Size(47, 24);
-            this.txtIdEstoque.TabIndex = 50;
-            this.txtIdEstoque.TipoCampo = "STRING";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 49;
-            // 
-            // btnBuscaMateriaPrima
-            // 
-            this.btnBuscaMateriaPrima.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscaMateriaPrima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaMateriaPrima.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscaMateriaPrima.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
-            this.btnBuscaMateriaPrima.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaMateriaPrima.Location = new System.Drawing.Point(481, 43);
-            this.btnBuscaMateriaPrima.Name = "btnBuscaMateriaPrima";
-            this.btnBuscaMateriaPrima.Size = new System.Drawing.Size(202, 24);
-            this.btnBuscaMateriaPrima.TabIndex = 52;
-            this.btnBuscaMateriaPrima.Text = "Buscar Materia Prima";
-            this.btnBuscaMateriaPrima.UseVisualStyleBackColor = false;
-            this.btnBuscaMateriaPrima.Click += new System.EventHandler(this.BtnBuscaMateriaPrima_Click);
-            // 
-            // btnBuscaProduto
-            // 
-            this.btnBuscaProduto.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscaProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscaProduto.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
-            this.btnBuscaProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaProduto.Location = new System.Drawing.Point(481, 13);
-            this.btnBuscaProduto.Name = "btnBuscaProduto";
-            this.btnBuscaProduto.Size = new System.Drawing.Size(202, 24);
-            this.btnBuscaProduto.TabIndex = 46;
-            this.btnBuscaProduto.Text = "Buscar Produto";
-            this.btnBuscaProduto.UseVisualStyleBackColor = false;
-            this.btnBuscaProduto.Click += new System.EventHandler(this.BtnBuscaProduto_Click);
-            // 
-            // btnLinkar
-            // 
-            this.btnLinkar.BackColor = System.Drawing.Color.Gold;
-            this.btnLinkar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLinkar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.btnLinkar.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_96;
-            this.btnLinkar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLinkar.Location = new System.Drawing.Point(12, 110);
-            this.btnLinkar.Name = "btnLinkar";
-            this.btnLinkar.Size = new System.Drawing.Size(671, 88);
-            this.btnLinkar.TabIndex = 53;
-            this.btnLinkar.Text = "Linkar Produto Final a Materia Prima";
-            this.btnLinkar.UseVisualStyleBackColor = false;
-            this.btnLinkar.Click += new System.EventHandler(this.BtnLinkar_Click);
-            // 
-            // txtQtSub
-            // 
-            this.txtQtSub.BackColor = System.Drawing.Color.White;
-            this.txtQtSub.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtQtSub.IconeKeyDown = null;
-            this.txtQtSub.Location = new System.Drawing.Point(112, 75);
-            this.txtQtSub.Name = "txtQtSub";
-            this.txtQtSub.Preenchimento = null;
-            this.txtQtSub.Size = new System.Drawing.Size(47, 24);
-            this.txtQtSub.TabIndex = 54;
-            this.txtQtSub.Text = "1";
-            this.txtQtSub.TipoCampo = "INTEIRO";
-            // 
-            // labelJCS3
-            // 
-            this.labelJCS3.AutoSize = true;
-            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(24, 78);
-            this.labelJCS3.Name = "labelJCS3";
-            this.labelJCS3.Size = new System.Drawing.Size(82, 17);
-            this.labelJCS3.TabIndex = 55;
-            this.labelJCS3.Text = "Qt. Subtrair:";
             // 
             // colID
             // 
@@ -289,6 +143,162 @@
             this.colExcluir.Name = "colExcluir";
             this.colExcluir.ReadOnly = true;
             this.colExcluir.Width = 52;
+            // 
+            // txtIDProd
+            // 
+            this.txtIDProd.BackColor = System.Drawing.Color.White;
+            this.txtIDProd.Enabled = false;
+            this.txtIDProd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtIDProd.IconeKeyDown = null;
+            this.txtIDProd.Location = new System.Drawing.Point(112, 15);
+            this.txtIDProd.Name = "txtIDProd";
+            this.txtIDProd.Preenchimento = null;
+            this.txtIDProd.Size = new System.Drawing.Size(47, 24);
+            this.txtIDProd.TabIndex = 44;
+            this.txtIDProd.TipoCampo = "STRING";
+            // 
+            // labelJCS1
+            // 
+            this.labelJCS1.AutoSize = true;
+            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS1.Location = new System.Drawing.Point(15, 18);
+            this.labelJCS1.Name = "labelJCS1";
+            this.labelJCS1.Size = new System.Drawing.Size(91, 17);
+            this.labelJCS1.TabIndex = 45;
+            this.labelJCS1.Text = "Produto Final:";
+            // 
+            // txtProduto
+            // 
+            this.txtProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProduto.BackColor = System.Drawing.Color.White;
+            this.txtProduto.Enabled = false;
+            this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtProduto.IconeKeyDown = null;
+            this.txtProduto.Location = new System.Drawing.Point(165, 15);
+            this.txtProduto.Name = "txtProduto";
+            this.txtProduto.Preenchimento = null;
+            this.txtProduto.Size = new System.Drawing.Size(310, 24);
+            this.txtProduto.TabIndex = 48;
+            this.txtProduto.TipoCampo = "STRING";
+            // 
+            // labelJCS2
+            // 
+            this.labelJCS2.AutoSize = true;
+            this.labelJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS2.Location = new System.Drawing.Point(12, 48);
+            this.labelJCS2.Name = "labelJCS2";
+            this.labelJCS2.Size = new System.Drawing.Size(94, 17);
+            this.labelJCS2.TabIndex = 49;
+            this.labelJCS2.Text = "Materia Prima:";
+            // 
+            // txtDescricaoEstoque
+            // 
+            this.txtDescricaoEstoque.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescricaoEstoque.BackColor = System.Drawing.Color.White;
+            this.txtDescricaoEstoque.Enabled = false;
+            this.txtDescricaoEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtDescricaoEstoque.IconeKeyDown = null;
+            this.txtDescricaoEstoque.Location = new System.Drawing.Point(165, 45);
+            this.txtDescricaoEstoque.Name = "txtDescricaoEstoque";
+            this.txtDescricaoEstoque.Preenchimento = null;
+            this.txtDescricaoEstoque.Size = new System.Drawing.Size(310, 24);
+            this.txtDescricaoEstoque.TabIndex = 51;
+            this.txtDescricaoEstoque.TipoCampo = "STRING";
+            // 
+            // txtIdEstoque
+            // 
+            this.txtIdEstoque.BackColor = System.Drawing.Color.White;
+            this.txtIdEstoque.Enabled = false;
+            this.txtIdEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtIdEstoque.IconeKeyDown = null;
+            this.txtIdEstoque.Location = new System.Drawing.Point(112, 45);
+            this.txtIdEstoque.Name = "txtIdEstoque";
+            this.txtIdEstoque.Preenchimento = null;
+            this.txtIdEstoque.Size = new System.Drawing.Size(47, 24);
+            this.txtIdEstoque.TabIndex = 50;
+            this.txtIdEstoque.TipoCampo = "STRING";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 49;
+            // 
+            // btnBuscaMateriaPrima
+            // 
+            this.btnBuscaMateriaPrima.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscaMateriaPrima.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscaMateriaPrima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaMateriaPrima.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscaMateriaPrima.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
+            this.btnBuscaMateriaPrima.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaMateriaPrima.Location = new System.Drawing.Point(481, 43);
+            this.btnBuscaMateriaPrima.Name = "btnBuscaMateriaPrima";
+            this.btnBuscaMateriaPrima.Size = new System.Drawing.Size(202, 24);
+            this.btnBuscaMateriaPrima.TabIndex = 52;
+            this.btnBuscaMateriaPrima.Text = "Buscar Materia Prima";
+            this.btnBuscaMateriaPrima.UseVisualStyleBackColor = false;
+            this.btnBuscaMateriaPrima.Click += new System.EventHandler(this.BtnBuscaMateriaPrima_Click);
+            // 
+            // btnBuscaProduto
+            // 
+            this.btnBuscaProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscaProduto.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscaProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscaProduto.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
+            this.btnBuscaProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaProduto.Location = new System.Drawing.Point(481, 13);
+            this.btnBuscaProduto.Name = "btnBuscaProduto";
+            this.btnBuscaProduto.Size = new System.Drawing.Size(202, 24);
+            this.btnBuscaProduto.TabIndex = 46;
+            this.btnBuscaProduto.Text = "Buscar Produto";
+            this.btnBuscaProduto.UseVisualStyleBackColor = false;
+            this.btnBuscaProduto.Click += new System.EventHandler(this.BtnBuscaProduto_Click);
+            // 
+            // btnLinkar
+            // 
+            this.btnLinkar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLinkar.BackColor = System.Drawing.Color.Gold;
+            this.btnLinkar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLinkar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.btnLinkar.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_96;
+            this.btnLinkar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLinkar.Location = new System.Drawing.Point(12, 110);
+            this.btnLinkar.Name = "btnLinkar";
+            this.btnLinkar.Size = new System.Drawing.Size(671, 88);
+            this.btnLinkar.TabIndex = 53;
+            this.btnLinkar.Text = "Linkar Produto Final a Materia Prima";
+            this.btnLinkar.UseVisualStyleBackColor = false;
+            this.btnLinkar.Click += new System.EventHandler(this.BtnLinkar_Click);
+            // 
+            // txtQtSub
+            // 
+            this.txtQtSub.BackColor = System.Drawing.Color.White;
+            this.txtQtSub.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtQtSub.IconeKeyDown = null;
+            this.txtQtSub.Location = new System.Drawing.Point(112, 75);
+            this.txtQtSub.Name = "txtQtSub";
+            this.txtQtSub.Preenchimento = null;
+            this.txtQtSub.Size = new System.Drawing.Size(47, 24);
+            this.txtQtSub.TabIndex = 54;
+            this.txtQtSub.Text = "1";
+            this.txtQtSub.TipoCampo = "INTEIRO";
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(24, 78);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(82, 17);
+            this.labelJCS3.TabIndex = 55;
+            this.labelJCS3.Text = "Qt. Subtrair:";
             // 
             // frmLinkEstoqueProduto
             // 
