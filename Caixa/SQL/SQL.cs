@@ -497,6 +497,28 @@ namespace Caixa.SQL
             sql.Append("ORDER BY TIPO ");
             return sql.ToString();
         }
+        public DataTable buscaCategoria(int pTipo)
+        {
+            string sql = queryBuscaCategoria(pTipo);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pTipo", pTipo);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaCategoria(int pTipo)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT DESCRICAO, TIPO, EXIBIR_APP ");
+            sql.Append("FROM CATEGORIA ");
+            if (pTipo > 0)
+                sql.Append("WHERE  TIPO = @pTipo ");
+            sql.Append("ORDER BY TIPO ");
+            return sql.ToString();
+        }
 
         public DataTable buscaControleEstoque(int pID, int pStatus = 1)
         {
@@ -564,6 +586,38 @@ namespace Caixa.SQL
             sql.Append("CONTATO = @pContato, ");
             sql.Append("STATUS = @pStatus ");
             sql.Append("WHERE ID = @pID");
+
+            return sql.ToString();
+        }
+        public void updateProduto(int pID, string pDescricao, int pTipo, double pValor, int pQtDesc, int pExibirApp, int pQtSubEstoque)
+        {
+            string sql = queryUpdatoProduto();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pTipo", pTipo);
+            sqlc.Parameters.AddWithValue("@pValor", pValor);
+            sqlc.Parameters.AddWithValue("@pQtDesc", pQtDesc);
+            sqlc.Parameters.AddWithValue("@pExibirApp", pExibirApp);
+            sqlc.Parameters.AddWithValue("@pQtSubEstoque", pQtSubEstoque);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdatoProduto()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE PRODUTO SET DESCRICAO = @pDescricao, ");
+            sql.Append("TIPO = @pTipo,");
+            sql.Append("VALOR = @pValor, ");
+            sql.Append("QT_DESCRICAO = @pQtDesc, ");
+            sql.Append("EXIBIR_APP = @pExibirApp, ");
+            sql.Append("QT_SUB_ESTOQUE = @pQtSubEstoque ");
+            sql.Append("WHERE ID = @pID ");
 
             return sql.ToString();
         }
@@ -1037,6 +1091,25 @@ namespace Caixa.SQL
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT * FROM PRODUTO WHERE TIPO = (SELECT TIPO FROM CATEGORIA WHERE DESCRICAO = @pProdutoPai) AND EXIBIR_APP = 1 ");
             sql.Append("ORDER BY DESCRICAO ");
+
+            return sql.ToString();
+        }
+        public DataTable buscaProduto(int pID)
+        {
+            string sql = queryBuscaProduto();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaProduto()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, DESCRICAO, TIPO, VALOR, QT_DESCRICAO, MOSTRAR_LIST, EXIBIR_APP, QT_SUB_ESTOQUE FROM PRODUTO WHERE ID = @pID ");
 
             return sql.ToString();
         }

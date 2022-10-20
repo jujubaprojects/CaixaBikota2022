@@ -63,7 +63,7 @@
   <ItemGroup>
     <Reference Include="Componentes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ClassesJujuba\Componentes\bin\Debug\Componentes.dll</HintPath>
+      <HintPath>..\..\..\Users\Jujuba\source\repos\ClassesJujuba\Componentes\bin\Debug\Componentes.dll</HintPath>
     </Reference>
     <Reference Include="dal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

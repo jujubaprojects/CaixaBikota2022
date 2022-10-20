@@ -13,26 +13,37 @@ namespace Caixa.Cadastro
 {
     public partial class frmCadastroProduto : frmCadastroJCS
     {
-        ToolStrip tStrip = new ToolStrip();
         private SQL.SQL auxSQL = new SQL.SQL();
+        //ToolStripButton btnNovo = new ToolStripButton();
+        ToolStripButton btnVoltar = new ToolStripButton();
+        ToolStripButton btnEditar = new ToolStripButton();
+        ToolStripButton btnDeletar = new ToolStripButton();
+        ToolStripButton btnSalvar = new ToolStripButton();
 
         int id = 0;
-        string produto = "";
+        string produto = "", nomeForm;
         int tipo = 0, qtDesc = 0, exibirApp = 0, qtSubEstoque = 0;
         double valor = 0;
 
         public frmCadastroProduto()
         {
 
-            tStrip = toolStrip1;
-            tStrip.Click += new EventHandler(toolStripNovoJCS_Click);
-            tStrip.Click += new EventHandler(toolStripDeletarJCS_Click);
-            tStrip.Click += new EventHandler(toolStripSalvarJCS_Click);
-            tStrip.Click += new EventHandler(toolStripEditarJCS_Click);
-            tStrip.Click += new EventHandler(toolStripVoltarJCS_Click);
+            //btnNovo = toolStripNovoJCS;
+            btnVoltar = toolStripVoltarJCS;
+            btnEditar = toolStripEditarJCS;
+            btnDeletar = toolStripDeletarJCS;
+            btnSalvar = toolStripSalvarJCS;
+
+
+            //tStrip.click += new EventHandler(toolStripNovoJCS_Click);
+            //btnNovo.Click += new EventHandler(toolStripNovoJCS_Click);
+            btnDeletar.Click += new EventHandler(toolStripDeletarJCS_Click);
+            btnSalvar.Click += new EventHandler(toolStripSalvarJCS_Click);
+            btnEditar.Click += new EventHandler(toolStripEditarJCS_Click);
+            btnVoltar.Click += new EventHandler(toolStripVoltarJCS_Click);
 
             InitializeComponent();
-
+            nomeForm = this.Text;
 
             preencherCampos();
             if (dgvProdutos.RowCount > 0)
@@ -49,22 +60,14 @@ namespace Caixa.Cadastro
             cboExibirApp.SelectedIndex = 1;
         }
 
-        public void toolStripNovoJCS_Click(object sebder, EventArgs e)
-        {
-            if (clickBtns.Equals("Novo"))
-            {
-                if (camposPreenchidos(this, "Novo"))
-                {
-
-                }
-            }
-        }
         public void toolStripVoltarJCS_Click(object sender, EventArgs e)
         {
-
+            limpar(this);
+            cboExibirApp.SelectedIndex = 0;
+            cboTipo.SelectedIndex = 0;
         }
 
-            private void validaCampos()
+        private void validaCampos()
         {
             produto = txtDescricao.Text;
             tipo = int.Parse(auxSQL.buscaCategoria(cboTipo.SelectedItem.ToString()).Rows[0]["TIPO"].ToString());
@@ -73,41 +76,71 @@ namespace Caixa.Cadastro
             qtSubEstoque = int.Parse(txtQtSubEstoque.Text);
             valor = double.Parse(txtValor.Text.Replace("R$", ""));
         }
-        public void toolStripDeletarJCS_Click(object sebder, EventArgs e)
+        public void toolStripDeletarJCS_Click(object sender, EventArgs e)
         {
-            if (clickBtns.Equals("Deletar"))
-            {
-            }
 
-            }
-        public void toolStripSalvarJCS_Click(object sebder, EventArgs e)
+        }
+        public void toolStripSalvarJCS_Click(object sender, EventArgs e)
         {
+
             if (clickBtns.Equals("Novo"))
             {
-                if (camposPreenchidos(this, "Salvar"))
+                validaCampos();
+                DialogResult result = MessageBox.Show("Deseja salvar o novo produto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
-                    validaCampos();
-                    DialogResult result = MessageBox.Show("Deseja salvar o novo produto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        if (result == DialogResult.Yes)
-                        {
-                            auxSQL.insertProduto(produto, tipo, valor, qtDesc, exibirApp, qtSubEstoque);
-                        }
+                        auxSQL.insertProduto(produto, tipo, valor, qtDesc, exibirApp, qtSubEstoque);
+                        preencherCampos();
                     }
                 }
             }
-        }
-        public void toolStripEditarJCS_Click(object sebder, EventArgs e)
-        {
-            if (clickBtns.Equals("Editar"))
+            else if (clickBtns.Equals("Editar"))
             {
-                DialogResult result = MessageBox.Show("Deseja editar o produto " + produto + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                validaCampos();
+                DialogResult result = MessageBox.Show("Deseja salvar as alterações do produto - " + produto + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
-                    if (result == DialogResult.No)
+                    if (result == DialogResult.Yes)
                     {
-                        toolStripVoltarJCS_Click(new object(), new EventArgs());
+                        auxSQL.updateProduto(id, produto, tipo, valor, qtDesc, exibirApp, qtSubEstoque);
+                        MessageBox.Show("Produto alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        preencherCampos();
                     }
                 }
+            }
+
+
+        }
+        public void toolStripEditarJCS_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja editar o produto " + produto + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            {
+                if (result == DialogResult.No)
+                {
+                    toolStripVoltarJCS_Click(sender, e);
+
+                    this.toolStripNovoJCS.Enabled = true;
+                    this.toolStripEditarJCS.Enabled = true;
+                    this.toolStripSalvarJCS.Enabled = false;
+                    this.toolStripDeletarJCS.Enabled = false;
+                    this.toolStripVoltarJCS.Enabled = false;
+                    this.Text = nomeForm + " (Voltar)";
+                    clickBtns = "Voltar";
+                    botaoRetorno = true;
+                }
+                else
+                {
+                    DataTable dt = auxSQL.buscaProduto(id);
+                    txtID.Text = dt.Rows[0]["ID"].ToString();
+                    txtDescricao.Text = dt.Rows[0]["DESCRICAO"].ToString();
+                    txtQtDesc.Text = dt.Rows[0]["QT_DESCRICAO"].ToString();
+                    txtQtSubEstoque.Text = dt.Rows[0]["QT_SUB_ESTOQUE"].ToString();
+                    txtValor.Text = dt.Rows[0]["VALOR"].ToString();
+                    cboExibirApp.SelectedIndex = dt.Rows[0]["EXIBIR_APP"].ToString().Equals("True") ? 1 : 0;
+                    cboTipo.SelectedItem = auxSQL.buscaCategoria(int.Parse(dt.Rows[0]["TIPO"].ToString())).Rows[0]["DESCRICAO"].ToString();
+                }
+
             }
         }
 

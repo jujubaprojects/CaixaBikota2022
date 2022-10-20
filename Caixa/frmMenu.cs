@@ -334,23 +334,29 @@ namespace Caixa
 
         private void EstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (acessoFrmsRestrito())
-            //{
+            if (acessoFrmsRestrito())
+            {
                 frmControleEstoque frm = new frmControleEstoque();
                 frm.ShowDialog();
-            //}
+            }
         }
 
         private void LinkEstoqueXProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
-            frm.ShowDialog();
+            if (acessoFrmsRestrito())
+            {
+                frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
+                frm.ShowDialog();
+            }
         }
 
         private void ProdutosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmCadastroProduto frm = new frmCadastroProduto();
-            frm.ShowDialog();
+            if (acessoFrmsRestrito())
+            {
+                frmCadastroProduto frm = new frmCadastroProduto();
+                frm.ShowDialog();
+            }
         }
     }
 }

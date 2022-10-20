@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtID = new Componentes.TextBoxJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
@@ -68,6 +68,7 @@
             // txtID
             // 
             this.txtID.BackColor = System.Drawing.Color.White;
+            this.txtID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtID.IconeKeyDown = null;
@@ -120,7 +121,8 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BackColor = System.Drawing.Color.LightYellow;
+            this.txtDescricao.BackColor = System.Drawing.Color.Yellow;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescricao.IconeKeyDown = null;
             this.txtDescricao.Location = new System.Drawing.Point(185, 59);
@@ -142,7 +144,8 @@
             // 
             // txtValor
             // 
-            this.txtValor.BackColor = System.Drawing.Color.Red;
+            this.txtValor.BackColor = System.Drawing.Color.Yellow;
+            this.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtValor.IconeKeyDown = null;
             this.txtValor.Location = new System.Drawing.Point(79, 118);
@@ -154,7 +157,8 @@
             // 
             // txtQtDesc
             // 
-            this.txtQtDesc.BackColor = System.Drawing.Color.Red;
+            this.txtQtDesc.BackColor = System.Drawing.Color.Yellow;
+            this.txtQtDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtDesc.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQtDesc.IconeKeyDown = null;
             this.txtQtDesc.Location = new System.Drawing.Point(442, 89);
@@ -176,7 +180,8 @@
             // 
             // txtQtSubEstoque
             // 
-            this.txtQtSubEstoque.BackColor = System.Drawing.Color.Red;
+            this.txtQtSubEstoque.BackColor = System.Drawing.Color.Yellow;
+            this.txtQtSubEstoque.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtSubEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQtSubEstoque.IconeKeyDown = null;
             this.txtQtSubEstoque.Location = new System.Drawing.Point(442, 119);
@@ -190,16 +195,19 @@
             // 
             this.dgvProdutos.AllowUserToAddRows = false;
             this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -208,26 +216,26 @@
             this.colQtDesc,
             this.colExibirApp,
             this.colQtSub});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
             this.dgvProdutos.Location = new System.Drawing.Point(0, 164);
             this.dgvProdutos.Name = "dgvProdutos";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvProdutos.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(565, 286);
@@ -239,6 +247,7 @@
             this.colID.DataPropertyName = "ID";
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
             this.colID.Visible = false;
             this.colID.Width = 27;
             // 
@@ -248,6 +257,7 @@
             this.colDescricao.DataPropertyName = "DESCRICAO";
             this.colDescricao.HeaderText = "Descrição";
             this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
             // 
             // colTipo
             // 
@@ -255,12 +265,14 @@
             this.colTipo.DataPropertyName = "TIPO";
             this.colTipo.HeaderText = "Tipo";
             this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
             // 
             // colQtDesc
             // 
             this.colQtDesc.DataPropertyName = "QT_DESCRICAO";
             this.colQtDesc.HeaderText = "QT. Desc.";
             this.colQtDesc.Name = "colQtDesc";
+            this.colQtDesc.ReadOnly = true;
             this.colQtDesc.Width = 88;
             // 
             // colExibirApp
@@ -268,6 +280,7 @@
             this.colExibirApp.DataPropertyName = "EXIBIR_APP";
             this.colExibirApp.HeaderText = "Exibir App";
             this.colExibirApp.Name = "colExibirApp";
+            this.colExibirApp.ReadOnly = true;
             this.colExibirApp.Width = 92;
             // 
             // colQtSub
@@ -275,6 +288,7 @@
             this.colQtSub.DataPropertyName = "QT_SUB_ESTOQUE";
             this.colQtSub.HeaderText = "QT. Sub.";
             this.colQtSub.Name = "colQtSub";
+            this.colQtSub.ReadOnly = true;
             this.colQtSub.Width = 83;
             // 
             // cboExibirApp
