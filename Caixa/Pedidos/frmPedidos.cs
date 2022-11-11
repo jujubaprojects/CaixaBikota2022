@@ -106,7 +106,7 @@ namespace Caixa
         {
             if (e.RowIndex > -1 && e.ColumnIndex == dgvPedidos.Columns["colCancelar"].Index && dgvPedidos.Rows.Count > 0 && e.RowIndex != dgvPedidos.Rows.Count)
             {
-                DialogResult result = MessageBox.Show("Deseja cancelar este pedido?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Deseja cancelar este pedido?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
                     if (result == DialogResult.Yes)
                     {

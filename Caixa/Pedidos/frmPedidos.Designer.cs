@@ -35,6 +35,16 @@
             this.dtpDataPedido = new Componentes.dateTimePickerJCS(this.components);
             this.lblSituacaoPed = new Componentes.LabelJCS(this.components);
             this.dgvPedidos = new Componentes.DataGridViewJCS(this.components);
+            this.colPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVlTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVlPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVlAberto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colPagar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colCancelar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colReimprimir = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtTodos = new Componentes.RadioButtonJCScs(this.components);
             this.rbtLevar = new Componentes.RadioButtonJCScs(this.components);
@@ -51,16 +61,6 @@
             this.btnNovoPedido = new Componentes.ButtonJCS(this.components);
             this.btnAtualizar = new Componentes.ButtonJCS(this.components);
             this.chkDataEspec = new Componentes.CheckBoxJCS(this.components);
-            this.colPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVlTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVlPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVlAberto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colPagar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colCancelar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colReimprimir = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +139,95 @@
             this.dgvPedidos.Size = new System.Drawing.Size(912, 329);
             this.dgvPedidos.TabIndex = 4;
             this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellClick);
+            // 
+            // colPedido
+            // 
+            this.colPedido.DataPropertyName = "ID";
+            this.colPedido.HeaderText = "Pedido";
+            this.colPedido.Name = "colPedido";
+            this.colPedido.ReadOnly = true;
+            this.colPedido.Visible = false;
+            this.colPedido.Width = 74;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.FillWeight = 85.94815F;
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            // 
+            // colHora
+            // 
+            this.colHora.DataPropertyName = "HORA";
+            this.colHora.FillWeight = 82.72487F;
+            this.colHora.HeaderText = "Hora";
+            this.colHora.Name = "colHora";
+            this.colHora.ReadOnly = true;
+            this.colHora.Width = 62;
+            // 
+            // colVlTotal
+            // 
+            this.colVlTotal.DataPropertyName = "VL_TOTAL";
+            this.colVlTotal.FillWeight = 138.2767F;
+            this.colVlTotal.HeaderText = "Vl. Total";
+            this.colVlTotal.Name = "colVlTotal";
+            this.colVlTotal.ReadOnly = true;
+            this.colVlTotal.Width = 80;
+            // 
+            // colVlPago
+            // 
+            this.colVlPago.DataPropertyName = "VL_PAGO";
+            this.colVlPago.FillWeight = 162.0506F;
+            this.colVlPago.HeaderText = "Vl. Pago";
+            this.colVlPago.Name = "colVlPago";
+            this.colVlPago.ReadOnly = true;
+            this.colVlPago.Width = 80;
+            // 
+            // colVlAberto
+            // 
+            this.colVlAberto.DataPropertyName = "VL_ABERTO";
+            this.colVlAberto.FillWeight = 206.1355F;
+            this.colVlAberto.HeaderText = "Vl. Aberto";
+            this.colVlAberto.Name = "colVlAberto";
+            this.colVlAberto.ReadOnly = true;
+            this.colVlAberto.Width = 92;
+            // 
+            // colEditar
+            // 
+            this.colEditar.FillWeight = 13.35693F;
+            this.colEditar.HeaderText = "Add";
+            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
+            this.colEditar.Name = "colEditar";
+            this.colEditar.ReadOnly = true;
+            this.colEditar.Width = 38;
+            // 
+            // colPagar
+            // 
+            this.colPagar.HeaderText = "Pagar";
+            this.colPagar.Image = global::Caixa.Properties.Resources.icons8_iniciar_transferência_de_dinheiro_20;
+            this.colPagar.Name = "colPagar";
+            this.colPagar.ReadOnly = true;
+            this.colPagar.Width = 47;
+            // 
+            // colCancelar
+            // 
+            this.colCancelar.FillWeight = 11.5073F;
+            this.colCancelar.HeaderText = "Cancelar";
+            this.colCancelar.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.colCancelar.Name = "colCancelar";
+            this.colCancelar.ReadOnly = true;
+            this.colCancelar.Width = 64;
+            // 
+            // colReimprimir
+            // 
+            this.colReimprimir.HeaderText = "Reimprimir";
+            this.colReimprimir.Image = global::Caixa.Properties.Resources.impressora_20x20;
+            this.colReimprimir.Name = "colReimprimir";
+            this.colReimprimir.ReadOnly = true;
+            this.colReimprimir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colReimprimir.Width = 78;
             // 
             // groupBox1
             // 
@@ -321,100 +410,11 @@
             this.chkDataEspec.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.chkDataEspec.Location = new System.Drawing.Point(81, 77);
             this.chkDataEspec.Name = "chkDataEspec";
-            this.chkDataEspec.Size = new System.Drawing.Size(178, 21);
+            this.chkDataEspec.Size = new System.Drawing.Size(180, 21);
             this.chkDataEspec.TabIndex = 10;
-            this.chkDataEspec.Text = "Ultimos 7 dias de pedidos";
+            this.chkDataEspec.Text = "Pedidos em Aberto antigo";
             this.chkDataEspec.UseVisualStyleBackColor = true;
             this.chkDataEspec.CheckedChanged += new System.EventHandler(this.ChkDataEspec_CheckedChanged);
-            // 
-            // colPedido
-            // 
-            this.colPedido.DataPropertyName = "ID";
-            this.colPedido.HeaderText = "Pedido";
-            this.colPedido.Name = "colPedido";
-            this.colPedido.ReadOnly = true;
-            this.colPedido.Visible = false;
-            this.colPedido.Width = 74;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.FillWeight = 85.94815F;
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            // 
-            // colHora
-            // 
-            this.colHora.DataPropertyName = "HORA";
-            this.colHora.FillWeight = 82.72487F;
-            this.colHora.HeaderText = "Hora";
-            this.colHora.Name = "colHora";
-            this.colHora.ReadOnly = true;
-            this.colHora.Width = 62;
-            // 
-            // colVlTotal
-            // 
-            this.colVlTotal.DataPropertyName = "VL_TOTAL";
-            this.colVlTotal.FillWeight = 138.2767F;
-            this.colVlTotal.HeaderText = "Vl. Total";
-            this.colVlTotal.Name = "colVlTotal";
-            this.colVlTotal.ReadOnly = true;
-            this.colVlTotal.Width = 80;
-            // 
-            // colVlPago
-            // 
-            this.colVlPago.DataPropertyName = "VL_PAGO";
-            this.colVlPago.FillWeight = 162.0506F;
-            this.colVlPago.HeaderText = "Vl. Pago";
-            this.colVlPago.Name = "colVlPago";
-            this.colVlPago.ReadOnly = true;
-            this.colVlPago.Width = 80;
-            // 
-            // colVlAberto
-            // 
-            this.colVlAberto.DataPropertyName = "VL_ABERTO";
-            this.colVlAberto.FillWeight = 206.1355F;
-            this.colVlAberto.HeaderText = "Vl. Aberto";
-            this.colVlAberto.Name = "colVlAberto";
-            this.colVlAberto.ReadOnly = true;
-            this.colVlAberto.Width = 92;
-            // 
-            // colEditar
-            // 
-            this.colEditar.FillWeight = 13.35693F;
-            this.colEditar.HeaderText = "Add";
-            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
-            this.colEditar.Name = "colEditar";
-            this.colEditar.ReadOnly = true;
-            this.colEditar.Width = 38;
-            // 
-            // colPagar
-            // 
-            this.colPagar.HeaderText = "Pagar";
-            this.colPagar.Image = global::Caixa.Properties.Resources.icons8_iniciar_transferência_de_dinheiro_20;
-            this.colPagar.Name = "colPagar";
-            this.colPagar.ReadOnly = true;
-            this.colPagar.Width = 47;
-            // 
-            // colCancelar
-            // 
-            this.colCancelar.FillWeight = 11.5073F;
-            this.colCancelar.HeaderText = "Cancelar";
-            this.colCancelar.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.colCancelar.Name = "colCancelar";
-            this.colCancelar.ReadOnly = true;
-            this.colCancelar.Width = 64;
-            // 
-            // colReimprimir
-            // 
-            this.colReimprimir.HeaderText = "Reimprimir";
-            this.colReimprimir.Image = global::Caixa.Properties.Resources.impressora_20x20;
-            this.colReimprimir.Name = "colReimprimir";
-            this.colReimprimir.ReadOnly = true;
-            this.colReimprimir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colReimprimir.Width = 78;
             // 
             // frmPedidos
             // 
