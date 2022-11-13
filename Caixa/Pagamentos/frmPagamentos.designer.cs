@@ -59,6 +59,7 @@
             this.colOrdem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChkPagar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colCancelar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAddProduto = new Componentes.ButtonJCS(this.components);
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosAbertos)).BeginInit();
@@ -92,6 +93,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnAddProduto);
             this.panel3.Controls.Add(this.lblSituacao);
             this.panel3.Controls.Add(this.txtEndereco);
             this.panel3.Controls.Add(this.labelJCS4);
@@ -107,7 +109,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(896, 123);
+            this.panel3.Size = new System.Drawing.Size(896, 133);
             this.panel3.TabIndex = 12;
             // 
             // lblSituacao
@@ -124,6 +126,7 @@
             // txtEndereco
             // 
             this.txtEndereco.BackColor = System.Drawing.Color.White;
+            this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEndereco.Enabled = false;
             this.txtEndereco.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtEndereco.IconeKeyDown = null;
@@ -147,6 +150,7 @@
             // txtVlTotal
             // 
             this.txtVlTotal.BackColor = System.Drawing.Color.White;
+            this.txtVlTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlTotal.Enabled = false;
             this.txtVlTotal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlTotal.IconeKeyDown = null;
@@ -164,9 +168,9 @@
             this.btnPagarSelecionados.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnPagarSelecionados.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_48;
             this.btnPagarSelecionados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagarSelecionados.Location = new System.Drawing.Point(658, 42);
+            this.btnPagarSelecionados.Location = new System.Drawing.Point(653, 72);
             this.btnPagarSelecionados.Name = "btnPagarSelecionados";
-            this.btnPagarSelecionados.Size = new System.Drawing.Size(226, 68);
+            this.btnPagarSelecionados.Size = new System.Drawing.Size(226, 50);
             this.btnPagarSelecionados.TabIndex = 17;
             this.btnPagarSelecionados.Text = "Pagar Selecionados";
             this.btnPagarSelecionados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -176,6 +180,7 @@
             // txtVlPago
             // 
             this.txtVlPago.BackColor = System.Drawing.Color.White;
+            this.txtVlPago.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlPago.Enabled = false;
             this.txtVlPago.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlPago.IconeKeyDown = null;
@@ -199,6 +204,7 @@
             // txtVlAberto
             // 
             this.txtVlAberto.BackColor = System.Drawing.Color.White;
+            this.txtVlAberto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlAberto.Enabled = false;
             this.txtVlAberto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlAberto.IconeKeyDown = null;
@@ -222,6 +228,7 @@
             // txtDescPedido
             // 
             this.txtDescPedido.BackColor = System.Drawing.Color.White;
+            this.txtDescPedido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescPedido.Enabled = false;
             this.txtDescPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescPedido.IconeKeyDown = null;
@@ -235,6 +242,7 @@
             // txtPedidoID
             // 
             this.txtPedidoID.BackColor = System.Drawing.Color.White;
+            this.txtPedidoID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPedidoID.Enabled = false;
             this.txtPedidoID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtPedidoID.IconeKeyDown = null;
@@ -292,7 +300,7 @@
             this.dgvProdutosAbertos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutosAbertos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProdutosAbertos.EnableHeadersVisualStyles = false;
-            this.dgvProdutosAbertos.Location = new System.Drawing.Point(0, 123);
+            this.dgvProdutosAbertos.Location = new System.Drawing.Point(0, 133);
             this.dgvProdutosAbertos.Name = "dgvProdutosAbertos";
             this.dgvProdutosAbertos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -304,7 +312,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProdutosAbertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProdutosAbertos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvProdutosAbertos.Size = new System.Drawing.Size(896, 330);
+            this.dgvProdutosAbertos.Size = new System.Drawing.Size(896, 320);
             this.dgvProdutosAbertos.TabIndex = 13;
             this.dgvProdutosAbertos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutosAbertos_CellContentClick);
             this.dgvProdutosAbertos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProdutosAbertos_CellFormatting);
@@ -411,6 +419,22 @@
             this.colCancelar.ReadOnly = true;
             this.colCancelar.Width = 64;
             // 
+            // btnAddProduto
+            // 
+            this.btnAddProduto.BackColor = System.Drawing.Color.Gold;
+            this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddProduto.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
+            this.btnAddProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddProduto.Location = new System.Drawing.Point(653, 42);
+            this.btnAddProduto.Name = "btnAddProduto";
+            this.btnAddProduto.Size = new System.Drawing.Size(226, 24);
+            this.btnAddProduto.TabIndex = 22;
+            this.btnAddProduto.Text = "Adicionar Produto";
+            this.btnAddProduto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddProduto.UseVisualStyleBackColor = false;
+            this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
+            // 
             // frmPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,5 +485,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn colChkPagar;
         private System.Windows.Forms.DataGridViewImageColumn colCancelar;
         private Componentes.TextBoxJCS txtEndereco;
+        private Componentes.ButtonJCS btnAddProduto;
     }
 }

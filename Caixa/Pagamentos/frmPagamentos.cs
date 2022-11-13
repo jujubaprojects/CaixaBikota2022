@@ -213,5 +213,13 @@ namespace Caixa
             controleEsc = false;
             this.MouseEnter -= FrmPagamentos_MouseEnter;
         }
+
+        private void BtnAddProduto_Click(object sender, EventArgs e)
+        {
+            frmNovoPedido frm = new frmNovoPedido(2, pedidoID);
+            frm.ShowDialog();
+
+            preencherCampos();
+        }
     }
 }
