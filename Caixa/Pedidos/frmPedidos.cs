@@ -67,6 +67,16 @@ namespace Caixa
                 data = dtpDataPedido.Value.ToShortDateString().ToString();
 
             dgvPedidos.DataSource = sqlAux.buscaPedidos(situacao, tipo, data);
+
+            string teste = "";
+            for (int i = 0; i < dgvPedidos.Rows.Count; i++)
+            {
+                teste = dgvPedidos.Rows[i].Cells["colVlPago"].Value.ToString() + " - " + dgvPedidos.Rows[i].Cells["colVlTotal"].Value.ToString();
+                if (dgvPedidos.Rows[i].Cells["colVlPago"].Value.ToString().Equals(dgvPedidos.Rows[i].Cells["colVlTotal"].Value.ToString()))
+                {
+                    sqlAux.updateSituacaoPedido(int.Parse(dgvPedidos.Rows[i].Cells["colPedido"].Value.ToString()), "", 4);
+                }
+            }
         }
 
         private void RbtTodos_CheckedChanged(object sender, EventArgs e)
