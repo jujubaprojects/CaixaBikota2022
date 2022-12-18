@@ -69,12 +69,15 @@ namespace Caixa
             dgvPedidos.DataSource = sqlAux.buscaPedidos(situacao, tipo, data);
 
             string teste = "";
-            for (int i = 0; i < dgvPedidos.Rows.Count; i++)
+            if (cboSituacao.SelectedIndex != 2)
             {
-                teste = dgvPedidos.Rows[i].Cells["colVlPago"].Value.ToString() + " - " + dgvPedidos.Rows[i].Cells["colVlTotal"].Value.ToString();
-                if (dgvPedidos.Rows[i].Cells["colVlPago"].Value.ToString().Equals(dgvPedidos.Rows[i].Cells["colVlTotal"].Value.ToString()))
+                for (int i = 0; i < dgvPedidos.Rows.Count; i++)
                 {
-                    sqlAux.updateSituacaoPedido(int.Parse(dgvPedidos.Rows[i].Cells["colPedido"].Value.ToString()), "", 4);
+                    teste = dgvPedidos.Rows[i].Cells["colVlPago"].Value.ToString() + " - " + dgvPedidos.Rows[i].Cells["colVlTotal"].Value.ToString();
+                    if (dgvPedidos.Rows[i].Cells["colVlPago"].Value.ToString().Equals(dgvPedidos.Rows[i].Cells["colVlTotal"].Value.ToString()))
+                    {
+                        sqlAux.updateSituacaoPedido(int.Parse(dgvPedidos.Rows[i].Cells["colPedido"].Value.ToString()), "", 4);
+                    }
                 }
             }
         }
