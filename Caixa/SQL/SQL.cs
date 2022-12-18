@@ -120,7 +120,7 @@ namespace Caixa.SQL
             }
             else
             {
-                sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) ");
+                sql.Append("WHERE PED.SITUACAO IN (@pSituacao) ");
                 if (pTipo > 0)
                     sql.Append("AND PED.TIPO = @pTipo ");
 
@@ -151,7 +151,7 @@ namespace Caixa.SQL
             }
             else
             {
-                sql.Append("WHERE PP.SITUACAO != 0  AND PED.SITUACAO IN (@pSituacao) ");
+                sql.Append("WHERE PED.SITUACAO IN (@pSituacao) ");
                 if (pTipo > 0)
                     sql.Append("AND PED.TIPO = @pTipo ");
             }
@@ -1509,6 +1509,14 @@ namespace Caixa.SQL
             sql.Append("SELECT DESCRICAO, VALOR, 3 TIPO ");
             sql.Append("FROM RETIRADA_CAIXA ");
             sql.Append("WHERE convert(varchar, DATA, 103) = '" + pData + "' ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT CONCAT(PFILHO.DESCRICAO, ' - ', PP.DESCRICAO), SUM(PG.VL_PAGO) VALOR, 1 TIPO ");
+            sql.Append("FROM CATEGORIA PPAI ");
+            sql.Append("RIGHT JOIN PRODUTO PFILHO ON(PPAI.TIPO = PFILHO.TIPO) ");
+            sql.Append("RIGHT JOIN PEDIDO_PRODUTO PP ON(PP.PRODUTO = PFILHO.ID) ");
+            sql.Append("RIGHT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
+            sql.Append("WHERE PP.SITUACAO = 0 AND convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
+            sql.Append("GROUP BY CONCAT(PFILHO.DESCRICAO, ' - ', PP.DESCRICAO) ");
 
 
 
