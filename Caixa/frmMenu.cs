@@ -74,7 +74,7 @@ namespace Caixa
         }
 
         private void ThreadTarefa()
-        {           
+        {
             while (true)
             {                              
                 DataTable dt = auxSQL.retornaTeste();
@@ -91,6 +91,7 @@ namespace Caixa
                 {
                     if (verificarImpressora())
                     {
+                        Thread.Sleep(1000);
                         conn = conexao.retornaConexao();
                     transacao = conexao.startTransaction(conn);
 
