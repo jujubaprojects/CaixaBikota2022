@@ -706,9 +706,9 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
-        public void updateControleEstoqueCusto(int pID, string pProduto = "", int pQtEstoque= -1, int pQtEstoqueIdeal = 0, double pCusto = 0, string pUnidade = "", string pFornecedor = "",string pDataEntrega = "" , int pSituacao = -1, int pAddEstoque = 0)
+        public void updateControleEstoqueCusto(int pID, string pProduto = "", int pQtEstoque= -1, int pQtEstoqueIdeal = 0, int pQtEnviadoFor = 0, double pCusto = 0, string pUnidade = "", string pFornecedor = "",string pDataEntrega = "" , int pSituacao = -1, int pAddEstoque = 0)
         {
-            string sql = queryupdateControleEstoqueCusto(pID, pProduto, pQtEstoque, pQtEstoqueIdeal, pCusto, pUnidade,  pFornecedor, pDataEntrega, pSituacao, pAddEstoque);
+            string sql = queryupdateControleEstoqueCusto(pID, pProduto, pQtEstoque, pQtEstoqueIdeal, pQtEnviadoFor, pCusto, pUnidade,  pFornecedor, pDataEntrega, pSituacao, pAddEstoque);
 
             SqlConnection conn = conexao.retornaConexao();
 
@@ -716,6 +716,7 @@ namespace Caixa.SQL
             sqlc.CommandType = CommandType.Text;
             sqlc.Parameters.AddWithValue("@pID", pID);
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pQtEnviadoFor", pQtEnviadoFor);
             sqlc.Parameters.AddWithValue("@pCusto", pCusto);
             sqlc.Parameters.AddWithValue("@pQtEstoque", pQtEstoque);
             sqlc.Parameters.AddWithValue("@pQtEstoqueIdeal", pQtEstoqueIdeal);
@@ -726,7 +727,7 @@ namespace Caixa.SQL
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        private string queryupdateControleEstoqueCusto(int pID, string pProduto = "", int pQtEstoque = -1, int pQtEstoqueIdeal = 0, double pCusto = 0, string pUnidade = "", string pFornecedor = null, string pDataEntrega = null, int pSituacao = -1, int pAddEstoque = 0)
+        private string queryupdateControleEstoqueCusto(int pID, string pProduto = "", int pQtEstoque = -1, int pQtEstoqueIdeal = 0, int pQtEnviadoFor = 0, double pCusto = 0, string pUnidade = "", string pFornecedor = null, string pDataEntrega = null, int pSituacao = -1, int pAddEstoque = 0)
         {
             StringBuilder sql = new StringBuilder();
 
@@ -751,6 +752,8 @@ namespace Caixa.SQL
                 sql.Append("UNIDADE_MEDIDA = @pUnidade,");
             if (!string.IsNullOrEmpty(pDataEntrega))
                 sql.Append("DATA_ENTREGA = @pDataEntrega,");
+            if (pQtEnviadoFor > 0)
+                sql.Append("QT_ENTREGUE_FORNECEDOR = @pQtEnviadoFor,");
 
             sql.Remove(sql.Length - 1, 1);
             sql.Append(" WHERE ID = @pID");

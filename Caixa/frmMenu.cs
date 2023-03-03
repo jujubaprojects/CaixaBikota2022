@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Caixa.Cadastro;
 using Caixa.Caixa;
 using Caixa.Estoque;
+using Caixa.Pagamentos;
 using Caixa.Reports;
 using Componentes;
 using Npgsql;
@@ -358,6 +359,12 @@ namespace Caixa
                 frmCadastroProduto frm = new frmCadastroProduto();
                 frm.ShowDialog();
             }
+        }
+
+        private void ConsultarNotasClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaNota frm = new frmConsultaNota();
+            frm.ShowDialog();
         }
     }
 }

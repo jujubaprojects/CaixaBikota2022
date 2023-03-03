@@ -85,11 +85,6 @@ namespace Caixa
                 case 1:
                     txtVlRecebido.Text = txtVlNota.Text;
                     txtVlRecebido.Enabled = false;
-                    tipoPagamento = 3;
-                    break;
-                case 3:
-                    txtVlRecebido.Text = txtVlNota.Text;
-                    txtVlRecebido.Enabled = false;
                     tipoPagamento = 2;
                     break;
             }

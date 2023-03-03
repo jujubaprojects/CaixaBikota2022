@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.txtProduto = new Componentes.TextBoxJCS(this.components);
             this.cboTipoPagamento = new Componentes.ComboBoxJCS(this.components);
             this.lblTroco = new Componentes.LabelJCS(this.components);
@@ -40,8 +42,6 @@
             this.txtVlNota = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
-            this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
-            this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(453, 30);
             this.panel1.TabIndex = 7;
+            // 
+            // btnFinalizarPagamento
+            // 
+            this.btnFinalizarPagamento.BackColor = System.Drawing.Color.Gold;
+            this.btnFinalizarPagamento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinalizarPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizarPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnFinalizarPagamento.Image = global::Caixa.Properties.Resources.icons8_marcador_duplo_48;
+            this.btnFinalizarPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinalizarPagamento.Location = new System.Drawing.Point(0, 0);
+            this.btnFinalizarPagamento.Name = "btnFinalizarPagamento";
+            this.btnFinalizarPagamento.Size = new System.Drawing.Size(453, 30);
+            this.btnFinalizarPagamento.TabIndex = 4;
+            this.btnFinalizarPagamento.Text = "Finalizar Pagamento";
+            this.btnFinalizarPagamento.UseVisualStyleBackColor = false;
+            this.btnFinalizarPagamento.Click += new System.EventHandler(this.BtnFinalizarPagamento_Click);
             // 
             // panel2
             // 
@@ -73,9 +89,20 @@
             this.panel2.Size = new System.Drawing.Size(453, 141);
             this.panel2.TabIndex = 8;
             // 
+            // cboAnotar
+            // 
+            this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAnotar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboAnotar.FormattingEnabled = true;
+            this.cboAnotar.Location = new System.Drawing.Point(216, 12);
+            this.cboAnotar.Name = "cboAnotar";
+            this.cboAnotar.Size = new System.Drawing.Size(225, 23);
+            this.cboAnotar.TabIndex = 28;
+            // 
             // txtProduto
             // 
             this.txtProduto.BackColor = System.Drawing.Color.White;
+            this.txtProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProduto.Enabled = false;
             this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtProduto.IconeKeyDown = null;
@@ -93,7 +120,6 @@
             this.cboTipoPagamento.FormattingEnabled = true;
             this.cboTipoPagamento.Items.AddRange(new object[] {
             "DINHEIRO",
-            "CARTÃO DÉBITO",
             "PIX"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 72);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
@@ -125,6 +151,7 @@
             // txtVlRecebido
             // 
             this.txtVlRecebido.BackColor = System.Drawing.Color.White;
+            this.txtVlRecebido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlRecebido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlRecebido.IconeKeyDown = null;
             this.txtVlRecebido.Location = new System.Drawing.Point(101, 102);
@@ -148,6 +175,7 @@
             // txtVlNota
             // 
             this.txtVlNota.BackColor = System.Drawing.Color.White;
+            this.txtVlNota.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlNota.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlNota.IconeKeyDown = null;
             this.txtVlNota.Location = new System.Drawing.Point(101, 42);
@@ -177,32 +205,6 @@
             this.labelJCS1.Size = new System.Drawing.Size(61, 17);
             this.labelJCS1.TabIndex = 6;
             this.labelJCS1.Text = "Produto:";
-            // 
-            // btnFinalizarPagamento
-            // 
-            this.btnFinalizarPagamento.BackColor = System.Drawing.Color.Gold;
-            this.btnFinalizarPagamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFinalizarPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizarPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnFinalizarPagamento.Image = global::Caixa.Properties.Resources.icons8_marcador_duplo_48;
-            this.btnFinalizarPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinalizarPagamento.Location = new System.Drawing.Point(0, 0);
-            this.btnFinalizarPagamento.Name = "btnFinalizarPagamento";
-            this.btnFinalizarPagamento.Size = new System.Drawing.Size(453, 30);
-            this.btnFinalizarPagamento.TabIndex = 4;
-            this.btnFinalizarPagamento.Text = "Finalizar Pagamento";
-            this.btnFinalizarPagamento.UseVisualStyleBackColor = false;
-            this.btnFinalizarPagamento.Click += new System.EventHandler(this.BtnFinalizarPagamento_Click);
-            // 
-            // cboAnotar
-            // 
-            this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAnotar.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.cboAnotar.FormattingEnabled = true;
-            this.cboAnotar.Location = new System.Drawing.Point(216, 12);
-            this.cboAnotar.Name = "cboAnotar";
-            this.cboAnotar.Size = new System.Drawing.Size(225, 23);
-            this.cboAnotar.TabIndex = 28;
             // 
             // frmPagarNota
             // 
