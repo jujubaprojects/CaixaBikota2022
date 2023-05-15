@@ -51,6 +51,7 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             this.sairToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(800, 72);
+            this.menu.Size = new System.Drawing.Size(1300, 72);
             this.menu.TabIndex = 3;
             this.menu.Text = "menuStrip2";
             // 
@@ -99,7 +100,7 @@
             this.novoPedidoToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
             this.novoPedidoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.novoPedidoToolStripMenuItem1.Name = "novoPedidoToolStripMenuItem1";
-            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(163, 30);
             this.novoPedidoToolStripMenuItem1.Text = "Novo Pedido";
             this.novoPedidoToolStripMenuItem1.Click += new System.EventHandler(this.NovoPedidoToolStripMenuItem_Click);
             // 
@@ -108,7 +109,7 @@
             this.pedidosAbertoToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_termos_e_condições_24;
             this.pedidosAbertoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosAbertoToolStripMenuItem1.Name = "pedidosAbertoToolStripMenuItem1";
-            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(163, 30);
             this.pedidosAbertoToolStripMenuItem1.Text = "Pedidos Aberto";
             this.pedidosAbertoToolStripMenuItem1.Click += new System.EventHandler(this.PedidosAbertoToolStripMenuItem_Click);
             // 
@@ -117,28 +118,28 @@
             this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
             this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.baldesToolStripMenuItem.Text = "Baldes";
             this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click_1);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.EstoqueToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem1
             // 
             this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
-            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(163, 30);
             this.produtosToolStripMenuItem1.Text = "Produtos";
             this.produtosToolStripMenuItem1.Click += new System.EventHandler(this.ProdutosToolStripMenuItem1_Click);
             // 
@@ -193,7 +194,8 @@
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.linkEstoqueXProdutoToolStripMenuItem});
+            this.linkEstoqueXProdutoToolStripMenuItem,
+            this.importarXMLToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(61, 68);
             this.produtosToolStripMenuItem.Text = "Estoque";
@@ -249,18 +251,24 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
+            // importarXMLToolStripMenuItem
+            // 
+            this.importarXMLToolStripMenuItem.Name = "importarXMLToolStripMenuItem";
+            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.importarXMLToolStripMenuItem.Text = "Importar XML";
+            this.importarXMLToolStripMenuItem.Click += new System.EventHandler(this.ImportarXMLToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1300, 1020);
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menu;
             this.Name = "frmMenu";
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
@@ -292,6 +300,7 @@
         private System.Windows.Forms.ToolStripMenuItem linkEstoqueXProdutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarNotasClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarXMLToolStripMenuItem;
     }
 }
 

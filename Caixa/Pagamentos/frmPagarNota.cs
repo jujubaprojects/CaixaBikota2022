@@ -36,7 +36,7 @@ namespace Caixa
 
             txtProduto.Text = "PAGAMENTO NOTA";
 
-            DataTable dt = auxSQL.buscaCliente(0);
+            DataTable dt = auxSQL.buscaClienteID(0);
             for (int i = 0; i < dt.Rows.Count; i++)
                 cboAnotar.Items.Add(dt.Rows[i]["NOME"].ToString());
         }
@@ -92,17 +92,17 @@ namespace Caixa
 
         private bool validaCampos()
         {
+            if (double.Parse(txtVlNota.Text) == 0 && !chkValorHaver.Checked)
+            {
+                MessageBox.Show("O cliente não tem debitos antigos. \nCaso queira deixar em haver, por favor marcar o campo 'Deixar valor a mais em haver'!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtVlNota.Focus();
+                return false;
+            }
+
             if (cboAnotar.SelectedIndex < 0)
             {
                 MessageBox.Show("Informe o nome da pessoa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cboAnotar.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(txtVlNota.Text.Trim()) || double.Parse(txtVlNota.Text) <= 0)
-            {
-                MessageBox.Show("Informe o valor da nota!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtVlNota.Focus();
                 return false;
             }
 
@@ -111,6 +111,18 @@ namespace Caixa
                 MessageBox.Show("Informe o valor recebido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtVlRecebido.Focus();
                 return false;
+            }
+
+            if (double.Parse(txtVlRecebido.Text) < double.Parse(txtVlNota.Text))
+            {
+                DialogResult result = MessageBox.Show("O valor informado de recebimento está correto?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.No)
+                    {
+                        txtVlRecebido.Focus();
+                        return false;
+                    }
+                }
             }
 
             return true;
@@ -122,16 +134,30 @@ namespace Caixa
             {
                 auxSQL.insertPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString(), "LEVAR", 4);
 
-                int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO DE NOTA").Rows[0][0].ToString());
+                int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString()).Rows[0][0].ToString());
 
                 auxSQL.insertPedidoProduto(pedidoID, txtProduto.Text, 1, "PAGAMENTO DE NOTA", 3);
 
                 int pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
 
                 if (double.Parse(txtVlRecebido.Text) > double.Parse(txtVlNota.Text))
-                    auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
+                {
+                    if (chkValorHaver.Checked)
+                    {
+                        auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
+                        auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
+                        auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
+                    }
+                }
                 else
+                {
                     auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
+                    auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                }
 
                 this.Close();
             }
@@ -160,5 +186,20 @@ namespace Caixa
             controleEsc = false;
             this.MouseMove -= FrmPedidoRapido_MouseMove;
         }
-            }
+
+        private void CboAnotar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = auxSQL.buscaClienteNome(cboAnotar.SelectedItem.ToString());
+            txtVlNota.Text = dt.Rows[0]["VALOR"].ToString();
+        }
+
+        private void ChkValorHaver_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkValorHaver.Checked)
+                lblTroco.Visible = false;
+            else
+                lblTroco.Visible = true;
+
+        }
+    }
 }

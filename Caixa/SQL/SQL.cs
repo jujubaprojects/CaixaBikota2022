@@ -453,9 +453,9 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public DataTable buscaCliente(int pID)
+        public DataTable buscaClienteID(int pID)
         {
-            string sql = queryBuscaCliente(pID);
+            string sql = queryBuscaClienteID(pID);
 
             SqlConnection conn = conexao.retornaConexao();
 
@@ -465,13 +465,36 @@ namespace Caixa.SQL
 
             return conexao.executarSelect(sqlc, conn);
         }
-        private string queryBuscaCliente(int pID)
+        private string queryBuscaClienteID(int pID)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ID, NOME, ENDERECO, CONTATO, STATUS ");
+            sql.Append("SELECT ID, NOME, ENDERECO, CONTATO, STATUS, VALOR ");
             sql.Append("FROM CLIENTE ");
             if (pID > 0)
                 sql.Append("WHERE ID = @pID ");
+            sql.Append("ORDER BY NOME ");
+            return sql.ToString();
+        }
+
+        public DataTable buscaClienteNome(string pNome)
+        {
+            string sql = queryBuscaClienteNome(pNome);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pNome", pNome);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaClienteNome(string pNome)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, NOME, ENDERECO, CONTATO, STATUS, VALOR ");
+            sql.Append("FROM CLIENTE ");
+            if (!string.IsNullOrEmpty(pNome))
+                sql.Append("WHERE NOME LIKE @pNome ");
             sql.Append("ORDER BY NOME ");
             return sql.ToString();
         }
@@ -586,6 +609,34 @@ namespace Caixa.SQL
             sql.Append("CONTATO = @pContato, ");
             sql.Append("STATUS = @pStatus ");
             sql.Append("WHERE ID = @pID");
+
+            return sql.ToString();
+        }
+        public void updateNotaCliente(int pID, double pValor, string pNome = "")
+        {
+            string sql = queryUpdateNotaCliente(pID);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pValor", pValor);
+            sqlc.Parameters.AddWithValue("@pNome", pNome);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateNotaCliente(int pID)
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE CLIENTE SET VALOR = VALOR - @pValor ");
+            if (pID > 0)
+                sql.Append("WHERE ID = @pID");
+            else
+            {
+                sql.Append("WHERE NOME LIKE @pNome");
+            }
 
             return sql.ToString();
         }

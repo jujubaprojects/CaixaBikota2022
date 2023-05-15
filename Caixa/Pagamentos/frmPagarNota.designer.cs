@@ -42,6 +42,7 @@
             this.txtVlNota = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
+            this.chkValorHaver = new Componentes.CheckBoxJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chkValorHaver);
             this.panel2.Controls.Add(this.cboAnotar);
             this.panel2.Controls.Add(this.txtProduto);
             this.panel2.Controls.Add(this.cboTipoPagamento);
@@ -97,7 +99,8 @@
             this.cboAnotar.Location = new System.Drawing.Point(216, 12);
             this.cboAnotar.Name = "cboAnotar";
             this.cboAnotar.Size = new System.Drawing.Size(225, 23);
-            this.cboAnotar.TabIndex = 28;
+            this.cboAnotar.TabIndex = 2;
+            this.cboAnotar.SelectedIndexChanged += new System.EventHandler(this.CboAnotar_SelectedIndexChanged);
             // 
             // txtProduto
             // 
@@ -110,7 +113,7 @@
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Preenchimento = null;
             this.txtProduto.Size = new System.Drawing.Size(109, 24);
-            this.txtProduto.TabIndex = 26;
+            this.txtProduto.TabIndex = 1;
             this.txtProduto.TipoCampo = "STRING";
             // 
             // cboTipoPagamento
@@ -124,7 +127,7 @@
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 72);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
             this.cboTipoPagamento.Size = new System.Drawing.Size(109, 23);
-            this.cboTipoPagamento.TabIndex = 2;
+            this.cboTipoPagamento.TabIndex = 5;
             this.cboTipoPagamento.SelectedIndexChanged += new System.EventHandler(this.CboTipoPagamento_SelectedIndexChanged);
             // 
             // lblTroco
@@ -158,7 +161,7 @@
             this.txtVlRecebido.Name = "txtVlRecebido";
             this.txtVlRecebido.Preenchimento = null;
             this.txtVlRecebido.Size = new System.Drawing.Size(109, 24);
-            this.txtVlRecebido.TabIndex = 3;
+            this.txtVlRecebido.TabIndex = 6;
             this.txtVlRecebido.TipoCampo = "DOUBLE";
             this.txtVlRecebido.TextChanged += new System.EventHandler(this.TxtVlRecebido_TextChanged);
             // 
@@ -176,13 +179,14 @@
             // 
             this.txtVlNota.BackColor = System.Drawing.Color.White;
             this.txtVlNota.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtVlNota.Enabled = false;
             this.txtVlNota.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlNota.IconeKeyDown = null;
             this.txtVlNota.Location = new System.Drawing.Point(101, 42);
             this.txtVlNota.Name = "txtVlNota";
             this.txtVlNota.Preenchimento = null;
             this.txtVlNota.Size = new System.Drawing.Size(109, 24);
-            this.txtVlNota.TabIndex = 1;
+            this.txtVlNota.TabIndex = 3;
             this.txtVlNota.Text = "0";
             this.txtVlNota.TipoCampo = null;
             // 
@@ -206,6 +210,18 @@
             this.labelJCS1.TabIndex = 6;
             this.labelJCS1.Text = "Produto:";
             // 
+            // chkValorHaver
+            // 
+            this.chkValorHaver.AutoSize = true;
+            this.chkValorHaver.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.chkValorHaver.Location = new System.Drawing.Point(216, 43);
+            this.chkValorHaver.Name = "chkValorHaver";
+            this.chkValorHaver.Size = new System.Drawing.Size(195, 21);
+            this.chkValorHaver.TabIndex = 4;
+            this.chkValorHaver.Text = "Deixar valor a mais em haver";
+            this.chkValorHaver.UseVisualStyleBackColor = true;
+            this.chkValorHaver.CheckedChanged += new System.EventHandler(this.ChkValorHaver_CheckedChanged);
+            // 
             // frmPagarNota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,7 +231,7 @@
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Name = "frmPagarNota";
-            this.Text = "frmPagarNota";
+            this.Text = "Pagar Nota";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPedidoRapido_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmPedidoRapido_MouseMove);
             this.panel1.ResumeLayout(false);
@@ -239,5 +255,6 @@
         private Componentes.TextBoxJCS txtProduto;
         private Componentes.LabelJCS labelJCS6;
         private Componentes.ComboBoxJCS cboAnotar;
+        private Componentes.CheckBoxJCS chkValorHaver;
     }
 }

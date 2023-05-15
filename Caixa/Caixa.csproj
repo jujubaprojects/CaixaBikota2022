@@ -162,6 +162,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsRelatorios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Estoque\frmImportXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estoque\frmImportXML.Designer.cs">
+      <DependentUpon>frmImportXML.cs</DependentUpon>
+    </Compile>
     <Compile Include="Estoque\frmLinkEstoqueProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmRetiradaCaixa.resx">
       <DependentUpon>frmRetiradaCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estoque\frmImportXML.resx">
+      <DependentUpon>frmImportXML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\frmLinkEstoqueProduto.resx">
       <DependentUpon>frmLinkEstoqueProduto.cs</DependentUpon>
@@ -478,6 +487,7 @@
     <None Include="Resources\cancelar16x16.png" />
     <None Include="Resources\marketing-de-busca20x20.png" />
     <None Include="Resources\mecanismo-de-pesquisa-na-web20x20.png" />
+    <None Include="Resources\Folder.bmp" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

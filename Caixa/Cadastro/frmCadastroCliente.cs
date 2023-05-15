@@ -113,7 +113,7 @@ namespace Caixa.Cadastro
 
         private void preencherGrid()
         {
-            dgvClientes.DataSource = auxSQL.buscaCliente(0);
+            dgvClientes.DataSource = auxSQL.buscaClienteID(0);
         }
     }
 }

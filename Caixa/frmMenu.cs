@@ -366,5 +366,11 @@ namespace Caixa
             frmConsultaNota frm = new frmConsultaNota();
             frm.ShowDialog();
         }
+
+        private void ImportarXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImportXML frm = new frmImportXML();
+            frm.ShowDialog();
+        }
     }
 }
