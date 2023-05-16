@@ -1427,6 +1427,44 @@ namespace Caixa.SQL
             pSQLCommand.ExecuteNonQuery();
         }
 
+        public DataTable retornaDataTableTransaction (SqlConnection pConexao, SqlCommand pSQLCommand)
+        {
+            DataTable dtRetorno = new DataTable();
+            pSQLCommand.Connection = pConexao;
+            SqlDataReader sqlReader = pSQLCommand.ExecuteReader();
+
+            DataTable tbEsquema = sqlReader.GetSchemaTable();
+
+            foreach (DataRow r in tbEsquema.Rows)
+            {
+                if (!dtRetorno.Columns.Contains(r["ColumnName"].ToString()))
+                {
+                    DataColumn col = new DataColumn()
+                    {
+                        ColumnName = r["ColumnName"].ToString(),
+                        Unique = Convert.ToBoolean(r["IsUnique"]),
+                        AllowDBNull = Convert.ToBoolean(r["AllowDBNull"]),
+                        ReadOnly = Convert.ToBoolean(r["IsReadOnly"])
+                    };
+                    dtRetorno.Columns.Add(col);
+                }
+            }
+
+            while (sqlReader.Read())
+            {
+                DataRow novaLinha = dtRetorno.NewRow();
+                for (int i = 0; i < dtRetorno.Columns.Count; i++)
+                {
+                    novaLinha[i] = sqlReader.GetValue(i);
+                }
+                dtRetorno.Rows.Add(novaLinha);
+            }
+
+            sqlReader.Close();
+
+            return dtRetorno;
+        }
+
         public DataTable retornaTeste()
         {
             StringBuilder sql = new StringBuilder();
