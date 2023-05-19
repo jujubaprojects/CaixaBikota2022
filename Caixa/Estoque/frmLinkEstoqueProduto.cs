@@ -14,7 +14,7 @@ namespace Caixa.Estoque
     public partial class frmLinkEstoqueProduto : FormJCS
     {
         private SQL.SQL auxSQL = new SQL.SQL();
-        private bool produtoVal = false, materiaVal = false;
+        private bool produtoVal = false, materiaVal = false, fornecedor = false;
         public frmLinkEstoqueProduto()
         {
             InitializeComponent();
@@ -66,9 +66,15 @@ namespace Caixa.Estoque
 
         private void BtnLinkar_Click(object sender, EventArgs e)
         {
-            if (materiaVal && produtoVal)
+            if (materiaVal && produtoVal && fornecedor)
             {
+                StringBuilder sql = new StringBuilder();
+                sql.Append("SELECT * FROM SUB_ESTOQUE ");
+                sql.Append("WHERE PRODUTO = " + int.Parse(txtIDProd.Text));
+                sql.Append(" and CONTROLE_ESTOQUE = " + int.Parse(txtIdEstoque.Text));
+                sql.Append(" and CONTROLE_ESTOQUE = " + int.Parse(txtIdEstoque.Text));
                 DataTable dt = auxSQL.retornaDataTable("select * from SUB_ESTOQUE where produto = " + int.Parse(txtIDProd.Text) + "  and CONTROLE_ESTOQUE = " + int.Parse(txtIdEstoque.Text));
+
                 if (dt.Rows.Count > 0)
                 {
                     MessageBox.Show("Este link já foi cadastrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,6 +97,28 @@ namespace Caixa.Estoque
             this.limpar(txtIdEstoque);
             this.limpar(txtIDProd);
         }
+
+        private void BtnBuscaFornecedor_Click(object sender, EventArgs e)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM FORNECEDOR ORDER BY NOME ");
+
+            frmBusca frm = new frmBusca(sql, "Fornecedores");
+            frm.ShowDialog();
+            if (frm.retorno != null)
+            {
+                txtIDFornecedor.Text = frm.retorno["ID"].ToString();
+                txtDescFornecedor.Text = frm.retorno["PRODUTO"].ToString();
+                fornecedor = true;
+            }
+            else
+            {
+                txtIDFornecedor.Text = "";
+                txtDescFornecedor.Text = "";
+                fornecedor = false;
+            }
+        }
+
         private void preencherCampos()
         {
             StringBuilder sql = new StringBuilder();

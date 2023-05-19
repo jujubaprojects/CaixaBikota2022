@@ -372,5 +372,28 @@ namespace Caixa
             frmImportXML frm = new frmImportXML();
             frm.ShowDialog();
         }
+
+        private void NotasFiscaisEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("");
+            sql.Append("SELECT P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, VL_UNIT, N.DT_ENTREGA ");
+            sql.Append("FROM NF N ");
+            sql.Append("JOIN NF_PROD P ON(P.NF = N.ID) ");
+            //sql.Append("ORDER BY P.DESC_PROD, DT_ENTREGA DESC ");
+            frmBusca frm = new frmBusca(sql, "Entradas de Notas Fiscais");
+            frm.ShowDialog();
+        }
+
+        private void ProdutosParaComprarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLinkProdNFFornecedor frm = new frmLinkProdNFFornecedor();
+            frm.ShowDialog();
+        }
     }
 }

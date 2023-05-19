@@ -46,12 +46,16 @@
             this.consultarNotasClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkEstoqueXProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notasFiscaisEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosParaComprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,8 +198,12 @@
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem,
             this.linkEstoqueXProdutoToolStripMenuItem,
-            this.importarXMLToolStripMenuItem});
+            this.toolStripMenuItem1,
+            this.importarXMLToolStripMenuItem,
+            this.notasFiscaisEntradasToolStripMenuItem,
+            this.produtosParaComprarToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(61, 68);
             this.produtosToolStripMenuItem.Text = "Estoque";
@@ -203,9 +211,30 @@
             // linkEstoqueXProdutoToolStripMenuItem
             // 
             this.linkEstoqueXProdutoToolStripMenuItem.Name = "linkEstoqueXProdutoToolStripMenuItem";
-            this.linkEstoqueXProdutoToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.linkEstoqueXProdutoToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.linkEstoqueXProdutoToolStripMenuItem.Text = "Link Estoque x Produto";
             this.linkEstoqueXProdutoToolStripMenuItem.Click += new System.EventHandler(this.LinkEstoqueXProdutoToolStripMenuItem_Click);
+            // 
+            // importarXMLToolStripMenuItem
+            // 
+            this.importarXMLToolStripMenuItem.Name = "importarXMLToolStripMenuItem";
+            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.importarXMLToolStripMenuItem.Text = "Importar XML";
+            this.importarXMLToolStripMenuItem.Click += new System.EventHandler(this.ImportarXMLToolStripMenuItem_Click);
+            // 
+            // notasFiscaisEntradasToolStripMenuItem
+            // 
+            this.notasFiscaisEntradasToolStripMenuItem.Name = "notasFiscaisEntradasToolStripMenuItem";
+            this.notasFiscaisEntradasToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.notasFiscaisEntradasToolStripMenuItem.Text = "Notas Fiscais Entradas";
+            this.notasFiscaisEntradasToolStripMenuItem.Click += new System.EventHandler(this.NotasFiscaisEntradasToolStripMenuItem_Click);
+            // 
+            // produtosParaComprarToolStripMenuItem
+            // 
+            this.produtosParaComprarToolStripMenuItem.Name = "produtosParaComprarToolStripMenuItem";
+            this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.produtosParaComprarToolStripMenuItem.Text = "Produtos para Comprar";
+            this.produtosParaComprarToolStripMenuItem.Click += new System.EventHandler(this.ProdutosParaComprarToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -251,12 +280,17 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
-            // importarXMLToolStripMenuItem
+            // linkarEstoqueXProdutoXFornecedorToolStripMenuItem
             // 
-            this.importarXMLToolStripMenuItem.Name = "importarXMLToolStripMenuItem";
-            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.importarXMLToolStripMenuItem.Text = "Importar XML";
-            this.importarXMLToolStripMenuItem.Click += new System.EventHandler(this.ImportarXMLToolStripMenuItem_Click);
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Name = "linkarEstoqueXProdutoXFornecedorToolStripMenuItem";
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto x Fornecedor";
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Click += new System.EventHandler(this.LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(275, 6);
             // 
             // frmMenu
             // 
@@ -301,6 +335,10 @@
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarNotasClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarXMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notasFiscaisEntradasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtosParaComprarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linkarEstoqueXProdutoXFornecedorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 
