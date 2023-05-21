@@ -90,7 +90,7 @@ namespace Caixa.Cadastro
             {
                 if (tipoOperacao == 1)
                 {
-                    auxSQL.insertControleEstoque(produto, descricao, estoque, unidade, estoqueIdeal, qtEnvFor, custo, fornecedor, dataEntrega, true);
+                    //auxSQL.insertControleEstoque(produto, descricao, estoque, unidade, estoqueIdeal, qtEnvFor, custo, fornecedor, dataEntrega, true);
                     MessageBox.Show("Produto criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

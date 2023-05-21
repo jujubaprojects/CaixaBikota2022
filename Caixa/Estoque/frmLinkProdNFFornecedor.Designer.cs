@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtIDFornecedor = new Componentes.TextBoxJCS(this.components);
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
             this.txtDescFornecedor = new Componentes.TextBoxJCS(this.components);
@@ -42,15 +42,23 @@
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
-            this.colProdutoNFe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnBuscaFornecedor = new Componentes.ButtonJCS(this.components);
             this.btnLinkar = new Componentes.ButtonJCS(this.components);
             this.btnBuscaControlEstq = new Componentes.ButtonJCS(this.components);
             this.btnBuscaProdutoNFe = new Componentes.ButtonJCS(this.components);
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodFor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescFor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonJCS1 = new Componentes.ButtonJCS(this.components);
+            this.textBoxJCS1 = new Componentes.TextBoxJCS(this.components);
+            this.textBoxJCS2 = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +69,7 @@
             this.txtIDFornecedor.Enabled = false;
             this.txtIDFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtIDFornecedor.IconeKeyDown = null;
-            this.txtIDFornecedor.Location = new System.Drawing.Point(112, 40);
+            this.txtIDFornecedor.Location = new System.Drawing.Point(112, 12);
             this.txtIDFornecedor.Name = "txtIDFornecedor";
             this.txtIDFornecedor.Preenchimento = null;
             this.txtIDFornecedor.Size = new System.Drawing.Size(47, 24);
@@ -72,7 +80,7 @@
             // 
             this.labelJCS4.AutoSize = true;
             this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS4.Location = new System.Drawing.Point(26, 45);
+            this.labelJCS4.Location = new System.Drawing.Point(26, 17);
             this.labelJCS4.Name = "labelJCS4";
             this.labelJCS4.Size = new System.Drawing.Size(80, 17);
             this.labelJCS4.TabIndex = 72;
@@ -87,7 +95,7 @@
             this.txtDescFornecedor.Enabled = false;
             this.txtDescFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescFornecedor.IconeKeyDown = null;
-            this.txtDescFornecedor.Location = new System.Drawing.Point(165, 40);
+            this.txtDescFornecedor.Location = new System.Drawing.Point(165, 12);
             this.txtDescFornecedor.Name = "txtDescFornecedor";
             this.txtDescFornecedor.Preenchimento = null;
             this.txtDescFornecedor.Size = new System.Drawing.Size(310, 24);
@@ -133,7 +141,7 @@
             this.txtProduto.Enabled = false;
             this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtProduto.IconeKeyDown = null;
-            this.txtProduto.Location = new System.Drawing.Point(165, 10);
+            this.txtProduto.Location = new System.Drawing.Point(165, 40);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Preenchimento = null;
             this.txtProduto.Size = new System.Drawing.Size(310, 24);
@@ -147,7 +155,7 @@
             this.txtIDProd.Enabled = false;
             this.txtIDProd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtIDProd.IconeKeyDown = null;
-            this.txtIDProd.Location = new System.Drawing.Point(112, 10);
+            this.txtIDProd.Location = new System.Drawing.Point(112, 40);
             this.txtIDProd.Name = "txtIDProd";
             this.txtIDProd.Preenchimento = null;
             this.txtIDProd.Size = new System.Drawing.Size(47, 24);
@@ -158,7 +166,7 @@
             // 
             this.labelJCS1.AutoSize = true;
             this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS1.Location = new System.Drawing.Point(41, 13);
+            this.labelJCS1.Location = new System.Drawing.Point(41, 43);
             this.labelJCS1.Name = "labelJCS1";
             this.labelJCS1.Size = new System.Drawing.Size(65, 17);
             this.labelJCS1.TabIndex = 61;
@@ -181,77 +189,50 @@
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLink.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLink.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProdutoNFe,
-            this.colEstoque,
-            this.colFornecedor,
+            this.colID,
+            this.colCodProd,
+            this.colDescProd,
+            this.colCodEst,
+            this.colDescEst,
+            this.colCodFor,
+            this.colDescFor,
             this.colExcluir});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLink.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvLink.EnableHeadersVisualStyles = false;
-            this.dgvLink.Location = new System.Drawing.Point(0, 214);
+            this.dgvLink.Location = new System.Drawing.Point(0, 251);
             this.dgvLink.Name = "dgvLink";
             this.dgvLink.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLink.RowHeadersVisible = false;
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLink.Size = new System.Drawing.Size(695, 348);
+            this.dgvLink.Size = new System.Drawing.Size(695, 311);
             this.dgvLink.TabIndex = 63;
-            // 
-            // colProdutoNFe
-            // 
-            this.colProdutoNFe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProdutoNFe.DataPropertyName = "PRODUTO_NF";
-            this.colProdutoNFe.HeaderText = "Produto NFe";
-            this.colProdutoNFe.Name = "colProdutoNFe";
-            this.colProdutoNFe.ReadOnly = true;
-            // 
-            // colEstoque
-            // 
-            this.colEstoque.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colEstoque.DataPropertyName = "ESTOQUE";
-            this.colEstoque.HeaderText = "Estoque";
-            this.colEstoque.Name = "colEstoque";
-            this.colEstoque.ReadOnly = true;
-            // 
-            // colFornecedor
-            // 
-            this.colFornecedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFornecedor.DataPropertyName = "FORNECEDOR";
-            this.colFornecedor.HeaderText = "Fornecedor";
-            this.colFornecedor.Name = "colFornecedor";
-            this.colFornecedor.ReadOnly = true;
-            // 
-            // colExcluir
-            // 
-            this.colExcluir.HeaderText = "Excluir";
-            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.colExcluir.Name = "colExcluir";
-            this.colExcluir.ReadOnly = true;
-            this.colExcluir.Width = 52;
+            this.dgvLink.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLink_CellClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -269,7 +250,7 @@
             this.btnBuscaFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscaFornecedor.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
             this.btnBuscaFornecedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaFornecedor.Location = new System.Drawing.Point(481, 40);
+            this.btnBuscaFornecedor.Location = new System.Drawing.Point(481, 12);
             this.btnBuscaFornecedor.Name = "btnBuscaFornecedor";
             this.btnBuscaFornecedor.Size = new System.Drawing.Size(202, 24);
             this.btnBuscaFornecedor.TabIndex = 75;
@@ -286,7 +267,7 @@
             this.btnLinkar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.btnLinkar.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_96;
             this.btnLinkar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLinkar.Location = new System.Drawing.Point(12, 120);
+            this.btnLinkar.Location = new System.Drawing.Point(12, 157);
             this.btnLinkar.Name = "btnLinkar";
             this.btnLinkar.Size = new System.Drawing.Size(671, 88);
             this.btnLinkar.TabIndex = 69;
@@ -318,7 +299,7 @@
             this.btnBuscaProdutoNFe.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscaProdutoNFe.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
             this.btnBuscaProdutoNFe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaProdutoNFe.Location = new System.Drawing.Point(481, 10);
+            this.btnBuscaProdutoNFe.Location = new System.Drawing.Point(481, 40);
             this.btnBuscaProdutoNFe.Name = "btnBuscaProdutoNFe";
             this.btnBuscaProdutoNFe.Size = new System.Drawing.Size(202, 24);
             this.btnBuscaProdutoNFe.TabIndex = 62;
@@ -326,11 +307,138 @@
             this.btnBuscaProdutoNFe.UseVisualStyleBackColor = false;
             this.btnBuscaProdutoNFe.Click += new System.EventHandler(this.BtnBuscaProdutoNFe_Click);
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            this.colID.Width = 27;
+            // 
+            // colCodProd
+            // 
+            this.colCodProd.DataPropertyName = "COD_PROD";
+            this.colCodProd.HeaderText = "Cod Produto";
+            this.colCodProd.Name = "colCodProd";
+            this.colCodProd.ReadOnly = true;
+            this.colCodProd.Visible = false;
+            this.colCodProd.Width = 89;
+            // 
+            // colDescProd
+            // 
+            this.colDescProd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescProd.DataPropertyName = "DESC_PROD";
+            this.colDescProd.HeaderText = "Produto NFe";
+            this.colDescProd.Name = "colDescProd";
+            this.colDescProd.ReadOnly = true;
+            // 
+            // colCodEst
+            // 
+            this.colCodEst.DataPropertyName = "COD_EST";
+            this.colCodEst.HeaderText = "Cod Estoque";
+            this.colCodEst.Name = "colCodEst";
+            this.colCodEst.ReadOnly = true;
+            this.colCodEst.Visible = false;
+            this.colCodEst.Width = 108;
+            // 
+            // colDescEst
+            // 
+            this.colDescEst.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescEst.DataPropertyName = "DESC_EST";
+            this.colDescEst.HeaderText = "Estoque";
+            this.colDescEst.Name = "colDescEst";
+            this.colDescEst.ReadOnly = true;
+            // 
+            // colCodFor
+            // 
+            this.colCodFor.DataPropertyName = "COD_FOR";
+            this.colCodFor.HeaderText = "Cod Fornecedor";
+            this.colCodFor.Name = "colCodFor";
+            this.colCodFor.ReadOnly = true;
+            this.colCodFor.Visible = false;
+            this.colCodFor.Width = 127;
+            // 
+            // colDescFor
+            // 
+            this.colDescFor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescFor.DataPropertyName = "DESC_FOR";
+            this.colDescFor.HeaderText = "Fornecedor";
+            this.colDescFor.Name = "colDescFor";
+            this.colDescFor.ReadOnly = true;
+            // 
+            // colExcluir
+            // 
+            this.colExcluir.HeaderText = "Excluir";
+            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.colExcluir.Name = "colExcluir";
+            this.colExcluir.ReadOnly = true;
+            this.colExcluir.Width = 52;
+            // 
+            // buttonJCS1
+            // 
+            this.buttonJCS1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonJCS1.BackColor = System.Drawing.Color.Gold;
+            this.buttonJCS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonJCS1.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
+            this.buttonJCS1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonJCS1.Location = new System.Drawing.Point(481, 100);
+            this.buttonJCS1.Name = "buttonJCS1";
+            this.buttonJCS1.Size = new System.Drawing.Size(202, 24);
+            this.buttonJCS1.TabIndex = 79;
+            this.buttonJCS1.Text = "Buscar Controle Estoque";
+            this.buttonJCS1.UseVisualStyleBackColor = false;
+            // 
+            // textBoxJCS1
+            // 
+            this.textBoxJCS1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxJCS1.BackColor = System.Drawing.Color.White;
+            this.textBoxJCS1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxJCS1.Enabled = false;
+            this.textBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.textBoxJCS1.IconeKeyDown = null;
+            this.textBoxJCS1.Location = new System.Drawing.Point(165, 100);
+            this.textBoxJCS1.Name = "textBoxJCS1";
+            this.textBoxJCS1.Preenchimento = null;
+            this.textBoxJCS1.Size = new System.Drawing.Size(310, 24);
+            this.textBoxJCS1.TabIndex = 78;
+            this.textBoxJCS1.TipoCampo = "STRING";
+            // 
+            // textBoxJCS2
+            // 
+            this.textBoxJCS2.BackColor = System.Drawing.Color.White;
+            this.textBoxJCS2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxJCS2.Enabled = false;
+            this.textBoxJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.textBoxJCS2.IconeKeyDown = null;
+            this.textBoxJCS2.Location = new System.Drawing.Point(112, 100);
+            this.textBoxJCS2.Name = "textBoxJCS2";
+            this.textBoxJCS2.Preenchimento = null;
+            this.textBoxJCS2.Size = new System.Drawing.Size(47, 24);
+            this.textBoxJCS2.TabIndex = 77;
+            this.textBoxJCS2.TipoCampo = "STRING";
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(27, 103);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(79, 17);
+            this.labelJCS3.TabIndex = 76;
+            this.labelJCS3.Text = "Controle ID:";
+            // 
             // frmLinkProdNFFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 562);
+            this.Controls.Add(this.buttonJCS1);
+            this.Controls.Add(this.textBoxJCS1);
+            this.Controls.Add(this.textBoxJCS2);
+            this.Controls.Add(this.labelJCS3);
             this.Controls.Add(this.btnBuscaFornecedor);
             this.Controls.Add(this.txtIDFornecedor);
             this.Controls.Add(this.labelJCS4);
@@ -370,9 +478,17 @@
         private Componentes.LabelJCS labelJCS1;
         private Componentes.LabelJCS labelJCS2;
         private Componentes.DataGridViewJCS dgvLink;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProdutoNFe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstoque;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodEst;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescEst;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodFor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescFor;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
+        private Componentes.ButtonJCS buttonJCS1;
+        private Componentes.TextBoxJCS textBoxJCS1;
+        private Componentes.TextBoxJCS textBoxJCS2;
+        private Componentes.LabelJCS labelJCS3;
     }
 }

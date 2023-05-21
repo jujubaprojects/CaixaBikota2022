@@ -345,11 +345,11 @@ namespace Caixa
 
         private void LinkEstoqueXProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (acessoFrmsRestrito())
-            {
+            //if (acessoFrmsRestrito())
+            //{
                 frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
                 frm.ShowDialog();
-            }
+            //}
         }
 
         private void ProdutosToolStripMenuItem1_Click(object sender, EventArgs e)

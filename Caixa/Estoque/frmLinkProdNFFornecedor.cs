@@ -41,7 +41,7 @@ namespace Caixa.Estoque
                     return;
                 }
                 //if ()
-                auxSQL.insertLinkProdutoxMateriaPrima(int.Parse(txtIDProd.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtSub.Text));
+                auxSQL.insertLinkNFxProdXfor(int.Parse(txtIDProd.Text), int.Parse(txtIDFornecedor.Text), int.Parse(txtIdEstoque.Text));
                 MessageBox.Show("Link criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 preencherCampos();
                 limparCampos();
@@ -96,8 +96,8 @@ namespace Caixa.Estoque
                 frm.ShowDialog();
                 if (frm.retorno != null)
                 {
-                    txtIDProd.Text = frm.retorno["ID"].ToString();
-                    txtProduto.Text = frm.retorno["DESCRICAO"].ToString();
+                    txtIDProd.Text = frm.retorno["COD_PROD"].ToString();
+                    txtProduto.Text = frm.retorno["DESC_PROD"].ToString();
                     produtoVal = true;
                 }
                 else
@@ -112,7 +112,25 @@ namespace Caixa.Estoque
                 MessageBox.Show("Para adicionar um produto é necessário adicionar o fornecedor antes!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
+
+        private void DgvLink_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvLink.Columns["colExcluir"].Index && dgvLink.Rows.Count > 0 && e.RowIndex > -1)
+            {
+                StringBuilder mensagem = new StringBuilder();
+                mensagem.Append("Deseja excluir o link do \nFornecedor: " + dgvLink["colDescFor", e.RowIndex].Value.ToString());
+                mensagem.Append("\nProduto: " + dgvLink["colDescProd", e.RowIndex].Value.ToString());
+                mensagem.Append("\nEstoque: " + dgvLink["colDescEst", e.RowIndex].Value.ToString());
+                DialogResult result = MessageBox.Show(mensagem.ToString(), "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    auxSQL.excluirLinkNFxProdXfor(int.Parse(dgvLink["colID", e.RowIndex].Value.ToString()));
+                    preencherCampos();
+                }
+
+            }
+        }
+
         private void BtnBuscaFornecedor_Click(object sender, EventArgs e)
         {
             StringBuilder sql = new StringBuilder();
@@ -137,7 +155,7 @@ namespace Caixa.Estoque
         private void preencherCampos()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT A.COD_PROD_NF COD_PROD, P.DESC_PROD DESC_PROD, ");
+            sql.Append("SELECT A.ID, A.COD_PROD_NF COD_PROD, P.DESC_PROD DESC_PROD, ");
             sql.Append("C.ID COD_EST, C.PRODUTO DESC_EST, ");
             sql.Append("F.ID COD_FOR, F.NOME DESC_FOR ");
             sql.Append("FROM NFPROD_CONTROLESTQ A ");
