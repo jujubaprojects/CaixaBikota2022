@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtEstoqueIdeal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtDescricao = new Componentes.TextBoxJCS(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -42,11 +47,6 @@
             this.txtQTEstIdeal = new Componentes.TextBoxJCS(this.components);
             this.chkAtivo = new Componentes.CheckBoxJCS(this.components);
             this.txtID = new Componentes.TextBoxJCS(this.components);
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtEstoqueIdeal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,14 +60,14 @@
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvLink.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLink.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -75,143 +75,31 @@
             this.colQtEst,
             this.colQtEstoqueIdeal,
             this.colAtivo});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvLink.EnableHeadersVisualStyles = false;
             this.dgvLink.Location = new System.Drawing.Point(0, 119);
             this.dgvLink.Name = "dgvLink";
             this.dgvLink.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvLink.RowHeadersVisible = false;
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLink.Size = new System.Drawing.Size(695, 443);
             this.dgvLink.TabIndex = 47;
             this.dgvLink.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLink_CellClick);
-            // 
-            // labelJCS1
-            // 
-            this.labelJCS1.AutoSize = true;
-            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS1.Location = new System.Drawing.Point(27, 45);
-            this.labelJCS1.Name = "labelJCS1";
-            this.labelJCS1.Size = new System.Drawing.Size(69, 17);
-            this.labelJCS1.TabIndex = 45;
-            this.labelJCS1.Text = "Descrição:";
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescricao.BackColor = System.Drawing.Color.White;
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtDescricao.IconeKeyDown = null;
-            this.txtDescricao.Location = new System.Drawing.Point(184, 42);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Preenchimento = "";
-            this.txtDescricao.Size = new System.Drawing.Size(499, 24);
-            this.txtDescricao.TabIndex = 48;
-            this.txtDescricao.TipoCampo = "STRING";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 49;
-            // 
-            // txtQtEstoque
-            // 
-            this.txtQtEstoque.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQtEstoque.BackColor = System.Drawing.Color.White;
-            this.txtQtEstoque.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQtEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtQtEstoque.IconeKeyDown = null;
-            this.txtQtEstoque.Location = new System.Drawing.Point(102, 72);
-            this.txtQtEstoque.Name = "txtQtEstoque";
-            this.txtQtEstoque.Preenchimento = null;
-            this.txtQtEstoque.Size = new System.Drawing.Size(76, 24);
-            this.txtQtEstoque.TabIndex = 54;
-            this.txtQtEstoque.TipoCampo = "STRING";
-            // 
-            // labelJCS2
-            // 
-            this.labelJCS2.AutoSize = true;
-            this.labelJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS2.Location = new System.Drawing.Point(12, 74);
-            this.labelJCS2.Name = "labelJCS2";
-            this.labelJCS2.Size = new System.Drawing.Size(84, 17);
-            this.labelJCS2.TabIndex = 55;
-            this.labelJCS2.Text = "QT. Estoque:";
-            // 
-            // labelJCS3
-            // 
-            this.labelJCS3.AutoSize = true;
-            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(282, 75);
-            this.labelJCS3.Name = "labelJCS3";
-            this.labelJCS3.Size = new System.Drawing.Size(116, 17);
-            this.labelJCS3.TabIndex = 57;
-            this.labelJCS3.Text = "QT. Estoque Ideal:";
-            // 
-            // txtQTEstIdeal
-            // 
-            this.txtQTEstIdeal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQTEstIdeal.BackColor = System.Drawing.Color.White;
-            this.txtQTEstIdeal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQTEstIdeal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtQTEstIdeal.IconeKeyDown = null;
-            this.txtQTEstIdeal.Location = new System.Drawing.Point(404, 72);
-            this.txtQTEstIdeal.Name = "txtQTEstIdeal";
-            this.txtQTEstIdeal.Preenchimento = null;
-            this.txtQTEstIdeal.Size = new System.Drawing.Size(76, 24);
-            this.txtQTEstIdeal.TabIndex = 56;
-            this.txtQTEstIdeal.TipoCampo = "INTEIRO";
-            // 
-            // chkAtivo
-            // 
-            this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Checked = true;
-            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAtivo.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.chkAtivo.Location = new System.Drawing.Point(625, 72);
-            this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
-            this.chkAtivo.TabIndex = 58;
-            this.chkAtivo.Text = "Ativo";
-            this.chkAtivo.UseVisualStyleBackColor = true;
-            // 
-            // txtID
-            // 
-            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.BackColor = System.Drawing.Color.White;
-            this.txtID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtID.Enabled = false;
-            this.txtID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtID.IconeKeyDown = null;
-            this.txtID.Location = new System.Drawing.Point(102, 42);
-            this.txtID.Name = "txtID";
-            this.txtID.Preenchimento = null;
-            this.txtID.Size = new System.Drawing.Size(76, 24);
-            this.txtID.TabIndex = 59;
-            this.txtID.TipoCampo = "INTEIRO";
             // 
             // colID
             // 
@@ -255,6 +143,113 @@
             this.colAtivo.ReadOnly = true;
             this.colAtivo.Width = 52;
             // 
+            // labelJCS1
+            // 
+            this.labelJCS1.AutoSize = true;
+            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS1.Location = new System.Drawing.Point(27, 45);
+            this.labelJCS1.Name = "labelJCS1";
+            this.labelJCS1.Size = new System.Drawing.Size(69, 17);
+            this.labelJCS1.TabIndex = 45;
+            this.labelJCS1.Text = "Descrição:";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescricao.BackColor = System.Drawing.Color.White;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtDescricao.IconeKeyDown = null;
+            this.txtDescricao.Location = new System.Drawing.Point(184, 42);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Preenchimento = "";
+            this.txtDescricao.Size = new System.Drawing.Size(499, 24);
+            this.txtDescricao.TabIndex = 48;
+            this.txtDescricao.TipoCampo = "STRING";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 49;
+            // 
+            // txtQtEstoque
+            // 
+            this.txtQtEstoque.BackColor = System.Drawing.Color.White;
+            this.txtQtEstoque.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtQtEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtQtEstoque.IconeKeyDown = null;
+            this.txtQtEstoque.Location = new System.Drawing.Point(102, 72);
+            this.txtQtEstoque.Name = "txtQtEstoque";
+            this.txtQtEstoque.Preenchimento = null;
+            this.txtQtEstoque.Size = new System.Drawing.Size(76, 24);
+            this.txtQtEstoque.TabIndex = 54;
+            this.txtQtEstoque.TipoCampo = "STRING";
+            // 
+            // labelJCS2
+            // 
+            this.labelJCS2.AutoSize = true;
+            this.labelJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS2.Location = new System.Drawing.Point(12, 74);
+            this.labelJCS2.Name = "labelJCS2";
+            this.labelJCS2.Size = new System.Drawing.Size(84, 17);
+            this.labelJCS2.TabIndex = 55;
+            this.labelJCS2.Text = "QT. Estoque:";
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(282, 75);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(116, 17);
+            this.labelJCS3.TabIndex = 57;
+            this.labelJCS3.Text = "QT. Estoque Ideal:";
+            // 
+            // txtQTEstIdeal
+            // 
+            this.txtQTEstIdeal.BackColor = System.Drawing.Color.White;
+            this.txtQTEstIdeal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtQTEstIdeal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtQTEstIdeal.IconeKeyDown = null;
+            this.txtQTEstIdeal.Location = new System.Drawing.Point(404, 72);
+            this.txtQTEstIdeal.Name = "txtQTEstIdeal";
+            this.txtQTEstIdeal.Preenchimento = null;
+            this.txtQTEstIdeal.Size = new System.Drawing.Size(76, 24);
+            this.txtQTEstIdeal.TabIndex = 56;
+            this.txtQTEstIdeal.TipoCampo = "INTEIRO";
+            // 
+            // chkAtivo
+            // 
+            this.chkAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.chkAtivo.Location = new System.Drawing.Point(625, 72);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 58;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
+            // 
+            // txtID
+            // 
+            this.txtID.BackColor = System.Drawing.Color.White;
+            this.txtID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtID.Enabled = false;
+            this.txtID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtID.IconeKeyDown = null;
+            this.txtID.Location = new System.Drawing.Point(102, 42);
+            this.txtID.Name = "txtID";
+            this.txtID.Preenchimento = null;
+            this.txtID.Size = new System.Drawing.Size(76, 24);
+            this.txtID.TabIndex = 59;
+            this.txtID.TipoCampo = "INTEIRO";
+            // 
             // frmLinkEstoqueProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +265,7 @@
             this.Controls.Add(this.dgvLink);
             this.Controls.Add(this.labelJCS1);
             this.Name = "frmLinkEstoqueProduto";
-            this.Text = "frmLinkEstoqueProduto";
+            this.Text = "Controle de Estoque";
             this.Controls.SetChildIndex(this.labelJCS1, 0);
             this.Controls.SetChildIndex(this.dgvLink, 0);
             this.Controls.SetChildIndex(this.txtDescricao, 0);

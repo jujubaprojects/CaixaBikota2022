@@ -136,11 +136,11 @@
     <Compile Include="Cadastro\frmCadastroProduto.Designer.cs">
       <DependentUpon>frmCadastroProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastro\frmControleEstoque.cs">
+    <Compile Include="Cadastro\frmCadastroSubEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastro\frmControleEstoque.Designer.cs">
-      <DependentUpon>frmControleEstoque.cs</DependentUpon>
+    <Compile Include="Cadastro\frmCadastroSubEstoque.Designer.cs">
+      <DependentUpon>frmCadastroSubEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Caixa\frmBaldes.cs">
       <SubType>Form</SubType>
@@ -280,8 +280,8 @@
     <EmbeddedResource Include="Cadastro\frmCadastroProduto.resx">
       <DependentUpon>frmCadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastro\frmControleEstoque.resx">
-      <DependentUpon>frmControleEstoque.cs</DependentUpon>
+    <EmbeddedResource Include="Cadastro\frmCadastroSubEstoque.resx">
+      <DependentUpon>frmCadastroSubEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmBaldes.resx">
       <DependentUpon>frmBaldes.cs</DependentUpon>

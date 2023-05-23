@@ -338,7 +338,7 @@ namespace Caixa
         {
             //if (acessoFrmsRestrito())
             //{
-                frmControleEstoque frm = new frmControleEstoque();
+                frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
                 frm.ShowDialog();
             //}
         }
@@ -399,6 +399,12 @@ namespace Caixa
         private void LinkProdutoNFXControleEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LinkarProdutoFinalXEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroSubEstoque frm = new frmCadastroSubEstoque();
+            frm.ShowDialog();
         }
     }
 }

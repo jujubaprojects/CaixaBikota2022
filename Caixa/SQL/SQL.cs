@@ -354,6 +354,29 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
+        public void insertLinkProdutoFinalxControleEstoque(int pProduto,int pControle, int pQtSub)
+        {
+            string sql = queryInsertLinkProdutoFinalxControleEstoque();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pControle", pControle);
+            sqlc.Parameters.AddWithValue("@pQtSub", pQtSub);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertLinkProdutoFinalxControleEstoque()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO SUB_ESTOQUE (PRODUTO, CONTROLE_ESTOQUE, QT_SUB) ");
+            sql.Append("VALUES (@pProduto, @pControle, @pQtSub)");
+
+            return sql.ToString();
+        }
+
         public void excluirLinkNFxProdXfor(int pID)
         {
             string sql = queryexcluirLinkNFxProdXfor();
@@ -370,6 +393,26 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("DELETE FROM NFPROD_CONTROLESTQ WHERE ID = @pID");
+
+            return sql.ToString();
+        }
+
+        public void excluirLinkProdutoFinalxControleEstoque(int pID)
+        {
+            string sql = queryExcluirLinkProdutoFinalxControleEstoque();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryExcluirLinkProdutoFinalxControleEstoque()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE FROM SUB_ESTOQUE WHERE ID = @pID");
 
             return sql.ToString();
         }

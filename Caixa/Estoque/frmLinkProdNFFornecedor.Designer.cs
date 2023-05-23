@@ -42,13 +42,6 @@
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnBuscaFornecedor = new Componentes.ButtonJCS(this.components);
-            this.btnLinkar = new Componentes.ButtonJCS(this.components);
-            this.btnBuscaControlEstq = new Componentes.ButtonJCS(this.components);
-            this.btnBuscaProdutoNFe = new Componentes.ButtonJCS(this.components);
-            this.txtQtCaixa = new Componentes.TextBoxJCS(this.components);
-            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +51,13 @@
             this.colDescFor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQtCaixa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnBuscaFornecedor = new Componentes.ButtonJCS(this.components);
+            this.btnLinkar = new Componentes.ButtonJCS(this.components);
+            this.btnBuscaControlEstq = new Componentes.ButtonJCS(this.components);
+            this.btnBuscaProdutoNFe = new Componentes.ButtonJCS(this.components);
+            this.txtQtCaixa = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,102 +234,6 @@
             this.dgvLink.TabIndex = 63;
             this.dgvLink.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLink_CellClick);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 49;
-            // 
-            // btnBuscaFornecedor
-            // 
-            this.btnBuscaFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscaFornecedor.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscaFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscaFornecedor.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
-            this.btnBuscaFornecedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaFornecedor.Location = new System.Drawing.Point(719, 12);
-            this.btnBuscaFornecedor.Name = "btnBuscaFornecedor";
-            this.btnBuscaFornecedor.Size = new System.Drawing.Size(202, 24);
-            this.btnBuscaFornecedor.TabIndex = 1;
-            this.btnBuscaFornecedor.Text = "Buscar Fornecedor";
-            this.btnBuscaFornecedor.UseVisualStyleBackColor = false;
-            this.btnBuscaFornecedor.Click += new System.EventHandler(this.BtnBuscaFornecedor_Click);
-            // 
-            // btnLinkar
-            // 
-            this.btnLinkar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLinkar.BackColor = System.Drawing.Color.Gold;
-            this.btnLinkar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLinkar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.btnLinkar.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_96;
-            this.btnLinkar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLinkar.Location = new System.Drawing.Point(12, 143);
-            this.btnLinkar.Name = "btnLinkar";
-            this.btnLinkar.Size = new System.Drawing.Size(909, 88);
-            this.btnLinkar.TabIndex = 69;
-            this.btnLinkar.Text = "Linkar Produto Final a Materia Prima";
-            this.btnLinkar.UseVisualStyleBackColor = false;
-            this.btnLinkar.Click += new System.EventHandler(this.BtnLinkar_Click);
-            // 
-            // btnBuscaControlEstq
-            // 
-            this.btnBuscaControlEstq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscaControlEstq.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscaControlEstq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaControlEstq.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscaControlEstq.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
-            this.btnBuscaControlEstq.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaControlEstq.Location = new System.Drawing.Point(719, 70);
-            this.btnBuscaControlEstq.Name = "btnBuscaControlEstq";
-            this.btnBuscaControlEstq.Size = new System.Drawing.Size(202, 24);
-            this.btnBuscaControlEstq.TabIndex = 3;
-            this.btnBuscaControlEstq.Text = "Buscar Controle Estoque";
-            this.btnBuscaControlEstq.UseVisualStyleBackColor = false;
-            this.btnBuscaControlEstq.Click += new System.EventHandler(this.BtnBuscaControlEstq_Click);
-            // 
-            // btnBuscaProdutoNFe
-            // 
-            this.btnBuscaProdutoNFe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscaProdutoNFe.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscaProdutoNFe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaProdutoNFe.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscaProdutoNFe.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
-            this.btnBuscaProdutoNFe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaProdutoNFe.Location = new System.Drawing.Point(719, 40);
-            this.btnBuscaProdutoNFe.Name = "btnBuscaProdutoNFe";
-            this.btnBuscaProdutoNFe.Size = new System.Drawing.Size(202, 24);
-            this.btnBuscaProdutoNFe.TabIndex = 2;
-            this.btnBuscaProdutoNFe.Text = "Buscar Produto NFe";
-            this.btnBuscaProdutoNFe.UseVisualStyleBackColor = false;
-            this.btnBuscaProdutoNFe.Click += new System.EventHandler(this.BtnBuscaProdutoNFe_Click);
-            // 
-            // txtQtCaixa
-            // 
-            this.txtQtCaixa.BackColor = System.Drawing.Color.White;
-            this.txtQtCaixa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQtCaixa.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtQtCaixa.IconeKeyDown = null;
-            this.txtQtCaixa.Location = new System.Drawing.Point(112, 100);
-            this.txtQtCaixa.Name = "txtQtCaixa";
-            this.txtQtCaixa.Preenchimento = null;
-            this.txtQtCaixa.Size = new System.Drawing.Size(47, 24);
-            this.txtQtCaixa.TabIndex = 4;
-            this.txtQtCaixa.TipoCampo = "INTEIRO";
-            // 
-            // labelJCS3
-            // 
-            this.labelJCS3.AutoSize = true;
-            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(27, 103);
-            this.labelJCS3.Name = "labelJCS3";
-            this.labelJCS3.Size = new System.Drawing.Size(65, 17);
-            this.labelJCS3.TabIndex = 76;
-            this.labelJCS3.Text = "QT. Caixa:";
-            // 
             // colID
             // 
             this.colID.DataPropertyName = "ID";
@@ -405,6 +309,102 @@
             this.colExcluir.Name = "colExcluir";
             this.colExcluir.ReadOnly = true;
             this.colExcluir.Width = 52;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 49;
+            // 
+            // btnBuscaFornecedor
+            // 
+            this.btnBuscaFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscaFornecedor.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscaFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscaFornecedor.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
+            this.btnBuscaFornecedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaFornecedor.Location = new System.Drawing.Point(719, 12);
+            this.btnBuscaFornecedor.Name = "btnBuscaFornecedor";
+            this.btnBuscaFornecedor.Size = new System.Drawing.Size(202, 24);
+            this.btnBuscaFornecedor.TabIndex = 1;
+            this.btnBuscaFornecedor.Text = "Buscar Fornecedor";
+            this.btnBuscaFornecedor.UseVisualStyleBackColor = false;
+            this.btnBuscaFornecedor.Click += new System.EventHandler(this.BtnBuscaFornecedor_Click);
+            // 
+            // btnLinkar
+            // 
+            this.btnLinkar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLinkar.BackColor = System.Drawing.Color.Gold;
+            this.btnLinkar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLinkar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.btnLinkar.Image = global::Caixa.Properties.Resources.icons8_caixa_de_seleção_marcada_96;
+            this.btnLinkar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLinkar.Location = new System.Drawing.Point(12, 143);
+            this.btnLinkar.Name = "btnLinkar";
+            this.btnLinkar.Size = new System.Drawing.Size(909, 88);
+            this.btnLinkar.TabIndex = 69;
+            this.btnLinkar.Text = "Linkar Fornecedor x Produto NF x Controle Estoque";
+            this.btnLinkar.UseVisualStyleBackColor = false;
+            this.btnLinkar.Click += new System.EventHandler(this.BtnLinkar_Click);
+            // 
+            // btnBuscaControlEstq
+            // 
+            this.btnBuscaControlEstq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscaControlEstq.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscaControlEstq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaControlEstq.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscaControlEstq.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
+            this.btnBuscaControlEstq.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaControlEstq.Location = new System.Drawing.Point(719, 70);
+            this.btnBuscaControlEstq.Name = "btnBuscaControlEstq";
+            this.btnBuscaControlEstq.Size = new System.Drawing.Size(202, 24);
+            this.btnBuscaControlEstq.TabIndex = 3;
+            this.btnBuscaControlEstq.Text = "Buscar Controle Estoque";
+            this.btnBuscaControlEstq.UseVisualStyleBackColor = false;
+            this.btnBuscaControlEstq.Click += new System.EventHandler(this.BtnBuscaControlEstq_Click);
+            // 
+            // btnBuscaProdutoNFe
+            // 
+            this.btnBuscaProdutoNFe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscaProdutoNFe.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscaProdutoNFe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaProdutoNFe.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscaProdutoNFe.Image = global::Caixa.Properties.Resources.mecanismo_de_pesquisa_na_web20x20;
+            this.btnBuscaProdutoNFe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaProdutoNFe.Location = new System.Drawing.Point(719, 40);
+            this.btnBuscaProdutoNFe.Name = "btnBuscaProdutoNFe";
+            this.btnBuscaProdutoNFe.Size = new System.Drawing.Size(202, 24);
+            this.btnBuscaProdutoNFe.TabIndex = 2;
+            this.btnBuscaProdutoNFe.Text = "Buscar Produto NFe";
+            this.btnBuscaProdutoNFe.UseVisualStyleBackColor = false;
+            this.btnBuscaProdutoNFe.Click += new System.EventHandler(this.BtnBuscaProdutoNFe_Click);
+            // 
+            // txtQtCaixa
+            // 
+            this.txtQtCaixa.BackColor = System.Drawing.Color.White;
+            this.txtQtCaixa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtQtCaixa.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtQtCaixa.IconeKeyDown = null;
+            this.txtQtCaixa.Location = new System.Drawing.Point(112, 100);
+            this.txtQtCaixa.Name = "txtQtCaixa";
+            this.txtQtCaixa.Preenchimento = null;
+            this.txtQtCaixa.Size = new System.Drawing.Size(47, 24);
+            this.txtQtCaixa.TabIndex = 4;
+            this.txtQtCaixa.TipoCampo = "INTEIRO";
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(27, 103);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(65, 17);
+            this.labelJCS3.TabIndex = 76;
+            this.labelJCS3.Text = "QT. Caixa:";
             // 
             // frmLinkProdNFFornecedor
             // 

@@ -46,7 +46,6 @@
             this.consultarNotasClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.linkEstoqueXProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notasFiscaisEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +55,7 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,7 +199,7 @@
             // 
             this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem,
-            this.linkEstoqueXProdutoToolStripMenuItem,
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem,
             this.toolStripMenuItem1,
             this.importarXMLToolStripMenuItem,
             this.notasFiscaisEntradasToolStripMenuItem,
@@ -214,13 +214,6 @@
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto x Fornecedor";
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Click += new System.EventHandler(this.LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click);
-            // 
-            // linkEstoqueXProdutoToolStripMenuItem
-            // 
-            this.linkEstoqueXProdutoToolStripMenuItem.Name = "linkEstoqueXProdutoToolStripMenuItem";
-            this.linkEstoqueXProdutoToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.linkEstoqueXProdutoToolStripMenuItem.Text = "Link Estoque x Produto";
-            this.linkEstoqueXProdutoToolStripMenuItem.Click += new System.EventHandler(this.LinkEstoqueXProdutoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -292,6 +285,13 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
+            // linkarProdutoFinalXEstoqueToolStripMenuItem
+            // 
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Name = "linkarProdutoFinalXEstoqueToolStripMenuItem";
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Text = "Linkar Produto Final x Estoque";
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Click += new System.EventHandler(this.LinkarProdutoFinalXEstoqueToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,8 +330,6 @@
         private System.Windows.Forms.ToolStripMenuItem baldesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recebimentoDeNotaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem linkEstoqueXProdutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarNotasClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarXMLToolStripMenuItem;
@@ -339,6 +337,8 @@
         private System.Windows.Forms.ToolStripMenuItem produtosParaComprarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem linkarEstoqueXProdutoXFornecedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linkarProdutoFinalXEstoqueToolStripMenuItem;
     }
 }
 
