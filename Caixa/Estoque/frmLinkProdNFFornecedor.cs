@@ -26,7 +26,7 @@ namespace Caixa.Estoque
 
         private void BtnLinkar_Click(object sender, EventArgs e)
         {
-            if (materiaVal && produtoVal && fornecedor)
+            if (materiaVal && produtoVal && fornecedor && !string.IsNullOrEmpty(txtQtCaixa.Text))
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append("SELECT * FROM NFPROD_CONTROLESTQ ");
@@ -41,13 +41,13 @@ namespace Caixa.Estoque
                     return;
                 }
                 //if ()
-                auxSQL.insertLinkNFxProdXfor(int.Parse(txtIDProd.Text), int.Parse(txtIDFornecedor.Text), int.Parse(txtIdEstoque.Text));
+                auxSQL.insertLinkNFxProdXfor(int.Parse(txtIDProd.Text), int.Parse(txtIDFornecedor.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtCaixa.Text));
                 MessageBox.Show("Link criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 preencherCampos();
                 limparCampos();
             }
             else
-                MessageBox.Show("Por favor, preencha os campos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, preencha todos os campos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void limparCampos()
@@ -62,14 +62,14 @@ namespace Caixa.Estoque
         {
 
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ID, PRODUTO, QT_ESTOQUE, QT_ESTOQUE_IDEAL FROM CONTROLE_ESTOQUE WHERE STATUS = 1 ORDER BY PRODUTO");
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL FROM CONTROLE_ESTOQUE WHERE STATUS = 1 ORDER BY DESCRICAO");
 
-            frmBusca frm = new frmBusca(sql, "Materia Prima");
+            frmBusca frm = new frmBusca(sql, "Controle Estoque");
             frm.ShowDialog();
             if (frm.retorno != null)
             {
                 txtIdEstoque.Text = frm.retorno["ID"].ToString();
-                txtDescricaoEstoque.Text = frm.retorno["PRODUTO"].ToString();
+                txtDescricaoEstoque.Text = frm.retorno["DESCRICAO"].ToString();
                 materiaVal = true;
             }
             else
@@ -156,8 +156,8 @@ namespace Caixa.Estoque
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT A.ID, A.COD_PROD_NF COD_PROD, P.DESC_PROD DESC_PROD, ");
-            sql.Append("C.ID COD_EST, C.PRODUTO DESC_EST, ");
-            sql.Append("F.ID COD_FOR, F.NOME DESC_FOR ");
+            sql.Append("C.ID COD_EST, C.DESCRICAO DESC_EST, ");
+            sql.Append("F.ID COD_FOR, F.NOME DESC_FOR, A.QT_CAIXA ");
             sql.Append("FROM NFPROD_CONTROLESTQ A ");
             sql.Append("JOIN FORNECEDOR F ON(A.FOR_ID = F.id) ");
             sql.Append("JOIN NF_PROD P ON(P.COD_PROD = A.COD_PROD_NF) ");

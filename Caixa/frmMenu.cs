@@ -336,11 +336,11 @@ namespace Caixa
 
         private void EstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (acessoFrmsRestrito())
-            {
+            //if (acessoFrmsRestrito())
+            //{
                 frmControleEstoque frm = new frmControleEstoque();
                 frm.ShowDialog();
-            }
+            //}
         }
 
         private void LinkEstoqueXProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -394,6 +394,11 @@ namespace Caixa
         {
             frmLinkProdNFFornecedor frm = new frmLinkProdNFFornecedor();
             frm.ShowDialog();
+        }
+
+        private void LinkProdutoNFXControleEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

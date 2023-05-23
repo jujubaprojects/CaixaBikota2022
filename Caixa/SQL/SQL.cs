@@ -330,7 +330,7 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public void insertLinkNFxProdXfor(int pProduto, int pFornecedor, int pControle)
+        public void insertLinkNFxProdXfor(int pProduto, int pFornecedor, int pControle, int pQtCaixa)
         {
             string sql = queryinsertLinkNFxProdXfor();
 
@@ -341,14 +341,15 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
             sqlc.Parameters.AddWithValue("@pFornecedor", pFornecedor);
             sqlc.Parameters.AddWithValue("@pControle", pControle);
+            sqlc.Parameters.AddWithValue("@pQtCaixa", pQtCaixa);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
         private string queryinsertLinkNFxProdXfor()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO NFPROD_CONTROLESTQ (COD_PROD_NF, FOR_ID, COD_CONTRESTQ) ");
-            sql.Append("VALUES (@pProduto, @pFornecedor, @pControle)");
+            sql.Append("INSERT INTO NFPROD_CONTROLESTQ (COD_PROD_NF, FOR_ID, COD_CONTRESTQ, QT_CAIXA) ");
+            sql.Append("VALUES (@pProduto, @pFornecedor, @pControle, @pQtCaixa)");
 
             return sql.ToString();
         }

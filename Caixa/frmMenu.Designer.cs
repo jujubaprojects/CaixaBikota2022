@@ -45,7 +45,9 @@
             this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarNotasClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkEstoqueXProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notasFiscaisEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosParaComprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,8 +56,6 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,12 +208,24 @@
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(61, 68);
             this.produtosToolStripMenuItem.Text = "Estoque";
             // 
+            // linkarEstoqueXProdutoXFornecedorToolStripMenuItem
+            // 
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Name = "linkarEstoqueXProdutoXFornecedorToolStripMenuItem";
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto x Fornecedor";
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Click += new System.EventHandler(this.LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click);
+            // 
             // linkEstoqueXProdutoToolStripMenuItem
             // 
             this.linkEstoqueXProdutoToolStripMenuItem.Name = "linkEstoqueXProdutoToolStripMenuItem";
             this.linkEstoqueXProdutoToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.linkEstoqueXProdutoToolStripMenuItem.Text = "Link Estoque x Produto";
             this.linkEstoqueXProdutoToolStripMenuItem.Click += new System.EventHandler(this.LinkEstoqueXProdutoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(275, 6);
             // 
             // importarXMLToolStripMenuItem
             // 
@@ -279,18 +291,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
-            // 
-            // linkarEstoqueXProdutoXFornecedorToolStripMenuItem
-            // 
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Name = "linkarEstoqueXProdutoXFornecedorToolStripMenuItem";
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto x Fornecedor";
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Click += new System.EventHandler(this.LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(275, 6);
             // 
             // frmMenu
             // 

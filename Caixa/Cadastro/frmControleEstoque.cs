@@ -15,10 +15,9 @@ namespace Caixa.Cadastro
     {
         private int tipoOperacao = 0, id = 0;
         private SQL.SQL auxSQL = new SQL.SQL();
-        private string produto, descricao, unidade, fornecedor;
-        private int estoque, estoqueIdeal, qtEnvFor;
-        private double custo;
-        private DateTime dataEntrega;
+        private string descricao;
+        private bool status = true;
+        private int qtEstoque, qtEstoqueIdeal;
 
         private void DgvEstoque_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -81,7 +80,9 @@ namespace Caixa.Cadastro
             tipoOperacao = pOperacao;
             id = pID;
             InitializeComponent();
-            preencherCampos();
+            //preencherCampos();
+
+            cboStatus.SelectedIndex = 1;
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -90,14 +91,12 @@ namespace Caixa.Cadastro
             {
                 if (tipoOperacao == 1)
                 {
-                    //auxSQL.insertControleEstoque(produto, descricao, estoque, unidade, estoqueIdeal, qtEnvFor, custo, fornecedor, dataEntrega, true);
+                    auxSQL.insertControleEstoque(descricao, qtEstoque, qtEstoqueIdeal, status );
                     MessageBox.Show("Produto criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-
-                    auxSQL.updateControleEstoqueCusto(id,produto, estoque, estoqueIdeal, qtEnvFor, custo, unidade, fornecedor, dataEntrega.ToString(), -1, 0);
-                    //auxSQL.updateControleEstoqueCusto(id, estoque, estoqueIdeal, custo, fonecedor);
+                    auxSQL.updateControleEstoque(id, descricao, qtEstoque, qtEstoqueIdeal, status);
                     MessageBox.Show("Produto criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -109,17 +108,19 @@ namespace Caixa.Cadastro
 
         private void limparCampos()
         {
-            this.limpar(txtCusto);
             this.limpar(txtDescricao);
             this.limpar(txtEstoqueIdeaal);
-            this.limpar(txtProduto);
-            this.limpar(txtQtEntregueFornecedor);
             this.limpar(txtQTEstoque);
-            this.limpar(txtUnidadeMedida);
         }
+
+        private void CboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            preencherCampos();
+        }
+
         private void preencherCampos()
         {
-            DataTable dt = auxSQL.buscaControleEstoque(0);
+            DataTable dt = auxSQL.buscaControleEstoque(0,cboStatus.SelectedIndex);
             dgvEstoque.DataSource = dt;
 
             if (tipoOperacao == 2)
@@ -132,15 +133,10 @@ namespace Caixa.Cadastro
                     DataTable dtInf = auxSQL.buscaControleEstoque(id);
                     if (dtInf.Rows.Count > 0)
                     {
-                        txtCusto.Text = dtInf.Rows[0]["CUSTO"].ToString();
                         txtDescricao.Text = dtInf.Rows[0]["DESCRICAO"].ToString();
                         txtEstoqueIdeaal.Text = dtInf.Rows[0]["QT_ESTOQUE_IDEAL"].ToString();
-                        txtFornecedor.Text = dtInf.Rows[0]["FORNECEDOR"].ToString();
-                        txtProduto.Text = dtInf.Rows[0]["PRODUTO"].ToString();
-                        txtQtEntregueFornecedor.Text = dtInf.Rows[0]["QT_ENTREGUE_FORNECEDOR"].ToString();
                         txtQTEstoque.Text = dtInf.Rows[0]["QT_ESTOQUE"].ToString();
-                        txtUnidadeMedida.Text = dtInf.Rows[0]["UNIDADE_MEDIDA"].ToString();
-                        dtpDataEntrega.Text = dtInf.Rows[0]["DATA_ENTREGA"].ToString();
+                        chkAtivo.Checked = dt.Rows[0]["STATUS"].ToString().Equals("True") ? true : false;
                     }
                 }
             }
@@ -153,44 +149,23 @@ namespace Caixa.Cadastro
 
         private bool validaCampos()
         {
-            produto = txtProduto.Text;
             descricao = txtDescricao.Text;
-            unidade = txtUnidadeMedida.Text;
-            estoque = int.Parse(txtQTEstoque.Text);
-            estoqueIdeal = int.Parse(txtEstoqueIdeaal.Text);
-            qtEnvFor = int.Parse(txtQtEntregueFornecedor.Text);
-            custo = double.Parse(txtCusto.Text.Replace("R$",""));
-            fornecedor = txtFornecedor.Text;
-            dataEntrega = DateTime.Parse(dtpDataEntrega.Text);
+            qtEstoque = int.Parse(txtQTEstoque.Text);
+            qtEstoqueIdeal = int.Parse(txtEstoqueIdeaal.Text);
 
-            if (estoque < 0)
+            if (qtEstoque < 0)
             {
                 MessageBox.Show("Por favor, preencha o campo de estoque.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            if (estoqueIdeal <= 0)
+            if (qtEstoqueIdeal <= 0)
             {
                 MessageBox.Show("Por favor, preencha o campo de estoque ideal.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            if (qtEnvFor <= 0)
+            if (string.IsNullOrEmpty(descricao))
             {
-                MessageBox.Show("Por favor, preencha o campo de quantidade enviada pelo fornecedor.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            if (custo <= 0)
-            {
-                MessageBox.Show("Por favor, preencha o campo de custo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            if (string.IsNullOrEmpty(unidade))
-            {
-                MessageBox.Show("Por favor, preencha o campo de unidade.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            if (string.IsNullOrEmpty(fornecedor))
-            {
-                MessageBox.Show("Por favor, preencha o campo de fornecedor.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, preencha o campo de descrição.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
