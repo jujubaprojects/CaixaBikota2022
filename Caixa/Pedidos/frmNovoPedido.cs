@@ -155,7 +155,10 @@ namespace Caixa
                         if (cboTipo.SelectedIndex == 2)
                         {
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
-                            auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 8);
+                            if (auxSQL.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PRODUTO = 91 AND PEDIDO = " + int.Parse(txtPedidoID.Text)).Rows.Count == 0)
+                            {
+                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 8);
+                            }
                         }
 
                         enviarPedido(8);
@@ -517,7 +520,10 @@ namespace Caixa
                         if (cboTipo.SelectedIndex == 2)
                         {
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
-                            auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 2);
+                            if (auxSQL.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PRODUTO = 91 AND PEDIDO = " + int.Parse(txtPedidoID.Text)).Rows.Count == 0)
+                            {
+                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 2);
+                            }
                         }
 
                         enviarPedido(2);

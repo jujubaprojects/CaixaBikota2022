@@ -155,7 +155,7 @@ namespace Caixa.Estoque
         private void preencherCampos()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT A.ID, A.COD_PROD_NF COD_PROD, P.DESC_PROD DESC_PROD, ");
+            sql.Append("SELECT DISTINCT A.ID, A.COD_PROD_NF COD_PROD, P.DESC_PROD DESC_PROD, ");
             sql.Append("C.ID COD_EST, C.DESCRICAO DESC_EST, ");
             sql.Append("F.ID COD_FOR, F.NOME DESC_FOR, A.QT_CAIXA ");
             sql.Append("FROM NFPROD_CONTROLESTQ A ");

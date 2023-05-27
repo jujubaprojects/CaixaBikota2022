@@ -65,7 +65,7 @@ namespace Caixa
                 lblAnotou.Visible = true;
                 cboAnotar.Visible = true;
 
-                DataTable dt = auxSql.buscaClienteID(0);
+                DataTable dt = auxSql.buscaClienteID(0,1);
                 for (int i = 0; i < dt.Rows.Count; i++)
                     cboAnotar.Items.Add(dt.Rows[i]["NOME"].ToString());
             }

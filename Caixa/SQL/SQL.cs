@@ -592,25 +592,29 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public DataTable buscaClienteID(int pID)
+        public DataTable buscaClienteID(int pID, int pAtivo = 1)
         {
-            string sql = queryBuscaClienteID(pID);
+            string sql = queryBuscaClienteID(pID, pAtivo);
 
             SqlConnection conn = conexao.retornaConexao();
 
             SqlCommand sqlc = new SqlCommand(sql);
             sqlc.CommandType = CommandType.Text;
             sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pStatus", pAtivo);
 
             return conexao.executarSelect(sqlc, conn);
         }
-        private string queryBuscaClienteID(int pID)
+        private string queryBuscaClienteID(int pID, int pAtivo)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT ID, NOME, ENDERECO, CONTATO, STATUS, VALOR ");
             sql.Append("FROM CLIENTE ");
+           sql.Append("WHERE 1=1 ");
+            if (pAtivo != 1)
+                sql.Append("AND STATUS = @pStatus ");
             if (pID > 0)
-                sql.Append("WHERE ID = @pID ");
+                sql.Append("AND ID = @pID");
             sql.Append("ORDER BY NOME ");
             return sql.ToString();
         }

@@ -46,6 +46,7 @@
             this.consultarNotasClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notasFiscaisEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,6 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.linkarProdutoFinalXEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,33 +211,40 @@
             // linkarEstoqueXProdutoXFornecedorToolStripMenuItem
             // 
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Name = "linkarEstoqueXProdutoXFornecedorToolStripMenuItem";
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto x Fornecedor";
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto NFe x Fornecedor";
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Click += new System.EventHandler(this.LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click);
+            // 
+            // linkarProdutoFinalXEstoqueToolStripMenuItem
+            // 
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Name = "linkarProdutoFinalXEstoqueToolStripMenuItem";
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Text = "Linkar Produto Final x Estoque";
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Click += new System.EventHandler(this.LinkarProdutoFinalXEstoqueToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(275, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(299, 6);
             // 
             // importarXMLToolStripMenuItem
             // 
             this.importarXMLToolStripMenuItem.Name = "importarXMLToolStripMenuItem";
-            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.importarXMLToolStripMenuItem.Text = "Importar XML";
             this.importarXMLToolStripMenuItem.Click += new System.EventHandler(this.ImportarXMLToolStripMenuItem_Click);
             // 
             // notasFiscaisEntradasToolStripMenuItem
             // 
             this.notasFiscaisEntradasToolStripMenuItem.Name = "notasFiscaisEntradasToolStripMenuItem";
-            this.notasFiscaisEntradasToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.notasFiscaisEntradasToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.notasFiscaisEntradasToolStripMenuItem.Text = "Notas Fiscais Entradas";
             this.notasFiscaisEntradasToolStripMenuItem.Click += new System.EventHandler(this.NotasFiscaisEntradasToolStripMenuItem_Click);
             // 
             // produtosParaComprarToolStripMenuItem
             // 
             this.produtosParaComprarToolStripMenuItem.Name = "produtosParaComprarToolStripMenuItem";
-            this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.produtosParaComprarToolStripMenuItem.Text = "Produtos para Comprar";
             this.produtosParaComprarToolStripMenuItem.Click += new System.EventHandler(this.ProdutosParaComprarToolStripMenuItem_Click);
             // 
@@ -284,13 +291,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
-            // 
-            // linkarProdutoFinalXEstoqueToolStripMenuItem
-            // 
-            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Name = "linkarProdutoFinalXEstoqueToolStripMenuItem";
-            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Text = "Linkar Produto Final x Estoque";
-            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Click += new System.EventHandler(this.LinkarProdutoFinalXEstoqueToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

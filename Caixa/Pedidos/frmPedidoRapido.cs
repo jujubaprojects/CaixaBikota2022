@@ -223,7 +223,7 @@ namespace Caixa
                     txtVlRecebido.Enabled = false;
                     txtVlRecebido.Text = txtVlTotal.Text;
 
-                    DataTable dt = auxSQL.buscaClienteID(0);
+                    DataTable dt = auxSQL.buscaClienteID(0,1);
                     for (int i = 0; i < dt.Rows.Count; i++)
                         cboAnotar.Items.Add(dt.Rows[i]["NOME"].ToString());
                     break;
