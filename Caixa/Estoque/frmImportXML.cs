@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -12,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Data;
+using ExcelDataReader;
 
 namespace Caixa.Estoque
 {
@@ -57,10 +60,14 @@ namespace Caixa.Estoque
                 {
                     for (int l = 0; l < arquivos.Count(); l++)//LACO PARA EXECUTAR TODOS OS ARQUIVOS, MESMO SENDO XML OU NAO
                     {
-                        if (arquivos[l].ToUpper().Contains(".XML"))//APENAS XMLs
+                        if (arquivos[l].ToUpper().Contains(".XML") || arquivos[l].ToUpper().Contains(".XLSX"))//APENAS XMLs e Excel
                         {
                             dtExcelNFe = new DataTable();
-                            dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
+                            if (arquivos[l].ToUpper().Contains(".XML"))
+                                dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
+                            else
+                                dtExcelNFe = buscaExcel(arquivos[l].ToUpper());
+
                             SqlCommand sqlComSelect;// = new SqlCommand(sqlSelect.ToString(), conn, transacao);
                             SqlCommand sqlComInsert;
                             //sqlComSelect.CommandType = CommandType.Text;
@@ -194,6 +201,62 @@ namespace Caixa.Estoque
             {
                 MessageBox.Show("Por favor, informe os caminhos corretos.");
             }
+        }
+
+        private DataTable buscaExcel(string pArquivo)
+        {
+            DataTable dtRetorno = new DataTable();
+            List<string> nomeColunas = new List<string> {"INFNFE", "CNF","NNF","DHEMI","DHSAIENT","CNPJ","XNOME","XFANT","XLGR","NRO","XBAIRRO","XMUN","UF","CEP","FONE","IE","CPROD", "XPROD","QCOM", "VLIQ" };
+            int qtPercorrida = 0;
+            bool parada = false;
+            List<string> informacoes = new List<string>();
+
+            using (var stream = System.IO.File.Open(pArquivo, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    do
+                    {
+                        while (reader.Read())
+                        {
+                            qtPercorrida++;
+                            for (int i = 0; i < 20; i++)
+                            {
+                                if (qtPercorrida == 1)//VERIFICAR AS COLUNAS
+                                {
+                                    var teste = reader.GetValue(i);
+                                    dtRetorno.Columns.Add(teste.ToString().ToUpper());
+                                    if (!nomeColunas.Contains(teste.ToString().ToUpper()))
+                                        parada = true;
+                                }
+                                else //BUSCAR INFORMAÇÕES
+                                {
+                                    informacoes.Add(reader.GetValue(i).ToString());
+                                }
+
+                            }
+
+                            if (qtPercorrida > 1)
+                            {
+                                DataRow dr = null;
+                                dr = dtRetorno.NewRow();
+                                for (int j = 0; j < informacoes.Count; j++)
+                                {
+                                    dr[nomeColunas[j].ToString()] = informacoes[j].ToString();
+                                }
+                                dtRetorno.Rows.Add(dr);
+                                informacoes.Clear();
+                            }
+                        }
+                    } while (reader.NextResult() || parada);
+
+                    // 2. Use the AsDataSet extension method
+                    //var result = reader.AsDataSet();
+
+                }
+            }
+
+            return dtRetorno;
         }
 
         private DataTable buscaTudo(string pArquivo)  //METODO PARA RODAR O XML E BUSCAR OS PRODUTOS

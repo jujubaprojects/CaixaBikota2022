@@ -128,7 +128,7 @@
             this.Controls.Add(this.txtXML);
             this.Controls.Add(this.label1);
             this.Name = "frmImportXML";
-            this.Text = "frmImportXML";
+            this.Text = "Importa XML/Excel";
             this.ResumeLayout(false);
             this.PerformLayout();
 
