@@ -254,6 +254,36 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertFornecedor(string pCNPJ, string pNome, string pIE, string pFone, string pFantasia, int pCep, string pEnd, string pNum, string pBairro, string pCidade, string pEstado)
+        {
+            string sql = queryInsertFornecedor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@CPF_CNPJ", pCNPJ);
+            sqlc.Parameters.AddWithValue("@NOME", pNome);
+            sqlc.Parameters.AddWithValue("@IE", pIE);
+            sqlc.Parameters.AddWithValue("@FONE", pFone);
+            sqlc.Parameters.AddWithValue("@NOME_FANTASIA", pFantasia);
+            sqlc.Parameters.AddWithValue("@CEP", pCep);
+            sqlc.Parameters.AddWithValue("@END_RUA", pEnd);
+            sqlc.Parameters.AddWithValue("@END_NUM", pNum);
+            sqlc.Parameters.AddWithValue("@END_BAIRRO", pBairro);
+            sqlc.Parameters.AddWithValue("@END_CIDADE", pCidade);
+            sqlc.Parameters.AddWithValue("@END_UF", pEstado);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertFornecedor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO FORNECEDOR (CPF_CNPJ, NOME, IE, FONE, NOME_FANTASIA, CEP, END_RUA, END_NUM, END_BAIRRO, END_CIDADE, END_UF) ");
+            sql.Append("VALUES (@CPF_CNPJ, @NOME, @IE, @FONE, @NOME_FANTASIA, @CEP, @END_RUA, @END_NUM, @END_BAIRRO, @END_CIDADE, @END_UF) ");
+
+            return sql.ToString();
+        }
 
         public void insertLinkProdutoxMateriaPrima(int pProduto, int pEstoque, int pQtSub)
         {
@@ -815,6 +845,49 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void updateFornecedor(int pID, string pCNPJ, string pNome, string pIE, string pFone, string pFantasia, int pCep, string pEnd, string pNum, string pBairro, string pCidade, string pEstado)
+        {
+            string sql = queryUpdateFornecedor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@CPF_CNPJ", pCNPJ);
+            sqlc.Parameters.AddWithValue("@NOME", pNome);
+            sqlc.Parameters.AddWithValue("@IE", pIE);
+            sqlc.Parameters.AddWithValue("@FONE", pFone);
+            sqlc.Parameters.AddWithValue("@NOME_FANTASIA", pFantasia);
+            sqlc.Parameters.AddWithValue("@CEP", pCep);
+            sqlc.Parameters.AddWithValue("@END_RUA", pEnd);
+            sqlc.Parameters.AddWithValue("@END_NUM", pNum);
+            sqlc.Parameters.AddWithValue("@END_BAIRRO", pBairro);
+            sqlc.Parameters.AddWithValue("@END_CIDADE", pCidade);
+            sqlc.Parameters.AddWithValue("@END_UF", pEstado);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateFornecedor()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE FORNECEDOR ");
+            sql.Append("SET CPF_CNPJ =  @CPF_CNPJ, ");
+            sql.Append("NOME = @NOME, ");
+            sql.Append("IE = @IE, ");
+            sql.Append("FONE = @FONE, ");
+            sql.Append("NOME_FANTASIA = @NOME_FANTASIA, ");
+            sql.Append("CEP = @CEP, ");
+            sql.Append("END_RUA = @END_RUA, ");
+            sql.Append("END_NUM = @END_NUM, ");
+            sql.Append("END_BAIRRO = @END_BAIRRO, ");
+            sql.Append("END_CIDADE = @END_CIDADE, ");
+            sql.Append("END_UF = @END_UF ");
+            sql.Append("FROM FORNECEDOR WHERE ID = @pID");
+
+            return sql.ToString();
+        }
 
 
         public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, int pSituacao)
@@ -1307,6 +1380,25 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT ID, DESCRICAO, TIPO, VALOR, QT_DESCRICAO, MOSTRAR_LIST, EXIBIR_APP, QT_SUB_ESTOQUE FROM PRODUTO WHERE ID = @pID ");
+
+            return sql.ToString();
+        }
+        public DataTable buscaFornecedor(int pID)
+        {
+            string sql = queryBuscaFornecedor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaFornecedor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, CPF_CNPJ, NOME, IE, FONE, NOME_FANTASIA, CEP, END_RUA, END_NUM, END_BAIRRO, END_CIDADE, END_UF FROM FORNECEDOR WHERE ID = @pID ");
 
             return sql.ToString();
         }

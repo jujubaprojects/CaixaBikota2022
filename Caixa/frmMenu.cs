@@ -406,5 +406,11 @@ namespace Caixa
             frmCadastroSubEstoque frm = new frmCadastroSubEstoque();
             frm.ShowDialog();
         }
+
+        private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroFornecedor frm = new frmCadastroFornecedor();
+            frm.ShowDialog();
+        }
     }
 }
