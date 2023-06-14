@@ -206,7 +206,7 @@ namespace Caixa.Estoque
         private DataTable buscaExcel(string pArquivo)
         {
             DataTable dtRetorno = new DataTable();
-            List<string> nomeColunas = new List<string> {"INFNFE", "CNF","NNF","DHEMI","DHSAIENT","CNPJ","XNOME","XFANT","XLGR","NRO","XBAIRRO","XMUN","UF","CEP","FONE","IE","CPROD", "XPROD","QCOM", "VLIQ" };
+            List<string> nomeColunas = new List<string> {"INFNFE", "CNF","NNF","DHEMI","DHSAIENT","CNPJ","XNOME","XFANT","XLGR","NRO","XBAIRRO","XMUN","UF","CEP","FONE","IE","CPROD", "XPROD","QCOM", "VUNCOM", "VLIQ" };
             int qtPercorrida = 0;
             bool parada = false;
             List<string> informacoes = new List<string>();
@@ -220,7 +220,7 @@ namespace Caixa.Estoque
                         while (reader.Read())
                         {
                             qtPercorrida++;
-                            for (int i = 0; i < 20; i++)
+                            for (int i = 0; i < 21; i++)
                             {
                                 if (qtPercorrida == 1)//VERIFICAR AS COLUNAS
                                 {

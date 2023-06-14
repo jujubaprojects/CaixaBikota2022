@@ -1,6 +1,7 @@
 ﻿using Caixa.Pedidos;
 using Componentes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,21 +55,44 @@ namespace Caixa
             if (validarCampos())
             {
                 string auxDesc = "";
+                List<string> listaDesc = new List<string>();
+                List<string> listaOrdernada = new List<string>();
+
                 StringBuilder sql = new StringBuilder();
 
                 auxDesc = txtDescricaoProduto.Text;
                 if (cboDesc1.SelectedIndex > -1)
-                    auxDesc += cboDesc1.SelectedItem.ToString();
+                    listaDesc.Add(cboDesc1.SelectedItem.ToString());
+                    //auxDesc += cboDesc1.SelectedItem.ToString();
                 if (cboDesc2.SelectedIndex > -1)
-                    auxDesc += ", " + cboDesc2.SelectedItem.ToString();
+                    listaDesc.Add(cboDesc2.SelectedItem.ToString());
+                //auxDesc += ", " + cboDesc2.SelectedItem.ToString();
                 if (cboDesc3.SelectedIndex > -1)
-                    auxDesc += ", " + cboDesc3.SelectedItem.ToString();
+                    listaDesc.Add(cboDesc3.SelectedItem.ToString());
+                //auxDesc += ", " + cboDesc3.SelectedItem.ToString();
                 if (cboDesc4.SelectedIndex > -1)
-                    auxDesc += ", " + cboDesc4.SelectedItem.ToString();
+                    listaDesc.Add(cboDesc4.SelectedItem.ToString());
+                //auxDesc += ", " + cboDesc4.SelectedItem.ToString();
                 if (cboDesc5.SelectedIndex > -1)
-                    auxDesc += ", " + cboDesc5.SelectedItem.ToString();
+                    listaDesc.Add(cboDesc5.SelectedItem.ToString());
+                //auxDesc += ", " + cboDesc5.SelectedItem.ToString();
                 if (cboDesc6.SelectedIndex > -1)
-                    auxDesc += ", " + cboDesc6.SelectedItem.ToString();
+                    listaDesc.Add(cboDesc6.SelectedItem.ToString());
+                //auxDesc += ", " + cboDesc6.SelectedItem.ToString();
+
+                listaOrdernada = listaDesc.OrderBy(x => x).ToList();
+                for (int i = 0; i < listaOrdernada.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        auxDesc += listaOrdernada[i];
+                    }
+                    else
+                    {
+                        auxDesc += ", " + listaOrdernada[i];
+                    }
+                }
+
 
                 if (!string.IsNullOrEmpty(txtCobertura.Text))
                     auxDesc += " COB.:(" + txtCobertura.Text + ")";

@@ -140,6 +140,12 @@
     <Compile Include="Cadastro\frmCadastroFornecedor.Designer.cs">
       <DependentUpon>frmCadastroFornecedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cadastro\frmCadastroNFe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroNFe.Designer.cs">
+      <DependentUpon>frmCadastroNFe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro\frmCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroFornecedor.resx">
       <DependentUpon>frmCadastroFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro\frmCadastroNFe.resx">
+      <DependentUpon>frmCadastroNFe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroProduto.resx">
       <DependentUpon>frmCadastroProduto.cs</DependentUpon>
