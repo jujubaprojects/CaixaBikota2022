@@ -249,7 +249,7 @@ namespace Caixa
                     int pedidoProdutoID = 0;
                     for (int i = 0; i < dtGrid.Rows.Count; i++)
                     {
-                        auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO", 3);
+                        auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO","", 3);
                         pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
                         auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(dtGrid.Rows[i]["VL_TOTAL"].ToString()), tipoPagamento);
 

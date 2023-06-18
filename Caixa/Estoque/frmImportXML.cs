@@ -90,15 +90,24 @@ namespace Caixa.Estoque
                                 //}
 
                                 //COMO ESTOU INICIANDO O CONTADOR, EU PRECISO BUSCAR A CHAVE DA NF PRA VER SE JÁ FOI INSERIDO NO SISTEMA
-                                if (i == 0)
-                                {
+                                //if (i == 0)
+                                //{
+                                //    sqlSelect.Clear();
+                                //    sqlSelect.Append("SELECT * FROM NF WHERE INF_NFE = @pInfNFe");
+                                //    sqlComSelect = new SqlCommand(sqlSelect.ToString(), conn, transacao);
+                                //    sqlComSelect.CommandType = CommandType.Text;
+                                //    sqlComSelect.Parameters.AddWithValue("@pInfNFe", dtExcelNFe.Rows[i]["INFNFE"].ToString());
+                                //    dt = auxSQL.retornaDataTableTransaction(conn, sqlComSelect);
+                                //}
+                                //else
+                                //{
                                     sqlSelect.Clear();
                                     sqlSelect.Append("SELECT * FROM NF WHERE INF_NFE = @pInfNFe");
                                     sqlComSelect = new SqlCommand(sqlSelect.ToString(), conn, transacao);
                                     sqlComSelect.CommandType = CommandType.Text;
                                     sqlComSelect.Parameters.AddWithValue("@pInfNFe", dtExcelNFe.Rows[i]["INFNFE"].ToString());
                                     dt = auxSQL.retornaDataTableTransaction(conn, sqlComSelect);
-                                }
+                                //}
 
                                 //CASO NAO EXISTA ESSA CHAVE DE NF NO SISTEMA, VOU INSERIR ELA E OS PRODUTOS DELA
                                 if (dt.Rows.Count == 0)
@@ -173,8 +182,8 @@ namespace Caixa.Estoque
                                     }
 
                                 }
-                                else
-                                    break;
+                                //else
+                                    //break;
                             }
 
 

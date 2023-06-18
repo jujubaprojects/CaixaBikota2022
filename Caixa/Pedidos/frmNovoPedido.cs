@@ -57,6 +57,7 @@ namespace Caixa
                 string auxDesc = "";
                 List<string> listaDesc = new List<string>();
                 List<string> listaOrdernada = new List<string>();
+                string obsProduto = "";
 
                 StringBuilder sql = new StringBuilder();
 
@@ -97,7 +98,7 @@ namespace Caixa
                 if (!string.IsNullOrEmpty(txtCobertura.Text))
                     auxDesc += " COB.:(" + txtCobertura.Text + ")";
                 if (!string.IsNullOrEmpty(txtObservacao.Text))
-                    auxDesc += " OBS.:" + txtObservacao.Text + "";
+                    obsProduto =  txtObservacao.Text ;
 
                 if (tipoOperacao == 1 || tipoOperacao == 2)
                 {
@@ -128,7 +129,7 @@ namespace Caixa
                     }
 
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, cboTipo.SelectedItem.ToString(), 1);
-                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, 1);
+                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1);
 
                     cboTipo.Enabled = false;
                 }
@@ -181,7 +182,7 @@ namespace Caixa
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
                             if (auxSQL.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PRODUTO = 91 AND PEDIDO = " + int.Parse(txtPedidoID.Text)).Rows.Count == 0)
                             {
-                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 8);
+                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", "", 8);
                             }
                         }
 
@@ -546,7 +547,7 @@ namespace Caixa
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
                             if (auxSQL.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PRODUTO = 91 AND PEDIDO = " + int.Parse(txtPedidoID.Text)).Rows.Count == 0)
                             {
-                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", 2);
+                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "","", 2);
                             }
                         }
 

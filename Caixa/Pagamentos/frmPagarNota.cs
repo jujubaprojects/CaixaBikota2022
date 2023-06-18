@@ -136,7 +136,7 @@ namespace Caixa
 
                 int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString()).Rows[0][0].ToString());
 
-                auxSQL.insertPedidoProduto(pedidoID, txtProduto.Text, 1, "PAGAMENTO DE NOTA", 3);
+                auxSQL.insertPedidoProduto(pedidoID, txtProduto.Text, 1, "PAGAMENTO DE NOTA", cboAnotar.SelectedItem.ToString(), 3);
 
                 int pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
 

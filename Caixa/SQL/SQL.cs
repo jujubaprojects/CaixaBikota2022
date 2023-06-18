@@ -890,9 +890,9 @@ namespace Caixa.SQL
         }
 
 
-        public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, int pSituacao)
+        public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
         {
-            string sql = queryInsertPedidoProduto(pPedidoID, pProduto, pQuantidade, pDescricao, pSituacao);
+            string sql = queryInsertPedidoProduto(pPedidoID, pProduto, pQuantidade, pDescricao, pObs, pSituacao);
 
             SqlConnection conn = conexao.retornaConexao();
 
@@ -902,20 +902,21 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
             sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade);
             sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pObs", pObs);
             //sqlc.Parameters.AddWithValue("@pTipoPedido", pTipoPedido);
             sqlc.Parameters.AddWithValue("@pSituacao", pSituacao);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        public string queryInsertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, int pSituacao)
+        public string queryInsertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO PEDIDO_PRODUTO (PEDIDO, PRODUTO, QT_PRODUTO, DESCRICAO, SITUACAO, DT_ALTERACAO) VALUES (");
+            sql.Append("INSERT INTO PEDIDO_PRODUTO (PEDIDO, PRODUTO, QT_PRODUTO, DESCRICAO, SITUACAO, DT_ALTERACAO, OBSERVACAO) VALUES (");
             sql.Append("@pPedidoID, ");
             sql.Append("(SELECT ID FROM PRODUTO WHERE UPPER(DESCRICAO) = UPPER(@pProduto)), ");
             sql.Append("@pQuantidade, @pDescricao, @pSituacao, ");
             //sql.Append("(SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido), DATE_TRUNC('second', now()))");
-            sql.Append("getdate() ) ");
+            sql.Append("getdate(), upper(@pObs)) ");
 
             return sql.ToString();
         }
