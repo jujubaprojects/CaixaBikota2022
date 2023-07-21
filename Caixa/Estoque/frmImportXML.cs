@@ -41,7 +41,7 @@ namespace Caixa.Estoque
         {
 
 
-            if (!string.IsNullOrEmpty(txtExcel.Text) && !string.IsNullOrEmpty(txtXML.Text))//SE O TXT DO EXCEL E DO XML NAO FOR NULL, ENTAO EXECUTA A TAREFA
+            if (!string.IsNullOrEmpty(txtXML.Text))//SE O TXT DO EXCEL E DO XML NAO FOR NULL, ENTAO EXECUTA A TAREFA
             {
                 conn = conexao.retornaConexao();
                 transacao = conexao.startTransaction(conn);
@@ -153,7 +153,7 @@ namespace Caixa.Estoque
                                     sqlComInsert.Parameters.AddWithValue("@DTEMISSAO", DateTime.Parse(dtExcelNFe.Rows[i]["dhEmi"].ToString()));
                                     sqlComInsert.Parameters.AddWithValue("@DTENTREGA", DateTime.Parse(dtExcelNFe.Rows[i]["dhSaiEnt"].ToString()));
                                     sqlComInsert.Parameters.AddWithValue("@CNPJ", dtExcelNFe.Rows[i]["CNPJ"].ToString());
-                                    sqlComInsert.Parameters.AddWithValue("@VALOR", dtExcelNFe.Rows[i]["vLiq"].ToString());
+                                    sqlComInsert.Parameters.AddWithValue("@VALOR", dtExcelNFe.Rows[i]["vLiq"].ToString().Replace(",","."));
                                     auxSQL.executaQueryTransaction(conn, sqlComInsert);
 
                                     //PERCORRER TODOS OS PRODUTOS PARA INSERIR ELES
@@ -366,9 +366,33 @@ namespace Caixa.Estoque
 
             }
 
+            if (dtRetorno.Rows.Count > 0)
+            {
+                if (dtRetorno.Columns.Contains("VLIQ"))
+                {
 
-            for ( int k = 0; k < dtRetorno.Rows.Count; k++)
-                dtRetorno.Rows[k][dtRetorno.Columns.Count - 1] = ultimoValorTag;
+                    for (int k = 0; k < dtRetorno.Rows.Count; k++)
+                    {
+                        dtRetorno.Rows[k][dtRetorno.Columns.Count - 1] = ultimoValorTag;
+                    }
+                }
+                else
+                {
+                    dtRetorno.Columns.Add("VLIQ");
+                    double auxVl = 0;
+                    for (int k = 0; k < dtRetorno.Rows.Count; k++)
+                    {
+
+                        auxVl += double.Parse(dtRetorno.Rows[k]["VUNCOM"].ToString().Replace(".", ",")) * (int)double.Parse(dtRetorno.Rows[k]["QCOM"].ToString().Replace(".", ","));
+                        //auxVl += double.Parse(dtRetorno.Rows[k]["VUNCOM"].ToString()) * (int)double.Parse(dtRetorno.Rows[k]["QCOM"].ToString().Replace(".", ","));
+                    }
+
+                    for (int k = 0; k < dtRetorno.Rows.Count; k++)
+                    {
+                        dtRetorno.Rows[k][dtRetorno.Columns.Count-1] = auxVl;
+                    }
+                }
+            }
 
 
             return dtRetorno;
