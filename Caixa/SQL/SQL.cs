@@ -249,8 +249,8 @@ namespace Caixa.SQL
         private string queryInsertProduto()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO PRODUTO (DESCRICAO, TIPO, VALOR, QT_DESCRICAO, MOSTRAR_LIST, EXIBIR_APP, QT_SUB_ESTOQUE) ");
-            sql.Append("VALUES (@pDescricao, @pTipo, @pValor, @pQtDesc, 0, @pExibirApp, @pQtSubEstoque)");
+            sql.Append("INSERT INTO PRODUTO (DESCRICAO, TIPO, VALOR, QT_DESCRICAO, MOSTRAR_LIST, EXIBIR_APP, QT_SUB_ESTOQUE, ICONE) ");
+            sql.Append("VALUES (@pDescricao, @pTipo, @pValor, @pQtDesc, 0, @pExibirApp, @pQtSubEstoque, 0)");
 
             return sql.ToString();
         }
@@ -891,6 +891,7 @@ namespace Caixa.SQL
 
 
         public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
+        //public void insertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao)
         {
             string sql = queryInsertPedidoProduto(pPedidoID, pProduto, pQuantidade, pDescricao, pObs, pSituacao);
 
@@ -909,6 +910,7 @@ namespace Caixa.SQL
             conexao.executarInsUpDel(sqlc, conn);
         }
         public string queryInsertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
+        //    public string queryInsertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO PEDIDO_PRODUTO (PEDIDO, PRODUTO, QT_PRODUTO, DESCRICAO, SITUACAO, DT_ALTERACAO, OBSERVACAO) VALUES (");
