@@ -146,6 +146,7 @@
             this.cboProdutoFilho.Name = "cboProdutoFilho";
             this.cboProdutoFilho.Size = new System.Drawing.Size(243, 23);
             this.cboProdutoFilho.TabIndex = 1;
+            this.cboProdutoFilho.SelectedIndexChanged += new System.EventHandler(this.CboProdutoFilho_SelectedIndexChanged);
             // 
             // cboTipoPagamento
             // 
@@ -189,6 +190,7 @@
             // txtVlRecebido
             // 
             this.txtVlRecebido.BackColor = System.Drawing.Color.White;
+            this.txtVlRecebido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlRecebido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlRecebido.IconeKeyDown = null;
             this.txtVlRecebido.Location = new System.Drawing.Point(101, 131);
@@ -212,6 +214,7 @@
             // txtVlTotal
             // 
             this.txtVlTotal.BackColor = System.Drawing.Color.White;
+            this.txtVlTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlTotal.Enabled = false;
             this.txtVlTotal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlTotal.IconeKeyDown = null;
@@ -251,6 +254,7 @@
             // txtQuantidade
             // 
             this.txtQuantidade.BackColor = System.Drawing.Color.White;
+            this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQuantidade.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQuantidade.IconeKeyDown = null;
             this.txtQuantidade.Location = new System.Drawing.Point(101, 42);

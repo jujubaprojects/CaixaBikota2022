@@ -114,9 +114,13 @@ namespace Caixa
                 row = dtGrid.NewRow();
                 row["ID"] = produtoID;
                 row["PRODUTO"] = cboProdutoFilho.SelectedItem.ToString();
-                row["QT"] = txtQuantidade.Text;
+                if (cboProdutoFilho.SelectedItem.ToString().Equals("SORVETE KILO"))
+                    row["QT"] = double.Parse(txtQuantidade.Text) - 0.006;
+                else
+                    row["QT"] = txtQuantidade.Text;
                 row["VL_PRODUTO"] = vlProd.ToString("0.00");
-                row["VL_TOTAL"] = (int.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
+                //row["VL_TOTAL"] = (int.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
+                row["VL_TOTAL"] = ((double.Parse(txtQuantidade.Text) - 0.006) * vlProd).ToString("0.00");
 
                 txtVlTotal.Text = (double.Parse(txtVlTotal.Text) + double.Parse(row["VL_TOTAL"].ToString())).ToString("0.00");
 
@@ -183,8 +187,9 @@ namespace Caixa
 
         private bool validaCamposNovoProd()
         {
-            if (string.IsNullOrEmpty(txtQuantidade.Text) || int.Parse(txtQuantidade.Text) == 0)
-            {
+            //if (string.IsNullOrEmpty(txtQuantidade.Text) || int.Parse(txtQuantidade.Text) == 0)
+            if (string.IsNullOrEmpty(txtQuantidade.Text) || double.Parse(txtQuantidade.Text) == 0)
+                {
                 MessageBox.Show("Informe a quantidade do produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
@@ -249,7 +254,8 @@ namespace Caixa
                     int pedidoProdutoID = 0;
                     for (int i = 0; i < dtGrid.Rows.Count; i++)
                     {
-                        auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO","", 3);
+                        //auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO","", 3);
+                        auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), double.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO", "", 3, 1);
                         pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
                         auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(dtGrid.Rows[i]["VL_TOTAL"].ToString()), tipoPagamento);
 
@@ -286,6 +292,18 @@ namespace Caixa
         {
             controleEsc = false;
             this.MouseMove -= FrmPedidoRapido_MouseMove;
+        }
+
+        private void CboProdutoFilho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO"))
+            {
+                txtQuantidade.TipoCampo = "DOUBLE";
+            }
+            else
+            {
+                txtQuantidade.TipoCampo = "INTEIRO";
+            }
         }
     }
 }

@@ -101,7 +101,7 @@ namespace Caixa.SQL
             //sql.Append("(SELECT PEDIDO_PRODUTO, SUM(VL_PAGO) VL_PAGO FROM PAGAMENTO GROUP BY PEDIDO_PRODUTO) PG ON(TAB.PED_PROD_ID = PG.PEDIDO_PRODUTO) ");
             //sql.Append("GROUP BY TAB.PEDIDO, TAB.DESCRICAO, TAB.HORA ");
 
-            sql.Append("SELECT AUX.ID, AUX.DESCRICAO, AUX.HORA, SUM(AUX.VL_TOTAL) VL_TOTAL, SUM(AUX.VL_PAGO) VL_PAGO, SUM(AUX.VL_TOTAL) - SUM(AUX.VL_PAGO) AS VL_ABERTO  ");
+            sql.Append("SELECT AUX.ID, AUX.DESCRICAO, AUX.HORA, FORMAT(SUM(AUX.VL_TOTAL),'C','pt-br') /*SUM(AUX.VL_TOTAL)*/ VL_TOTAL, SUM(AUX.VL_PAGO) VL_PAGO, SUM(AUX.VL_TOTAL) - SUM(AUX.VL_PAGO) AS VL_ABERTO  ");
             sql.Append("FROM ");
             sql.Append("(SELECT TAB.PEDIDO ID, TAB.DESCRICAO, TAB.HORA, SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) VL_TOTAL, SUM(COALESCE(TAB.VL_PAGO, 0)) VL_PAGO ");
             //sql.Append("CASE WHEN SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) - SUM(COALESCE(PG.VL_PAGO, 0)) < 0 THEN 0 ELSE SUM(TAB.VL_PRODUTO * TAB.QT_PRODUTO) - SUM(COALESCE(PG.VL_PAGO, 0)) END VL_ABERTO ");
@@ -890,8 +890,8 @@ namespace Caixa.SQL
         }
 
 
-        public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
-        //public void insertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao)
+        //public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
+        public void insertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao, int pTela) //pTela = 1 : Pedido Rapido e Pagamento Nota; 2 = Novo Pedido
         {
             string sql = queryInsertPedidoProduto(pPedidoID, pProduto, pQuantidade, pDescricao, pObs, pSituacao);
 
@@ -901,7 +901,10 @@ namespace Caixa.SQL
             sqlc.CommandType = CommandType.Text;
             sqlc.Parameters.AddWithValue("@pPedidoID", pPedidoID);
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
-            sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade);
+            if (pProduto.Equals("SORVETE KILO") && pTela == 2) //SORVETE NO KILO, TIRAR 6GRAMA DE CADA PRODUTO
+                sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade - 0.006);
+            else
+                sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade);
             sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
             sqlc.Parameters.AddWithValue("@pObs", pObs);
             //sqlc.Parameters.AddWithValue("@pTipoPedido", pTipoPedido);
@@ -909,8 +912,8 @@ namespace Caixa.SQL
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        public string queryInsertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
-        //    public string queryInsertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao)
+        //public string queryInsertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
+        public string queryInsertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO PEDIDO_PRODUTO (PEDIDO, PRODUTO, QT_PRODUTO, DESCRICAO, SITUACAO, DT_ALTERACAO, OBSERVACAO) VALUES (");
