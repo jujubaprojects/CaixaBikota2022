@@ -137,7 +137,7 @@ namespace Caixa.Estoque
             //sql.Append("FROM PRODUTO P ");
             //sql.Append("JOIN SUB_ESTOQUE SE ON(P.ID = SE.PRODUTO) ");
             //sql.Append("JOIN CONTROLE_ESTOQUE CE ON(CE.ID = SE.CONTROLE_ESTOQUE) ORDER BY PRODUTO ");
-            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS FROM CONTROLE_ESTOQUE");
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS FROM CONTROLE_ESTOQUE ORDER BY DESCRICAO");
             dgvLink.DataSource = auxSQL.retornaDataTable(sql.ToString());
             if (pInicio == 1 && dgvLink.Rows.Count > 0)
             {

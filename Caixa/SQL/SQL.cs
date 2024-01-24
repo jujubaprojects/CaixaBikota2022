@@ -331,6 +331,48 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+
+        public void insertEstoquePote(int pProduto)
+        {
+            string sql = queryInsertEstoquePote();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertEstoquePote()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO ESTOQUE_POTE (PRODUTO, DATA) ");
+            sql.Append("(SELECT ID, GETDATE() FROM PRODUTO WHERE ID = @pProduto)");
+
+            return sql.ToString();
+        }
+
+        public void insertEstoquePoteSabor(string pSabor)
+        {
+            string sql = queryInsertEstoquePoteSabor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pSabor", pSabor);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertEstoquePoteSabor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO SABOR_ESTOQUE (ID_EST_POTE, ID_SABOR) ");
+            sql.Append("(SELECT MAX(ID), (SELECT ID FROM SABOR WHERE DESCRICAO = @pSabor AND TIPO = 'POTES') FROM ESTOQUE_POTE)");
+
+            return sql.ToString();
+        }
         public void updateControleEstoque(int pID, string pDescricao, int pQTEst, int pQTEstIdeal, bool pStatus)
         {
             string sql = queryupdateControleEstoque();
@@ -891,7 +933,7 @@ namespace Caixa.SQL
 
 
         //public void insertPedidoProduto(int pPedidoID, string pProduto, int pQuantidade, string pDescricao, string pObs, int pSituacao)
-        public void insertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao, int pTela) //pTela = 1 : Pedido Rapido e Pagamento Nota; 2 = Novo Pedido
+        public void insertPedidoProduto(int pPedidoID, string pProduto, double pQuantidade, string pDescricao, string pObs, int pSituacao) //pTela = 1 : Pedido Rapido e Pagamento Nota; 2 = Novo Pedido
         {
             string sql = queryInsertPedidoProduto(pPedidoID, pProduto, pQuantidade, pDescricao, pObs, pSituacao);
 
@@ -901,9 +943,6 @@ namespace Caixa.SQL
             sqlc.CommandType = CommandType.Text;
             sqlc.Parameters.AddWithValue("@pPedidoID", pPedidoID);
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
-            if (pProduto.Equals("SORVETE KILO") && pTela == 2) //SORVETE NO KILO, TIRAR 6GRAMA DE CADA PRODUTO
-                sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade - 0.006);
-            else
                 sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade);
             sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
             sqlc.Parameters.AddWithValue("@pObs", pObs);

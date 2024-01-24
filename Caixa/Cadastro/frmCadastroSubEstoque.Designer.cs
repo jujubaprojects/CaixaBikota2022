@@ -314,7 +314,7 @@
             this.txtQtSub.Preenchimento = null;
             this.txtQtSub.Size = new System.Drawing.Size(47, 24);
             this.txtQtSub.TabIndex = 80;
-            this.txtQtSub.TipoCampo = "INTEIRO";
+            this.txtQtSub.TipoCampo = "DOUBLE";
             // 
             // labelJCS3
             // 

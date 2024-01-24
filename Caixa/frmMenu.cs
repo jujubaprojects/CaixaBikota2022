@@ -225,7 +225,7 @@ namespace Caixa
                 
 
             }
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
                 }
         }
 
@@ -336,11 +336,11 @@ namespace Caixa
 
         private void EstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (acessoFrmsRestrito())
-            //{
+            if (acessoFrmsRestrito())
+            {
                 frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
                 frm.ShowDialog();
-            //}
+            }
         }
 
         private void LinkEstoqueXProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -377,7 +377,7 @@ namespace Caixa
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("");
-            sql.Append("SELECT F.NOME FORNECEDOR, P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, VL_UNIT, N.DT_ENTREGA ");
+            sql.Append("SELECT F.NOME FORNECEDOR, P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, P.UN_COMERCIAL, VL_UNIT, N.DT_ENTREGA ");
             sql.Append("FROM NF N ");
             sql.Append("JOIN NF_PROD P ON(P.NF = N.ID) ");
             sql.Append("JOIN fornecedor F ON(N.FORNECEDOR = F.ID) ");
@@ -393,8 +393,11 @@ namespace Caixa
 
         private void LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLinkProdNFFornecedor frm = new frmLinkProdNFFornecedor();
-            frm.ShowDialog();
+            if (acessoFrmsRestrito())
+            {
+                frmLinkProdNFFornecedor frm = new frmLinkProdNFFornecedor();
+                frm.ShowDialog();
+            }
         }
 
         private void LinkProdutoNFXControleEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
@@ -404,14 +407,26 @@ namespace Caixa
 
         private void LinkarProdutoFinalXEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastroSubEstoque frm = new frmCadastroSubEstoque();
-            frm.ShowDialog();
+            if (acessoFrmsRestrito())
+            {
+                frmCadastroSubEstoque frm = new frmCadastroSubEstoque();
+                frm.ShowDialog();
+            }
         }
 
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCadastroFornecedor frm = new frmCadastroFornecedor();
             frm.ShowDialog();
+        }
+
+        private void EstoqueBaldesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (acessoFrmsRestrito())
+            //{
+                frmEstoqueBalde frm = new frmEstoqueBalde("Estoque de Potes");
+                frm.ShowDialog();
+            //}
         }
     }
 }

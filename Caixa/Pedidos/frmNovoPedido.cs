@@ -130,7 +130,7 @@ namespace Caixa
 
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, cboTipo.SelectedItem.ToString(), 1);
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1);
-                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), double.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1, 2);
+                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), double.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1);
 
                     cboTipo.Enabled = false;
                 }
@@ -183,7 +183,7 @@ namespace Caixa
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
                             if (auxSQL.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PRODUTO = 91 AND PEDIDO = " + int.Parse(txtPedidoID.Text)).Rows.Count == 0)
                             {
-                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", "", 8, 2);
+                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", "", 8);
                             }
                         }
 
@@ -344,7 +344,8 @@ namespace Caixa
                     if (result == DialogResult.Yes)
                     {
                         pedidoProdutoID = int.Parse(dgvProdutos["colPedidoProdutoID", e.RowIndex].Value.ToString());
-                        frmNovoPedidoAdicionais frm = new frmNovoPedidoAdicionais(pedidoProdutoID, double.Parse(dgvProdutos["colValor", e.RowIndex].Value.ToString()), int.Parse(dgvProdutos["colQuantidade", e.RowIndex].Value.ToString()));
+                        //frmNovoPedidoAdicionais frm = new frmNovoPedidoAdicionais(pedidoProdutoID, double.Parse(dgvProdutos["colValor", e.RowIndex].Value.ToString()), int.Parse(dgvProdutos["colQuantidade", e.RowIndex].Value.ToString()));
+                        frmNovoPedidoAdicionais frm = new frmNovoPedidoAdicionais(pedidoProdutoID, double.Parse(dgvProdutos["colValor", e.RowIndex].Value.ToString()), double.Parse(dgvProdutos["colQuantidade", e.RowIndex].Value.ToString()));
                         frm.ShowDialog();
 
                         preencherGrid(int.Parse(txtPedidoID.Text));
@@ -557,7 +558,7 @@ namespace Caixa
                             auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);
                             if (auxSQL.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PRODUTO = 91 AND PEDIDO = " + int.Parse(txtPedidoID.Text)).Rows.Count == 0)
                             {
-                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "","", 2, 2);
+                                auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "","", 2);
                             }
                         }
 

@@ -114,16 +114,10 @@ namespace Caixa
                 row = dtGrid.NewRow();
                 row["ID"] = produtoID;
                 row["PRODUTO"] = cboProdutoFilho.SelectedItem.ToString();
-                if (cboProdutoFilho.SelectedItem.ToString().Equals("SORVETE KILO"))
-                    row["QT"] = double.Parse(txtQuantidade.Text) - 0.006;
-                else
-                    row["QT"] = txtQuantidade.Text;
+                row["QT"] = txtQuantidade.Text;
                 row["VL_PRODUTO"] = vlProd.ToString("0.00");
                 //row["VL_TOTAL"] = (int.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
-                if (cboProdutoFilho.SelectedItem.ToString().Equals("SORVETE KILO"))
-                    row["VL_TOTAL"] = ((double.Parse(txtQuantidade.Text) - 0.006) * vlProd).ToString("0.00");
-                else
-                    row["VL_TOTAL"] = (double.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
+                row["VL_TOTAL"] = (double.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
 
 
                 txtVlTotal.Text = (double.Parse(txtVlTotal.Text) + double.Parse(row["VL_TOTAL"].ToString())).ToString("0.00");
@@ -259,7 +253,7 @@ namespace Caixa
                     for (int i = 0; i < dtGrid.Rows.Count; i++)
                     {
                         //auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO","", 3);
-                        auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), double.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO", "", 3, 1);
+                        auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), double.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO", "", 3);
                         pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
                         auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(dtGrid.Rows[i]["VL_TOTAL"].ToString()), tipoPagamento);
 

@@ -163,15 +163,16 @@ namespace Caixa.Estoque
                                         {
                                             //INSERINDO O PRODUTO DA NF NO SISTEMA
                                             sqlInsert.Clear();
-                                            sqlInsert.Append("INSERT INTO NF_PROD(NF, COD_PROD, DESC_PROD, QT_COM, VL_UNIT) ");
-                                            sqlInsert.Append("VALUES ((SELECT ID FROM NF WHERE INF_NFE = @INF_NFE),@COD_PROD, @DESC_PROD, @QT_COM, @VL_UNIT )  ");
+                                            sqlInsert.Append("INSERT INTO NF_PROD(NF, COD_PROD, DESC_PROD, QT_COM, VL_UNIT, UN_COMERCIAL) ");
+                                            sqlInsert.Append("VALUES ((SELECT ID FROM NF WHERE INF_NFE = @INF_NFE),@COD_PROD, @DESC_PROD, @QT_COM, @VL_UNIT, @UN_COM )  ");
                                             sqlComInsert = new SqlCommand(sqlInsert.ToString(), conn, transacao);
                                             sqlComInsert.Parameters.AddWithValue("@INF_NFE", dtExcelNFe.Rows[j]["infNFe"].ToString());
                                             sqlComInsert.Parameters.AddWithValue("@COD_PROD", dtExcelNFe.Rows[j]["cProd"].ToString());
                                             sqlComInsert.Parameters.AddWithValue("@DESC_PROD", dtExcelNFe.Rows[j]["xProd"].ToString());
                                             qtCompra = (int)double.Parse(dtExcelNFe.Rows[j]["qCom"].ToString().Replace(".", ","));
-                                            sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);                                            
+                                            sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);
                                             sqlComInsert.Parameters.AddWithValue("@VL_UNIT", double.Parse(dtExcelNFe.Rows[j]["vUnCom"].ToString().Replace(".", ",")));
+                                            sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString());
                                             auxSQL.executaQueryTransaction(conn, sqlComInsert);
                                         }
                                         else
@@ -215,7 +216,7 @@ namespace Caixa.Estoque
         private DataTable buscaExcel(string pArquivo)
         {
             DataTable dtRetorno = new DataTable();
-            List<string> nomeColunas = new List<string> {"INFNFE", "CNF","NNF","DHEMI","DHSAIENT","CNPJ","XNOME","XFANT","XLGR","NRO","XBAIRRO","XMUN","UF","CEP","FONE","IE","CPROD", "XPROD","QCOM", "VUNCOM", "VLIQ" };
+            List<string> nomeColunas = new List<string> {"INFNFE", "CNF","NNF","DHEMI","DHSAIENT","CNPJ","XNOME","XFANT","XLGR","NRO","XBAIRRO","XMUN","UF","CEP","FONE","IE","CPROD", "XPROD","QCOM", "UCOM", "VUNCOM", "VLIQ" };
             int qtPercorrida = 0;
             bool parada = false;
             List<string> informacoes = new List<string>();
@@ -229,7 +230,7 @@ namespace Caixa.Estoque
                         while (reader.Read())
                         {
                             qtPercorrida++;
-                            for (int i = 0; i < 21; i++)
+                            for (int i = 0; i < 22; i++)
                             {
                                 if (qtPercorrida == 1)//VERIFICAR AS COLUNAS
                                 {
@@ -273,7 +274,7 @@ namespace Caixa.Estoque
             List<string> nomeColunasDesconsiderar = new List<string> { "infNFe", "cNF", "nNF","dhEmi", "dhSaiEnt", "CNPJ","xNome","xFant","xLgr", "nro","xBairro","xMun",
                                                                         "UF","CEP","fone",
                                                                        "IE", "cProd","xProd",
-                                                                        "qCom", "vUnCom", "vLiq"};
+                                                                        "qCom","uCom" , "vUnCom", "vLiq"};
             List<string> nomeColunas = new List<string>();
             List<string> informacoes = new List<string>();
 
@@ -346,9 +347,9 @@ namespace Caixa.Estoque
                             for (int j = 0; j < informacoes.Count; j++)
                             {
                                 //DATAROW[PEGANDO O NOME DA COLUNA] = PEGANDO O VALOR DA COLUNA;
-                                if (j == 20)
+                                if (j == 21)
                                 {
-                                    for (int k = -4; k < 0; k++)
+                                    for (int k = -5; k < 0; k++)
                                         dr[nomeColunas[j + k]] = informacoes[informacoes.Count + k].ToString();
 
                                     break;

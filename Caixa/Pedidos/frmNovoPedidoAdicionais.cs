@@ -14,11 +14,12 @@ namespace Caixa.Pedidos
     public partial class frmNovoPedidoAdicionais : FormJCS
     {
         private SQL.SQL auxSQL = new SQL.SQL();
-        private int qtProduto = 0;
+        //private int qtProduto = 0;
+        private double qtProduto = 0;
         private int pedidoProdID = 0;
         private double valorProdSemAdd = 0, valorAdd = 0;
        
-        public frmNovoPedidoAdicionais(int pPedidoProduto, double pValor, int pQuantidadeProd)
+        public frmNovoPedidoAdicionais(int pPedidoProduto, double pValor, double pQuantidadeProd /*int pQuantidadeProd*/)
         {
             InitializeComponent();
 
@@ -95,14 +96,19 @@ namespace Caixa.Pedidos
         {
             valorAdd = 0;
             DataTable dt = auxSQL.buscaPedidoProdutoAdd(pedidoProdID);
-            
+            int qtAdd = 0;
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                valorAdd += double.Parse(dt.Rows[i]["VL_TOTAL"].ToString());
+                valorAdd += double.Parse(dt.Rows[i]["VL_TOTAL"].ToString()) * int.Parse(dt.Rows[i]["QT_PRODUTO"].ToString());
+                
             }
 
             if (pEntrada == 1)
-                lblValor.Text = "Valor Total: R$ " + ((qtProduto * valorAdd) + valorProdSemAdd).ToString("0.00");
+                if (qtProduto > 1)
+                    lblValor.Text = "Valor Total: R$ " + ((qtProduto * valorAdd) + valorProdSemAdd).ToString("0.00");
+                else
+                    lblValor.Text = "Valor Total: R$ " + ((qtProduto * valorAdd) + valorProdSemAdd).ToString("0.00");
             else
             {
                 valorProdSemAdd = valorProdSemAdd - valorAdd;

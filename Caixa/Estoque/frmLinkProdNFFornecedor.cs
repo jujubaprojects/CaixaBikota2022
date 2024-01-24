@@ -62,8 +62,11 @@ namespace Caixa.Estoque
         {
 
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL FROM CONTROLE_ESTOQUE WHERE STATUS = 1 ORDER BY DESCRICAO");
-
+            //sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL FROM CONTROLE_ESTOQUE WHERE STATUS = 1 ORDER BY DESCRICAO");
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL ");
+            sql.Append("FROM CONTROLE_ESTOQUE CE ");
+            sql.Append("WHERE STATUS = 1 ");// AND NOT EXISTS(SELECT 1 FROM NFPROD_CONTROLESTQ A WHERE A.FOR_ID = " + txtIDProd.Text + " AND A.COD_PROD_NF = " + txtIDFornecedor.Text + ") ");
+            sql.Append("ORDER BY DESCRICAO ");
             frmBusca frm = new frmBusca(sql, "Controle Estoque");
             frm.ShowDialog();
             if (frm.retorno != null)
@@ -91,6 +94,8 @@ namespace Caixa.Estoque
                 sql.Append("JOIN NF N ON(N.ID = P.NF) ");
                 sql.Append("JOIN FORNECEDOR F ON(N.FORNECEDOR = F.ID) ");
                 sql.Append("WHERE F.ID = " + txtIDFornecedor.Text);
+                sql.Append(" AND NOT EXISTS (SELECT COD_PROD_NF, FOR_ID FROM NFPROD_CONTROLESTQ A WHERE F.id = A.FOR_ID AND A.COD_PROD_NF = P.COD_PROD) ");
+                sql.Append("ORDER BY DESC_PROD");
 
                 frmBusca frm = new frmBusca(sql, "Produtos");
                 frm.ShowDialog();
