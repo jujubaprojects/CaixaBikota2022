@@ -15,6 +15,7 @@ namespace Caixa.Estoque
     {
         private SQL.SQL auxSQL = new SQL.SQL();
         private int id = 0, qtDescricao = 0, qtDescricaoMax = 0;
+        private double qtPotes = 0;
         private string produto = "", nomeForm = "", descricao = "";
         private List<string> listaDesc, listaOrdernada;
 
@@ -24,12 +25,20 @@ namespace Caixa.Estoque
         ToolStripButton btnEditar = new ToolStripButton();
         ToolStripButton btnDeletar = new ToolStripButton();
         ToolStripButton btnSalvar = new ToolStripButton();
+        ToolStripButton btnNovo = new ToolStripButton();
 
         public frmEstoqueBalde(string pNomeFormulario)
         {
+            btnNovo = toolStripNovoJCS ;
+            btnVoltar = toolStripVoltarJCS;
+            btnEditar = toolStripEditarJCS;
+            btnDeletar = toolStripDeletarJCS;
+            btnSalvar = toolStripSalvarJCS;
+
             InitializeComponent();
 
-            this.nomeForm = pNomeFormulario;
+            this.nomeFormulario = pNomeFormulario;
+            this.Text = pNomeFormulario;
 
             preencherCampos();
 
@@ -43,11 +52,39 @@ namespace Caixa.Estoque
             preencherCombo(dtSabor, cboSabor4, 0);
             preencherCombo(dtSabor, cboSabor5, 0);
             preencherCombo(dtSabor, cboSabor6, 0);
+
+
+            btnDeletar.Click += new EventHandler(toolStripDeletarJCS_Click);
+            btnSalvar.Click += new EventHandler(toolStripSalvarJCS_Click);
+            btnEditar.Click += new EventHandler(toolStripEditarJCS_Click);
+            btnVoltar.Click += new EventHandler(toolStripVoltarJCS_Click);
+            btnNovo.Click += new EventHandler(toolStripNovoJCS_Click);
+            
+
+            desabilitarTudo();
         }
 
         public void toolStripVoltarJCS_Click(object sender, EventArgs e)
         {
             limpar(this);
+        }
+        public void toolStripNovoJCS_Click(object sender, EventArgs e)
+        {
+            habilitarTudo();
+        }
+
+        private void desabilitarTudo ()
+        {
+            this.cboProduto.Enabled = false;
+            this.cboSabor1.Enabled = false;
+            this.txtQT.Enabled = false;
+        }
+
+        private void habilitarTudo ()
+        {
+            this.cboProduto.Enabled = true;
+            this.cboSabor1.Enabled = true;
+            this.txtQT.Enabled = true;
         }
 
         private bool validaCampos()
@@ -66,23 +103,28 @@ namespace Caixa.Estoque
             else
                 return false;
             //auxDesc += cboDesc1.SelectedItem.ToString();
-            if (cboSabor1.SelectedIndex > -1)
-                listaDesc.Add(cboSabor1.SelectedItem.ToString());
+            if (cboSabor2.SelectedIndex > -1)
+                listaDesc.Add(cboSabor2.SelectedItem.ToString());
             //auxDesc += ", " + cboDesc2.SelectedItem.ToString();
-            if (cboSabor1.SelectedIndex > -1)
-                listaDesc.Add(cboSabor1.SelectedItem.ToString());
+            if (cboSabor3.SelectedIndex > -1)
+                listaDesc.Add(cboSabor3.SelectedItem.ToString());
             //auxDesc += ", " + cboDesc3.SelectedItem.ToString();
-            if (cboSabor1.SelectedIndex > -1)
-                listaDesc.Add(cboSabor1.SelectedItem.ToString());
+            if (cboSabor4.SelectedIndex > -1)
+                listaDesc.Add(cboSabor4.SelectedItem.ToString());
             //auxDesc += ", " + cboDesc4.SelectedItem.ToString();
-            if (cboSabor1.SelectedIndex > -1)
-                listaDesc.Add(cboSabor1.SelectedItem.ToString());
+            if (cboSabor5.SelectedIndex > -1)
+                listaDesc.Add(cboSabor5.SelectedItem.ToString());
             //auxDesc += ", " + cboDesc5.SelectedItem.ToString();
-            if (cboSabor1.SelectedIndex > -1)
-                listaDesc.Add(cboSabor1.SelectedItem.ToString());
+            if (cboSabor6.SelectedIndex > -1)
+                listaDesc.Add(cboSabor6.SelectedItem.ToString());
             //auxDesc += ", " + cboDesc6.SelectedItem.ToString();
 
             listaOrdernada = listaDesc.OrderBy(x => x).ToList();
+
+            if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) > 0)
+                qtPotes = double.Parse(txtQT.Text);
+            else
+                return false;
 
             return true;
                    }
@@ -99,7 +141,7 @@ namespace Caixa.Estoque
                         if (result == DialogResult.Yes)
                         {
                             descricao = produto + ": ";
-                            auxSQL.insertEstoquePote(int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()));
+                            auxSQL.insertEstoquePote(int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), qtPotes);
 
                             for (int i =0; i < listaOrdernada.Count; i++)
                             {
@@ -121,7 +163,14 @@ namespace Caixa.Estoque
                 DialogResult result = MessageBox.Show("Deseja salvar as alterações do Controle de Estoque de Potes do: " + descricao + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
                     if (result == DialogResult.Yes)
-                    {
+                    {                       
+                        auxSQL.updateEstoquePote(id, int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), qtPotes);
+                        auxSQL.deleteEstoquePoteSabor(id);
+                        for (int i = 0; i < listaOrdernada.Count; i++)
+                        {
+                            descricao += listaOrdernada[i] + ", ";
+                            auxSQL.insertEstoquePoteSabor(listaOrdernada[i]);
+                        }
                         MessageBox.Show("Controle de Estoque de Potes alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         preencherCampos();
@@ -248,6 +297,15 @@ namespace Caixa.Estoque
             qtDescricao = 6;
         }
 
+        private void DgvEstPotes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                id = int.Parse(dgvEstPotes["colID", e.RowIndex].Value.ToString());
+                descricao = dgvEstPotes["colProduto", e.RowIndex].Value.ToString() + " - " + dgvEstPotes["colDescricao", e.RowIndex].Value.ToString(); 
+            }
+        }
+
         private void CboSabor3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Delete || e.KeyChar == '\b')
@@ -313,7 +371,7 @@ namespace Caixa.Estoque
         private void preencherCampos(int pInicio = 0)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT EP.ID,P.DESCRICAO PRODUTO, dbo.RETORNA_SABORES(EP.ID) DESCRICAO, EP.DATA ");
+            sql.Append("SELECT EP.ID,P.DESCRICAO PRODUTO, dbo.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT, EP.DATA ");
             sql.Append("FROM ESTOQUE_POTE EP ");
             sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
             sql.Append("ORDER BY PRODUTO, DESCRICAO ");

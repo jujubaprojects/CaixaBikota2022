@@ -332,7 +332,7 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public void insertEstoquePote(int pProduto)
+        public void insertEstoquePote(int pProduto, double pQt)
         {
             string sql = queryInsertEstoquePote();
 
@@ -341,14 +341,15 @@ namespace Caixa.SQL
             SqlCommand sqlc = new SqlCommand(sql);
             sqlc.CommandType = CommandType.Text;
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pQT", pQt);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
         private string queryInsertEstoquePote()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO ESTOQUE_POTE (PRODUTO, DATA) ");
-            sql.Append("(SELECT ID, GETDATE() FROM PRODUTO WHERE ID = @pProduto)");
+            sql.Append("INSERT INTO ESTOQUE_POTE (PRODUTO, DATA, QT_EST) ");
+            sql.Append("(SELECT ID, GETDATE(), @pQT FROM PRODUTO WHERE ID = @pProduto)");
 
             return sql.ToString();
         }
@@ -370,6 +371,50 @@ namespace Caixa.SQL
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO SABOR_ESTOQUE (ID_EST_POTE, ID_SABOR) ");
             sql.Append("(SELECT MAX(ID), (SELECT ID FROM SABOR WHERE DESCRICAO = @pSabor AND TIPO = 'POTES') FROM ESTOQUE_POTE)");
+
+            return sql.ToString();
+        }
+        public void deleteEstoquePoteSabor(int pID)
+        {
+            string sql = querDeleteEstoquePoteSabor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string querDeleteEstoquePoteSabor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE FROM SABOR_ESTOQUE WHERE ID_EST_POTE = @pID");
+
+            return sql.ToString();
+        }
+        public void updateEstoquePote(int pID, int pProduto, double pQt)
+        {
+            string sql = queryUpdateEstoquePote();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pQt", pQt);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateEstoquePote()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE ESTOQUE_POTE SET ");
+            sql.Append("PRODUTO = @pProduto,");
+            sql.Append("QT_EST = @pQt, ");
+            sql.Append("DATA = CASE WHEN QT = 0 THEN DATA = GETDATE() ELSE DATA = DATA END ");
+            sql.Append("WHERE ID = @pID");
 
             return sql.ToString();
         }

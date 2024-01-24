@@ -47,6 +47,8 @@
             this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelJCS2 = new Componentes.LabelJCS(this.components);
+            this.txtQT = new Componentes.TextBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstPotes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,8 +69,8 @@
             this.cboProduto.FormattingEnabled = true;
             this.cboProduto.Location = new System.Drawing.Point(79, 58);
             this.cboProduto.Name = "cboProduto";
-            this.cboProduto.Size = new System.Drawing.Size(453, 23);
-            this.cboProduto.TabIndex = 2;
+            this.cboProduto.Size = new System.Drawing.Size(300, 23);
+            this.cboProduto.TabIndex = 0;
             this.cboProduto.SelectedIndexChanged += new System.EventHandler(this.CboProduto_SelectedIndexChanged);
             // 
             // labelJCS1
@@ -95,6 +97,7 @@
             // cboSabor6
             // 
             this.cboSabor6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSabor6.Enabled = false;
             this.cboSabor6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboSabor6.FormattingEnabled = true;
             this.cboSabor6.Location = new System.Drawing.Point(385, 116);
@@ -107,6 +110,7 @@
             // cboSabor4
             // 
             this.cboSabor4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSabor4.Enabled = false;
             this.cboSabor4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboSabor4.FormattingEnabled = true;
             this.cboSabor4.Location = new System.Drawing.Point(79, 116);
@@ -119,6 +123,7 @@
             // cboSabor2
             // 
             this.cboSabor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSabor2.Enabled = false;
             this.cboSabor2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboSabor2.FormattingEnabled = true;
             this.cboSabor2.Location = new System.Drawing.Point(232, 87);
@@ -131,6 +136,7 @@
             // cboSabor5
             // 
             this.cboSabor5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSabor5.Enabled = false;
             this.cboSabor5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboSabor5.FormattingEnabled = true;
             this.cboSabor5.Location = new System.Drawing.Point(232, 116);
@@ -143,6 +149,7 @@
             // cboSabor3
             // 
             this.cboSabor3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSabor3.Enabled = false;
             this.cboSabor3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboSabor3.FormattingEnabled = true;
             this.cboSabor3.Location = new System.Drawing.Point(385, 87);
@@ -198,6 +205,7 @@
             this.dgvEstPotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEstPotes.Size = new System.Drawing.Size(550, 293);
             this.dgvEstPotes.TabIndex = 10;
+            this.dgvEstPotes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEstPotes_CellClick);
             // 
             // colID
             // 
@@ -239,11 +247,36 @@
             this.colData.ReadOnly = true;
             this.colData.Width = 61;
             // 
+            // labelJCS2
+            // 
+            this.labelJCS2.AutoSize = true;
+            this.labelJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS2.Location = new System.Drawing.Point(385, 61);
+            this.labelJCS2.Name = "labelJCS2";
+            this.labelJCS2.Size = new System.Drawing.Size(28, 17);
+            this.labelJCS2.TabIndex = 11;
+            this.labelJCS2.Text = "QT:";
+            // 
+            // txtQT
+            // 
+            this.txtQT.BackColor = System.Drawing.Color.White;
+            this.txtQT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtQT.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtQT.IconeKeyDown = null;
+            this.txtQT.Location = new System.Drawing.Point(419, 58);
+            this.txtQT.Name = "txtQT";
+            this.txtQT.Preenchimento = null;
+            this.txtQT.Size = new System.Drawing.Size(113, 24);
+            this.txtQT.TabIndex = 1;
+            this.txtQT.TipoCampo = "DOUBLE";
+            // 
             // frmEstoqueBalde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 450);
+            this.Controls.Add(this.txtQT);
+            this.Controls.Add(this.labelJCS2);
             this.Controls.Add(this.dgvEstPotes);
             this.Controls.Add(this.cboSabor3);
             this.Controls.Add(this.cboSabor5);
@@ -266,6 +299,8 @@
             this.Controls.SetChildIndex(this.cboSabor5, 0);
             this.Controls.SetChildIndex(this.cboSabor3, 0);
             this.Controls.SetChildIndex(this.dgvEstPotes, 0);
+            this.Controls.SetChildIndex(this.labelJCS2, 0);
+            this.Controls.SetChildIndex(this.txtQT, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstPotes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -289,5 +324,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colData;
+        private Componentes.LabelJCS labelJCS2;
+        private Componentes.TextBoxJCS txtQT;
     }
 }
