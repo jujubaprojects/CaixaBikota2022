@@ -16,7 +16,7 @@ namespace Caixa.Estoque
         private SQL.SQL auxSQL = new SQL.SQL();
         private int id = 0, qtDescricao = 0, qtDescricaoMax = 0;
         private double qtPotes = 0;
-        private string produto = "", nomeForm = "", descricao = "";
+        private string produto = "", nomeForm = "", descricao = "", sabores = "";
         private List<string> listaDesc, listaOrdernada;
 
         private DataTable dtProduto, dtSabor;
@@ -120,6 +120,10 @@ namespace Caixa.Estoque
             //auxDesc += ", " + cboDesc6.SelectedItem.ToString();
 
             listaOrdernada = listaDesc.OrderBy(x => x).ToList();
+            sabores = listaOrdernada[0] + ";";
+            for (int i = 1; i < listaOrdernada.Count; i++)
+                sabores += " " + listaOrdernada[i] + ";";
+
 
             if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) > 0)
                 qtPotes = double.Parse(txtQT.Text);
@@ -140,16 +144,24 @@ namespace Caixa.Estoque
                     {
                         if (result == DialogResult.Yes)
                         {
-                            descricao = produto + ": ";
-                            auxSQL.insertEstoquePote(int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), qtPotes);
-
-                            for (int i =0; i < listaOrdernada.Count; i++)
+                            DataTable dtAux = auxSQL.buscaEstoquePoteSabor(int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), sabores);
+                            if (dtAux.Rows.Count == 0)
                             {
-                                descricao += listaOrdernada[i] + ", ";
-                                auxSQL.insertEstoquePoteSabor(listaOrdernada[i]);
-                            }
+                                descricao = produto + ": ";
+                                auxSQL.insertEstoquePote(int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), qtPotes);
 
-                            descricao = descricao.Substring(0, descricao.Length - 2);
+                                for (int i = 0; i < listaOrdernada.Count; i++)
+                                {
+                                    descricao += listaOrdernada[i] + ", ";
+                                    auxSQL.insertEstoquePoteSaborUltimoRegistro(listaOrdernada[i]);
+                                }
+
+                                descricao = descricao.Substring(0, descricao.Length - 2);
+                            }
+                            else
+                            {
+                                auxSQL.updateAddEstoquePote(int.Parse(dtAux.Rows[0]["ID"].ToString()), qtPotes);
+                            }
                             preencherCampos();
                         }
                     }
@@ -169,7 +181,7 @@ namespace Caixa.Estoque
                         for (int i = 0; i < listaOrdernada.Count; i++)
                         {
                             descricao += listaOrdernada[i] + ", ";
-                            auxSQL.insertEstoquePoteSabor(listaOrdernada[i]);
+                            auxSQL.insertEstoquePoteSabor(id, listaOrdernada[i]);
                         }
                         MessageBox.Show("Controle de Estoque de Potes alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -181,14 +193,6 @@ namespace Caixa.Estoque
 
         }
 
-        private void DgvLink_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                id = int.Parse(dgvEstPotes["colID", e.RowIndex].Value.ToString());
-                descricao = dgvEstPotes["colDescricao", e.RowIndex].Value.ToString();
-            }
-        }
 
         private void CboProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -246,14 +250,14 @@ namespace Caixa.Estoque
 
         private void CboSabor2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            qtDescricao = 1;
+            qtDescricao = 2;
             if (qtDescricao == qtDescricaoMax)
             {
                 cboSabor2.Enabled = false;
                 cboSabor2.SelectedIndex = -1;
             }
             else
-                cboSabor2.Enabled = true;
+                cboSabor3.Enabled = true;
         }
 
         private void CboSabor3_SelectedIndexChanged(object sender, EventArgs e)
@@ -302,7 +306,10 @@ namespace Caixa.Estoque
             if (e.RowIndex > -1)
             {
                 id = int.Parse(dgvEstPotes["colID", e.RowIndex].Value.ToString());
-                descricao = dgvEstPotes["colProduto", e.RowIndex].Value.ToString() + " - " + dgvEstPotes["colDescricao", e.RowIndex].Value.ToString(); 
+                produto = dgvEstPotes["colProduto", e.RowIndex].Value.ToString();
+                qtPotes = double.Parse(dgvEstPotes["colQt", e.RowIndex].Value.ToString());
+                sabores = dgvEstPotes["colDescricao", e.RowIndex].Value.ToString();
+                descricao = dgvEstPotes["colDescricao", e.RowIndex].Value.ToString(); 
             }
         }
 
@@ -357,12 +364,55 @@ namespace Caixa.Estoque
                 }
                 else
                 {
-                    DataTable dt = auxSQL.buscaControleEstoque(id);
-                    //txtID.Text = dt.Rows[0]["ID"].ToString();
-                    //txtDescricao.Text = dt.Rows[0]["DESCRICAO"].ToString();
-                    //txtQtEstoque.Text = dt.Rows[0]["QT_ESTOQUE"].ToString();
-                    //txtQTEstIdeal.Text = dt.Rows[0]["QT_ESTOQUE_IDEAL"].ToString();
-                    //chkAtivo.Checked = dt.Rows[0]["STATUS"].ToString().Equals("True") ? true : false;
+
+                    habilitarTudo();
+
+                    //DataTable dt = auxSQL.buscaControleEstoque(id);
+                    txtQT.Text = qtPotes.ToString();
+                    cboProduto.SelectedItem = produto;
+
+                    string[] arraySabores = sabores.Split(';');
+                    
+                    if (arraySabores.Length == 6)
+                    {
+
+                        cboSabor1.SelectedItem = arraySabores[0];
+                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                        cboSabor4.SelectedItem = arraySabores[3].Substring(1);
+                        cboSabor5.SelectedItem = arraySabores[4].Substring(1);
+                    }
+                    else if (arraySabores.Length == 5)
+                    {
+                        cboSabor1.SelectedItem = arraySabores[0];
+                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                        cboSabor4.SelectedItem = arraySabores[3].Substring(1);
+                        cboSabor5.SelectedItem = arraySabores[4].Substring(1);
+
+                    }
+                    else if (arraySabores.Length == 4)
+                    {
+                        cboSabor1.SelectedItem = arraySabores[0];
+                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                        cboSabor4.SelectedItem = arraySabores[3].Substring(1);
+                    }
+                    else if (arraySabores.Length == 3)
+                    {
+                        cboSabor1.SelectedItem = arraySabores[0];
+                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                    }
+                    else if (arraySabores.Length == 2)
+                    {
+                        cboSabor1.SelectedItem = arraySabores[0];
+                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                    }
+                    else
+                    {
+                        cboSabor1.SelectedItem = arraySabores[0];                        
+                    }
                 }
 
             }

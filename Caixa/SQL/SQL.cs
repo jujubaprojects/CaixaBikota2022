@@ -354,9 +354,36 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public void insertEstoquePoteSabor(string pSabor)
+        public DataTable buscaEstoquePoteSabor(int pProduto, string pSabores)
         {
-            string sql = queryInsertEstoquePoteSabor();
+            string sql = queryBuscaEstoquePoteSabor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pSabores", pSabores);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaEstoquePoteSabor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT A.* ");
+            sql.Append("FROM( ");
+            sql.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) SABOR ");
+            sql.Append("FROM ESTOQUE_POTE EP ");
+            sql.Append("WHERE EP.PRODUTO = @pProduto ");
+            sql.Append(") A ");
+            sql.Append("WHERE A.SABOR = @pSabores");
+
+            return sql.ToString();
+        }
+
+        public void insertEstoquePoteSaborUltimoRegistro(string pSabor)
+        {
+            string sql = queryInsertEstoquePoteSaborUltimoRegistro();
 
             SqlConnection conn = conexao.retornaConexao();
 
@@ -366,11 +393,32 @@ namespace Caixa.SQL
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        private string queryInsertEstoquePoteSabor()
+        private string queryInsertEstoquePoteSaborUltimoRegistro()
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO SABOR_ESTOQUE (ID_EST_POTE, ID_SABOR) ");
             sql.Append("(SELECT MAX(ID), (SELECT ID FROM SABOR WHERE DESCRICAO = @pSabor AND TIPO = 'POTES') FROM ESTOQUE_POTE)");
+
+            return sql.ToString();
+        }
+        public void insertEstoquePoteSabor(int pIDEst, string pSabor)
+        {
+            string sql = queryInsertEstoquePoteSabor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pSabor", pSabor);
+            sqlc.Parameters.AddWithValue("@pIDEst", pIDEst);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertEstoquePoteSabor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO SABOR_ESTOQUE (ID_EST_POTE, ID_SABOR) ");
+            sql.Append("(SELECT @pIDEst, ID FROM SABOR WHERE DESCRICAO = @pSabor AND TIPO = 'POTES')");
 
             return sql.ToString();
         }
@@ -413,7 +461,29 @@ namespace Caixa.SQL
             sql.Append("UPDATE ESTOQUE_POTE SET ");
             sql.Append("PRODUTO = @pProduto,");
             sql.Append("QT_EST = @pQt, ");
-            sql.Append("DATA = CASE WHEN QT = 0 THEN DATA = GETDATE() ELSE DATA = DATA END ");
+            sql.Append("DATA = CASE WHEN QT_EST = 0 THEN GETDATE() ELSE DATA END ");
+            sql.Append("WHERE ID = @pID");
+
+            return sql.ToString();
+        }
+        public void updateAddEstoquePote(int pID, double pQt)
+        {
+            string sql = queryUpdateAddEstoquePote();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pQt", pQt);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateAddEstoquePote()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE ESTOQUE_POTE SET ");
+            sql.Append("QT_EST = QT_EST + @pQt ");
             sql.Append("WHERE ID = @pID");
 
             return sql.ToString();

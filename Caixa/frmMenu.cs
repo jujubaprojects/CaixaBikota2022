@@ -428,5 +428,18 @@ namespace Caixa
                 frm.ShowDialog();
             //}
         }
+
+        private void EstoqueDePotesDeSorvetesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT P.DESCRICAO PRODUTO, DBO.RETORNA_SABORES(EP.ID) SABORES, EP.QT_EST QT_RESTANTE, DATA  ");
+            sql.Append("FROM ESTOQUE_POTE EP ");
+            sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+            sql.Append("WHERE EP.QT_EST > 0 ");
+            frmBusca frm = new frmBusca(sql, "Estoque de Potes de Sorvetes Prontos");
+            frm.ShowDialog();
+
+
+        }
     }
 }

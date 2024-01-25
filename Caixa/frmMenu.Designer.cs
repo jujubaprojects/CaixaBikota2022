@@ -58,6 +58,7 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estoqueDePotesDeSorvetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             this.novoPedidoToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
             this.novoPedidoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.novoPedidoToolStripMenuItem1.Name = "novoPedidoToolStripMenuItem1";
-            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(163, 30);
             this.novoPedidoToolStripMenuItem1.Text = "Novo Pedido";
             this.novoPedidoToolStripMenuItem1.Click += new System.EventHandler(this.NovoPedidoToolStripMenuItem_Click);
             // 
@@ -117,7 +118,7 @@
             this.pedidosAbertoToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_termos_e_condições_24;
             this.pedidosAbertoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosAbertoToolStripMenuItem1.Name = "pedidosAbertoToolStripMenuItem1";
-            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(163, 30);
             this.pedidosAbertoToolStripMenuItem1.Text = "Pedidos Aberto";
             this.pedidosAbertoToolStripMenuItem1.Click += new System.EventHandler(this.PedidosAbertoToolStripMenuItem_Click);
             // 
@@ -126,42 +127,42 @@
             this.baldesToolStripMenuItem.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
             this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.baldesToolStripMenuItem.Text = "Baldes";
             this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click_1);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.EstoqueToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem1
             // 
             this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
-            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(163, 30);
             this.produtosToolStripMenuItem1.Text = "Produtos";
             this.produtosToolStripMenuItem1.Click += new System.EventHandler(this.ProdutosToolStripMenuItem1_Click);
             // 
             // fornecedorToolStripMenuItem
             // 
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.FornecedorToolStripMenuItem_Click);
             // 
             // estoqueBaldesToolStripMenuItem
             // 
             this.estoqueBaldesToolStripMenuItem.Name = "estoqueBaldesToolStripMenuItem";
-            this.estoqueBaldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.estoqueBaldesToolStripMenuItem.Size = new System.Drawing.Size(163, 30);
             this.estoqueBaldesToolStripMenuItem.Text = "Estoque Baldes";
             this.estoqueBaldesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueBaldesToolStripMenuItem_Click);
             // 
@@ -221,7 +222,8 @@
             this.toolStripMenuItem1,
             this.importarXMLToolStripMenuItem,
             this.notasFiscaisEntradasToolStripMenuItem,
-            this.produtosParaComprarToolStripMenuItem});
+            this.produtosParaComprarToolStripMenuItem,
+            this.estoqueDePotesDeSorvetesToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(61, 68);
             this.produtosToolStripMenuItem.Text = "Estoque";
@@ -280,20 +282,20 @@
             this.vendasPedidosDetalhadoToolStripMenuItem,
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
             // 
             this.vendasPedidosDetalhadoToolStripMenuItem.Name = "vendasPedidosDetalhadoToolStripMenuItem";
-            this.vendasPedidosDetalhadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasPedidosDetalhadoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.vendasPedidosDetalhadoToolStripMenuItem.Text = "Pedidos Detalhado";
             this.vendasPedidosDetalhadoToolStripMenuItem.Click += new System.EventHandler(this.VendasPedidosDetalhadoToolStripMenuItem_Click);
             // 
             // valorPorDiaToolStripMenuItem
             // 
             this.valorPorDiaToolStripMenuItem.Name = "valorPorDiaToolStripMenuItem";
-            this.valorPorDiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.valorPorDiaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.valorPorDiaToolStripMenuItem.Text = "Valor Dia";
             this.valorPorDiaToolStripMenuItem.Click += new System.EventHandler(this.ValorPorDiaToolStripMenuItem_Click);
             // 
@@ -309,6 +311,13 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
+            // 
+            // estoqueDePotesDeSorvetesToolStripMenuItem
+            // 
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Name = "estoqueDePotesDeSorvetesToolStripMenuItem";
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Text = "Estoque de Potes de Sorvetes";
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueDePotesDeSorvetesToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -359,6 +368,7 @@
         private System.Windows.Forms.ToolStripMenuItem linkarProdutoFinalXEstoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fornecedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueBaldesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estoqueDePotesDeSorvetesToolStripMenuItem;
     }
 }
 

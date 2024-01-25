@@ -57,6 +57,7 @@
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVlTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -315,7 +316,8 @@
             this.colQuantidade,
             this.colValor,
             this.colVlTotal,
-            this.colExcluir});
+            this.colExcluir,
+            this.colTipo});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
@@ -395,6 +397,15 @@
             this.colExcluir.ReadOnly = true;
             this.colExcluir.Width = 33;
             // 
+            // colTipo
+            // 
+            this.colTipo.DataPropertyName = "TIPO";
+            this.colTipo.HeaderText = "Tipo";
+            this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
+            this.colTipo.Visible = false;
+            this.colTipo.Width = 59;
+            // 
             // frmPedidoRapido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,12 +447,13 @@
         private Componentes.ComboBoxJCS cboTipoPagamento;
         private Componentes.ComboBoxJCS cboProdutoPai;
         private Componentes.ComboBoxJCS cboProdutoFilho;
+        private Componentes.ComboBoxJCS cboAnotar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProdutoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQuantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVlTotal;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
-        private Componentes.ComboBoxJCS cboAnotar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
     }
 }

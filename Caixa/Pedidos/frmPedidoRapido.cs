@@ -24,6 +24,7 @@ namespace Caixa
         private DataTable dtProduto = new DataTable();
         //private int qtSalva = 0;
         private bool controleEsc = true;
+        private List<string> listSubPotes;
 
         public frmPedidoRapido()
         {
@@ -118,7 +119,7 @@ namespace Caixa
                 row["VL_PRODUTO"] = vlProd.ToString("0.00");
                 //row["VL_TOTAL"] = (int.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
                 row["VL_TOTAL"] = (double.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
-
+                row["TIPO"] = cboProdutoPai.SelectedItem.ToString();
 
                 txtVlTotal.Text = (double.Parse(txtVlTotal.Text) + double.Parse(row["VL_TOTAL"].ToString())).ToString("0.00");
 
@@ -247,6 +248,55 @@ namespace Caixa
             {
                 if (validaCamposNota())
                 {
+                    listSubPotes = new List<string>();
+                    for (int i = 0; i < dtGrid.Rows.Count; i++)
+                    {
+                        if (dtGrid.Rows[i]["TIPO"].ToString().Equals("POTES"))
+                            listSubPotes.Add(dtGrid.Rows[i]["PRODUTO"].ToString());
+                    }
+                    if (listSubPotes.Count > 0)
+                    {
+                        DialogResult result = MessageBox.Show("O pote de sorvete é dos prontos?\nSe sim, escolha o sabor na tela seguinte!", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        {
+                            if (result == DialogResult.Yes)
+                            {
+                                for (int i = 0; i < listSubPotes.Count; i++)
+                                {
+                                    StringBuilder sql = new StringBuilder();
+                                    sql.Append("SELECT EP.ID, EP.PRODUTO, CONCAT(P.DESCRICAO, ' - ',  DBO.RETORNA_SABORES(EP.ID)) SABOR, EP.QT_EST QT_RESTANTE  ");
+                                    sql.Append("FROM ESTOQUE_POTE EP ");
+                                    sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+                                    sql.Append("WHERE P.DESCRICAO = '" + listSubPotes[i] + "'");
+
+                                    int aux = 0;
+                                    while (true)
+                                    {
+                                        aux++;
+                                        frmBusca frm = new frmBusca(sql, "Potes de Sorvete de " + listSubPotes[i]);
+                                        frm.ShowDialog();
+                                        if (frm.retorno != null)
+                                        {
+                                            auxSQL.updateAddEstoquePote(int.Parse(frm.retorno["ID"].ToString()), -1);
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            if (aux > 1)
+                                                break;
+
+                                            MessageBox.Show("É obrigatório escolher o pote de sorvete!\n\nCaso você tenha clicado em sim incorretamente, saia desta tela mais uma vez sem clicar em nenhum campo para voltar a tela anterior!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+
+                                    if (aux > 1)
+                                        return;
+                                }
+
+
+                            }
+                        }
+                    }
+
                     auxSQL.insertPedido("PAGAMENTO RÁPIDO", "LEVAR", 4);
                     int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO RÁPIDO").Rows[0][0].ToString());
                     int pedidoProdutoID = 0;
