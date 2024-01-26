@@ -43,7 +43,7 @@ namespace Caixa.Estoque
             preencherCampos();
 
             dtProduto = auxSQL.retornaDataTable("SELECT * FROM PRODUTO WHERE TIPO = 4");
-            dtSabor = auxSQL.retornaDataTable("SELECT DESCRICAO FROM SABOR WHERE TIPO = 'POTES'");
+            dtSabor = auxSQL.retornaDataTable("SELECT DESCRICAO FROM SABOR WHERE TIPO = 'POTES' ORDER BY 1");
 
             preencherCombo(dtProduto, cboProduto, 0);
             preencherCombo(dtSabor, cboSabor1, 0);
