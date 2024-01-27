@@ -49,7 +49,15 @@
             this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.txtQT = new Componentes.TextBoxJCS(this.components);
+            this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
+            this.txtFiltroSabor = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS4 = new Componentes.LabelJCS(this.components);
+            this.cboFiltroProduto = new Componentes.ComboBoxJCS(this.components);
+            this.labelJCS3 = new Componentes.LabelJCS(this.components);
+            this.txtFiltroQT = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS5 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstPotes)).BeginInit();
+            this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblProduto
@@ -163,6 +171,9 @@
             // 
             this.dgvEstPotes.AllowUserToAddRows = false;
             this.dgvEstPotes.AllowUserToDeleteRows = false;
+            this.dgvEstPotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEstPotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEstPotes.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -188,9 +199,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEstPotes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEstPotes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvEstPotes.EnableHeadersVisualStyles = false;
-            this.dgvEstPotes.Location = new System.Drawing.Point(0, 157);
+            this.dgvEstPotes.Location = new System.Drawing.Point(0, 202);
             this.dgvEstPotes.Name = "dgvEstPotes";
             this.dgvEstPotes.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -203,7 +213,7 @@
             this.dgvEstPotes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEstPotes.RowHeadersVisible = false;
             this.dgvEstPotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstPotes.Size = new System.Drawing.Size(550, 293);
+            this.dgvEstPotes.Size = new System.Drawing.Size(550, 306);
             this.dgvEstPotes.TabIndex = 10;
             this.dgvEstPotes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEstPotes_CellClick);
             // 
@@ -270,11 +280,98 @@
             this.txtQT.TabIndex = 1;
             this.txtQT.TipoCampo = "DOUBLE";
             // 
+            // groupBoxJCS1
+            // 
+            this.groupBoxJCS1.BackColor = System.Drawing.Color.White;
+            this.groupBoxJCS1.Controls.Add(this.txtFiltroQT);
+            this.groupBoxJCS1.Controls.Add(this.labelJCS5);
+            this.groupBoxJCS1.Controls.Add(this.txtFiltroSabor);
+            this.groupBoxJCS1.Controls.Add(this.labelJCS4);
+            this.groupBoxJCS1.Controls.Add(this.cboFiltroProduto);
+            this.groupBoxJCS1.Controls.Add(this.labelJCS3);
+            this.groupBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.groupBoxJCS1.Location = new System.Drawing.Point(1, 145);
+            this.groupBoxJCS1.Name = "groupBoxJCS1";
+            this.groupBoxJCS1.Size = new System.Drawing.Size(549, 51);
+            this.groupBoxJCS1.TabIndex = 16;
+            this.groupBoxJCS1.TabStop = false;
+            this.groupBoxJCS1.Text = "Filtros";
+            // 
+            // txtFiltroSabor
+            // 
+            this.txtFiltroSabor.BackColor = System.Drawing.Color.White;
+            this.txtFiltroSabor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFiltroSabor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtFiltroSabor.IconeKeyDown = null;
+            this.txtFiltroSabor.Location = new System.Drawing.Point(227, 17);
+            this.txtFiltroSabor.Name = "txtFiltroSabor";
+            this.txtFiltroSabor.Preenchimento = null;
+            this.txtFiltroSabor.Size = new System.Drawing.Size(151, 24);
+            this.txtFiltroSabor.TabIndex = 19;
+            this.txtFiltroSabor.TipoCampo = null;
+            this.txtFiltroSabor.TextChanged += new System.EventHandler(this.TxtFiltroSabor_TextChanged);
+            // 
+            // labelJCS4
+            // 
+            this.labelJCS4.AutoSize = true;
+            this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS4.Location = new System.Drawing.Point(174, 20);
+            this.labelJCS4.Name = "labelJCS4";
+            this.labelJCS4.Size = new System.Drawing.Size(47, 17);
+            this.labelJCS4.TabIndex = 18;
+            this.labelJCS4.Text = "Sabor:";
+            // 
+            // cboFiltroProduto
+            // 
+            this.cboFiltroProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFiltroProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboFiltroProduto.FormattingEnabled = true;
+            this.cboFiltroProduto.Location = new System.Drawing.Point(78, 17);
+            this.cboFiltroProduto.Name = "cboFiltroProduto";
+            this.cboFiltroProduto.Size = new System.Drawing.Size(90, 23);
+            this.cboFiltroProduto.TabIndex = 16;
+            this.cboFiltroProduto.SelectedIndexChanged += new System.EventHandler(this.CboFiltroProduto_SelectedIndexChanged);
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(11, 20);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(61, 17);
+            this.labelJCS3.TabIndex = 17;
+            this.labelJCS3.Text = "Produto:";
+            // 
+            // txtFiltroQT
+            // 
+            this.txtFiltroQT.BackColor = System.Drawing.Color.White;
+            this.txtFiltroQT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFiltroQT.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtFiltroQT.IconeKeyDown = null;
+            this.txtFiltroQT.Location = new System.Drawing.Point(418, 17);
+            this.txtFiltroQT.Name = "txtFiltroQT";
+            this.txtFiltroQT.Preenchimento = null;
+            this.txtFiltroQT.Size = new System.Drawing.Size(113, 24);
+            this.txtFiltroQT.TabIndex = 20;
+            this.txtFiltroQT.TipoCampo = "DOUBLE";
+            this.txtFiltroQT.TextChanged += new System.EventHandler(this.TxtFiltroQT_TextChanged);
+            // 
+            // labelJCS5
+            // 
+            this.labelJCS5.AutoSize = true;
+            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS5.Location = new System.Drawing.Point(384, 20);
+            this.labelJCS5.Name = "labelJCS5";
+            this.labelJCS5.Size = new System.Drawing.Size(28, 17);
+            this.labelJCS5.TabIndex = 21;
+            this.labelJCS5.Text = "QT:";
+            // 
             // frmEstoqueBalde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 450);
+            this.ClientSize = new System.Drawing.Size(550, 508);
+            this.Controls.Add(this.groupBoxJCS1);
             this.Controls.Add(this.txtQT);
             this.Controls.Add(this.labelJCS2);
             this.Controls.Add(this.dgvEstPotes);
@@ -301,7 +398,10 @@
             this.Controls.SetChildIndex(this.dgvEstPotes, 0);
             this.Controls.SetChildIndex(this.labelJCS2, 0);
             this.Controls.SetChildIndex(this.txtQT, 0);
+            this.Controls.SetChildIndex(this.groupBoxJCS1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstPotes)).EndInit();
+            this.groupBoxJCS1.ResumeLayout(false);
+            this.groupBoxJCS1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +426,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colData;
         private Componentes.LabelJCS labelJCS2;
         private Componentes.TextBoxJCS txtQT;
+        private Componentes.GroupBoxJCS groupBoxJCS1;
+        private Componentes.TextBoxJCS txtFiltroSabor;
+        private Componentes.LabelJCS labelJCS4;
+        private Componentes.ComboBoxJCS cboFiltroProduto;
+        private Componentes.LabelJCS labelJCS3;
+        private Componentes.TextBoxJCS txtFiltroQT;
+        private Componentes.LabelJCS labelJCS5;
     }
 }

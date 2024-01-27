@@ -442,5 +442,17 @@ namespace Caixa
 
 
         }
+
+        private void Sorvetes10lEmFaltaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT REPLACE(dbo.RETORNA_SABORES(EP.ID), ';', '') DESCRICAO ");
+            sql.Append("FROM ESTOQUE_POTE EP ");
+            sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+            sql.Append("WHERE P.TIPO = 4 AND P.DESCRICAO = 'POTE 10L' AND EP.QT_EST = 0");
+            sql.Append("ORDER BY DESCRICAO ");
+            frmBusca frm = new frmBusca(sql, "Potes 10L Em Falta");
+            frm.ShowDialog();
+        }
     }
 }

@@ -263,16 +263,17 @@ namespace Caixa
                                 for (int i = 0; i < listSubPotes.Count; i++)
                                 {
                                     StringBuilder sql = new StringBuilder();
-                                    sql.Append("SELECT EP.ID, EP.PRODUTO, CONCAT(P.DESCRICAO, ' - ',  DBO.RETORNA_SABORES(EP.ID)) SABOR, EP.QT_EST QT_RESTANTE  ");
+                                    sql.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE  ");
                                     sql.Append("FROM ESTOQUE_POTE EP ");
                                     sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
-                                    sql.Append("WHERE P.DESCRICAO = '" + listSubPotes[i] + "'");
+                                    sql.Append("WHERE P.DESCRICAO = '" + listSubPotes[i] + "' ");
+                                    sql.Append("ORDER BY DESCRICAO");
 
                                     int aux = 0;
                                     while (true)
                                     {
                                         aux++;
-                                        frmBusca frm = new frmBusca(sql, "Potes de Sorvete de " + listSubPotes[i]);
+                                        frmBusca frm = new frmBusca(sql, "Estoque dos Sabores de " + listSubPotes[i]);
                                         frm.ShowDialog();
                                         if (frm.retorno != null)
                                         {

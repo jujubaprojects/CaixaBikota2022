@@ -62,6 +62,10 @@ namespace Caixa.Estoque
             
 
             desabilitarTudo();
+
+
+            cboFiltroProduto.Items.Add("TODOS");
+            preencherCombo(dtProduto, cboFiltroProduto, 0, true);
         }
 
         public void toolStripVoltarJCS_Click(object sender, EventArgs e)
@@ -125,7 +129,7 @@ namespace Caixa.Estoque
                 sabores += " " + listaOrdernada[i] + ";";
 
 
-            if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) > 0)
+            if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) >= 0)
                 qtPotes = double.Parse(txtQT.Text);
             else
                 return false;
@@ -301,6 +305,24 @@ namespace Caixa.Estoque
             qtDescricao = 6;
         }
 
+        private void TxtFiltroSabor_TextChanged(object sender, EventArgs e)
+        {
+            preencherCampos(0, txtFiltroSabor.Text);
+        }
+
+        private void CboFiltroProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFiltroProduto.SelectedIndex < 1)
+                preencherCampos(0, null, null);
+            else
+                preencherCampos(0, null, cboFiltroProduto.SelectedItem.ToString());
+        }
+
+        private void TxtFiltroQT_TextChanged(object sender, EventArgs e)
+        {
+            preencherCampos(0, txtFiltroSabor.Text, null, txtFiltroQT.Text);
+        }
+
         private void DgvEstPotes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -418,12 +440,20 @@ namespace Caixa.Estoque
             }
         }
 
-        private void preencherCampos(int pInicio = 0)
+        private void preencherCampos(int pInicio = 0, string pDescSabor = null, string pProduto = null, string pQt = null)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT EP.ID,P.DESCRICAO PRODUTO, dbo.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT, EP.DATA ");
             sql.Append("FROM ESTOQUE_POTE EP ");
             sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+            sql.Append("WHERE P.TIPO = 4 ");
+            if (!string.IsNullOrEmpty(pDescSabor))
+                sql.Append("AND  dbo.RETORNA_SABORES(EP.ID) LIKE '%" + pDescSabor.Replace(" ", "%") + "%' ");
+            if (!string.IsNullOrEmpty(pProduto))
+                sql.Append("AND P.DESCRICAO = '" + pProduto + "' ");
+            if (!string.IsNullOrEmpty(pQt))
+                sql.Append("AND EP.QT_EST = " + pQt + " ");
+
             sql.Append("ORDER BY PRODUTO, DESCRICAO ");
             dgvEstPotes.DataSource = auxSQL.retornaDataTable(sql.ToString());
             if (pInicio == 1 && dgvEstPotes.Rows.Count > 0)
@@ -433,7 +463,7 @@ namespace Caixa.Estoque
             }
         }
 
-        private void preencherCombo(DataTable pDTable, ComboBox pCombo, int pOcultar)
+        private void preencherCombo(DataTable pDTable, ComboBox pCombo, int pOcultar, bool limparCapos = false)
         {
 
             if (pOcultar == 1 || pDTable.Rows.Count == 0)
@@ -441,7 +471,9 @@ namespace Caixa.Estoque
                 pCombo.Visible = false;
             }
             {
-                pCombo.Items.Clear();
+                if (!limparCapos)
+                    pCombo.Items.Clear();
+
                 pCombo.Visible = true;
                 for (int i = 0; i < pDTable.Rows.Count; i++)
                 {

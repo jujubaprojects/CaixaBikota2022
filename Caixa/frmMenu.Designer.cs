@@ -53,12 +53,13 @@
             this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notasFiscaisEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosParaComprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estoqueDePotesDeSorvetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estoqueDePotesDeSorvetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sorvetes10lEmFaltaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -223,7 +224,8 @@
             this.importarXMLToolStripMenuItem,
             this.notasFiscaisEntradasToolStripMenuItem,
             this.produtosParaComprarToolStripMenuItem,
-            this.estoqueDePotesDeSorvetesToolStripMenuItem});
+            this.estoqueDePotesDeSorvetesToolStripMenuItem,
+            this.sorvetes10lEmFaltaToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(61, 68);
             this.produtosToolStripMenuItem.Text = "Estoque";
@@ -267,6 +269,13 @@
             this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.produtosParaComprarToolStripMenuItem.Text = "Produtos para Comprar";
             this.produtosParaComprarToolStripMenuItem.Click += new System.EventHandler(this.ProdutosParaComprarToolStripMenuItem_Click);
+            // 
+            // estoqueDePotesDeSorvetesToolStripMenuItem
+            // 
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Name = "estoqueDePotesDeSorvetesToolStripMenuItem";
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Text = "Estoque de Potes de Sorvetes";
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueDePotesDeSorvetesToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -312,12 +321,12 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
-            // estoqueDePotesDeSorvetesToolStripMenuItem
+            // sorvetes10lEmFaltaToolStripMenuItem
             // 
-            this.estoqueDePotesDeSorvetesToolStripMenuItem.Name = "estoqueDePotesDeSorvetesToolStripMenuItem";
-            this.estoqueDePotesDeSorvetesToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
-            this.estoqueDePotesDeSorvetesToolStripMenuItem.Text = "Estoque de Potes de Sorvetes";
-            this.estoqueDePotesDeSorvetesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueDePotesDeSorvetesToolStripMenuItem_Click);
+            this.sorvetes10lEmFaltaToolStripMenuItem.Name = "sorvetes10lEmFaltaToolStripMenuItem";
+            this.sorvetes10lEmFaltaToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.sorvetes10lEmFaltaToolStripMenuItem.Text = "Sorvetes 10l Em Falta";
+            this.sorvetes10lEmFaltaToolStripMenuItem.Click += new System.EventHandler(this.Sorvetes10lEmFaltaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -369,6 +378,7 @@
         private System.Windows.Forms.ToolStripMenuItem fornecedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueBaldesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueDePotesDeSorvetesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sorvetes10lEmFaltaToolStripMenuItem;
     }
 }
 
