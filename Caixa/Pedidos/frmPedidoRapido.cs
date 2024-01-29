@@ -24,7 +24,7 @@ namespace Caixa
         private DataTable dtProduto = new DataTable();
         //private int qtSalva = 0;
         private bool controleEsc = true;
-        private List<string> listSubPotes;
+        private List<int> listPosicaoGrid;
 
         public frmPedidoRapido()
         {
@@ -248,36 +248,36 @@ namespace Caixa
             {
                 if (validaCamposNota())
                 {
-                    listSubPotes = new List<string>();
+                    listPosicaoGrid = new List<int>();
                     for (int i = 0; i < dtGrid.Rows.Count; i++)
                     {
                         if (dtGrid.Rows[i]["TIPO"].ToString().Equals("POTES"))
-                            listSubPotes.Add(dtGrid.Rows[i]["PRODUTO"].ToString());
+                            listPosicaoGrid.Add(i);
                     }
-                    if (listSubPotes.Count > 0)
+                    if (listPosicaoGrid.Count > 0)
                     {
                         DialogResult result = MessageBox.Show("O pote de sorvete é dos prontos?\nSe sim, escolha o sabor na tela seguinte!", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         {
                             if (result == DialogResult.Yes)
                             {
-                                for (int i = 0; i < listSubPotes.Count; i++)
+                                for (int i = 0; i < listPosicaoGrid.Count; i++)
                                 {
                                     StringBuilder sql = new StringBuilder();
                                     sql.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE  ");
                                     sql.Append("FROM ESTOQUE_POTE EP ");
                                     sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
-                                    sql.Append("WHERE P.DESCRICAO = '" + listSubPotes[i] + "' ");
+                                    sql.Append("WHERE P.DESCRICAO = '" + dtGrid.Rows[listPosicaoGrid[i]]["PRODUTO"] + "' ");
                                     sql.Append("ORDER BY DESCRICAO");
 
                                     int aux = 0;
                                     while (true)
                                     {
                                         aux++;
-                                        frmBusca frm = new frmBusca(sql, "Estoque dos Sabores de " + listSubPotes[i]);
+                                        frmBusca frm = new frmBusca(sql, "Estoque dos Sabores de " + dtGrid.Rows[listPosicaoGrid[i]]["PRODUTO"]);
                                         frm.ShowDialog();
                                         if (frm.retorno != null)
                                         {
-                                            auxSQL.updateAddEstoquePote(int.Parse(frm.retorno["ID"].ToString()), -1);
+                                            auxSQL.updateAddEstoquePote(int.Parse(frm.retorno["ID"].ToString()), int.Parse(dtGrid.Rows[listPosicaoGrid[i]]["QT"].ToString()) * -1);
                                             break;
                                         }
                                         else
