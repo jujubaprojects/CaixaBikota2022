@@ -35,6 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPagarTudo = new Componentes.ButtonJCS(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAddProduto = new Componentes.ButtonJCS(this.components);
             this.lblSituacao = new Componentes.LabelJCS(this.components);
             this.txtEndereco = new Componentes.TextBoxJCS(this.components);
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
@@ -59,7 +60,6 @@
             this.colOrdem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChkPagar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colCancelar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAddProduto = new Componentes.ButtonJCS(this.components);
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosAbertos)).BeginInit();
@@ -111,6 +111,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(896, 133);
             this.panel3.TabIndex = 12;
+            // 
+            // btnAddProduto
+            // 
+            this.btnAddProduto.BackColor = System.Drawing.Color.Gold;
+            this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddProduto.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
+            this.btnAddProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddProduto.Location = new System.Drawing.Point(653, 42);
+            this.btnAddProduto.Name = "btnAddProduto";
+            this.btnAddProduto.Size = new System.Drawing.Size(226, 24);
+            this.btnAddProduto.TabIndex = 22;
+            this.btnAddProduto.Text = "Adicionar Produto";
+            this.btnAddProduto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddProduto.UseVisualStyleBackColor = false;
+            this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
             // 
             // lblSituacao
             // 
@@ -419,22 +435,6 @@
             this.colCancelar.ReadOnly = true;
             this.colCancelar.Width = 64;
             // 
-            // btnAddProduto
-            // 
-            this.btnAddProduto.BackColor = System.Drawing.Color.Gold;
-            this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddProduto.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
-            this.btnAddProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddProduto.Location = new System.Drawing.Point(653, 42);
-            this.btnAddProduto.Name = "btnAddProduto";
-            this.btnAddProduto.Size = new System.Drawing.Size(226, 24);
-            this.btnAddProduto.TabIndex = 22;
-            this.btnAddProduto.Text = "Adicionar Produto";
-            this.btnAddProduto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddProduto.UseVisualStyleBackColor = false;
-            this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
-            // 
             // frmPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +446,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.Name = "frmPagamentos";
-            this.Text = "frmPagamentos";
+            this.Text = "Pagamento de Comanda";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPagamentos_KeyDown);
             this.MouseEnter += new System.EventHandler(this.FrmPagamentos_MouseEnter);
             this.panel2.ResumeLayout(false);

@@ -50,12 +50,12 @@
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.txtQT = new Componentes.TextBoxJCS(this.components);
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
+            this.txtFiltroQT = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS5 = new Componentes.LabelJCS(this.components);
             this.txtFiltroSabor = new Componentes.TextBoxJCS(this.components);
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
             this.cboFiltroProduto = new Componentes.ComboBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
-            this.txtFiltroQT = new Componentes.TextBoxJCS(this.components);
-            this.labelJCS5 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstPotes)).BeginInit();
             this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
@@ -297,6 +297,30 @@
             this.groupBoxJCS1.TabStop = false;
             this.groupBoxJCS1.Text = "Filtros";
             // 
+            // txtFiltroQT
+            // 
+            this.txtFiltroQT.BackColor = System.Drawing.Color.White;
+            this.txtFiltroQT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFiltroQT.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtFiltroQT.IconeKeyDown = null;
+            this.txtFiltroQT.Location = new System.Drawing.Point(418, 17);
+            this.txtFiltroQT.Name = "txtFiltroQT";
+            this.txtFiltroQT.Preenchimento = null;
+            this.txtFiltroQT.Size = new System.Drawing.Size(113, 24);
+            this.txtFiltroQT.TabIndex = 20;
+            this.txtFiltroQT.TipoCampo = "DOUBLE";
+            this.txtFiltroQT.TextChanged += new System.EventHandler(this.TxtFiltroQT_TextChanged);
+            // 
+            // labelJCS5
+            // 
+            this.labelJCS5.AutoSize = true;
+            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS5.Location = new System.Drawing.Point(384, 20);
+            this.labelJCS5.Name = "labelJCS5";
+            this.labelJCS5.Size = new System.Drawing.Size(28, 17);
+            this.labelJCS5.TabIndex = 21;
+            this.labelJCS5.Text = "QT:";
+            // 
             // txtFiltroSabor
             // 
             this.txtFiltroSabor.BackColor = System.Drawing.Color.White;
@@ -342,30 +366,6 @@
             this.labelJCS3.TabIndex = 17;
             this.labelJCS3.Text = "Produto:";
             // 
-            // txtFiltroQT
-            // 
-            this.txtFiltroQT.BackColor = System.Drawing.Color.White;
-            this.txtFiltroQT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltroQT.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtFiltroQT.IconeKeyDown = null;
-            this.txtFiltroQT.Location = new System.Drawing.Point(418, 17);
-            this.txtFiltroQT.Name = "txtFiltroQT";
-            this.txtFiltroQT.Preenchimento = null;
-            this.txtFiltroQT.Size = new System.Drawing.Size(113, 24);
-            this.txtFiltroQT.TabIndex = 20;
-            this.txtFiltroQT.TipoCampo = "DOUBLE";
-            this.txtFiltroQT.TextChanged += new System.EventHandler(this.TxtFiltroQT_TextChanged);
-            // 
-            // labelJCS5
-            // 
-            this.labelJCS5.AutoSize = true;
-            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS5.Location = new System.Drawing.Point(384, 20);
-            this.labelJCS5.Name = "labelJCS5";
-            this.labelJCS5.Size = new System.Drawing.Size(28, 17);
-            this.labelJCS5.TabIndex = 21;
-            this.labelJCS5.Text = "QT:";
-            // 
             // frmEstoqueBalde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,7 +385,7 @@
             this.Controls.Add(this.cboProduto);
             this.Controls.Add(this.lblProduto);
             this.Name = "frmEstoqueBalde";
-            this.Text = "frmEstoqueBalde";
+            this.Text = "Estoque de Potes de Sorvete";
             this.Controls.SetChildIndex(this.lblProduto, 0);
             this.Controls.SetChildIndex(this.cboProduto, 0);
             this.Controls.SetChildIndex(this.labelJCS1, 0);

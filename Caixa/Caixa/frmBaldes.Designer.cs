@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNome = new Componentes.TextBoxJCS(this.components);
             this.lblValor = new Componentes.LabelJCS(this.components);
             this.btnSalvar = new Componentes.ButtonJCS(this.components);
@@ -64,6 +64,7 @@
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.Color.White;
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtNome.IconeKeyDown = null;
             this.txtNome.Location = new System.Drawing.Point(80, 6);
@@ -132,6 +133,7 @@
             // txtEnd
             // 
             this.txtEnd.BackColor = System.Drawing.Color.White;
+            this.txtEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtEnd.IconeKeyDown = null;
             this.txtEnd.Location = new System.Drawing.Point(80, 66);
@@ -159,6 +161,7 @@
             // txtNumero
             // 
             this.txtNumero.BackColor = System.Drawing.Color.White;
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumero.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtNumero.IconeKeyDown = null;
             this.txtNumero.Location = new System.Drawing.Point(284, 96);
@@ -177,14 +180,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBaldes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvBaldes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBaldes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaldes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBaldes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBaldes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -198,26 +201,26 @@
             this.colEntregue,
             this.colEditar});
             this.dgvBaldes.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBaldes.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBaldes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBaldes.EnableHeadersVisualStyles = false;
             this.dgvBaldes.Location = new System.Drawing.Point(0, 169);
             this.dgvBaldes.Name = "dgvBaldes";
             this.dgvBaldes.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBaldes.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaldes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBaldes.RowHeadersVisible = false;
             this.dgvBaldes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBaldes.Size = new System.Drawing.Size(1103, 281);
@@ -324,6 +327,7 @@
             // txtTelefone
             // 
             this.txtTelefone.BackColor = System.Drawing.Color.White;
+            this.txtTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTelefone.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtTelefone.IconeKeyDown = null;
             this.txtTelefone.Location = new System.Drawing.Point(80, 36);
@@ -376,6 +380,7 @@
             // txtColher
             // 
             this.txtColher.BackColor = System.Drawing.Color.White;
+            this.txtColher.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColher.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtColher.IconeKeyDown = null;
             this.txtColher.Location = new System.Drawing.Point(284, 126);
@@ -408,7 +413,7 @@
             this.Controls.Add(this.btnSalvar);
             this.MinimumSize = new System.Drawing.Size(1119, 489);
             this.Name = "frmBaldes";
-            this.Text = "frmBaldes";
+            this.Text = "Cadastro de Baldes/Colheres";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaldes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

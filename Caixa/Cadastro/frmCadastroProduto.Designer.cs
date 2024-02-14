@@ -324,7 +324,7 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.labelJCS1);
             this.Name = "frmCadastroProduto";
-            this.Text = "frmCadastroProduto";
+            this.Text = "Cadastro de Produto";
             this.Controls.SetChildIndex(this.labelJCS1, 0);
             this.Controls.SetChildIndex(this.txtID, 0);
             this.Controls.SetChildIndex(this.labelJCS2, 0);

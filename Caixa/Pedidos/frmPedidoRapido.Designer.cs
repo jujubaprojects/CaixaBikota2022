@@ -416,7 +416,7 @@
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Name = "frmPedidoRapido";
-            this.Text = "frmPedidoRapido";
+            this.Text = "Pedido Rápido";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPedidoRapido_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmPedidoRapido_MouseMove);
             this.panel1.ResumeLayout(false);

@@ -73,6 +73,7 @@
             // txtObservacao
             // 
             this.txtObservacao.BackColor = System.Drawing.Color.White;
+            this.txtObservacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtObservacao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtObservacao.IconeKeyDown = null;
             this.txtObservacao.Location = new System.Drawing.Point(100, 70);
@@ -85,6 +86,7 @@
             // txtQuantidade
             // 
             this.txtQuantidade.BackColor = System.Drawing.Color.White;
+            this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQuantidade.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQuantidade.IconeKeyDown = null;
             this.txtQuantidade.Location = new System.Drawing.Point(417, 44);
@@ -118,6 +120,7 @@
             // txtProduto
             // 
             this.txtProduto.BackColor = System.Drawing.Color.White;
+            this.txtProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProduto.Enabled = false;
             this.txtProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtProduto.IconeKeyDown = null;
@@ -338,7 +341,7 @@
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(428, 489);
             this.Name = "frmNovoPedidoAdicionais";
-            this.Text = "frmNovoPedidoAdicionais";
+            this.Text = "Adicionais Separado";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdicionais)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

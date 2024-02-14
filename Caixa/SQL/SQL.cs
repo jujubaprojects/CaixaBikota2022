@@ -466,6 +466,29 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void updateSubEstoquePote(int pID, double pQt)
+        {
+            string sql = queryUpdateSubEstoquePote();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pQt", pQt);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateSubEstoquePote()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE ESTOQUE_POTE SET ");
+            sql.Append("QT_EST = QT_EST - @pQt, ");
+            sql.Append("DATA = CASE WHEN QT_EST = 0 THEN GETDATE() ELSE DATA END ");
+            sql.Append("WHERE ID = @pID");
+
+            return sql.ToString();
+        }
         public void updateAddEstoquePote(int pID, double pQt)
         {
             string sql = queryUpdateAddEstoquePote();
@@ -512,6 +535,28 @@ namespace Caixa.SQL
             sql.Append("QT_ESTOQUE = @pQTEst, ");
             sql.Append("QT_ESTOQUE_IDEAL = @pQTEstIdeal, ");
             sql.Append("STATUS = @pStatus ");
+            sql.Append("WHERE ID = @pID");
+
+            return sql.ToString();
+        }
+        public void updateSubControleEstoque(int pID, int pQtSubEst)
+        {
+            string sql = queryUpdateSubControleEstoque();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pQTEst", pQtSubEst);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateSubControleEstoque()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE CONTROLE_ESTOQUE SET ");
+            sql.Append("QT_ESTOQUE = QT_ESTOQUE - @pQTEst ");
             sql.Append("WHERE ID = @pID");
 
             return sql.ToString();

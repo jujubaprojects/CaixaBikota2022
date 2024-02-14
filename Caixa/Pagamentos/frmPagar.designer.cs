@@ -142,6 +142,7 @@
             // txtVlRecebido
             // 
             this.txtVlRecebido.BackColor = System.Drawing.Color.White;
+            this.txtVlRecebido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlRecebido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlRecebido.IconeKeyDown = null;
             this.txtVlRecebido.Location = new System.Drawing.Point(126, 68);
@@ -166,6 +167,7 @@
             // txtDescPagamento
             // 
             this.txtDescPagamento.BackColor = System.Drawing.Color.White;
+            this.txtDescPagamento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescPagamento.IconeKeyDown = null;
             this.txtDescPagamento.Location = new System.Drawing.Point(127, 127);
@@ -206,6 +208,7 @@
             // txtValorAberto
             // 
             this.txtValorAberto.BackColor = System.Drawing.Color.White;
+            this.txtValorAberto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorAberto.Enabled = false;
             this.txtValorAberto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtValorAberto.IconeKeyDown = null;
@@ -370,7 +373,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmPagar";
-            this.Text = "frmPagar";
+            this.Text = "Pagamento";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPagar_KeyDown);
             this.MouseEnter += new System.EventHandler(this.FrmPagar_MouseEnter);
             this.panel1.ResumeLayout(false);

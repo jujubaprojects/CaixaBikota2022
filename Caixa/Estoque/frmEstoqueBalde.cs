@@ -91,6 +91,18 @@ namespace Caixa.Estoque
             this.txtQT.Enabled = true;
         }
 
+        private void limparCampos()
+        {
+            txtQT.Text = "";
+            cboProduto.SelectedIndex = -1;
+            cboSabor1.SelectedIndex = -1;
+            cboSabor2.SelectedIndex = -1;
+            cboSabor3.SelectedIndex = -1;
+            cboSabor4.SelectedIndex = -1;
+            cboSabor5.SelectedIndex = -1;
+            cboSabor6.SelectedIndex = -1;
+        }
+
         private bool validaCampos()
         {
             if (cboProduto.SelectedIndex <= -1)
@@ -166,6 +178,8 @@ namespace Caixa.Estoque
                             {
                                 auxSQL.updateAddEstoquePote(int.Parse(dtAux.Rows[0]["ID"].ToString()), qtPotes);
                             }
+
+                            limparCampos();
                             preencherCampos();
                         }
                     }
@@ -200,7 +214,9 @@ namespace Caixa.Estoque
 
         private void CboProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            qtDescricaoMax = int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["QT_DESCRICAO"].ToString());
+            if (cboProduto.SelectedIndex > -1)
+                qtDescricaoMax = int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["QT_DESCRICAO"].ToString());
+
             qtDescricao = 0;
 
             if (qtDescricaoMax == -1)
@@ -386,54 +402,70 @@ namespace Caixa.Estoque
                 }
                 else
                 {
-
-                    habilitarTudo();
-
-                    //DataTable dt = auxSQL.buscaControleEstoque(id);
-                    txtQT.Text = qtPotes.ToString();
-                    cboProduto.SelectedItem = produto;
-
-                    string[] arraySabores = sabores.Split(';');
-                    
-                    if (arraySabores.Length == 6)
+                    if (acessoFrmsRestrito())
                     {
 
-                        cboSabor1.SelectedItem = arraySabores[0];
-                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
-                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
-                        cboSabor4.SelectedItem = arraySabores[3].Substring(1);
-                        cboSabor5.SelectedItem = arraySabores[4].Substring(1);
-                    }
-                    else if (arraySabores.Length == 5)
-                    {
-                        cboSabor1.SelectedItem = arraySabores[0];
-                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
-                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
-                        cboSabor4.SelectedItem = arraySabores[3].Substring(1);
-                        cboSabor5.SelectedItem = arraySabores[4].Substring(1);
+                        habilitarTudo();
 
-                    }
-                    else if (arraySabores.Length == 4)
-                    {
-                        cboSabor1.SelectedItem = arraySabores[0];
-                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
-                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
-                        cboSabor4.SelectedItem = arraySabores[3].Substring(1);
-                    }
-                    else if (arraySabores.Length == 3)
-                    {
-                        cboSabor1.SelectedItem = arraySabores[0];
-                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
-                        cboSabor3.SelectedItem = arraySabores[2].Substring(1);
-                    }
-                    else if (arraySabores.Length == 2)
-                    {
-                        cboSabor1.SelectedItem = arraySabores[0];
-                        cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                        //DataTable dt = auxSQL.buscaControleEstoque(id);
+                        txtQT.Text = qtPotes.ToString();
+                        cboProduto.SelectedItem = produto;
+
+                        string[] arraySabores = sabores.Split(';');
+
+                        if (arraySabores.Length == 6)
+                        {
+
+                            cboSabor1.SelectedItem = arraySabores[0];
+                            cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                            cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                            cboSabor4.SelectedItem = arraySabores[3].Substring(1);
+                            cboSabor5.SelectedItem = arraySabores[4].Substring(1);
+                        }
+                        else if (arraySabores.Length == 5)
+                        {
+                            cboSabor1.SelectedItem = arraySabores[0];
+                            cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                            cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                            cboSabor4.SelectedItem = arraySabores[3].Substring(1);
+                            cboSabor5.SelectedItem = arraySabores[4].Substring(1);
+
+                        }
+                        else if (arraySabores.Length == 4)
+                        {
+                            cboSabor1.SelectedItem = arraySabores[0];
+                            cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                            cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                            cboSabor4.SelectedItem = arraySabores[3].Substring(1);
+                        }
+                        else if (arraySabores.Length == 3)
+                        {
+                            cboSabor1.SelectedItem = arraySabores[0];
+                            cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                            cboSabor3.SelectedItem = arraySabores[2].Substring(1);
+                        }
+                        else if (arraySabores.Length == 2)
+                        {
+                            cboSabor1.SelectedItem = arraySabores[0];
+                            cboSabor2.SelectedItem = arraySabores[1].Substring(1);
+                        }
+                        else
+                        {
+                            cboSabor1.SelectedItem = arraySabores[0];
+                        }
+
+                        toolStripVoltarJCS_Click(sender, e);
                     }
                     else
                     {
-                        cboSabor1.SelectedItem = arraySabores[0];                        
+                        this.toolStripNovoJCS.Enabled = true;
+                        this.toolStripEditarJCS.Enabled = true;
+                        this.toolStripSalvarJCS.Enabled = false;
+                        this.toolStripDeletarJCS.Enabled = false;
+                        this.toolStripVoltarJCS.Enabled = false;
+                        this.Text = nomeForm + " (Voltar)";
+                        clickBtns = "Voltar";
+                        botaoRetorno = true;
                     }
                 }
 
@@ -480,6 +512,20 @@ namespace Caixa.Estoque
                     pCombo.Items.Add(pDTable.Rows[i]["descricao"]);
                 }
             }
+        }
+
+
+        private bool acessoFrmsRestrito()
+        {
+            frmInputBoxJCS frm = new frmInputBoxJCS("Informe a senha.", 3, true);
+            frm.ShowDialog();
+            if (frm.retorno != "acessobikota")
+            {
+                MessageBox.Show("Senha incorreta!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -39,6 +39,7 @@
             // txtValor
             // 
             this.txtValor.BackColor = System.Drawing.Color.White;
+            this.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtValor.IconeKeyDown = null;
             this.txtValor.Location = new System.Drawing.Point(87, 12);
@@ -113,7 +114,7 @@
             this.MaximumSize = new System.Drawing.Size(323, 155);
             this.MinimumSize = new System.Drawing.Size(323, 155);
             this.Name = "frmRetiradaCaixa";
-            this.Text = "frmRetiradaCaixa";
+            this.Text = "Retirada de Caixa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

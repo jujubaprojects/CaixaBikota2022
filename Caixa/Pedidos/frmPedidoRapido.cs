@@ -266,7 +266,7 @@ namespace Caixa
                                     sql.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE  ");
                                     sql.Append("FROM ESTOQUE_POTE EP ");
                                     sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
-                                    sql.Append("WHERE P.DESCRICAO = '" + dtGrid.Rows[listPosicaoGrid[i]]["PRODUTO"] + "' ");
+                                    sql.Append("WHERE EP.QT_EST > 0 AND     P.DESCRICAO = '" + dtGrid.Rows[listPosicaoGrid[i]]["PRODUTO"] + "' ");
                                     sql.Append("ORDER BY DESCRICAO");
 
                                     int aux = 0;

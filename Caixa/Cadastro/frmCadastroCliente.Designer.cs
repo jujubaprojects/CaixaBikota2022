@@ -109,6 +109,7 @@
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.Color.White;
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtNome.IconeKeyDown = null;
             this.txtNome.Location = new System.Drawing.Point(65, 12);
@@ -121,6 +122,7 @@
             // txtEnd
             // 
             this.txtEnd.BackColor = System.Drawing.Color.White;
+            this.txtEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtEnd.IconeKeyDown = null;
             this.txtEnd.Location = new System.Drawing.Point(65, 42);
@@ -133,6 +135,7 @@
             // txtContato
             // 
             this.txtContato.BackColor = System.Drawing.Color.White;
+            this.txtContato.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtContato.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtContato.IconeKeyDown = null;
             this.txtContato.Location = new System.Drawing.Point(307, 42);
@@ -273,7 +276,7 @@
             this.MaximumSize = new System.Drawing.Size(851, 489);
             this.MinimumSize = new System.Drawing.Size(851, 489);
             this.Name = "frmCadastroCliente";
-            this.Text = "frmCadastroCliente";
+            this.Text = "Cadastro de Cliente";
             this.Load += new System.EventHandler(this.FrmCadastroCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);

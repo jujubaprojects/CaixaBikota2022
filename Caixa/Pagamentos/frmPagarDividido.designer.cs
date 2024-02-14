@@ -52,6 +52,7 @@
             // txtVlTotal
             // 
             this.txtVlTotal.BackColor = System.Drawing.Color.White;
+            this.txtVlTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlTotal.Enabled = false;
             this.txtVlTotal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlTotal.IconeKeyDown = null;
@@ -75,6 +76,7 @@
             // txtQtDivisao
             // 
             this.txtQtDivisao.BackColor = System.Drawing.Color.White;
+            this.txtQtDivisao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtDivisao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQtDivisao.IconeKeyDown = null;
             this.txtQtDivisao.Location = new System.Drawing.Point(118, 75);
@@ -88,6 +90,7 @@
             // txtVlRecebido
             // 
             this.txtVlRecebido.BackColor = System.Drawing.Color.White;
+            this.txtVlRecebido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlRecebido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlRecebido.IconeKeyDown = null;
             this.txtVlRecebido.Location = new System.Drawing.Point(118, 45);
@@ -155,7 +158,7 @@
             this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(278, 309);
             this.Name = "frmPagarDividido";
-            this.Text = "frmPagarDividido";
+            this.Text = "Pagamento Dividido";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPagarDividido_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPagarDividido_KeyDown);
             this.MouseEnter += new System.EventHandler(this.FrmPagarDividido_MouseEnter);

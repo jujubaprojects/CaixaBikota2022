@@ -454,5 +454,11 @@ namespace Caixa
             frmBusca frm = new frmBusca(sql, "Potes 10L Em Falta");
             frm.ShowDialog();
         }
+
+        private void SubtrairEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSubEstoque frm = new frmSubEstoque();
+            frm.ShowDialog();
+        }
     }
 }
