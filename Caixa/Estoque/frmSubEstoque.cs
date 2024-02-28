@@ -34,6 +34,10 @@ namespace Caixa.Estoque
                 {
                     auxSQL.updateSubControleEstoque(IDEstoque, qtSubEst);
                 }
+
+                MessageBox.Show("O Estoque foi alterado com sucesso.", "Subtraido com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                limparCampos();
             }
             else
                 MessageBox.Show("As informações não estão corretas, por favor insira novamente as informações.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -48,7 +52,11 @@ namespace Caixa.Estoque
 
             if (frm.retorno != null)
             {
-                txtEstoque.Text = frm.retorno["DESCRICAO"].ToString();
+                if (tipoEstAlt == 1)
+                    txtEstoque.Text = frm.retorno["DESCRICAO"].ToString() + " - " + frm.retorno["PRODUTO"].ToString();
+                else
+                    txtEstoque.Text = frm.retorno["DESCRICAO"].ToString();
+
                 IDEstoque = int.Parse(frm.retorno["ID"].ToString());
             }
         }
@@ -104,7 +112,7 @@ namespace Caixa.Estoque
             }
             else
             {
-                sql.Append("SELECT ID, DESCRICAO ");
+                sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE QT_RESTANTE ");
                 sql.Append("FROM CONTROLE_ESTOQUE ");
                 sql.Append("WHERE QT_ESTOQUE > 0 AND STATUS = 1 ");
                 sql.Append("ORDER BY DESCRICAO ");

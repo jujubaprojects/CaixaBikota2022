@@ -181,6 +181,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsRelatorios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Estoque\frmConsultaEstoquePotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estoque\frmConsultaEstoquePotes.Designer.cs">
+      <DependentUpon>frmConsultaEstoquePotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Estoque\frmEstoqueBalde.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmRetiradaCaixa.resx">
       <DependentUpon>frmRetiradaCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estoque\frmConsultaEstoquePotes.resx">
+      <DependentUpon>frmConsultaEstoquePotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\frmEstoqueBalde.resx">
       <DependentUpon>frmEstoqueBalde.cs</DependentUpon>

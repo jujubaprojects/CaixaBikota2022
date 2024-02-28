@@ -431,15 +431,17 @@ namespace Caixa
 
         private void EstoqueDePotesDeSorvetesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT P.DESCRICAO PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE, DATA  ");
-            sql.Append("FROM ESTOQUE_POTE EP ");
-            sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
-            sql.Append("WHERE EP.QT_EST > 0 ");
-            sql.Append("ORDER BY 1, 2");
-            frmBusca frm = new frmBusca(sql, "Estoque de Potes de Sorvetes Prontos");
-            frm.ShowDialog();
+            //StringBuilder sql = new StringBuilder();
+            //sql.Append("SELECT P.DESCRICAO PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE, DATA  ");
+            //sql.Append("FROM ESTOQUE_POTE EP ");
+            //sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+            //sql.Append("WHERE EP.QT_EST > 0 ");
+            //sql.Append("ORDER BY 1, 2");
+            //frmBusca frm = new frmBusca(sql, "Estoque de Potes de Sorvetes Prontos");
+            //frm.ShowDialog();
 
+            frmConsultaEstoquePotes frm = new frmConsultaEstoquePotes();
+            frm.ShowDialog();
 
         }
 
@@ -449,7 +451,9 @@ namespace Caixa
             sql.Append("SELECT REPLACE(dbo.RETORNA_SABORES(EP.ID), ';', '') DESCRICAO ");
             sql.Append("FROM ESTOQUE_POTE EP ");
             sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
-            sql.Append("WHERE P.TIPO = 4 AND P.DESCRICAO = 'POTE 10L' AND EP.QT_EST = 0");
+            sql.Append("JOIN SABOR_ESTOQUE SE ON(SE.ID_EST_POTE = EP.ID) ");
+            sql.Append("JOIN(SELECT SE.ID_EST_POTE, COUNT(ID_SABOR) QT_SABOR FROM SABOR_ESTOQUE SE GROUP BY SE.ID_EST_POTE) AUX ON(AUX.ID_EST_POTE = EP.ID) ");
+            sql.Append("WHERE P.TIPO = 4 AND P.DESCRICAO = 'POTE 10L' AND EP.QT_EST = 0 AND AUX.QT_SABOR = 1 ");
             sql.Append("ORDER BY DESCRICAO ");
             frmBusca frm = new frmBusca(sql, "Potes 10L Em Falta");
             frm.ShowDialog();
