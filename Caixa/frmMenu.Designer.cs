@@ -41,6 +41,8 @@
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueBaldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.subtrairEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recebimentoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +62,7 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.subtrairEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nFCupomManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +103,8 @@
             this.fornecedorToolStripMenuItem,
             this.estoqueBaldesToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.subtrairEstoqueToolStripMenuItem});
+            this.subtrairEstoqueToolStripMenuItem,
+            this.nFCupomManualToolStripMenuItem});
             this.pedidosToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_contabilidade_48;
             this.pedidosToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosToolStripMenuItem1.Name = "pedidosToolStripMenuItem1";
@@ -170,6 +172,18 @@
             this.estoqueBaldesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.estoqueBaldesToolStripMenuItem.Text = "Estoque Baldes";
             this.estoqueBaldesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueBaldesToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(185, 6);
+            // 
+            // subtrairEstoqueToolStripMenuItem
+            // 
+            this.subtrairEstoqueToolStripMenuItem.Name = "subtrairEstoqueToolStripMenuItem";
+            this.subtrairEstoqueToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.subtrairEstoqueToolStripMenuItem.Text = "Subtrair Estoque";
+            this.subtrairEstoqueToolStripMenuItem.Click += new System.EventHandler(this.SubtrairEstoqueToolStripMenuItem_Click);
             // 
             // caixaToolStripMenuItem
             // 
@@ -332,17 +346,12 @@
             this.sairToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // nFCupomManualToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(185, 6);
-            // 
-            // subtrairEstoqueToolStripMenuItem
-            // 
-            this.subtrairEstoqueToolStripMenuItem.Name = "subtrairEstoqueToolStripMenuItem";
-            this.subtrairEstoqueToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.subtrairEstoqueToolStripMenuItem.Text = "Subtrair Estoque";
-            this.subtrairEstoqueToolStripMenuItem.Click += new System.EventHandler(this.SubtrairEstoqueToolStripMenuItem_Click);
+            this.nFCupomManualToolStripMenuItem.Name = "nFCupomManualToolStripMenuItem";
+            this.nFCupomManualToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.nFCupomManualToolStripMenuItem.Text = "NF/Cupom Manual";
+            this.nFCupomManualToolStripMenuItem.Click += new System.EventHandler(this.NFCupomManualToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -397,6 +406,7 @@
         private System.Windows.Forms.ToolStripMenuItem sorvetes10lEmFaltaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem subtrairEstoqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nFCupomManualToolStripMenuItem;
     }
 }
 

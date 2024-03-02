@@ -464,5 +464,11 @@ namespace Caixa
             frmSubEstoque frm = new frmSubEstoque();
             frm.ShowDialog();
         }
+
+        private void NFCupomManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroNFe frm = new frmCadastroNFe();
+            frm.ShowDialog();
+        }
     }
 }
