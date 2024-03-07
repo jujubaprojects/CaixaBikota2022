@@ -278,7 +278,7 @@ namespace Caixa
                 {
                     if (i + 1 == dgvPedProdAberto.Rows.Count && vlHaver)
                     {
-                        inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl);
+                        inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl); //descomentar ao colocar em producao
                         auxVl = 0;
                     }
 
@@ -298,7 +298,7 @@ namespace Caixa
 
                             //vlInserir = Math.Floor(vlInserir);// Math.Round(vlInserir, );
                             auxVl -= vlInserir;
-                            inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir);
+                            inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
 
                             //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
                             //if (vlDividido >= auxVlAberto || vlAberto >= auxVlAberto)
@@ -306,7 +306,7 @@ namespace Caixa
                         }
                         else
                         {
-                            inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl);
+                            inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl); //descomentar ao colocar em producao
                             auxVl = 0;
                         }
                     }

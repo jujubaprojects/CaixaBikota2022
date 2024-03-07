@@ -35,7 +35,6 @@
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtValorNFe = new Componentes.TextBoxJCS(this.components);
             this.txtChave1 = new Componentes.TextBoxJCS(this.components);
-            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
             this.labelJCS5 = new Componentes.LabelJCS(this.components);
             this.labelJCS6 = new Componentes.LabelJCS(this.components);
@@ -56,7 +55,6 @@
             this.txtChave9 = new Componentes.TextBoxJCS(this.components);
             this.txtChave11 = new Componentes.TextBoxJCS(this.components);
             this.txtChave2 = new Componentes.TextBoxJCS(this.components);
-            this.txtNumeroNFe = new Componentes.TextBoxJCS(this.components);
             this.btnBuscarFornecedor = new Componentes.ButtonJCS(this.components);
             this.groupBoxJCS2 = new Componentes.GroupBoxJCS(this.components);
             this.btnSalvar = new Componentes.ButtonJCS(this.components);
@@ -79,6 +77,9 @@
             this.txtDescProduto = new Componentes.TextBoxJCS(this.components);
             this.txtCodProduto = new Componentes.TextBoxJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
+            this.txtIDFornecedor = new Componentes.TextBoxJCS(this.components);
+            this.txtNumeroNFe = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.groupBoxJCS1.SuspendLayout();
             this.groupBoxJCS2.SuspendLayout();
             this.groupBoxJCS3.SuspendLayout();
@@ -99,14 +100,13 @@
             // 
             this.txtValorNFe.BackColor = System.Drawing.Color.White;
             this.txtValorNFe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtValorNFe.Enabled = false;
             this.txtValorNFe.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtValorNFe.IconeKeyDown = null;
-            this.txtValorNFe.Location = new System.Drawing.Point(594, 139);
+            this.txtValorNFe.Location = new System.Drawing.Point(594, 169);
             this.txtValorNFe.Name = "txtValorNFe";
             this.txtValorNFe.Preenchimento = null;
             this.txtValorNFe.Size = new System.Drawing.Size(86, 24);
-            this.txtValorNFe.TabIndex = 16;
+            this.txtValorNFe.TabIndex = 17;
             this.txtValorNFe.TipoCampo = "MONETARIO";
             // 
             // txtChave1
@@ -122,21 +122,11 @@
             this.txtChave1.TabIndex = 1;
             this.txtChave1.TipoCampo = "INTEIRO";
             // 
-            // labelJCS3
-            // 
-            this.labelJCS3.AutoSize = true;
-            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(41, 112);
-            this.labelJCS3.Name = "labelJCS3";
-            this.labelJCS3.Size = new System.Drawing.Size(78, 17);
-            this.labelJCS3.TabIndex = 4;
-            this.labelJCS3.Text = "Numero NF:";
-            // 
             // labelJCS4
             // 
             this.labelJCS4.AutoSize = true;
             this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS4.Location = new System.Drawing.Point(28, 146);
+            this.labelJCS4.Location = new System.Drawing.Point(28, 176);
             this.labelJCS4.Name = "labelJCS4";
             this.labelJCS4.Size = new System.Drawing.Size(91, 17);
             this.labelJCS4.TabIndex = 5;
@@ -146,17 +136,17 @@
             // 
             this.labelJCS5.AutoSize = true;
             this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS5.Location = new System.Drawing.Point(546, 146);
+            this.labelJCS5.Location = new System.Drawing.Point(514, 172);
             this.labelJCS5.Name = "labelJCS5";
-            this.labelJCS5.Size = new System.Drawing.Size(42, 17);
+            this.labelJCS5.Size = new System.Drawing.Size(74, 17);
             this.labelJCS5.TabIndex = 6;
-            this.labelJCS5.Text = "Valor:";
+            this.labelJCS5.Text = "Valor Total:";
             // 
             // labelJCS6
             // 
             this.labelJCS6.AutoSize = true;
             this.labelJCS6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS6.Location = new System.Drawing.Point(236, 112);
+            this.labelJCS6.Location = new System.Drawing.Point(39, 112);
             this.labelJCS6.Name = "labelJCS6";
             this.labelJCS6.Size = new System.Drawing.Size(80, 17);
             this.labelJCS6.TabIndex = 7;
@@ -166,7 +156,7 @@
             // 
             this.labelJCS7.AutoSize = true;
             this.labelJCS7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS7.Location = new System.Drawing.Point(227, 142);
+            this.labelJCS7.Location = new System.Drawing.Point(227, 172);
             this.labelJCS7.Name = "labelJCS7";
             this.labelJCS7.Size = new System.Drawing.Size(89, 17);
             this.labelJCS7.TabIndex = 8;
@@ -177,20 +167,20 @@
             this.dtpEmissao.CustomFormat = "dd/MM/yyyy";
             this.dtpEmissao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.dtpEmissao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEmissao.Location = new System.Drawing.Point(125, 139);
+            this.dtpEmissao.Location = new System.Drawing.Point(125, 169);
             this.dtpEmissao.Name = "dtpEmissao";
             this.dtpEmissao.Size = new System.Drawing.Size(96, 24);
-            this.dtpEmissao.TabIndex = 14;
+            this.dtpEmissao.TabIndex = 15;
             // 
             // dtpEntrega
             // 
             this.dtpEntrega.CustomFormat = "dd/MM/yyyy";
             this.dtpEntrega.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.dtpEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEntrega.Location = new System.Drawing.Point(322, 139);
+            this.dtpEntrega.Location = new System.Drawing.Point(322, 169);
             this.dtpEntrega.Name = "dtpEntrega";
             this.dtpEntrega.Size = new System.Drawing.Size(96, 24);
-            this.dtpEntrega.TabIndex = 15;
+            this.dtpEntrega.TabIndex = 16;
             // 
             // txtFornecedor
             // 
@@ -199,11 +189,11 @@
             this.txtFornecedor.Enabled = false;
             this.txtFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtFornecedor.IconeKeyDown = null;
-            this.txtFornecedor.Location = new System.Drawing.Point(322, 109);
+            this.txtFornecedor.Location = new System.Drawing.Point(176, 109);
             this.txtFornecedor.Name = "txtFornecedor";
             this.txtFornecedor.Preenchimento = null;
-            this.txtFornecedor.Size = new System.Drawing.Size(266, 24);
-            this.txtFornecedor.TabIndex = 12;
+            this.txtFornecedor.Size = new System.Drawing.Size(402, 24);
+            this.txtFornecedor.TabIndex = 333;
             this.txtFornecedor.TipoCampo = null;
             // 
             // groupBoxJCS1
@@ -377,28 +367,14 @@
             this.txtChave2.TabIndex = 2;
             this.txtChave2.TipoCampo = "INTEIRO";
             // 
-            // txtNumeroNFe
-            // 
-            this.txtNumeroNFe.BackColor = System.Drawing.Color.White;
-            this.txtNumeroNFe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroNFe.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtNumeroNFe.IconeKeyDown = null;
-            this.txtNumeroNFe.Location = new System.Drawing.Point(125, 109);
-            this.txtNumeroNFe.Name = "txtNumeroNFe";
-            this.txtNumeroNFe.Preenchimento = null;
-            this.txtNumeroNFe.Size = new System.Drawing.Size(96, 24);
-            this.txtNumeroNFe.TabIndex = 12;
-            this.txtNumeroNFe.TipoCampo = null;
-            this.txtNumeroNFe.Leave += new System.EventHandler(this.TxtNumeroNFe_Leave);
-            // 
             // btnBuscarFornecedor
             // 
             this.btnBuscarFornecedor.BackColor = System.Drawing.Color.Gold;
             this.btnBuscarFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscarFornecedor.Location = new System.Drawing.Point(594, 109);
+            this.btnBuscarFornecedor.Location = new System.Drawing.Point(584, 109);
             this.btnBuscarFornecedor.Name = "btnBuscarFornecedor";
-            this.btnBuscarFornecedor.Size = new System.Drawing.Size(86, 24);
+            this.btnBuscarFornecedor.Size = new System.Drawing.Size(96, 24);
             this.btnBuscarFornecedor.TabIndex = 13;
             this.btnBuscarFornecedor.Text = "Buscar For.";
             this.btnBuscarFornecedor.UseVisualStyleBackColor = false;
@@ -410,7 +386,7 @@
             this.groupBoxJCS2.Controls.Add(this.btnSalvar);
             this.groupBoxJCS2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxJCS2.Location = new System.Drawing.Point(0, 528);
+            this.groupBoxJCS2.Location = new System.Drawing.Point(0, 577);
             this.groupBoxJCS2.Name = "groupBoxJCS2";
             this.groupBoxJCS2.Size = new System.Drawing.Size(687, 64);
             this.groupBoxJCS2.TabIndex = 19;
@@ -446,10 +422,10 @@
             this.groupBoxJCS3.Controls.Add(this.labelJCS2);
             this.groupBoxJCS3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxJCS3.Location = new System.Drawing.Point(0, 169);
+            this.groupBoxJCS3.Location = new System.Drawing.Point(0, 209);
             this.groupBoxJCS3.Name = "groupBoxJCS3";
-            this.groupBoxJCS3.Size = new System.Drawing.Size(687, 359);
-            this.groupBoxJCS3.TabIndex = 20;
+            this.groupBoxJCS3.Size = new System.Drawing.Size(687, 368);
+            this.groupBoxJCS3.TabIndex = 18;
             this.groupBoxJCS3.TabStop = false;
             this.groupBoxJCS3.Text = "Produtos";
             // 
@@ -459,10 +435,10 @@
             this.btnAddProduto.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddProduto.Location = new System.Drawing.Point(3, 101);
+            this.btnAddProduto.Location = new System.Drawing.Point(3, 86);
             this.btnAddProduto.Name = "btnAddProduto";
             this.btnAddProduto.Size = new System.Drawing.Size(681, 24);
-            this.btnAddProduto.TabIndex = 9;
+            this.btnAddProduto.TabIndex = 6;
             this.btnAddProduto.Text = "Adicionar Produto";
             this.btnAddProduto.UseVisualStyleBackColor = false;
             this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
@@ -500,7 +476,7 @@
             this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
-            this.dgvProdutos.Location = new System.Drawing.Point(3, 125);
+            this.dgvProdutos.Location = new System.Drawing.Point(3, 110);
             this.dgvProdutos.Name = "dgvProdutos";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
@@ -512,8 +488,9 @@
             this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutos.Size = new System.Drawing.Size(681, 231);
+            this.dgvProdutos.Size = new System.Drawing.Size(681, 255);
             this.dgvProdutos.TabIndex = 8;
+            this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellContentClick);
             // 
             // colNFID
             // 
@@ -560,6 +537,7 @@
             // colExcluir
             // 
             this.colExcluir.HeaderText = "Excluir";
+            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
             this.colExcluir.Name = "colExcluir";
             this.colExcluir.Width = 52;
             // 
@@ -657,6 +635,7 @@
             this.txtCodProduto.Size = new System.Drawing.Size(86, 24);
             this.txtCodProduto.TabIndex = 1;
             this.txtCodProduto.TipoCampo = null;
+            this.txtCodProduto.TextChanged += new System.EventHandler(this.TxtCodProduto_TextChanged);
             // 
             // labelJCS2
             // 
@@ -668,15 +647,54 @@
             this.labelJCS2.TabIndex = 0;
             this.labelJCS2.Text = "Codigo:";
             // 
+            // txtIDFornecedor
+            // 
+            this.txtIDFornecedor.BackColor = System.Drawing.Color.White;
+            this.txtIDFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIDFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtIDFornecedor.IconeKeyDown = null;
+            this.txtIDFornecedor.Location = new System.Drawing.Point(125, 109);
+            this.txtIDFornecedor.Name = "txtIDFornecedor";
+            this.txtIDFornecedor.Preenchimento = null;
+            this.txtIDFornecedor.Size = new System.Drawing.Size(45, 24);
+            this.txtIDFornecedor.TabIndex = 12;
+            this.txtIDFornecedor.TipoCampo = "INTEIRO";
+            this.txtIDFornecedor.Leave += new System.EventHandler(this.TxtIDFornecedor_Leave);
+            // 
+            // txtNumeroNFe
+            // 
+            this.txtNumeroNFe.BackColor = System.Drawing.Color.White;
+            this.txtNumeroNFe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumeroNFe.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtNumeroNFe.IconeKeyDown = null;
+            this.txtNumeroNFe.Location = new System.Drawing.Point(125, 139);
+            this.txtNumeroNFe.Name = "txtNumeroNFe";
+            this.txtNumeroNFe.Preenchimento = null;
+            this.txtNumeroNFe.Size = new System.Drawing.Size(96, 24);
+            this.txtNumeroNFe.TabIndex = 14;
+            this.txtNumeroNFe.TipoCampo = null;
+            // 
+            // labelJCS3
+            // 
+            this.labelJCS3.AutoSize = true;
+            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS3.Location = new System.Drawing.Point(19, 144);
+            this.labelJCS3.Name = "labelJCS3";
+            this.labelJCS3.Size = new System.Drawing.Size(100, 17);
+            this.labelJCS3.TabIndex = 22;
+            this.labelJCS3.Text = "N. NF/Ped. For.:";
+            // 
             // frmCadastroNFe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 592);
+            this.ClientSize = new System.Drawing.Size(687, 641);
+            this.Controls.Add(this.txtNumeroNFe);
+            this.Controls.Add(this.labelJCS3);
+            this.Controls.Add(this.txtIDFornecedor);
             this.Controls.Add(this.groupBoxJCS3);
             this.Controls.Add(this.groupBoxJCS2);
             this.Controls.Add(this.btnBuscarFornecedor);
-            this.Controls.Add(this.txtNumeroNFe);
             this.Controls.Add(this.txtChave11);
             this.Controls.Add(this.txtChave10);
             this.Controls.Add(this.txtChave9);
@@ -695,12 +713,12 @@
             this.Controls.Add(this.labelJCS6);
             this.Controls.Add(this.labelJCS5);
             this.Controls.Add(this.labelJCS4);
-            this.Controls.Add(this.labelJCS3);
             this.Controls.Add(this.txtChave1);
             this.Controls.Add(this.txtValorNFe);
             this.Controls.Add(this.labelJCS1);
             this.Name = "frmCadastroNFe";
             this.Text = "Cadastro de NFe/Cupom Não fiscal Manual";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCadastroNFe_FormClosing);
             this.groupBoxJCS1.ResumeLayout(false);
             this.groupBoxJCS1.PerformLayout();
             this.groupBoxJCS2.ResumeLayout(false);
@@ -717,7 +735,6 @@
         private Componentes.LabelJCS labelJCS1;
         private Componentes.TextBoxJCS txtValorNFe;
         private Componentes.TextBoxJCS txtChave1;
-        private Componentes.LabelJCS labelJCS3;
         private Componentes.LabelJCS labelJCS4;
         private Componentes.LabelJCS labelJCS5;
         private Componentes.LabelJCS labelJCS6;
@@ -738,7 +755,6 @@
         private Componentes.TextBoxJCS txtChave9;
         private Componentes.TextBoxJCS txtChave11;
         private Componentes.TextBoxJCS txtChave2;
-        private Componentes.TextBoxJCS txtNumeroNFe;
         private Componentes.ButtonJCS btnBuscarFornecedor;
         private Componentes.GroupBoxJCS groupBoxJCS2;
         private Componentes.ButtonJCS btnSalvar;
@@ -761,5 +777,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colVlUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnComercial;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
+        private Componentes.TextBoxJCS txtIDFornecedor;
+        private Componentes.TextBoxJCS txtNumeroNFe;
+        private Componentes.LabelJCS labelJCS3;
     }
 }
