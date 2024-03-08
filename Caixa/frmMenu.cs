@@ -470,5 +470,12 @@ namespace Caixa
             frmCadastroNFe frm = new frmCadastroNFe();
             frm.ShowDialog();
         }
+
+        private void SubtrairEstoqueToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmSubEstoque frm = new frmSubEstoque();
+            frm.ShowDialog();
+        }
+
     }
 }

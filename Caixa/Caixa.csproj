@@ -550,6 +550,11 @@
     <None Include="Resources\marketing-de-busca20x20.png" />
     <None Include="Resources\mecanismo-de-pesquisa-na-web20x20.png" />
     <None Include="Resources\Folder.bmp" />
+    <None Include="Resources\armazem64x64.png" />
+    <None Include="Resources\metrica64x64.png" />
+    <None Include="Resources\funcionario64x64.png" />
+    <None Include="Resources\cliente24x24.png" />
+    <None Include="Resources\cliente.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
