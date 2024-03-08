@@ -73,6 +73,16 @@ namespace Caixa.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap balde24x24 {
+            get {
+                object obj = ResourceManager.GetObject("balde24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_and_white_credit_cards {
             get {
                 object obj = ResourceManager.GetObject("black-and-white-credit-cards", resourceCulture);

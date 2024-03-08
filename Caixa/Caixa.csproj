@@ -555,6 +555,10 @@
     <None Include="Resources\funcionario64x64.png" />
     <None Include="Resources\cliente24x24.png" />
     <None Include="Resources\cliente.png" />
+    <None Include="Resources\balde24x24.png" />
+    <Content Include="Resources\fornecedor24x24.png" />
+    <Content Include="Resources\NFe24x24.png" />
+    <Content Include="Resources\produtos24x24.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
