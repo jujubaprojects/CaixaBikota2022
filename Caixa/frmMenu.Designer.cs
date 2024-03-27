@@ -227,9 +227,10 @@
             // recebimentoRápidoToolStripMenuItem
             // 
             this.recebimentoRápidoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.recebimentoRápidoToolStripMenuItem.Image = global::Caixa.Properties.Resources.rapido32x32;
             this.recebimentoRápidoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.recebimentoRápidoToolStripMenuItem.Name = "recebimentoRápidoToolStripMenuItem";
-            this.recebimentoRápidoToolStripMenuItem.Size = new System.Drawing.Size(251, 24);
+            this.recebimentoRápidoToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.recebimentoRápidoToolStripMenuItem.Text = "Recebimento Rápido";
             this.recebimentoRápidoToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoRápidoToolStripMenuItem_Click);
             // 
@@ -238,7 +239,7 @@
             this.retiradaCaixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.retiradaCaixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.retiradaCaixaToolStripMenuItem.Name = "retiradaCaixaToolStripMenuItem";
-            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(251, 24);
+            this.retiradaCaixaToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.retiradaCaixaToolStripMenuItem.Text = "Retirada do Caixa";
             this.retiradaCaixaToolStripMenuItem.Click += new System.EventHandler(this.RetiradaCaixaToolStripMenuItem_Click);
             // 
@@ -246,7 +247,7 @@
             // 
             this.recebimentoDeNotaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.recebimentoDeNotaToolStripMenuItem.Name = "recebimentoDeNotaToolStripMenuItem";
-            this.recebimentoDeNotaToolStripMenuItem.Size = new System.Drawing.Size(251, 24);
+            this.recebimentoDeNotaToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.recebimentoDeNotaToolStripMenuItem.Text = "Recebimento de Nota";
             this.recebimentoDeNotaToolStripMenuItem.Click += new System.EventHandler(this.RecebimentoDeNotaToolStripMenuItem_Click_1);
             // 
@@ -255,7 +256,7 @@
             this.consultarNotasClientesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.consultarNotasClientesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.consultarNotasClientesToolStripMenuItem.Name = "consultarNotasClientesToolStripMenuItem";
-            this.consultarNotasClientesToolStripMenuItem.Size = new System.Drawing.Size(251, 24);
+            this.consultarNotasClientesToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.consultarNotasClientesToolStripMenuItem.Text = "Consultar Notas de Clientes";
             this.consultarNotasClientesToolStripMenuItem.Click += new System.EventHandler(this.ConsultarNotasClientesToolStripMenuItem_Click);
             // 
@@ -377,7 +378,7 @@
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
@@ -416,6 +417,7 @@
             this.colaboradoresToolStripMenuItem.Name = "colaboradoresToolStripMenuItem";
             this.colaboradoresToolStripMenuItem.Size = new System.Drawing.Size(224, 68);
             this.colaboradoresToolStripMenuItem.Text = "Colaboradores";
+            this.colaboradoresToolStripMenuItem.Click += new System.EventHandler(this.ColaboradoresToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

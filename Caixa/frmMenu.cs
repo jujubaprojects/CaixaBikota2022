@@ -5,7 +5,10 @@ using System.Data;
 using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
+using System.IO.Ports;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,9 +39,9 @@ namespace Caixa
 
             //if (verificarImpressora())
             //{
-                Thread trd = new Thread(new ThreadStart(this.ThreadTarefa));
-                trd.IsBackground = true;
-                trd.Start();
+            Thread trd = new Thread(new ThreadStart(this.ThreadTarefa));
+            trd.IsBackground = true;
+            trd.Start();
             //}
 
 
@@ -47,7 +50,7 @@ namespace Caixa
             frm.Show();
         }
 
-        private Boolean verificarImpressora ()
+        private Boolean verificarImpressora()
         {
             string mensagemErro = "";
             iRetorno = MP2032.ConfiguraModeloImpressora(7);//CONFIGURA IMPRESSORA MODELO 4200            
@@ -63,7 +66,7 @@ namespace Caixa
 
             iRetorno = MP2032.VerificaPapelPresenter();
             if (iRetorno > 0)
-               mensagemErro = "Impressora sem papel!!!";
+                mensagemErro = "Impressora sem papel!!!";
 
             if (!string.IsNullOrEmpty(mensagemErro))
             {
@@ -77,16 +80,16 @@ namespace Caixa
         private void ThreadTarefa()
         {
             while (true)
-            {                              
+            {
                 DataTable dt = auxSQL.retornaTeste();
                 DataTable dtAdds;
                 StringBuilder sImpressao = new StringBuilder();
                 int indexAux;
                 double valor = 0, vlTotal = 0;
-                string descricao, observacao, observacaoPed= "", endereco = "", cobertura;
+                string descricao, observacao, observacaoPed = "", endereco = "", cobertura;
                 string auxDescPedido = "";
                 int tipo = 0;
-                
+
 
                 if (dt.Rows.Count > 0)
                 {
@@ -94,139 +97,139 @@ namespace Caixa
                     {
                         Thread.Sleep(1000);
                         conn = conexao.retornaConexao();
-                    transacao = conexao.startTransaction(conn);
+                        transacao = conexao.startTransaction(conn);
 
-                    StringBuilder sql = new StringBuilder();
-                    sql.Append("UPDATE PEDIDO_PRODUTO SET SITUACAO = @situacao WHERE ID = @pedProdID");
+                        StringBuilder sql = new StringBuilder();
+                        sql.Append("UPDATE PEDIDO_PRODUTO SET SITUACAO = @situacao WHERE ID = @pedProdID");
 
 
-                    try
-                    {
-                        auxDescPedido = dt.Rows[0]["DESC_PEDIDO"].ToString();
-                        sImpressao.Append("Desc. Ped.: " + dt.Rows[0]["DESC_PEDIDO"].ToString() + "\r\n\r\n");
-                        sImpressao.Append("ORDEM      PRODUTO" + "\r\n");
-
-                        for (int i = 0; i < dt.Rows.Count; i++)
+                        try
                         {
+                            auxDescPedido = dt.Rows[0]["DESC_PEDIDO"].ToString();
+                            sImpressao.Append("Desc. Ped.: " + dt.Rows[0]["DESC_PEDIDO"].ToString() + "\r\n\r\n");
+                            sImpressao.Append("ORDEM      PRODUTO" + "\r\n");
 
-                            //if (!auxDescPedido.Equals(dt.Rows[i]["DESC_PEDIDO"].ToString()))
-                            //{
-                            //    auxDescPedido = dt.Rows[i]["DESC_PEDIDO"].ToString();
-                            //    sImpressao.Append("Desc. Ped.: " + auxDescPedido + "\r\n\r\n");
-                            //}
-
-                            cobertura = "";
-                            observacao = dt.Rows[i]["OBS_PRODUTO"].ToString();
-                            descricao = dt.Rows[i]["DESC_PRODUTO"].ToString();
-                            sImpressao.Append((i + 1).ToString("00") + "  -      QT. " + dt.Rows[i]["QT_PRODUTO"].ToString() + "  -  " + dt.Rows[i]["PRODUTO"].ToString() + "\r\n");
-                            observacaoPed = dt.Rows[i]["OBS_PED"].ToString();
-                            endereco = dt.Rows[i]["ENDERECO"].ToString();
-                            tipo = int.Parse(dt.Rows[i]["TIPO"].ToString());
-
-
-                            //sImpressao.Append("   " + dt.Rows[");");
-                            if (!string.IsNullOrEmpty(descricao))
+                            for (int i = 0; i < dt.Rows.Count; i++)
                             {
-                                if (descricao.Contains("COB.:"))
+
+                                //if (!auxDescPedido.Equals(dt.Rows[i]["DESC_PEDIDO"].ToString()))
+                                //{
+                                //    auxDescPedido = dt.Rows[i]["DESC_PEDIDO"].ToString();
+                                //    sImpressao.Append("Desc. Ped.: " + auxDescPedido + "\r\n\r\n");
+                                //}
+
+                                cobertura = "";
+                                observacao = dt.Rows[i]["OBS_PRODUTO"].ToString();
+                                descricao = dt.Rows[i]["DESC_PRODUTO"].ToString();
+                                sImpressao.Append((i + 1).ToString("00") + "  -      QT. " + dt.Rows[i]["QT_PRODUTO"].ToString() + "  -  " + dt.Rows[i]["PRODUTO"].ToString() + "\r\n");
+                                observacaoPed = dt.Rows[i]["OBS_PED"].ToString();
+                                endereco = dt.Rows[i]["ENDERECO"].ToString();
+                                tipo = int.Parse(dt.Rows[i]["TIPO"].ToString());
+
+
+                                //sImpressao.Append("   " + dt.Rows[");");
+                                if (!string.IsNullOrEmpty(descricao))
                                 {
-                                    indexAux = descricao.IndexOf("COB.:");
-                                    cobertura = descricao.Substring(indexAux);
-                                    descricao = descricao.Substring(0, descricao.Length - cobertura.Length);
-                                }
+                                    if (descricao.Contains("COB.:"))
+                                    {
+                                        indexAux = descricao.IndexOf("COB.:");
+                                        cobertura = descricao.Substring(indexAux);
+                                        descricao = descricao.Substring(0, descricao.Length - cobertura.Length);
+                                    }
 
-                                if (!string.IsNullOrEmpty(descricao.Trim()))
-                                    sImpressao.Append("           " + descricao + "\r\n");
+                                    if (!string.IsNullOrEmpty(descricao.Trim()))
+                                        sImpressao.Append("           " + descricao + "\r\n");
 
-                                if (!string.IsNullOrEmpty(cobertura))
-                                    sImpressao.Append("           " + cobertura + "\r\n");
+                                    if (!string.IsNullOrEmpty(cobertura))
+                                        sImpressao.Append("           " + cobertura + "\r\n");
                                 }
 
                                 if (!string.IsNullOrEmpty(observacao))
                                     sImpressao.Append("           OBS.: " + observacao + "\r\n");
 
 
-                            dtAdds = auxSQL.retornaPedidosAdds(int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
-                            valor = double.Parse(dt.Rows[i]["VL_TOTAL"].ToString());
-                            for (int j = 0; j < dtAdds.Rows.Count; j++)
-                            {
-                                valor += double.Parse(dtAdds.Rows[j]["VALOR"].ToString());
-                                if (!string.IsNullOrEmpty(dtAdds.Rows[j]["DESCRICAO"].ToString()))
-                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x "  + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + dtAdds.Rows[j]["DESCRICAO"].ToString());
+                                dtAdds = auxSQL.retornaPedidosAdds(int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
+                                valor = double.Parse(dt.Rows[i]["VL_TOTAL"].ToString());
+                                for (int j = 0; j < dtAdds.Rows.Count; j++)
+                                {
+                                    valor += double.Parse(dtAdds.Rows[j]["VALOR"].ToString());
+                                    if (!string.IsNullOrEmpty(dtAdds.Rows[j]["DESCRICAO"].ToString()))
+                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x " + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + dtAdds.Rows[j]["DESCRICAO"].ToString());
                                     else
                                         sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x " + dtAdds.Rows[j]["PRODUTO"].ToString());
-                                sImpressao.Append("\r\n");
+                                    sImpressao.Append("\r\n");
+                                }
+                                vlTotal += valor;
+                                sImpressao.Append("Valor: " + valor + "\r\n");
+                                sImpressao.Append("------------------------------------------------" + "\r\n");
+
+
+
+                                SqlCommand sqlc = new SqlCommand(sql.ToString(), conn, transacao);
+                                sqlc.CommandType = CommandType.Text;
+                                sqlc.Parameters.AddWithValue("@pedProdID", int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
+                                sqlc.Parameters.AddWithValue("@situacao", 2);
+                                auxSQL.executaQueryTransaction(conn, sqlc); //DESCOMENTAR DEPOIS
                             }
-                            vlTotal+= valor;
-                            sImpressao.Append("Valor: " + valor + "\r\n");
-                            sImpressao.Append("------------------------------------------------" + "\r\n");
 
-
-
-                            SqlCommand sqlc = new SqlCommand(sql.ToString(), conn, transacao);
-                            sqlc.CommandType = CommandType.Text;
-                            sqlc.Parameters.AddWithValue("@pedProdID", int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
-                            sqlc.Parameters.AddWithValue("@situacao", 2);
-                            auxSQL.executaQueryTransaction(conn, sqlc); //DESCOMENTAR DEPOIS
-                        }
-                        
-                        if (tipo == 3)
-                                {
+                            if (tipo == 3)
+                            {
                                 sImpressao.Append("ENDEREÇO: " + endereco + "\r\n");
                                 if (!string.IsNullOrEmpty(observacaoPed))
                                     sImpressao.Append("OBSERVAÇÃO: " + observacaoPed + "\r\n");
 
 
-}
-                        if (tipo == 2)
-                                {
+                            }
+                            if (tipo == 2)
+                            {
                                 sImpressao.Append("*********************LEVAR*********************" + "\r\n");
 
 
-}
-                        sImpressao.Append("VALOR TOTAL:" + vlTotal + "\r\n");
+                            }
+                            sImpressao.Append("VALOR TOTAL:" + vlTotal + "\r\n");
 
-                        sImpressao.Append("PAGAMENTO SOMENTE NO CAIXA!!!" + "\r\n");
-                        sImpressao.Append("\r\n\r\n\r\n");
-                        //iRetorno = MP2032.FormataTX(sImpressao + "\r\n\r\n", 1, 1, 0, 0, 0);
+                            sImpressao.Append("PAGAMENTO SOMENTE NO CAIXA!!!" + "\r\n");
+                            sImpressao.Append("\r\n\r\n\r\n");
+                            //iRetorno = MP2032.FormataTX(sImpressao + "\r\n\r\n", 1, 1, 0, 0, 0);
 
-                        iRetorno = MP2032.ImprimeBitmap("C:\\Impressora\\Logo\\BikotaBmp24.bmp", 0);
-                        if (iRetorno <= 0)
-                        {
-                            MessageBox.Show("Problema ao imprimir, verifique se a impressora está ligada!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            iRetorno = MP2032.ImprimeBitmap("C:\\Impressora\\Logo\\BikotaBmp24.bmp", 0);
+                            if (iRetorno <= 0)
+                            {
+                                MessageBox.Show("Problema ao imprimir, verifique se a impressora está ligada!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
+                                return;
+                            }
+
+                            iRetorno = MP2032.BematechTX("\r" + sImpressao.ToString());//ao ser clicado, imprime o texto da Text Box
+                                                                                       //iRetorno = MP2032.FormataTX("\r" + sImpressao.ToString(),1,1,1,1,1);//ao ser clicado, imprime o texto da Text Box
+                            if (iRetorno <= 0)
+                            {
+                                MessageBox.Show("Problema ao imprimir, verifique se a impressora está ligada!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
+                                return;
+                            }
+
                             iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
+                            Thread.Sleep(1000);
+                        }
+                        catch (Exception e)
+                        {
+                            transacao.Rollback();
+                            conn.Close();
+                            MessageBox.Show("Erro: " + e.InnerException.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
-                        
-                        iRetorno = MP2032.BematechTX("\r" + sImpressao.ToString());//ao ser clicado, imprime o texto da Text Box
-                        //iRetorno = MP2032.FormataTX("\r" + sImpressao.ToString(),1,1,1,1,1);//ao ser clicado, imprime o texto da Text Box
-                        if (iRetorno <= 0)
+                        finally
                         {
-                            MessageBox.Show("Problema ao imprimir, verifique se a impressora está ligada!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
-                            return;
+                            transacao.Commit();
+                            conn.Close();
                         }
+                    }
 
-                        iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
-                        Thread.Sleep(1000);
-                    }
-                    catch(Exception e)
-                    {
-                        transacao.Rollback();
-                        conn.Close();
-                        MessageBox.Show("Erro: " + e.InnerException.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    finally
-                    {
-                        transacao.Commit();
-                        conn.Close();
-                    }
+
                 }
-                
-
-            }
                 Thread.Sleep(1000);
-                }
+            }
         }
 
         private void NovoPedidoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -255,11 +258,11 @@ namespace Caixa
             {
                 if (result == DialogResult.Yes)
                 {
-                    this.Close();
+                    Close();
                 }
             }
         }
-        
+
         private void VendasPedidosDetalhadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (acessoFrmsRestrito())
@@ -347,8 +350,8 @@ namespace Caixa
         {
             //if (acessoFrmsRestrito())
             //{
-                frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
-                frm.ShowDialog();
+            frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
+            frm.ShowDialog();
             //}
         }
 
@@ -424,8 +427,8 @@ namespace Caixa
         {
             //if (acessoFrmsRestrito())
             //{
-                frmEstoqueBalde frm = new frmEstoqueBalde("Estoque de Potes");
-                frm.ShowDialog();
+            frmEstoqueBalde frm = new frmEstoqueBalde("Estoque de Potes");
+            frm.ShowDialog();
             //}
         }
 
@@ -477,5 +480,60 @@ namespace Caixa
             frm.ShowDialog();
         }
 
+
+
+
+
+
+
+
+        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        static extern int Open(int ComNumber, int Baud, string Parity, int StopBits, int TriggerLength);
+
+        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        static extern float Get();
+
+        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        static extern float Close();
+
+        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        static extern int Test(int ComNumber, int Baud, string Parity, int StopBits, int TriggerLength);
+        private void ColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Open(9, 2400, "Even", 1, 17);
+
+            float Peso = Get();
+
+            Close();
+
+            Test(1, 4800, "Even", 1, 17);
+
+            //SerialPort mySerialPort = new SerialPort("COM9", 2400, Parity.None, 8, StopBits.One);
+            //mySerialPort.Handshake = Handshake.None;
+            //mySerialPort.WriteTimeout = 500;   
+            ////PortChat.Porta();
+            //try
+            //{
+            //    mySerialPort.Open();
+            //    //String str = mySerialPort.ReadExisting();
+            //    if (mySerialPort.BytesToRead > 0)
+            //    {
+            //        string str = mySerialPort.ReadLine();
+            //        MessageBox.Show("Valor: " + str);
+            //    }
+            //    mySerialPort.Close();
+            //}
+            //catch (InvalidOperationException err)
+            //{
+            //    MessageBox.Show(err.InnerException.Message);
+            //}
+            //finally
+            //{
+            //    mySerialPort.Close();
+            //}
+
+        }
     }
+    
 }
