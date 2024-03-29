@@ -485,29 +485,54 @@ namespace Caixa
 
 
 
+        [DllImport("P05.dll")] public static extern int AbrePorta(int Porta, int BaudRate, int DataBits, int Paridade);
+        [DllImport("P05.dll")] public static extern int FechaPorta();
+        [DllImport("P05.dll")] public static extern int FechaPortaP05();
+        [DllImport("P05.dll")] public static extern int PegaPeso(int OpcaoEscrita, byte[] DadosPeso, string Local);
+        [DllImport("P05.dll")] public static extern int PegaPesoP05B(int OpcaoEscrita, int PedeTara, byte[] DadosPeso, string Local);
+        [DllImport("P05.dll")] public static extern void VersaoDLL(byte[] Versao);
+        [DllImport("P05.dll")] public static extern int DeterminaUmStopBit();
 
+        private static bool PortaAberta = false;
 
-        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-        static extern int Open(int ComNumber, int Baud, string Parity, int StopBits, int TriggerLength);
+        private struct CONSTANTES
+        {
+            public const int porta = 1; //COM1
+            public const int baudRate = 0; //2400
+            public const int dataBits = 0; // 7 Bits
+            public const int paridade = 2; //Par
+            public const string ArquivoSinalizacao = "OK.TXT";
+        }
+        public static string ListaBytesParaString(byte[] lista)
+        {
+            char[] retornoChar = new char[lista.Length];
+            for (int i = 0; i < lista.Length; i++)
+                retornoChar[i] = (char)lista[i];
+            string retorno = new string(retornoChar);
+            return retorno;
+        }
 
-        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-        static extern float Get();
-
-        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-        static extern float Close();
-
-        [DllImport(@"DllToledo.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-        static extern int Test(int ComNumber, int Baud, string Parity, int StopBits, int TriggerLength);
         private void ColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (AbrePorta(CONSTANTES.porta, CONSTANTES.baudRate, CONSTANTES.dataBits, CONSTANTES.paridade) == 1)
+            {
+                MessageBox.Show(this, "Porta aberta!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PortaAberta = true;
+            }
 
-            Open(9, 2400, "Even", 1, 17);
+            if (PortaAberta)
+            {
+                byte[] DadosPeso = new byte[6]; //5 bytes + nulo
 
-            float Peso = Get();
+                String caminho = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-            Close();
-
-            Test(1, 4800, "Even", 1, 17);
+                if (PegaPeso(0, DadosPeso, caminho) == 1)
+                    MessageBox.Show("Peso: " + ListaBytesParaString(DadosPeso));
+                else
+                    MessageBox.Show("Error!");
+            }
+            else
+                MessageBox.Show(this, "Atenção! Porta fechada.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             //SerialPort mySerialPort = new SerialPort("COM9", 2400, Parity.None, 8, StopBits.One);
             //mySerialPort.Handshake = Handshake.None;
