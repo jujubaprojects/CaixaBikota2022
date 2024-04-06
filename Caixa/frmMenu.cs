@@ -559,6 +559,12 @@ namespace Caixa
             //}
 
         }
+
+        private void PedidoParaFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelPedidoFornecedor frm = new frmRelPedidoFornecedor();
+            frm.ShowDialog();
+        }
     }
     
 }

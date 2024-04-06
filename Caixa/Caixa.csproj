@@ -297,6 +297,12 @@
     <Compile Include="Reports\frmRelatorio.Designer.cs">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmRelPedidoFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRelPedidoFornecedor.Designer.cs">
+      <DependentUpon>frmRelPedidoFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmRelVendasDia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,12 +401,16 @@
     <EmbeddedResource Include="Reports\frmRelatorio.resx">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRelPedidoFornecedor.resx">
+      <DependentUpon>frmRelPedidoFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmRelVendasDia.resx">
       <DependentUpon>frmRelVendasDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmRelVendas.resx">
       <DependentUpon>frmRelVendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\relPedidoFornecedor.rdlc" />
     <EmbeddedResource Include="Reports\relVendasDia.rdlc" />
     <EmbeddedResource Include="Reports\relVendas.rdlc" />
     <EmbeddedResource Include="Reports\ModeloRetrato.rdlc" />

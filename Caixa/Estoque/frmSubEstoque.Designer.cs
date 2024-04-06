@@ -32,8 +32,8 @@
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtEstoque = new Componentes.TextBoxJCS(this.components);
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
-            this.rbtPotes = new Componentes.RadioButtonJCScs(this.components);
             this.rbtProdutos = new Componentes.RadioButtonJCScs(this.components);
+            this.rbtPotes = new Componentes.RadioButtonJCScs(this.components);
             this.btnEstoque = new Componentes.ButtonJCS(this.components);
             this.txtQt = new Componentes.TextBoxJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
@@ -61,7 +61,7 @@
             this.txtEstoque.Location = new System.Drawing.Point(79, 79);
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Preenchimento = null;
-            this.txtEstoque.Size = new System.Drawing.Size(216, 24);
+            this.txtEstoque.Size = new System.Drawing.Size(386, 24);
             this.txtEstoque.TabIndex = 1;
             this.txtEstoque.TipoCampo = null;
             // 
@@ -73,10 +73,23 @@
             this.groupBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.groupBoxJCS1.Location = new System.Drawing.Point(12, 12);
             this.groupBoxJCS1.Name = "groupBoxJCS1";
-            this.groupBoxJCS1.Size = new System.Drawing.Size(439, 58);
+            this.groupBoxJCS1.Size = new System.Drawing.Size(609, 58);
             this.groupBoxJCS1.TabIndex = 4;
             this.groupBoxJCS1.TabStop = false;
             this.groupBoxJCS1.Text = "Tipo de Estoque";
+            // 
+            // rbtProdutos
+            // 
+            this.rbtProdutos.AutoSize = true;
+            this.rbtProdutos.BackColor = System.Drawing.Color.White;
+            this.rbtProdutos.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.rbtProdutos.Location = new System.Drawing.Point(434, 23);
+            this.rbtProdutos.Name = "rbtProdutos";
+            this.rbtProdutos.Size = new System.Drawing.Size(169, 21);
+            this.rbtProdutos.TabIndex = 1;
+            this.rbtProdutos.Text = "Produtos/Matéria Prima";
+            this.rbtProdutos.UseVisualStyleBackColor = false;
+            this.rbtProdutos.CheckedChanged += new System.EventHandler(this.RbtProdutos_CheckedChanged);
             // 
             // rbtPotes
             // 
@@ -93,25 +106,12 @@
             this.rbtPotes.UseVisualStyleBackColor = false;
             this.rbtPotes.CheckedChanged += new System.EventHandler(this.RbtPotes_CheckedChanged);
             // 
-            // rbtProdutos
-            // 
-            this.rbtProdutos.AutoSize = true;
-            this.rbtProdutos.BackColor = System.Drawing.Color.White;
-            this.rbtProdutos.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.rbtProdutos.Location = new System.Drawing.Point(264, 23);
-            this.rbtProdutos.Name = "rbtProdutos";
-            this.rbtProdutos.Size = new System.Drawing.Size(169, 21);
-            this.rbtProdutos.TabIndex = 1;
-            this.rbtProdutos.Text = "Produtos/Matéria Prima";
-            this.rbtProdutos.UseVisualStyleBackColor = false;
-            this.rbtProdutos.CheckedChanged += new System.EventHandler(this.RbtProdutos_CheckedChanged);
-            // 
             // btnEstoque
             // 
             this.btnEstoque.BackColor = System.Drawing.Color.Gold;
             this.btnEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstoque.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEstoque.Location = new System.Drawing.Point(301, 77);
+            this.btnEstoque.Location = new System.Drawing.Point(471, 77);
             this.btnEstoque.Name = "btnEstoque";
             this.btnEstoque.Size = new System.Drawing.Size(150, 24);
             this.btnEstoque.TabIndex = 5;
@@ -151,7 +151,7 @@
             this.btnSubtrair.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnSubtrair.Location = new System.Drawing.Point(0, 159);
             this.btnSubtrair.Name = "btnSubtrair";
-            this.btnSubtrair.Size = new System.Drawing.Size(468, 37);
+            this.btnSubtrair.Size = new System.Drawing.Size(633, 37);
             this.btnSubtrair.TabIndex = 8;
             this.btnSubtrair.Text = "Subtrair Estoque";
             this.btnSubtrair.UseVisualStyleBackColor = false;
@@ -162,7 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(468, 196);
+            this.ClientSize = new System.Drawing.Size(633, 196);
             this.Controls.Add(this.btnSubtrair);
             this.Controls.Add(this.labelJCS2);
             this.Controls.Add(this.txtQt);
@@ -170,8 +170,8 @@
             this.Controls.Add(this.groupBoxJCS1);
             this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.labelJCS1);
-            this.MaximumSize = new System.Drawing.Size(484, 235);
-            this.MinimumSize = new System.Drawing.Size(484, 235);
+            this.MaximumSize = new System.Drawing.Size(649, 235);
+            this.MinimumSize = new System.Drawing.Size(649, 235);
             this.Name = "frmSubEstoque";
             this.Text = "Formulário para subtrarir estoques";
             this.groupBoxJCS1.ResumeLayout(false);

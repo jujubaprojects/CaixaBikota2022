@@ -28,6 +28,10 @@ namespace Caixa.DataSet {
         
         private dtRelVendasDiaDataTable tabledtRelVendasDia;
         
+        private dtRelPedidoFornecedorDataTable tabledtRelPedidoFornecedor;
+        
+        private dtRelPedidoFornecedorHistoricoDataTable tabledtRelPedidoFornecedorHistorico;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +65,12 @@ namespace Caixa.DataSet {
                 }
                 if ((ds.Tables["dtRelVendasDia"] != null)) {
                     base.Tables.Add(new dtRelVendasDiaDataTable(ds.Tables["dtRelVendasDia"]));
+                }
+                if ((ds.Tables["dtRelPedidoFornecedor"] != null)) {
+                    base.Tables.Add(new dtRelPedidoFornecedorDataTable(ds.Tables["dtRelPedidoFornecedor"]));
+                }
+                if ((ds.Tables["dtRelPedidoFornecedorHistorico"] != null)) {
+                    base.Tables.Add(new dtRelPedidoFornecedorHistoricoDataTable(ds.Tables["dtRelPedidoFornecedorHistorico"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +107,26 @@ namespace Caixa.DataSet {
         public dtRelVendasDiaDataTable dtRelVendasDia {
             get {
                 return this.tabledtRelVendasDia;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public dtRelPedidoFornecedorDataTable dtRelPedidoFornecedor {
+            get {
+                return this.tabledtRelPedidoFornecedor;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public dtRelPedidoFornecedorHistoricoDataTable dtRelPedidoFornecedorHistorico {
+            get {
+                return this.tabledtRelPedidoFornecedorHistorico;
             }
         }
         
@@ -173,6 +203,12 @@ namespace Caixa.DataSet {
                 if ((ds.Tables["dtRelVendasDia"] != null)) {
                     base.Tables.Add(new dtRelVendasDiaDataTable(ds.Tables["dtRelVendasDia"]));
                 }
+                if ((ds.Tables["dtRelPedidoFornecedor"] != null)) {
+                    base.Tables.Add(new dtRelPedidoFornecedorDataTable(ds.Tables["dtRelPedidoFornecedor"]));
+                }
+                if ((ds.Tables["dtRelPedidoFornecedorHistorico"] != null)) {
+                    base.Tables.Add(new dtRelPedidoFornecedorHistoricoDataTable(ds.Tables["dtRelPedidoFornecedorHistorico"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +254,18 @@ namespace Caixa.DataSet {
                     this.tabledtRelVendasDia.InitVars();
                 }
             }
+            this.tabledtRelPedidoFornecedor = ((dtRelPedidoFornecedorDataTable)(base.Tables["dtRelPedidoFornecedor"]));
+            if ((initTable == true)) {
+                if ((this.tabledtRelPedidoFornecedor != null)) {
+                    this.tabledtRelPedidoFornecedor.InitVars();
+                }
+            }
+            this.tabledtRelPedidoFornecedorHistorico = ((dtRelPedidoFornecedorHistoricoDataTable)(base.Tables["dtRelPedidoFornecedorHistorico"]));
+            if ((initTable == true)) {
+                if ((this.tabledtRelPedidoFornecedorHistorico != null)) {
+                    this.tabledtRelPedidoFornecedorHistorico.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +280,10 @@ namespace Caixa.DataSet {
             base.Tables.Add(this.tabledtRelVendas);
             this.tabledtRelVendasDia = new dtRelVendasDiaDataTable();
             base.Tables.Add(this.tabledtRelVendasDia);
+            this.tabledtRelPedidoFornecedor = new dtRelPedidoFornecedorDataTable();
+            base.Tables.Add(this.tabledtRelPedidoFornecedor);
+            this.tabledtRelPedidoFornecedorHistorico = new dtRelPedidoFornecedorHistoricoDataTable();
+            base.Tables.Add(this.tabledtRelPedidoFornecedorHistorico);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +295,18 @@ namespace Caixa.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializedtRelVendasDia() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializedtRelPedidoFornecedor() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializedtRelPedidoFornecedorHistorico() {
             return false;
         }
         
@@ -306,6 +370,12 @@ namespace Caixa.DataSet {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void dtRelVendasDiaRowChangeEventHandler(object sender, dtRelVendasDiaRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void dtRelPedidoFornecedorRowChangeEventHandler(object sender, dtRelPedidoFornecedorRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void dtRelPedidoFornecedorHistoricoRowChangeEventHandler(object sender, dtRelPedidoFornecedorHistoricoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -900,6 +970,654 @@ namespace Caixa.DataSet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class dtRelPedidoFornecedorDataTable : global::System.Data.TypedTableBase<dtRelPedidoFornecedorRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnDESCRICAO;
+            
+            private global::System.Data.DataColumn columnQT_ESTOQUE;
+            
+            private global::System.Data.DataColumn columnQT_ESTOQUE_IDEAL;
+            
+            private global::System.Data.DataColumn columnDIF_ESTOQUE;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorDataTable() {
+                this.TableName = "dtRelPedidoFornecedor";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal dtRelPedidoFornecedorDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected dtRelPedidoFornecedorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DESCRICAOColumn {
+                get {
+                    return this.columnDESCRICAO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QT_ESTOQUEColumn {
+                get {
+                    return this.columnQT_ESTOQUE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QT_ESTOQUE_IDEALColumn {
+                get {
+                    return this.columnQT_ESTOQUE_IDEAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DIF_ESTOQUEColumn {
+                get {
+                    return this.columnDIF_ESTOQUE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorRow this[int index] {
+                get {
+                    return ((dtRelPedidoFornecedorRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorRowChangeEventHandler dtRelPedidoFornecedorRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorRowChangeEventHandler dtRelPedidoFornecedorRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorRowChangeEventHandler dtRelPedidoFornecedorRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorRowChangeEventHandler dtRelPedidoFornecedorRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AdddtRelPedidoFornecedorRow(dtRelPedidoFornecedorRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorRow AdddtRelPedidoFornecedorRow(string ID, string DESCRICAO, string QT_ESTOQUE, string QT_ESTOQUE_IDEAL, string DIF_ESTOQUE) {
+                dtRelPedidoFornecedorRow rowdtRelPedidoFornecedorRow = ((dtRelPedidoFornecedorRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ID,
+                        DESCRICAO,
+                        QT_ESTOQUE,
+                        QT_ESTOQUE_IDEAL,
+                        DIF_ESTOQUE};
+                rowdtRelPedidoFornecedorRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdtRelPedidoFornecedorRow);
+                return rowdtRelPedidoFornecedorRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                dtRelPedidoFornecedorDataTable cln = ((dtRelPedidoFornecedorDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new dtRelPedidoFornecedorDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnDESCRICAO = base.Columns["DESCRICAO"];
+                this.columnQT_ESTOQUE = base.Columns["QT_ESTOQUE"];
+                this.columnQT_ESTOQUE_IDEAL = base.Columns["QT_ESTOQUE_IDEAL"];
+                this.columnDIF_ESTOQUE = base.Columns["DIF_ESTOQUE"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnDESCRICAO = new global::System.Data.DataColumn("DESCRICAO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCRICAO);
+                this.columnQT_ESTOQUE = new global::System.Data.DataColumn("QT_ESTOQUE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQT_ESTOQUE);
+                this.columnQT_ESTOQUE_IDEAL = new global::System.Data.DataColumn("QT_ESTOQUE_IDEAL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQT_ESTOQUE_IDEAL);
+                this.columnDIF_ESTOQUE = new global::System.Data.DataColumn("DIF_ESTOQUE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIF_ESTOQUE);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorRow NewdtRelPedidoFornecedorRow() {
+                return ((dtRelPedidoFornecedorRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new dtRelPedidoFornecedorRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(dtRelPedidoFornecedorRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.dtRelPedidoFornecedorRowChanged != null)) {
+                    this.dtRelPedidoFornecedorRowChanged(this, new dtRelPedidoFornecedorRowChangeEvent(((dtRelPedidoFornecedorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.dtRelPedidoFornecedorRowChanging != null)) {
+                    this.dtRelPedidoFornecedorRowChanging(this, new dtRelPedidoFornecedorRowChangeEvent(((dtRelPedidoFornecedorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.dtRelPedidoFornecedorRowDeleted != null)) {
+                    this.dtRelPedidoFornecedorRowDeleted(this, new dtRelPedidoFornecedorRowChangeEvent(((dtRelPedidoFornecedorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.dtRelPedidoFornecedorRowDeleting != null)) {
+                    this.dtRelPedidoFornecedorRowDeleting(this, new dtRelPedidoFornecedorRowChangeEvent(((dtRelPedidoFornecedorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovedtRelPedidoFornecedorRow(dtRelPedidoFornecedorRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsRelatorios ds = new dsRelatorios();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "dtRelPedidoFornecedorDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class dtRelPedidoFornecedorHistoricoDataTable : global::System.Data.TypedTableBase<dtRelPedidoFornecedorHistoricoRow> {
+            
+            private global::System.Data.DataColumn columnDT_ENTREGA;
+            
+            private global::System.Data.DataColumn columnDESC_PROD;
+            
+            private global::System.Data.DataColumn columnNF;
+            
+            private global::System.Data.DataColumn columnNF_COD_PROD;
+            
+            private global::System.Data.DataColumn columnQT_COM;
+            
+            private global::System.Data.DataColumn columnVL_UNIT;
+            
+            private global::System.Data.DataColumn columnUN_COMERCIAL;
+            
+            private global::System.Data.DataColumn columnFORNECEDOR;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorHistoricoDataTable() {
+                this.TableName = "dtRelPedidoFornecedorHistorico";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal dtRelPedidoFornecedorHistoricoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected dtRelPedidoFornecedorHistoricoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DT_ENTREGAColumn {
+                get {
+                    return this.columnDT_ENTREGA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DESC_PRODColumn {
+                get {
+                    return this.columnDESC_PROD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NFColumn {
+                get {
+                    return this.columnNF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NF_COD_PRODColumn {
+                get {
+                    return this.columnNF_COD_PROD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QT_COMColumn {
+                get {
+                    return this.columnQT_COM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VL_UNITColumn {
+                get {
+                    return this.columnVL_UNIT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UN_COMERCIALColumn {
+                get {
+                    return this.columnUN_COMERCIAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FORNECEDORColumn {
+                get {
+                    return this.columnFORNECEDOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorHistoricoRow this[int index] {
+                get {
+                    return ((dtRelPedidoFornecedorHistoricoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorHistoricoRowChangeEventHandler dtRelPedidoFornecedorHistoricoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorHistoricoRowChangeEventHandler dtRelPedidoFornecedorHistoricoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorHistoricoRowChangeEventHandler dtRelPedidoFornecedorHistoricoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event dtRelPedidoFornecedorHistoricoRowChangeEventHandler dtRelPedidoFornecedorHistoricoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AdddtRelPedidoFornecedorHistoricoRow(dtRelPedidoFornecedorHistoricoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorHistoricoRow AdddtRelPedidoFornecedorHistoricoRow(string DT_ENTREGA, string DESC_PROD, string NF, string NF_COD_PROD, string QT_COM, string VL_UNIT, string UN_COMERCIAL, string FORNECEDOR) {
+                dtRelPedidoFornecedorHistoricoRow rowdtRelPedidoFornecedorHistoricoRow = ((dtRelPedidoFornecedorHistoricoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        DT_ENTREGA,
+                        DESC_PROD,
+                        NF,
+                        NF_COD_PROD,
+                        QT_COM,
+                        VL_UNIT,
+                        UN_COMERCIAL,
+                        FORNECEDOR};
+                rowdtRelPedidoFornecedorHistoricoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdtRelPedidoFornecedorHistoricoRow);
+                return rowdtRelPedidoFornecedorHistoricoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                dtRelPedidoFornecedorHistoricoDataTable cln = ((dtRelPedidoFornecedorHistoricoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new dtRelPedidoFornecedorHistoricoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnDT_ENTREGA = base.Columns["DT_ENTREGA"];
+                this.columnDESC_PROD = base.Columns["DESC_PROD"];
+                this.columnNF = base.Columns["NF"];
+                this.columnNF_COD_PROD = base.Columns["NF_COD_PROD"];
+                this.columnQT_COM = base.Columns["QT_COM"];
+                this.columnVL_UNIT = base.Columns["VL_UNIT"];
+                this.columnUN_COMERCIAL = base.Columns["UN_COMERCIAL"];
+                this.columnFORNECEDOR = base.Columns["FORNECEDOR"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnDT_ENTREGA = new global::System.Data.DataColumn("DT_ENTREGA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDT_ENTREGA);
+                this.columnDESC_PROD = new global::System.Data.DataColumn("DESC_PROD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESC_PROD);
+                this.columnNF = new global::System.Data.DataColumn("NF", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNF);
+                this.columnNF_COD_PROD = new global::System.Data.DataColumn("NF_COD_PROD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNF_COD_PROD);
+                this.columnQT_COM = new global::System.Data.DataColumn("QT_COM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQT_COM);
+                this.columnVL_UNIT = new global::System.Data.DataColumn("VL_UNIT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVL_UNIT);
+                this.columnUN_COMERCIAL = new global::System.Data.DataColumn("UN_COMERCIAL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUN_COMERCIAL);
+                this.columnFORNECEDOR = new global::System.Data.DataColumn("FORNECEDOR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFORNECEDOR);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorHistoricoRow NewdtRelPedidoFornecedorHistoricoRow() {
+                return ((dtRelPedidoFornecedorHistoricoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new dtRelPedidoFornecedorHistoricoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(dtRelPedidoFornecedorHistoricoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.dtRelPedidoFornecedorHistoricoRowChanged != null)) {
+                    this.dtRelPedidoFornecedorHistoricoRowChanged(this, new dtRelPedidoFornecedorHistoricoRowChangeEvent(((dtRelPedidoFornecedorHistoricoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.dtRelPedidoFornecedorHistoricoRowChanging != null)) {
+                    this.dtRelPedidoFornecedorHistoricoRowChanging(this, new dtRelPedidoFornecedorHistoricoRowChangeEvent(((dtRelPedidoFornecedorHistoricoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.dtRelPedidoFornecedorHistoricoRowDeleted != null)) {
+                    this.dtRelPedidoFornecedorHistoricoRowDeleted(this, new dtRelPedidoFornecedorHistoricoRowChangeEvent(((dtRelPedidoFornecedorHistoricoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.dtRelPedidoFornecedorHistoricoRowDeleting != null)) {
+                    this.dtRelPedidoFornecedorHistoricoRowDeleting(this, new dtRelPedidoFornecedorHistoricoRowChangeEvent(((dtRelPedidoFornecedorHistoricoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovedtRelPedidoFornecedorHistoricoRow(dtRelPedidoFornecedorHistoricoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsRelatorios ds = new dsRelatorios();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "dtRelPedidoFornecedorHistoricoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class dtRelVendasRow : global::System.Data.DataRow {
@@ -1182,6 +1900,405 @@ namespace Caixa.DataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class dtRelPedidoFornecedorRow : global::System.Data.DataRow {
+            
+            private dtRelPedidoFornecedorDataTable tabledtRelPedidoFornecedor;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal dtRelPedidoFornecedorRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabledtRelPedidoFornecedor = ((dtRelPedidoFornecedorDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ID {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedor.IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'ID\' na tabela \'dtRelPedidoFornecedor\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedor.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DESCRICAO {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedor.DESCRICAOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DESCRICAO\' na tabela \'dtRelPedidoFornecedor\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedor.DESCRICAOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string QT_ESTOQUE {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedor.QT_ESTOQUEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QT_ESTOQUE\' na tabela \'dtRelPedidoFornecedor\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedor.QT_ESTOQUEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string QT_ESTOQUE_IDEAL {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedor.QT_ESTOQUE_IDEALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QT_ESTOQUE_IDEAL\' na tabela \'dtRelPedidoFornecedor\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedor.QT_ESTOQUE_IDEALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DIF_ESTOQUE {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedor.DIF_ESTOQUEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DIF_ESTOQUE\' na tabela \'dtRelPedidoFornecedor\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedor.DIF_ESTOQUEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedor.IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDNull() {
+                this[this.tabledtRelPedidoFornecedor.IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDESCRICAONull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedor.DESCRICAOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDESCRICAONull() {
+                this[this.tabledtRelPedidoFornecedor.DESCRICAOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQT_ESTOQUENull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedor.QT_ESTOQUEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQT_ESTOQUENull() {
+                this[this.tabledtRelPedidoFornecedor.QT_ESTOQUEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQT_ESTOQUE_IDEALNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedor.QT_ESTOQUE_IDEALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQT_ESTOQUE_IDEALNull() {
+                this[this.tabledtRelPedidoFornecedor.QT_ESTOQUE_IDEALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDIF_ESTOQUENull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedor.DIF_ESTOQUEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDIF_ESTOQUENull() {
+                this[this.tabledtRelPedidoFornecedor.DIF_ESTOQUEColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class dtRelPedidoFornecedorHistoricoRow : global::System.Data.DataRow {
+            
+            private dtRelPedidoFornecedorHistoricoDataTable tabledtRelPedidoFornecedorHistorico;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal dtRelPedidoFornecedorHistoricoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabledtRelPedidoFornecedorHistorico = ((dtRelPedidoFornecedorHistoricoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DT_ENTREGA {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.DT_ENTREGAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DT_ENTREGA\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.DT_ENTREGAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DESC_PROD {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.DESC_PRODColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DESC_PROD\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.DESC_PRODColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NF {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.NFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NF\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.NFColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NF_COD_PROD {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.NF_COD_PRODColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NF_COD_PROD\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.NF_COD_PRODColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string QT_COM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.QT_COMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QT_COM\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.QT_COMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string VL_UNIT {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.VL_UNITColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'VL_UNIT\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.VL_UNITColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string UN_COMERCIAL {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.UN_COMERCIALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UN_COMERCIAL\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.UN_COMERCIALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FORNECEDOR {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtRelPedidoFornecedorHistorico.FORNECEDORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'FORNECEDOR\' na tabela \'dtRelPedidoFornecedorHistorico\' é DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtRelPedidoFornecedorHistorico.FORNECEDORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDT_ENTREGANull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.DT_ENTREGAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDT_ENTREGANull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.DT_ENTREGAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDESC_PRODNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.DESC_PRODColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDESC_PRODNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.DESC_PRODColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNFNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.NFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNFNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.NFColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNF_COD_PRODNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.NF_COD_PRODColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNF_COD_PRODNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.NF_COD_PRODColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQT_COMNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.QT_COMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQT_COMNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.QT_COMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVL_UNITNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.VL_UNITColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVL_UNITNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.VL_UNITColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUN_COMERCIALNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.UN_COMERCIALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUN_COMERCIALNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.UN_COMERCIALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFORNECEDORNull() {
+                return this.IsNull(this.tabledtRelPedidoFornecedorHistorico.FORNECEDORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFORNECEDORNull() {
+                this[this.tabledtRelPedidoFornecedorHistorico.FORNECEDORColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1235,6 +2352,74 @@ namespace Caixa.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dtRelVendasDiaRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class dtRelPedidoFornecedorRowChangeEvent : global::System.EventArgs {
+            
+            private dtRelPedidoFornecedorRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorRowChangeEvent(dtRelPedidoFornecedorRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class dtRelPedidoFornecedorHistoricoRowChangeEvent : global::System.EventArgs {
+            
+            private dtRelPedidoFornecedorHistoricoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorHistoricoRowChangeEvent(dtRelPedidoFornecedorHistoricoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public dtRelPedidoFornecedorHistoricoRow Row {
                 get {
                     return this.eventRow;
                 }

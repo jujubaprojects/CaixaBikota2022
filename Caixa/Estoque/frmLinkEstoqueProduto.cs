@@ -91,6 +91,11 @@ namespace Caixa.Estoque
 
         }
 
+        private void TxtFiltroDescricao_TextChanged(object sender, EventArgs e)
+        {
+            preencherCampos();
+        }
+
         private void DgvLink_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -137,7 +142,10 @@ namespace Caixa.Estoque
             //sql.Append("FROM PRODUTO P ");
             //sql.Append("JOIN SUB_ESTOQUE SE ON(P.ID = SE.PRODUTO) ");
             //sql.Append("JOIN CONTROLE_ESTOQUE CE ON(CE.ID = SE.CONTROLE_ESTOQUE) ORDER BY PRODUTO ");
-            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS FROM CONTROLE_ESTOQUE ORDER BY DESCRICAO");
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS FROM CONTROLE_ESTOQUE ");
+            if (!string.IsNullOrEmpty(txtFiltroDescricao.Text))
+                sql.Append("WHERE DESCRICAO LIKE '%" + txtFiltroDescricao.Text + "%' ");
+            sql.Append("ORDER BY DESCRICAO ");
             dgvLink.DataSource = auxSQL.retornaDataTable(sql.ToString());
             if (pInicio == 1 && dgvLink.Rows.Count > 0)
             {

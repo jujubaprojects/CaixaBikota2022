@@ -33,6 +33,31 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="dtRelPedidoFornecedor" msprop:Generator_TableClassName="dtRelPedidoFornecedorDataTable" msprop:Generator_TableVarName="tabledtRelPedidoFornecedor" msprop:Generator_RowChangedName="dtRelPedidoFornecedorRowChanged" msprop:Generator_TablePropName="dtRelPedidoFornecedor" msprop:Generator_RowDeletingName="dtRelPedidoFornecedorRowDeleting" msprop:Generator_RowChangingName="dtRelPedidoFornecedorRowChanging" msprop:Generator_RowEvHandlerName="dtRelPedidoFornecedorRowChangeEventHandler" msprop:Generator_RowDeletedName="dtRelPedidoFornecedorRowDeleted" msprop:Generator_RowClassName="dtRelPedidoFornecedorRow" msprop:Generator_UserTableName="dtRelPedidoFornecedor" msprop:Generator_RowEvArgName="dtRelPedidoFornecedorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRICAO" msprop:Generator_ColumnVarNameInTable="columnDESCRICAO" msprop:Generator_ColumnPropNameInRow="DESCRICAO" msprop:Generator_ColumnPropNameInTable="DESCRICAOColumn" msprop:Generator_UserColumnName="DESCRICAO" type="xs:string" minOccurs="0" />
+              <xs:element name="QT_ESTOQUE" msprop:Generator_ColumnVarNameInTable="columnQT_ESTOQUE" msprop:Generator_ColumnPropNameInRow="QT_ESTOQUE" msprop:Generator_ColumnPropNameInTable="QT_ESTOQUEColumn" msprop:Generator_UserColumnName="QT_ESTOQUE" type="xs:string" minOccurs="0" />
+              <xs:element name="QT_ESTOQUE_IDEAL" msprop:Generator_ColumnVarNameInTable="columnQT_ESTOQUE_IDEAL" msprop:Generator_ColumnPropNameInRow="QT_ESTOQUE_IDEAL" msprop:Generator_ColumnPropNameInTable="QT_ESTOQUE_IDEALColumn" msprop:Generator_UserColumnName="QT_ESTOQUE_IDEAL" type="xs:string" minOccurs="0" />
+              <xs:element name="DIF_ESTOQUE" msprop:Generator_ColumnVarNameInTable="columnDIF_ESTOQUE" msprop:Generator_ColumnPropNameInRow="DIF_ESTOQUE" msprop:Generator_ColumnPropNameInTable="DIF_ESTOQUEColumn" msprop:Generator_UserColumnName="DIF_ESTOQUE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtRelPedidoFornecedorHistorico" msprop:Generator_TableClassName="dtRelPedidoFornecedorHistoricoDataTable" msprop:Generator_TableVarName="tabledtRelPedidoFornecedorHistorico" msprop:Generator_TablePropName="dtRelPedidoFornecedorHistorico" msprop:Generator_RowDeletingName="dtRelPedidoFornecedorHistoricoRowDeleting" msprop:Generator_RowChangingName="dtRelPedidoFornecedorHistoricoRowChanging" msprop:Generator_RowEvHandlerName="dtRelPedidoFornecedorHistoricoRowChangeEventHandler" msprop:Generator_RowDeletedName="dtRelPedidoFornecedorHistoricoRowDeleted" msprop:Generator_UserTableName="dtRelPedidoFornecedorHistorico" msprop:Generator_RowChangedName="dtRelPedidoFornecedorHistoricoRowChanged" msprop:Generator_RowEvArgName="dtRelPedidoFornecedorHistoricoRowChangeEvent" msprop:Generator_RowClassName="dtRelPedidoFornecedorHistoricoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DT_ENTREGA" msprop:Generator_ColumnVarNameInTable="columnDT_ENTREGA" msprop:Generator_ColumnPropNameInRow="DT_ENTREGA" msprop:Generator_ColumnPropNameInTable="DT_ENTREGAColumn" msprop:Generator_UserColumnName="DT_ENTREGA" type="xs:string" minOccurs="0" />
+              <xs:element name="DESC_PROD" msprop:Generator_ColumnVarNameInTable="columnDESC_PROD" msprop:Generator_ColumnPropNameInRow="DESC_PROD" msprop:Generator_ColumnPropNameInTable="DESC_PRODColumn" msprop:Generator_UserColumnName="DESC_PROD" type="xs:string" minOccurs="0" />
+              <xs:element name="NF" msprop:Generator_ColumnVarNameInTable="columnNF" msprop:Generator_ColumnPropNameInRow="NF" msprop:Generator_ColumnPropNameInTable="NFColumn" msprop:Generator_UserColumnName="NF" type="xs:string" minOccurs="0" />
+              <xs:element name="NF_COD_PROD" msprop:Generator_ColumnVarNameInTable="columnNF_COD_PROD" msprop:Generator_ColumnPropNameInRow="NF_COD_PROD" msprop:Generator_ColumnPropNameInTable="NF_COD_PRODColumn" msprop:Generator_UserColumnName="NF_COD_PROD" type="xs:string" minOccurs="0" />
+              <xs:element name="QT_COM" msprop:Generator_ColumnVarNameInTable="columnQT_COM" msprop:Generator_ColumnPropNameInRow="QT_COM" msprop:Generator_ColumnPropNameInTable="QT_COMColumn" msprop:Generator_UserColumnName="QT_COM" type="xs:string" minOccurs="0" />
+              <xs:element name="VL_UNIT" msprop:Generator_ColumnVarNameInTable="columnVL_UNIT" msprop:Generator_ColumnPropNameInRow="VL_UNIT" msprop:Generator_ColumnPropNameInTable="VL_UNITColumn" msprop:Generator_UserColumnName="VL_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="UN_COMERCIAL" msprop:Generator_ColumnVarNameInTable="columnUN_COMERCIAL" msprop:Generator_ColumnPropNameInRow="UN_COMERCIAL" msprop:Generator_ColumnPropNameInTable="UN_COMERCIALColumn" msprop:Generator_UserColumnName="UN_COMERCIAL" type="xs:string" minOccurs="0" />
+              <xs:element name="FORNECEDOR" msprop:Generator_ColumnVarNameInTable="columnFORNECEDOR" msprop:Generator_ColumnPropNameInRow="FORNECEDOR" msprop:Generator_ColumnPropNameInTable="FORNECEDORColumn" msprop:Generator_UserColumnName="FORNECEDOR" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

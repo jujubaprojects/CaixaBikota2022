@@ -53,7 +53,7 @@ namespace Caixa.Estoque
             if (frm.retorno != null)
             {
                 if (tipoEstAlt == 1)
-                    txtEstoque.Text = frm.retorno["DESCRICAO"].ToString() + " - " + frm.retorno["PRODUTO"].ToString();
+                    txtEstoque.Text = frm.retorno["PRODUTO"].ToString() + " - " + frm.retorno["DESCRICAO"].ToString() + " / QT : " + frm.retorno["QT_RESTANTE"].ToString();
                 else
                     txtEstoque.Text = frm.retorno["DESCRICAO"].ToString();
 
@@ -91,7 +91,7 @@ namespace Caixa.Estoque
         {
             if (string.IsNullOrEmpty(txtEstoque.Text))
                 return false;
-            if (int.Parse(txtQt.Text) <= 0)
+            if (string.IsNullOrEmpty(txtQt.Text) || int.Parse(txtQt.Text) <= 0)
                 return false;
 
 

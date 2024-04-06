@@ -252,7 +252,15 @@ namespace Caixa
                     for (int i = 0; i < dtGrid.Rows.Count; i++)
                     {
                         if (dtGrid.Rows[i]["TIPO"].ToString().Equals("POTES"))
-                            listPosicaoGrid.Add(i);
+                        {
+                            List<string> potes = new List<string>();
+                            potes.Add("POTE 04L");
+                            potes.Add("POTE 05L");
+                            potes.Add("POTE 10L");
+
+                            if (potes.Contains(dtGrid.Rows[i]["PRODUTO"].ToString()))
+                                listPosicaoGrid.Add(i);
+                        }
                     }
                     if (listPosicaoGrid.Count > 0)
                     {
