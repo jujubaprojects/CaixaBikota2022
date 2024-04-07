@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
             this.groupBoxJCS2 = new Componentes.GroupBoxJCS(this.components);
             this.dgvInformacao = new Componentes.DataGridViewJCS(this.components);
@@ -58,7 +58,7 @@
             this.groupBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.groupBoxJCS1.Location = new System.Drawing.Point(0, 0);
             this.groupBoxJCS1.Name = "groupBoxJCS1";
-            this.groupBoxJCS1.Size = new System.Drawing.Size(800, 62);
+            this.groupBoxJCS1.Size = new System.Drawing.Size(1157, 62);
             this.groupBoxJCS1.TabIndex = 1;
             this.groupBoxJCS1.TabStop = false;
             this.groupBoxJCS1.Text = "Filtro";
@@ -71,7 +71,7 @@
             this.groupBoxJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.groupBoxJCS2.Location = new System.Drawing.Point(0, 62);
             this.groupBoxJCS2.Name = "groupBoxJCS2";
-            this.groupBoxJCS2.Size = new System.Drawing.Size(800, 388);
+            this.groupBoxJCS2.Size = new System.Drawing.Size(1157, 388);
             this.groupBoxJCS2.TabIndex = 2;
             this.groupBoxJCS2.TabStop = false;
             // 
@@ -81,14 +81,14 @@
             this.dgvInformacao.AllowUserToDeleteRows = false;
             this.dgvInformacao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvInformacao.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInformacao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInformacao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvInformacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInformacao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIDEstoque,
@@ -97,32 +97,32 @@
             this.colQtEstIdeal,
             this.colVerificar,
             this.colInformação});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInformacao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInformacao.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvInformacao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInformacao.EnableHeadersVisualStyles = false;
             this.dgvInformacao.Location = new System.Drawing.Point(3, 20);
             this.dgvInformacao.Name = "dgvInformacao";
             this.dgvInformacao.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInformacao.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInformacao.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvInformacao.RowHeadersVisible = false;
             this.dgvInformacao.RowTemplate.Height = 100;
             this.dgvInformacao.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvInformacao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInformacao.Size = new System.Drawing.Size(794, 365);
+            this.dgvInformacao.Size = new System.Drawing.Size(1151, 365);
             this.dgvInformacao.TabIndex = 1;
             // 
             // colIDEstoque
@@ -173,9 +173,9 @@
             // 
             this.colInformação.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colInformação.DataPropertyName = "HISTORICO";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colInformação.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colInformação.DefaultCellStyle = dataGridViewCellStyle6;
             this.colInformação.HeaderText = "Ultimos 4 Pedidos";
             this.colInformação.Name = "colInformação";
             this.colInformação.ReadOnly = true;
@@ -194,12 +194,14 @@
             // 
             // cboFornecedor
             // 
+            this.cboFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboFornecedor.FormattingEnabled = true;
             this.cboFornecedor.Location = new System.Drawing.Point(98, 17);
             this.cboFornecedor.Name = "cboFornecedor";
-            this.cboFornecedor.Size = new System.Drawing.Size(690, 23);
+            this.cboFornecedor.Size = new System.Drawing.Size(1047, 23);
             this.cboFornecedor.TabIndex = 1;
             this.cboFornecedor.SelectedIndexChanged += new System.EventHandler(this.CboFornecedor_SelectedIndexChanged);
             // 
@@ -207,11 +209,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1157, 450);
             this.Controls.Add(this.groupBoxJCS2);
             this.Controls.Add(this.groupBoxJCS1);
             this.Name = "frmRelPedidoFornecedor";
-            this.Text = "frmRelPedidoFornecedor";
+            this.Text = "Pedido de Produtos para os Fornecedores";
             this.Load += new System.EventHandler(this.FrmRelPedidoFornecedor_Load);
             this.groupBoxJCS1.ResumeLayout(false);
             this.groupBoxJCS1.PerformLayout();

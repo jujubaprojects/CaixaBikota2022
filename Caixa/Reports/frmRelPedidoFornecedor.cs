@@ -28,7 +28,7 @@ namespace Caixa.Reports
 
             preencherGrid();
             DataTable dtCombo = auxSQL.retornaDataTable("SELECT NOME FROM FORNECEDOR");
-            cboFornecedor.Items.Add("Todos");
+            cboFornecedor.Items.Add("TODOS OS FORNECEDORES");
             for (int i = 0; i < dtCombo.Rows.Count; i++)
                 cboFornecedor.Items.Add(dtCombo.Rows[i]["NOME"].ToString());
         }

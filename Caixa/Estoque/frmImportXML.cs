@@ -32,6 +32,7 @@ namespace Caixa.Estoque
         DataTable dtRetornoAux = new DataTable();
         private string IDNFe;
         private SQL.SQL auxSQL = new SQL.SQL();
+        private bool tagCNPJ;
 
         public frmImportXML()
         {
@@ -62,9 +63,35 @@ namespace Caixa.Estoque
                     {
                         if (arquivos[l].ToUpper().Contains(".XML") || arquivos[l].ToUpper().Contains(".XLSX"))//APENAS XMLs e Excel
                         {
+                            if (arquivos[l].Equals(@"C:\Users\Jujuba\Downloads\NFe31240410975945000859550010004644311849623671.xml"))
+                                teste = "";
+
                             dtExcelNFe = new DataTable();
                             if (arquivos[l].ToUpper().Contains(".XML"))
-                                dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
+                            {
+                                //NO METODO ABAIXO EU PEGO APENAS OS XML DO CNPJ CORRETO, EVITANDO IMPORTAÇÃO DE ARQUIVOS INCORRETOS.
+                                XmlTextReader reader = new XmlTextReader(arquivos[l]);
+                                tagCNPJ = true;
+                                while (reader.Read() && tagCNPJ)
+                                {
+                                    switch (reader.NodeType)
+                                    {
+                                        case XmlNodeType.Element: // The node is an element.
+                                            if (reader.Name.Equals("dest"))
+                                            {
+                                                tagCNPJ = false;
+                                                reader.Read();
+                                                reader.Read();
+                                                if (reader.Value.Equals("20172949000186"))
+                                                {
+                                                    dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
+                                                }
+                                            }
+
+                                            break;
+                                    }
+                                }
+                            }
                             else
                                 dtExcelNFe = buscaExcel(arquivos[l].ToUpper());
 
