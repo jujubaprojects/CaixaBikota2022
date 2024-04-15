@@ -15,7 +15,7 @@ namespace Caixa.Estoque
     {
         private SQL.SQL auxSQL = new SQL.SQL();
         private int id = 0, qtEstoque = 0, qtEstIdeal = 0;
-        private bool status = true;
+        private bool verificarEst = true, status = true;
         private string descricao = "", nomeForm = "";
         ToolStripButton btnVoltar = new ToolStripButton();
         ToolStripButton btnEditar = new ToolStripButton();
@@ -47,6 +47,7 @@ namespace Caixa.Estoque
         {
             limpar(this);
             chkAtivo.Checked = true;
+            chkVerificarEst.Checked = false;
             txtID.Enabled = false;
         }
 
@@ -56,6 +57,7 @@ namespace Caixa.Estoque
             qtEstoque = int.Parse(txtQtEstoque.Text);
             qtEstIdeal = int.Parse(txtQTEstIdeal.Text);
             status = chkAtivo.Checked;
+            verificarEst = chkVerificarEst.Checked;
         }
 
         public void toolStripSalvarJCS_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Caixa.Estoque
                 {
                     if (result == DialogResult.Yes)
                     {
-                        auxSQL.insertControleEstoque(descricao, qtEstoque, qtEstIdeal, status);
+                        auxSQL.insertControleEstoque(descricao, qtEstoque, qtEstIdeal, status, verificarEst);
                         preencherCampos();
                     }
                 }
@@ -80,7 +82,7 @@ namespace Caixa.Estoque
                 {
                     if (result == DialogResult.Yes)
                     {
-                        auxSQL.updateControleEstoque(id, descricao, qtEstoque, qtEstIdeal, status);
+                        auxSQL.updateControleEstoque(id, descricao, qtEstoque, qtEstIdeal, status, verificarEst);
                         MessageBox.Show("Controle de Estoque alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         preencherCampos();
@@ -129,7 +131,8 @@ namespace Caixa.Estoque
                     txtDescricao.Text = dt.Rows[0]["DESCRICAO"].ToString();
                     txtQtEstoque.Text = dt.Rows[0]["QT_ESTOQUE"].ToString();
                     txtQTEstIdeal.Text = dt.Rows[0]["QT_ESTOQUE_IDEAL"].ToString();
-                    chkAtivo.Checked= dt.Rows[0]["STATUS"].ToString().Equals("True") ? true : false;
+                    chkAtivo.Checked = dt.Rows[0]["STATUS"].ToString().Equals("True") ? true : false;
+                    chkVerificarEst.Checked = dt.Rows[0]["VERIFICAR_EST"].ToString().Equals("True") ? true : false;
                 }
 
             }
@@ -142,7 +145,7 @@ namespace Caixa.Estoque
             //sql.Append("FROM PRODUTO P ");
             //sql.Append("JOIN SUB_ESTOQUE SE ON(P.ID = SE.PRODUTO) ");
             //sql.Append("JOIN CONTROLE_ESTOQUE CE ON(CE.ID = SE.CONTROLE_ESTOQUE) ORDER BY PRODUTO ");
-            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS FROM CONTROLE_ESTOQUE ");
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS, VERIFICAR_EST FROM CONTROLE_ESTOQUE ");
             if (!string.IsNullOrEmpty(txtFiltroDescricao.Text))
                 sql.Append("WHERE DESCRICAO LIKE '%" + txtFiltroDescricao.Text + "%' ");
             sql.Append("ORDER BY DESCRICAO ");

@@ -47,7 +47,7 @@ namespace Caixa.Reports
             sql.Append("JOIN NF_PROD NFP ON(NFP.COD_PROD = NFPCE.COD_PROD_NF) ");
             sql.Append("JOIN NF ON(NF.id = NFP.NF) ");
             sql.Append("JOIN fornecedor F ON(F.id = NF.FORNECEDOR) ");
-            sql.Append("WHERE CE.QT_ESTOQUE < CE.QT_ESTOQUE_IDEAL ");
+            sql.Append("WHERE CE.VERIFICAR_EST = 1 OR (CE.QT_ESTOQUE < CE.QT_ESTOQUE_IDEAL AND CE.STATUS = 1) ");
             if (cboFornecedor.SelectedIndex > 0)
                 sql.Append(" AND F.NOME LIKE '" + cboFornecedor.SelectedItem + "' ");
             sql.Append("ORDER BY DESC_ESTOQUE ");

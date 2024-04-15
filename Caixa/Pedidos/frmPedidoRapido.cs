@@ -362,5 +362,30 @@ namespace Caixa
                 txtQuantidade.TipoCampo = "INTEIRO";
             }
         }
+
+        private void BtnAddComanda_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Você deseja criar uma comanda para este pedido?", "Nova comanda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            {
+                if (result == DialogResult.Yes)
+                {
+                    frmInputBoxJCS frm = new frmInputBoxJCS("Informe o nome da comanda.", 3);
+                    frm.ShowDialog();
+                    if (!string.IsNullOrEmpty(frm.retorno))
+                    {
+                        auxSQL.insertPedido(frm.retorno.ToUpper(), "MESA", 1);
+                        int pedidoID = int.Parse(auxSQL.buscaUltimoPedido(frm.retorno.ToUpper()).Rows[0][0].ToString());
+                        int pedidoProdutoID = 0;
+                        for (int i = 0; i < dtGrid.Rows.Count; i++)
+                        {
+                            //auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO","", 3);
+                            auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), double.Parse(dtGrid.Rows[i]["QT"].ToString()), "COMANDA RÁPIDA", "", 2);
+
+                        }
+                       this.Close();
+                    }
+                }
+            }
+        }
     }
 }

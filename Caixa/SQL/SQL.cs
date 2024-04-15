@@ -308,7 +308,7 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public void insertControleEstoque(string pDescricao, int pQTEst, int pQTEstIdeal, bool pStatus)
+        public void insertControleEstoque(string pDescricao, int pQTEst, int pQTEstIdeal, bool pStatus, bool pVerEst)
         {
             string sql = queryInsertControleEstoque();
 
@@ -320,14 +320,15 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pQTEst", pQTEst);
             sqlc.Parameters.AddWithValue("@pQTEstIdeal", pQTEstIdeal);
             sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+            sqlc.Parameters.AddWithValue("@pVerEst", pVerEst);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
         private string queryInsertControleEstoque()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO CONTROLE_ESTOQUE (DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS) ");
-            sql.Append("VALUES (@pDescricao, @pQTEst, @pQTEstIdeal, @pStatus)");
+            sql.Append("INSERT INTO CONTROLE_ESTOQUE (DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS, VERIFICAR_EST) ");
+            sql.Append("VALUES (@pDescricao, @pQTEst, @pQTEstIdeal, @pStatus, @pVerEst)");
 
             return sql.ToString();
         }
@@ -511,7 +512,7 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
-        public void updateControleEstoque(int pID, string pDescricao, int pQTEst, int pQTEstIdeal, bool pStatus)
+        public void updateControleEstoque(int pID, string pDescricao, int pQTEst, int pQTEstIdeal, bool pStatus, bool pVerEst)
         {
             string sql = queryupdateControleEstoque();
 
@@ -524,6 +525,7 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pQTEst", pQTEst);
             sqlc.Parameters.AddWithValue("@pQTEstIdeal", pQTEstIdeal);
             sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+            sqlc.Parameters.AddWithValue("@pVerEst", pVerEst);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
@@ -534,7 +536,8 @@ namespace Caixa.SQL
             sql.Append("DESCRICAO = @pDescricao, ");
             sql.Append("QT_ESTOQUE = @pQTEst, ");
             sql.Append("QT_ESTOQUE_IDEAL = @pQTEstIdeal, ");
-            sql.Append("STATUS = @pStatus ");
+            sql.Append("STATUS = @pStatus, ");
+            sql.Append("VERIFICAR_EST = @pVerEst ");
             sql.Append("WHERE ID = @pID");
 
             return sql.ToString();
@@ -934,7 +937,7 @@ namespace Caixa.SQL
         private string queryBuscaControleEstoque(int pID)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS ");
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS, VERIFICAR_EST ");
             sql.Append("FROM CONTROLE_ESTOQUE WHERE STATUS = @pStatus ");
             if (pID > 0)
                 sql.Append(" AND ID = @pID ");
