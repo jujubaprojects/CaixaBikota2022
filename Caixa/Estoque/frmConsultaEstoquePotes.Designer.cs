@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
             this.txtFiltroQT = new Componentes.TextBoxJCS(this.components);
@@ -45,6 +41,13 @@
             this.labelJCS4 = new Componentes.LabelJCS(this.components);
             this.cboFiltroProduto = new Componentes.ComboBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
+            this.colIDEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHistorico = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnHistorico = new Componentes.ButtonJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +56,9 @@
             // 
             this.dgvLink.AllowUserToAddRows = false;
             this.dgvLink.AllowUserToDeleteRows = false;
+            this.dgvLink.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
@@ -66,10 +72,12 @@
             this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLink.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLink.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIDEstoque,
             this.colProduto,
             this.colDescricao,
             this.colQt,
-            this.colData});
+            this.colData,
+            this.colHistorico});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
@@ -78,7 +86,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLink.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvLink.EnableHeadersVisualStyles = false;
             this.dgvLink.Location = new System.Drawing.Point(0, 57);
             this.dgvLink.Name = "dgvLink";
@@ -95,39 +102,7 @@
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLink.Size = new System.Drawing.Size(800, 393);
             this.dgvLink.TabIndex = 64;
-            // 
-            // colProduto
-            // 
-            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colProduto.DataPropertyName = "PRODUTO";
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            this.colProduto.Width = 82;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            // 
-            // colQt
-            // 
-            this.colQt.DataPropertyName = "QT_RESTANTE";
-            this.colQt.HeaderText = "QT. Rest.";
-            this.colQt.Name = "colQt";
-            this.colQt.ReadOnly = true;
-            this.colQt.Width = 86;
-            // 
-            // colData
-            // 
-            this.colData.DataPropertyName = "DATA";
-            this.colData.HeaderText = "Data";
-            this.colData.Name = "colData";
-            this.colData.ReadOnly = true;
-            this.colData.Width = 61;
+            this.dgvLink.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLink_CellClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -139,6 +114,7 @@
             // groupBoxJCS1
             // 
             this.groupBoxJCS1.BackColor = System.Drawing.Color.White;
+            this.groupBoxJCS1.Controls.Add(this.btnHistorico);
             this.groupBoxJCS1.Controls.Add(this.txtFiltroQT);
             this.groupBoxJCS1.Controls.Add(this.labelJCS5);
             this.groupBoxJCS1.Controls.Add(this.txtFiltroSabor);
@@ -223,6 +199,75 @@
             this.labelJCS3.TabIndex = 17;
             this.labelJCS3.Text = "Produto:";
             // 
+            // colIDEstoque
+            // 
+            this.colIDEstoque.DataPropertyName = "ID_ESTOQUE";
+            this.colIDEstoque.HeaderText = "ID Estoque";
+            this.colIDEstoque.Name = "colIDEstoque";
+            this.colIDEstoque.ReadOnly = true;
+            this.colIDEstoque.Visible = false;
+            this.colIDEstoque.Width = 79;
+            // 
+            // colProduto
+            // 
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProduto.DataPropertyName = "PRODUTO";
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            this.colProduto.Width = 82;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            // 
+            // colQt
+            // 
+            this.colQt.DataPropertyName = "QT_RESTANTE";
+            this.colQt.HeaderText = "QT. Rest.";
+            this.colQt.Name = "colQt";
+            this.colQt.ReadOnly = true;
+            this.colQt.Width = 86;
+            // 
+            // colData
+            // 
+            this.colData.DataPropertyName = "DATA";
+            this.colData.HeaderText = "Data";
+            this.colData.Name = "colData";
+            this.colData.ReadOnly = true;
+            this.colData.Width = 61;
+            // 
+            // colHistorico
+            // 
+            this.colHistorico.DataPropertyName = "HISTORICO";
+            this.colHistorico.HeaderText = "Historico";
+            this.colHistorico.Name = "colHistorico";
+            this.colHistorico.ReadOnly = true;
+            this.colHistorico.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colHistorico.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colHistorico.Text = "";
+            this.colHistorico.Width = 86;
+            // 
+            // btnHistorico
+            // 
+            this.btnHistorico.BackColor = System.Drawing.Color.Gold;
+            this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorico.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHistorico.Image = global::Caixa.Properties.Resources.icons8_termos_e_condições_24;
+            this.btnHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorico.Location = new System.Drawing.Point(617, 17);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(171, 24);
+            this.btnHistorico.TabIndex = 22;
+            this.btnHistorico.Text = "Histórico Completo";
+            this.btnHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHistorico.UseVisualStyleBackColor = false;
+            this.btnHistorico.Click += new System.EventHandler(this.BtnHistorico_Click);
+            // 
             // frmConsultaEstoquePotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,9 +295,12 @@
         private Componentes.LabelJCS labelJCS4;
         private Componentes.ComboBoxJCS cboFiltroProduto;
         private Componentes.LabelJCS labelJCS3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDEstoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colData;
+        private System.Windows.Forms.DataGridViewButtonColumn colHistorico;
+        private Componentes.ButtonJCS btnHistorico;
     }
 }

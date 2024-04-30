@@ -59,6 +59,8 @@
             this.groupBoxJCS2 = new Componentes.GroupBoxJCS(this.components);
             this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.groupBoxJCS3 = new Componentes.GroupBoxJCS(this.components);
+            this.btnAddProdSemCod = new Componentes.ButtonJCS(this.components);
+            this.chkProdSemCod = new Componentes.CheckBoxJCS(this.components);
             this.btnAddProduto = new Componentes.ButtonJCS(this.components);
             this.dgvProdutos = new Componentes.DataGridViewJCS(this.components);
             this.colNFID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +82,7 @@
             this.txtIDFornecedor = new Componentes.TextBoxJCS(this.components);
             this.txtNumeroNFe = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
+            this.btnBuscarProd = new Componentes.ButtonJCS(this.components);
             this.groupBoxJCS1.SuspendLayout();
             this.groupBoxJCS2.SuspendLayout();
             this.groupBoxJCS3.SuspendLayout();
@@ -116,11 +119,13 @@
             this.txtChave1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave1.IconeKeyDown = null;
             this.txtChave1.Location = new System.Drawing.Point(125, 79);
+            this.txtChave1.MaxLength = 4;
             this.txtChave1.Name = "txtChave1";
             this.txtChave1.Preenchimento = null;
             this.txtChave1.Size = new System.Drawing.Size(45, 24);
             this.txtChave1.TabIndex = 1;
             this.txtChave1.TipoCampo = "INTEIRO";
+            this.txtChave1.TextChanged += new System.EventHandler(this.TxtChave1_TextChanged);
             // 
             // labelJCS4
             // 
@@ -244,11 +249,13 @@
             this.txtChave4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave4.IconeKeyDown = null;
             this.txtChave4.Location = new System.Drawing.Point(278, 79);
+            this.txtChave4.MaxLength = 4;
             this.txtChave4.Name = "txtChave4";
             this.txtChave4.Preenchimento = null;
             this.txtChave4.Size = new System.Drawing.Size(45, 24);
             this.txtChave4.TabIndex = 4;
             this.txtChave4.TipoCampo = "INTEIRO";
+            this.txtChave4.TextChanged += new System.EventHandler(this.TxtChave4_TextChanged);
             // 
             // txtChave3
             // 
@@ -257,11 +264,13 @@
             this.txtChave3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave3.IconeKeyDown = null;
             this.txtChave3.Location = new System.Drawing.Point(227, 79);
+            this.txtChave3.MaxLength = 4;
             this.txtChave3.Name = "txtChave3";
             this.txtChave3.Preenchimento = null;
             this.txtChave3.Size = new System.Drawing.Size(45, 24);
             this.txtChave3.TabIndex = 3;
             this.txtChave3.TipoCampo = "INTEIRO";
+            this.txtChave3.TextChanged += new System.EventHandler(this.TxtChave3_TextChanged);
             // 
             // txtChave6
             // 
@@ -270,11 +279,13 @@
             this.txtChave6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave6.IconeKeyDown = null;
             this.txtChave6.Location = new System.Drawing.Point(380, 79);
+            this.txtChave6.MaxLength = 4;
             this.txtChave6.Name = "txtChave6";
             this.txtChave6.Preenchimento = null;
             this.txtChave6.Size = new System.Drawing.Size(45, 24);
             this.txtChave6.TabIndex = 6;
             this.txtChave6.TipoCampo = "INTEIRO";
+            this.txtChave6.TextChanged += new System.EventHandler(this.TxtChave6_TextChanged);
             // 
             // txtChave5
             // 
@@ -283,11 +294,13 @@
             this.txtChave5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave5.IconeKeyDown = null;
             this.txtChave5.Location = new System.Drawing.Point(329, 79);
+            this.txtChave5.MaxLength = 4;
             this.txtChave5.Name = "txtChave5";
             this.txtChave5.Preenchimento = null;
             this.txtChave5.Size = new System.Drawing.Size(45, 24);
             this.txtChave5.TabIndex = 5;
             this.txtChave5.TipoCampo = "INTEIRO";
+            this.txtChave5.TextChanged += new System.EventHandler(this.TxtChave5_TextChanged);
             // 
             // txtChave8
             // 
@@ -296,11 +309,13 @@
             this.txtChave8.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave8.IconeKeyDown = null;
             this.txtChave8.Location = new System.Drawing.Point(482, 79);
+            this.txtChave8.MaxLength = 4;
             this.txtChave8.Name = "txtChave8";
             this.txtChave8.Preenchimento = null;
             this.txtChave8.Size = new System.Drawing.Size(45, 24);
             this.txtChave8.TabIndex = 8;
             this.txtChave8.TipoCampo = "INTEIRO";
+            this.txtChave8.TextChanged += new System.EventHandler(this.TxtChave8_TextChanged);
             // 
             // txtChave7
             // 
@@ -309,11 +324,13 @@
             this.txtChave7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave7.IconeKeyDown = null;
             this.txtChave7.Location = new System.Drawing.Point(431, 79);
+            this.txtChave7.MaxLength = 4;
             this.txtChave7.Name = "txtChave7";
             this.txtChave7.Preenchimento = null;
             this.txtChave7.Size = new System.Drawing.Size(45, 24);
             this.txtChave7.TabIndex = 7;
             this.txtChave7.TipoCampo = "INTEIRO";
+            this.txtChave7.TextChanged += new System.EventHandler(this.TxtChave7_TextChanged);
             // 
             // txtChave10
             // 
@@ -322,11 +339,13 @@
             this.txtChave10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave10.IconeKeyDown = null;
             this.txtChave10.Location = new System.Drawing.Point(584, 79);
+            this.txtChave10.MaxLength = 4;
             this.txtChave10.Name = "txtChave10";
             this.txtChave10.Preenchimento = null;
             this.txtChave10.Size = new System.Drawing.Size(45, 24);
             this.txtChave10.TabIndex = 10;
             this.txtChave10.TipoCampo = "INTEIRO";
+            this.txtChave10.TextChanged += new System.EventHandler(this.TxtChave10_TextChanged);
             // 
             // txtChave9
             // 
@@ -335,11 +354,13 @@
             this.txtChave9.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave9.IconeKeyDown = null;
             this.txtChave9.Location = new System.Drawing.Point(533, 79);
+            this.txtChave9.MaxLength = 4;
             this.txtChave9.Name = "txtChave9";
             this.txtChave9.Preenchimento = null;
             this.txtChave9.Size = new System.Drawing.Size(45, 24);
             this.txtChave9.TabIndex = 9;
             this.txtChave9.TipoCampo = "INTEIRO";
+            this.txtChave9.TextChanged += new System.EventHandler(this.TxtChave9_TextChanged);
             // 
             // txtChave11
             // 
@@ -348,6 +369,7 @@
             this.txtChave11.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave11.IconeKeyDown = null;
             this.txtChave11.Location = new System.Drawing.Point(635, 79);
+            this.txtChave11.MaxLength = 4;
             this.txtChave11.Name = "txtChave11";
             this.txtChave11.Preenchimento = null;
             this.txtChave11.Size = new System.Drawing.Size(45, 24);
@@ -361,11 +383,13 @@
             this.txtChave2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtChave2.IconeKeyDown = null;
             this.txtChave2.Location = new System.Drawing.Point(176, 79);
+            this.txtChave2.MaxLength = 4;
             this.txtChave2.Name = "txtChave2";
             this.txtChave2.Preenchimento = null;
             this.txtChave2.Size = new System.Drawing.Size(45, 24);
             this.txtChave2.TabIndex = 2;
             this.txtChave2.TipoCampo = "INTEIRO";
+            this.txtChave2.TextChanged += new System.EventHandler(this.TxtChave2_TextChanged);
             // 
             // btnBuscarFornecedor
             // 
@@ -386,7 +410,7 @@
             this.groupBoxJCS2.Controls.Add(this.btnSalvar);
             this.groupBoxJCS2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxJCS2.Location = new System.Drawing.Point(0, 577);
+            this.groupBoxJCS2.Location = new System.Drawing.Point(0, 641);
             this.groupBoxJCS2.Name = "groupBoxJCS2";
             this.groupBoxJCS2.Size = new System.Drawing.Size(687, 64);
             this.groupBoxJCS2.TabIndex = 19;
@@ -409,6 +433,9 @@
             // groupBoxJCS3
             // 
             this.groupBoxJCS3.BackColor = System.Drawing.Color.White;
+            this.groupBoxJCS3.Controls.Add(this.btnBuscarProd);
+            this.groupBoxJCS3.Controls.Add(this.btnAddProdSemCod);
+            this.groupBoxJCS3.Controls.Add(this.chkProdSemCod);
             this.groupBoxJCS3.Controls.Add(this.btnAddProduto);
             this.groupBoxJCS3.Controls.Add(this.dgvProdutos);
             this.groupBoxJCS3.Controls.Add(this.txtUnidComercial);
@@ -422,12 +449,38 @@
             this.groupBoxJCS3.Controls.Add(this.labelJCS2);
             this.groupBoxJCS3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxJCS3.Location = new System.Drawing.Point(0, 209);
+            this.groupBoxJCS3.Location = new System.Drawing.Point(0, 212);
             this.groupBoxJCS3.Name = "groupBoxJCS3";
-            this.groupBoxJCS3.Size = new System.Drawing.Size(687, 368);
+            this.groupBoxJCS3.Size = new System.Drawing.Size(687, 429);
             this.groupBoxJCS3.TabIndex = 18;
             this.groupBoxJCS3.TabStop = false;
             this.groupBoxJCS3.Text = "Produtos";
+            // 
+            // btnAddProdSemCod
+            // 
+            this.btnAddProdSemCod.BackColor = System.Drawing.Color.Gold;
+            this.btnAddProdSemCod.Enabled = false;
+            this.btnAddProdSemCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProdSemCod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddProdSemCod.Location = new System.Drawing.Point(3, 84);
+            this.btnAddProdSemCod.Name = "btnAddProdSemCod";
+            this.btnAddProdSemCod.Size = new System.Drawing.Size(681, 24);
+            this.btnAddProdSemCod.TabIndex = 9;
+            this.btnAddProdSemCod.Text = "Adicionar Produto sem código";
+            this.btnAddProdSemCod.UseVisualStyleBackColor = false;
+            this.btnAddProdSemCod.Click += new System.EventHandler(this.BtnAddProdSemCod_Click);
+            // 
+            // chkProdSemCod
+            // 
+            this.chkProdSemCod.AutoSize = true;
+            this.chkProdSemCod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.chkProdSemCod.Location = new System.Drawing.Point(548, 53);
+            this.chkProdSemCod.Name = "chkProdSemCod";
+            this.chkProdSemCod.Size = new System.Drawing.Size(132, 21);
+            this.chkProdSemCod.TabIndex = 6;
+            this.chkProdSemCod.Text = "Produto sem cód.";
+            this.chkProdSemCod.UseVisualStyleBackColor = true;
+            this.chkProdSemCod.CheckedChanged += new System.EventHandler(this.ChkProdSemCod_CheckedChanged);
             // 
             // btnAddProduto
             // 
@@ -435,11 +488,11 @@
             this.btnAddProduto.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddProduto.Location = new System.Drawing.Point(3, 86);
+            this.btnAddProduto.Location = new System.Drawing.Point(3, 131);
             this.btnAddProduto.Name = "btnAddProduto";
             this.btnAddProduto.Size = new System.Drawing.Size(681, 24);
-            this.btnAddProduto.TabIndex = 6;
-            this.btnAddProduto.Text = "Adicionar Produto";
+            this.btnAddProduto.TabIndex = 7;
+            this.btnAddProduto.Text = "Adicionar Produto com código";
             this.btnAddProduto.UseVisualStyleBackColor = false;
             this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
             // 
@@ -476,7 +529,7 @@
             this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
-            this.dgvProdutos.Location = new System.Drawing.Point(3, 110);
+            this.dgvProdutos.Location = new System.Drawing.Point(3, 155);
             this.dgvProdutos.Name = "dgvProdutos";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -488,7 +541,7 @@
             this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutos.Size = new System.Drawing.Size(681, 255);
+            this.dgvProdutos.Size = new System.Drawing.Size(681, 271);
             this.dgvProdutos.TabIndex = 8;
             this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellContentClick);
             // 
@@ -571,7 +624,7 @@
             this.txtVlUnit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVlUnit.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtVlUnit.IconeKeyDown = null;
-            this.txtVlUnit.Location = new System.Drawing.Point(576, 52);
+            this.txtVlUnit.Location = new System.Drawing.Point(435, 52);
             this.txtVlUnit.Name = "txtVlUnit";
             this.txtVlUnit.Preenchimento = null;
             this.txtVlUnit.Size = new System.Drawing.Size(99, 24);
@@ -582,7 +635,7 @@
             // 
             this.labelJCS9.AutoSize = true;
             this.labelJCS9.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS9.Location = new System.Drawing.Point(508, 55);
+            this.labelJCS9.Location = new System.Drawing.Point(367, 55);
             this.labelJCS9.Name = "labelJCS9";
             this.labelJCS9.Size = new System.Drawing.Size(62, 17);
             this.labelJCS9.TabIndex = 5;
@@ -594,7 +647,7 @@
             this.txtQtCom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtCom.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtQtCom.IconeKeyDown = null;
-            this.txtQtCom.Location = new System.Drawing.Point(343, 52);
+            this.txtQtCom.Location = new System.Drawing.Point(262, 52);
             this.txtQtCom.Name = "txtQtCom";
             this.txtQtCom.Preenchimento = null;
             this.txtQtCom.Size = new System.Drawing.Size(99, 24);
@@ -605,7 +658,7 @@
             // 
             this.labelJCS8.AutoSize = true;
             this.labelJCS8.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS8.Location = new System.Drawing.Point(254, 55);
+            this.labelJCS8.Location = new System.Drawing.Point(173, 56);
             this.labelJCS8.Name = "labelJCS8";
             this.labelJCS8.Size = new System.Drawing.Size(83, 17);
             this.labelJCS8.TabIndex = 3;
@@ -620,7 +673,7 @@
             this.txtDescProduto.Location = new System.Drawing.Point(176, 22);
             this.txtDescProduto.Name = "txtDescProduto";
             this.txtDescProduto.Preenchimento = null;
-            this.txtDescProduto.Size = new System.Drawing.Size(504, 24);
+            this.txtDescProduto.Size = new System.Drawing.Size(402, 24);
             this.txtDescProduto.TabIndex = 2;
             this.txtDescProduto.TipoCampo = null;
             // 
@@ -685,11 +738,24 @@
             this.labelJCS3.TabIndex = 22;
             this.labelJCS3.Text = "N. NF/Ped. For.:";
             // 
+            // btnBuscarProd
+            // 
+            this.btnBuscarProd.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscarProd.Location = new System.Drawing.Point(584, 20);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(96, 24);
+            this.btnBuscarProd.TabIndex = 334;
+            this.btnBuscarProd.Text = "Buscar Prod.";
+            this.btnBuscarProd.UseVisualStyleBackColor = false;
+            this.btnBuscarProd.Click += new System.EventHandler(this.BtnBuscarProd_Click);
+            // 
             // frmCadastroNFe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 641);
+            this.ClientSize = new System.Drawing.Size(687, 705);
             this.Controls.Add(this.txtNumeroNFe);
             this.Controls.Add(this.labelJCS3);
             this.Controls.Add(this.txtIDFornecedor);
@@ -781,5 +847,8 @@
         private Componentes.TextBoxJCS txtIDFornecedor;
         private Componentes.TextBoxJCS txtNumeroNFe;
         private Componentes.LabelJCS labelJCS3;
+        private Componentes.CheckBoxJCS chkProdSemCod;
+        private Componentes.ButtonJCS btnAddProdSemCod;
+        private Componentes.ButtonJCS btnBuscarProd;
     }
 }

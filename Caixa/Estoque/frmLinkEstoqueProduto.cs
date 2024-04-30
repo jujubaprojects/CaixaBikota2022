@@ -126,7 +126,7 @@ namespace Caixa.Estoque
                 }
                 else
                 {
-                    DataTable dt = auxSQL.buscaControleEstoque(id);
+                    DataTable dt = auxSQL.buscaControleEstoqueID(id);
                     txtID.Text = dt.Rows[0]["ID"].ToString();
                     txtDescricao.Text = dt.Rows[0]["DESCRICAO"].ToString();
                     txtQtEstoque.Text = dt.Rows[0]["QT_ESTOQUE"].ToString();

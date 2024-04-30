@@ -375,7 +375,6 @@ namespace Caixa
                     {
                         auxSQL.insertPedido(frm.retorno.ToUpper(), "MESA", 1);
                         int pedidoID = int.Parse(auxSQL.buscaUltimoPedido(frm.retorno.ToUpper()).Rows[0][0].ToString());
-                        int pedidoProdutoID = 0;
                         for (int i = 0; i < dtGrid.Rows.Count; i++)
                         {
                             //auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), int.Parse(dtGrid.Rows[i]["QT"].ToString()), "PAGAMENTO RÁPIDO","", 3);

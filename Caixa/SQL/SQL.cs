@@ -944,6 +944,28 @@ namespace Caixa.SQL
             sql.Append("ORDER BY DESCRICAO ");
             return sql.ToString();
         }
+
+        public DataTable buscaControleEstoqueID(int pID)
+        {
+            string sql = queryBuscaControleEstoqueID(pID);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaControleEstoqueID(int pID)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE, QT_ESTOQUE_IDEAL, STATUS, VERIFICAR_EST ");
+            sql.Append("FROM CONTROLE_ESTOQUE ");
+            sql.Append("WHERE ID = @pID ");
+            sql.Append("ORDER BY DESCRICAO ");
+            return sql.ToString();
+        }
         public DataTable buscaClienteInativo(string pNome)
         {
             string sql = queryBuscaClienteInativo();
