@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvFornecedores = new Componentes.DataGridViewJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCPFCNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,14 +76,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvFornecedores.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFornecedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFornecedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFornecedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -95,26 +95,26 @@
             this.colCEP,
             this.colEnd,
             this.colCidade});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFornecedores.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFornecedores.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFornecedores.EnableHeadersVisualStyles = false;
             this.dgvFornecedores.Location = new System.Drawing.Point(0, 220);
             this.dgvFornecedores.Name = "dgvFornecedores";
             this.dgvFornecedores.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFornecedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFornecedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFornecedores.RowHeadersVisible = false;
             this.dgvFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFornecedores.Size = new System.Drawing.Size(800, 230);
@@ -208,7 +208,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Preenchimento = "Required";
             this.txtNome.Size = new System.Drawing.Size(582, 24);
-            this.txtNome.TabIndex = 19;
+            this.txtNome.TabIndex = 1;
             this.txtNome.TipoCampo = "STRING";
             // 
             // txtID
@@ -255,7 +255,7 @@
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Preenchimento = "";
             this.txtCNPJ.Size = new System.Drawing.Size(100, 24);
-            this.txtCNPJ.TabIndex = 21;
+            this.txtCNPJ.TabIndex = 3;
             this.txtCNPJ.TipoCampo = "INTEIRO";
             // 
             // labelJCS3
@@ -278,7 +278,7 @@
             this.txtIE.Name = "txtIE";
             this.txtIE.Preenchimento = "";
             this.txtIE.Size = new System.Drawing.Size(100, 24);
-            this.txtIE.TabIndex = 23;
+            this.txtIE.TabIndex = 4;
             this.txtIE.TipoCampo = "STRING";
             // 
             // labelJCS4
@@ -301,7 +301,7 @@
             this.txtFone.Name = "txtFone";
             this.txtFone.Preenchimento = "";
             this.txtFone.Size = new System.Drawing.Size(100, 24);
-            this.txtFone.TabIndex = 25;
+            this.txtFone.TabIndex = 5;
             this.txtFone.TipoCampo = "INTEIRO";
             // 
             // labelJCS5
@@ -326,7 +326,7 @@
             this.txtNomeFantasia.Name = "txtNomeFantasia";
             this.txtNomeFantasia.Preenchimento = "";
             this.txtNomeFantasia.Size = new System.Drawing.Size(688, 24);
-            this.txtNomeFantasia.TabIndex = 27;
+            this.txtNomeFantasia.TabIndex = 2;
             this.txtNomeFantasia.TipoCampo = "STRING";
             // 
             // txtCEP
@@ -339,7 +339,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Preenchimento = "";
             this.txtCEP.Size = new System.Drawing.Size(100, 24);
-            this.txtCEP.TabIndex = 29;
+            this.txtCEP.TabIndex = 6;
             this.txtCEP.TipoCampo = "INTEIRO";
             // 
             // labelJCS6
@@ -359,8 +359,8 @@
             this.cboCidade.FormattingEnabled = true;
             this.cboCidade.Location = new System.Drawing.Point(98, 136);
             this.cboCidade.Name = "cboCidade";
-            this.cboCidade.Size = new System.Drawing.Size(195, 21);
-            this.cboCidade.TabIndex = 30;
+            this.cboCidade.Size = new System.Drawing.Size(195, 36);
+            this.cboCidade.TabIndex = 7;
             // 
             // cboEstado
             // 
@@ -370,7 +370,7 @@
             this.cboEstado.Location = new System.Drawing.Point(299, 136);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(54, 23);
-            this.cboEstado.TabIndex = 31;
+            this.cboEstado.TabIndex = 8;
             // 
             // labelJCS7
             // 
@@ -402,7 +402,7 @@
             this.txtEnd.Name = "txtEnd";
             this.txtEnd.Preenchimento = "";
             this.txtEnd.Size = new System.Drawing.Size(361, 24);
-            this.txtEnd.TabIndex = 34;
+            this.txtEnd.TabIndex = 9;
             this.txtEnd.TipoCampo = "STRING";
             // 
             // labelJCS9
@@ -425,7 +425,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Preenchimento = "";
             this.txtNumero.Size = new System.Drawing.Size(70, 24);
-            this.txtNumero.TabIndex = 36;
+            this.txtNumero.TabIndex = 10;
             this.txtNumero.TipoCampo = "STRING";
             // 
             // labelJCS10
@@ -448,7 +448,7 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Preenchimento = "";
             this.txtBairro.Size = new System.Drawing.Size(159, 24);
-            this.txtBairro.TabIndex = 38;
+            this.txtBairro.TabIndex = 11;
             this.txtBairro.TipoCampo = "STRING";
             // 
             // frmCadastroFornecedor

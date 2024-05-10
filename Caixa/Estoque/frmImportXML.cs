@@ -61,14 +61,14 @@ namespace Caixa.Estoque
                 {
                     for (int l = 0; l < arquivos.Count(); l++)//LACO PARA EXECUTAR TODOS OS ARQUIVOS, MESMO SENDO XML OU NAO
                     {
-                        if (arquivos[l].ToUpper().Contains(".XML") || arquivos[l].ToUpper().Contains(".XLSX"))//APENAS XMLs e Excel
+                        if (arquivos[l].ToUpper().Contains(".XML"))// || arquivos[l].ToUpper().Contains(".XLSX"))//APENAS XMLs e Excel
                         {
                             if (arquivos[l].Equals(@"C:\Users\Jujuba\Downloads\NFe31240410975945000859550010004644311849623671.xml"))
                                 teste = "";
 
                             dtExcelNFe = new DataTable();
-                            if (arquivos[l].ToUpper().Contains(".XML"))
-                            {
+                            //if (arquivos[l].ToUpper().Contains(".XML"))
+                            //{
                                 //NO METODO ABAIXO EU PEGO APENAS OS XML DO CNPJ CORRETO, EVITANDO IMPORTAÇÃO DE ARQUIVOS INCORRETOS.
                                 XmlTextReader reader = new XmlTextReader(arquivos[l]);
                                 tagCNPJ = true;
@@ -91,9 +91,9 @@ namespace Caixa.Estoque
                                             break;
                                     }
                                 }
-                            }
-                            else
-                                dtExcelNFe = buscaExcel(arquivos[l].ToUpper());
+                            //}
+                            //else
+                            //    dtExcelNFe = buscaExcel(arquivos[l].ToUpper());
 
                             SqlCommand sqlComSelect;// = new SqlCommand(sqlSelect.ToString(), conn, transacao);
                             SqlCommand sqlComInsert;
