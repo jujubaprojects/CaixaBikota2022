@@ -116,9 +116,12 @@ namespace Caixa
                 row["ID"] = produtoID;
                 row["PRODUTO"] = cboProdutoFilho.SelectedItem.ToString();
                 row["QT"] = txtQuantidade.Text;
+                if (cboProdutoFilho.SelectedItem.ToString().Equals("SORVETE KILO CASCAO/CASQUINHA"))
+                    row["QT"] = double.Parse(txtQuantidade.Text) - 0.088;
+
                 row["VL_PRODUTO"] = vlProd.ToString("0.00");
                 //row["VL_TOTAL"] = (int.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
-                row["VL_TOTAL"] = (double.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");
+                row["VL_TOTAL"] = (double.Parse(row["QT"].ToString()) * vlProd).ToString("0.00");
                 row["TIPO"] = cboProdutoPai.SelectedItem.ToString();
 
                 txtVlTotal.Text = (double.Parse(txtVlTotal.Text) + double.Parse(row["VL_TOTAL"].ToString())).ToString("0.00");
@@ -353,7 +356,7 @@ namespace Caixa
 
         private void CboProdutoFilho_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO"))
+            if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO") || cboProdutoFilho.SelectedItem.Equals("SORVETE KILO CASCAO/CASQUINHA"))
             {
                 txtQuantidade.TipoCampo = "DOUBLE";
             }

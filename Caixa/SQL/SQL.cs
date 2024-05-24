@@ -768,6 +768,26 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertValorDiarioCaixa(double pValor, DateTime pData)
+        {
+            string sql = queryInsertValorDiarioCaixa();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pValor", pValor);
+            sqlc.Parameters.AddWithValue("@pData", pData);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertValorDiarioCaixa()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO CAIXA_DIARIO (VALOR, DATA) VALUES (@pValor, @pData)");
+
+            return sql.ToString();
+        }
         //public void insertControleEstoque(string pProduto, string pDescricao, int pQtEstoque, string pUnidade, int pQtEstoqueIdeal, int pEntregaFornecedor, double pCusto, string pFornecedor, DateTime pData, bool pStatus)
         //{
         //    string sql = queryInsertControleEstoque();

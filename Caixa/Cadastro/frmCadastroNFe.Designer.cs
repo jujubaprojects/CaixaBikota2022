@@ -59,6 +59,7 @@
             this.groupBoxJCS2 = new Componentes.GroupBoxJCS(this.components);
             this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.groupBoxJCS3 = new Componentes.GroupBoxJCS(this.components);
+            this.btnBuscarProd = new Componentes.ButtonJCS(this.components);
             this.btnAddProdSemCod = new Componentes.ButtonJCS(this.components);
             this.chkProdSemCod = new Componentes.CheckBoxJCS(this.components);
             this.btnAddProduto = new Componentes.ButtonJCS(this.components);
@@ -82,7 +83,6 @@
             this.txtIDFornecedor = new Componentes.TextBoxJCS(this.components);
             this.txtNumeroNFe = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
-            this.btnBuscarProd = new Componentes.ButtonJCS(this.components);
             this.groupBoxJCS1.SuspendLayout();
             this.groupBoxJCS2.SuspendLayout();
             this.groupBoxJCS3.SuspendLayout();
@@ -456,6 +456,19 @@
             this.groupBoxJCS3.TabStop = false;
             this.groupBoxJCS3.Text = "Produtos";
             // 
+            // btnBuscarProd
+            // 
+            this.btnBuscarProd.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscarProd.Location = new System.Drawing.Point(584, 20);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(96, 24);
+            this.btnBuscarProd.TabIndex = 334;
+            this.btnBuscarProd.Text = "Buscar Prod.";
+            this.btnBuscarProd.UseVisualStyleBackColor = false;
+            this.btnBuscarProd.Click += new System.EventHandler(this.BtnBuscarProd_Click);
+            // 
             // btnAddProdSemCod
             // 
             this.btnAddProdSemCod.BackColor = System.Drawing.Color.Gold;
@@ -688,7 +701,7 @@
             this.txtCodProduto.Preenchimento = null;
             this.txtCodProduto.Size = new System.Drawing.Size(86, 24);
             this.txtCodProduto.TabIndex = 1;
-            this.txtCodProduto.TipoCampo = null;
+            this.txtCodProduto.TipoCampo = "INTEIRO";
             this.txtCodProduto.TextChanged += new System.EventHandler(this.TxtCodProduto_TextChanged);
             // 
             // labelJCS2
@@ -737,19 +750,6 @@
             this.labelJCS3.Size = new System.Drawing.Size(100, 17);
             this.labelJCS3.TabIndex = 22;
             this.labelJCS3.Text = "N. NF/Ped. For.:";
-            // 
-            // btnBuscarProd
-            // 
-            this.btnBuscarProd.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscarProd.Location = new System.Drawing.Point(584, 20);
-            this.btnBuscarProd.Name = "btnBuscarProd";
-            this.btnBuscarProd.Size = new System.Drawing.Size(96, 24);
-            this.btnBuscarProd.TabIndex = 334;
-            this.btnBuscarProd.Text = "Buscar Prod.";
-            this.btnBuscarProd.UseVisualStyleBackColor = false;
-            this.btnBuscarProd.Click += new System.EventHandler(this.BtnBuscarProd_Click);
             // 
             // frmCadastroNFe
             // 

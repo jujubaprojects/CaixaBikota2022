@@ -130,7 +130,11 @@ namespace Caixa
 
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, cboTipo.SelectedItem.ToString(), 1);
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1);
-                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), double.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1);
+                    double qt = double.Parse(txtQuantidade.Text);
+                    if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO CASCAO/CASQUINHA"))
+                        qt = qt - 0.088;
+
+                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), qt, auxDesc, obsProduto, 1);
 
                     cboTipo.Enabled = false;
                 }
@@ -402,7 +406,7 @@ namespace Caixa
             txtCobertura.Text = "";
             txtObservacao.Text = "";
 
-            if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO"))
+            if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO") || cboProdutoFilho.SelectedItem.Equals("SORVETE KILO CASCAO/CASQUINHA"))
             {
                 txtQuantidade.TipoCampo = "DOUBLE";
             }

@@ -124,7 +124,7 @@ namespace Caixa.Cadastro
 
         private void FrmCadastroNFe_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (transacao != null && transacao.Connection.State != null && transacao.Connection.State == ConnectionState.Open)
+            if (transacao != null && transacao.Connection != null && transacao.Connection.State != null && transacao.Connection.State == ConnectionState.Open)
             {
                 transacao.Rollback();
                 conn.Close();
@@ -137,7 +137,7 @@ namespace Caixa.Cadastro
 
             if (transacao != null && transacao.Connection.State == ConnectionState.Open)
             {
-                if (!string.IsNullOrEmpty(txtIDFornecedor.Text))
+                if (!string.IsNullOrEmpty(txtIDFornecedor.Text.Trim()))
                 {
                     SqlCommand sqlc = new SqlCommand("SELECT ID, NOME FROM FORNECEDOR WHERE ID = " + txtIDFornecedor.Text, conn, transacao);
                     //sqlc.CommandType = CommandType.Text;
@@ -148,10 +148,13 @@ namespace Caixa.Cadastro
             }
             else
             {
-                dtFornecedor = auxSQL.retornaDataTable("SELECT ID, NOME FROM FORNECEDOR WHERE ID = " + txtIDFornecedor.Text);
+                if (!string.IsNullOrEmpty(txtIDFornecedor.Text.Trim()))
+                {
+                    dtFornecedor = auxSQL.retornaDataTable("SELECT ID, NOME FROM FORNECEDOR WHERE ID = " + txtIDFornecedor.Text);
+                }
             }
 
-            if (dtFornecedor.Rows.Count > 0)
+            if (dtFornecedor != null && dtFornecedor.Rows.Count > 0)
             {
                 txtFornecedor.Text = dtFornecedor.Rows[0]["NOME"].ToString();
                 idFornecedor = int.Parse(txtIDFornecedor.Text);
