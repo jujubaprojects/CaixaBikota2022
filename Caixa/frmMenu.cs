@@ -565,6 +565,11 @@ namespace Caixa
             frmRelPedidoFornecedor frm = new frmRelPedidoFornecedor();
             frm.ShowDialog();
         }
+
+        private void CadastroDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

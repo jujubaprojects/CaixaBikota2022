@@ -66,10 +66,12 @@
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.pedidoParaFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -399,6 +401,19 @@
             this.valorPorDiaToolStripMenuItem.Text = "Valor Dia";
             this.valorPorDiaToolStripMenuItem.Click += new System.EventHandler(this.ValorPorDiaToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(223, 6);
+            // 
+            // pedidoParaFornecedorToolStripMenuItem
+            // 
+            this.pedidoParaFornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.pedidoParaFornecedorToolStripMenuItem.Name = "pedidoParaFornecedorToolStripMenuItem";
+            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
+            this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido para Fornecedor";
+            this.pedidoParaFornecedorToolStripMenuItem.Click += new System.EventHandler(this.PedidoParaFornecedorToolStripMenuItem_Click);
+            // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -415,6 +430,9 @@
             // 
             // colaboradoresToolStripMenuItem
             // 
+            this.colaboradoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroDeColaboradoresToolStripMenuItem,
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem});
             this.colaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.colaboradoresToolStripMenuItem.Image = global::Caixa.Properties.Resources.funcionario;
             this.colaboradoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -423,18 +441,20 @@
             this.colaboradoresToolStripMenuItem.Text = "Colaboradores";
             this.colaboradoresToolStripMenuItem.Click += new System.EventHandler(this.ColaboradoresToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem7
+            // cadastroDeColaboradoresToolStripMenuItem
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(223, 6);
+            this.cadastroDeColaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cadastroDeColaboradoresToolStripMenuItem.Name = "cadastroDeColaboradoresToolStripMenuItem";
+            this.cadastroDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
+            this.cadastroDeColaboradoresToolStripMenuItem.Text = "Cadastro de Colaboradores";
+            this.cadastroDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeColaboradoresToolStripMenuItem_Click);
             // 
-            // pedidoParaFornecedorToolStripMenuItem
+            // informaçõesRegistrosDeColaboradoresToolStripMenuItem
             // 
-            this.pedidoParaFornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.pedidoParaFornecedorToolStripMenuItem.Name = "pedidoParaFornecedorToolStripMenuItem";
-            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
-            this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido para Fornecedor";
-            this.pedidoParaFornecedorToolStripMenuItem.Click += new System.EventHandler(this.PedidoParaFornecedorToolStripMenuItem_Click);
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Name = "informaçõesRegistrosDeColaboradoresToolStripMenuItem";
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             // 
             // frmMenu
             // 
@@ -497,6 +517,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem pedidoParaFornecedorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeColaboradoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informaçõesRegistrosDeColaboradoresToolStripMenuItem;
     }
 }
 

@@ -129,7 +129,7 @@ namespace Caixa.Estoque
                                 //else
                                 //{
                                     sqlSelect.Clear();
-                                    sqlSelect.Append("SELECT * FROM NF WHERE INF_NFE = @pInfNFe");
+                                    sqlSelect.Append("SELECT * FROM NF WHERE INF_NFE = @pInfNFe OR INF_NFE = REPLACE(@pInfNFe, 'NFe', '')");
                                     sqlComSelect = new SqlCommand(sqlSelect.ToString(), conn, transacao);
                                     sqlComSelect.CommandType = CommandType.Text;
                                     sqlComSelect.Parameters.AddWithValue("@pInfNFe", dtExcelNFe.Rows[i]["INFNFE"].ToString());
