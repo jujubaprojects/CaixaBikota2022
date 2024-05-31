@@ -166,6 +166,7 @@ namespace Caixa.Estoque
             sql.Append("FROM NFPROD_CONTROLESTQ A ");
             sql.Append("JOIN FORNECEDOR F ON(A.FOR_ID = F.id) ");
             sql.Append("JOIN NF_PROD P ON(P.COD_PROD = A.COD_PROD_NF) ");
+            sql.Append("JOIN NF ON (NF.id = P.NF AND NF.FORNECEDOR = F.id) ");
             sql.Append("JOIN CONTROLE_ESTOQUE C ON(C.ID = A.COD_CONTRESTQ) ");
             sql.Append("ORDER BY DESC_EST ");
             dgvLink.DataSource = auxSQL.retornaDataTable(sql.ToString());

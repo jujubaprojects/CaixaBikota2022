@@ -58,6 +58,8 @@
             this.btnBuscaProdutoNFe = new Componentes.ButtonJCS(this.components);
             this.txtQtCaixa = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
+            this.textBoxJCS1 = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS5 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,6 +187,9 @@
             // 
             this.dgvLink.AllowUserToAddRows = false;
             this.dgvLink.AllowUserToDeleteRows = false;
+            this.dgvLink.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
@@ -215,7 +220,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLink.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvLink.EnableHeadersVisualStyles = false;
             this.dgvLink.Location = new System.Drawing.Point(0, 251);
             this.dgvLink.Name = "dgvLink";
@@ -346,7 +350,7 @@
             this.btnLinkar.Location = new System.Drawing.Point(12, 143);
             this.btnLinkar.Name = "btnLinkar";
             this.btnLinkar.Size = new System.Drawing.Size(909, 88);
-            this.btnLinkar.TabIndex = 69;
+            this.btnLinkar.TabIndex = 6;
             this.btnLinkar.Text = "Linkar Fornecedor x Produto NF x Controle Estoque";
             this.btnLinkar.UseVisualStyleBackColor = false;
             this.btnLinkar.Click += new System.EventHandler(this.BtnLinkar_Click);
@@ -393,24 +397,51 @@
             this.txtQtCaixa.Name = "txtQtCaixa";
             this.txtQtCaixa.Preenchimento = null;
             this.txtQtCaixa.Size = new System.Drawing.Size(47, 24);
-            this.txtQtCaixa.TabIndex = 4;
+            this.txtQtCaixa.TabIndex = 5;
             this.txtQtCaixa.TipoCampo = "INTEIRO";
             // 
             // labelJCS3
             // 
             this.labelJCS3.AutoSize = true;
             this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(27, 103);
+            this.labelJCS3.Location = new System.Drawing.Point(41, 103);
             this.labelJCS3.Name = "labelJCS3";
             this.labelJCS3.Size = new System.Drawing.Size(65, 17);
             this.labelJCS3.TabIndex = 76;
             this.labelJCS3.Text = "QT. Caixa:";
+            // 
+            // textBoxJCS1
+            // 
+            this.textBoxJCS1.BackColor = System.Drawing.Color.White;
+            this.textBoxJCS1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.textBoxJCS1.IconeKeyDown = null;
+            this.textBoxJCS1.Location = new System.Drawing.Point(415, 100);
+            this.textBoxJCS1.Name = "textBoxJCS1";
+            this.textBoxJCS1.Preenchimento = null;
+            this.textBoxJCS1.Size = new System.Drawing.Size(47, 24);
+            this.textBoxJCS1.TabIndex = 4;
+            this.textBoxJCS1.TipoCampo = "INTEIRO";
+            this.textBoxJCS1.Visible = false;
+            // 
+            // labelJCS5
+            // 
+            this.labelJCS5.AutoSize = true;
+            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS5.Location = new System.Drawing.Point(326, 103);
+            this.labelJCS5.Name = "labelJCS5";
+            this.labelJCS5.Size = new System.Drawing.Size(83, 17);
+            this.labelJCS5.TabIndex = 78;
+            this.labelJCS5.Text = "QT. Add. Un:";
+            this.labelJCS5.Visible = false;
             // 
             // frmLinkProdNFFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 562);
+            this.Controls.Add(this.textBoxJCS1);
+            this.Controls.Add(this.labelJCS5);
             this.Controls.Add(this.txtQtCaixa);
             this.Controls.Add(this.labelJCS3);
             this.Controls.Add(this.btnBuscaFornecedor);
@@ -463,5 +494,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescFor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtCaixa;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
+        private Componentes.TextBoxJCS textBoxJCS1;
+        private Componentes.LabelJCS labelJCS5;
     }
 }
