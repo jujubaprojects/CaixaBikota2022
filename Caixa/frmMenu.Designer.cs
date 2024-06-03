@@ -72,6 +72,8 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.despesasForaDoCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,7 +222,9 @@
             this.recebimentoRápidoToolStripMenuItem,
             this.retiradaCaixaToolStripMenuItem,
             this.recebimentoDeNotaToolStripMenuItem,
-            this.consultarNotasClientesToolStripMenuItem});
+            this.consultarNotasClientesToolStripMenuItem,
+            this.toolStripMenuItem8,
+            this.despesasForaDoCaixaToolStripMenuItem});
             this.caixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.caixaToolStripMenuItem.Image = global::Caixa.Properties.Resources.black_and_white_credit_cards;
             this.caixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -384,7 +388,7 @@
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
@@ -404,14 +408,14 @@
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(223, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(191, 6);
             // 
             // pedidoParaFornecedorToolStripMenuItem
             // 
             this.pedidoParaFornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.pedidoParaFornecedorToolStripMenuItem.Name = "pedidoParaFornecedorToolStripMenuItem";
-            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
-            this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido para Fornecedor";
+            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido de Compra";
             this.pedidoParaFornecedorToolStripMenuItem.Click += new System.EventHandler(this.PedidoParaFornecedorToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
@@ -455,6 +459,19 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Name = "informaçõesRegistrosDeColaboradoresToolStripMenuItem";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(264, 6);
+            // 
+            // despesasForaDoCaixaToolStripMenuItem
+            // 
+            this.despesasForaDoCaixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.despesasForaDoCaixaToolStripMenuItem.Name = "despesasForaDoCaixaToolStripMenuItem";
+            this.despesasForaDoCaixaToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.despesasForaDoCaixaToolStripMenuItem.Text = "Despesas Fora do Caixa";
+            this.despesasForaDoCaixaToolStripMenuItem.Click += new System.EventHandler(this.DespesasForaDoCaixaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -519,6 +536,8 @@
         private System.Windows.Forms.ToolStripMenuItem pedidoParaFornecedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeColaboradoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informaçõesRegistrosDeColaboradoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem despesasForaDoCaixaToolStripMenuItem;
     }
 }
 

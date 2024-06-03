@@ -570,6 +570,15 @@ namespace Caixa
         {
 
         }
+
+        private void DespesasForaDoCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            if (acessoFrmsRestrito())
+            {
+                frmDespesa frm = new frmDespesa();
+                frm.ShowDialog();
+            }
+        }
     }
     
 }
