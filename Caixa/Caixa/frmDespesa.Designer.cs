@@ -37,6 +37,8 @@
             this.lblValor = new Componentes.LabelJCS(this.components);
             this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.btnHistorico = new Componentes.ButtonJCS(this.components);
+            this.cboTipoPagamento = new Componentes.ComboBoxJCS(this.components);
+            this.labelJCS2 = new Componentes.LabelJCS(this.components);
             this.SuspendLayout();
             // 
             // dtpData
@@ -66,19 +68,19 @@
             this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtDescricao.IconeKeyDown = null;
-            this.txtDescricao.Location = new System.Drawing.Point(87, 74);
+            this.txtDescricao.Location = new System.Drawing.Point(87, 106);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Preenchimento = null;
             this.txtDescricao.Size = new System.Drawing.Size(206, 66);
-            this.txtDescricao.TabIndex = 2;
+            this.txtDescricao.TabIndex = 3;
             this.txtDescricao.TipoCampo = null;
             // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDescricao.Location = new System.Drawing.Point(12, 77);
+            this.lblDescricao.Location = new System.Drawing.Point(12, 109);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(69, 17);
             this.lblDescricao.TabIndex = 66;
@@ -117,7 +119,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(192, 12);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(101, 56);
-            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -131,19 +133,46 @@
             this.btnHistorico.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnHistorico.Image = global::Caixa.Properties.Resources.icons8_documentos_do_produto_24;
             this.btnHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorico.Location = new System.Drawing.Point(0, 154);
+            this.btnHistorico.Location = new System.Drawing.Point(0, 190);
             this.btnHistorico.Name = "btnHistorico";
             this.btnHistorico.Size = new System.Drawing.Size(311, 24);
-            this.btnHistorico.TabIndex = 69;
+            this.btnHistorico.TabIndex = 5;
             this.btnHistorico.Text = "Histórico";
             this.btnHistorico.UseVisualStyleBackColor = false;
             this.btnHistorico.Click += new System.EventHandler(this.BtnHistorico_Click);
+            // 
+            // cboTipoPagamento
+            // 
+            this.cboTipoPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboTipoPagamento.FormattingEnabled = true;
+            this.cboTipoPagamento.Items.AddRange(new object[] {
+            "SELECIONE AQUI",
+            "DINHEIRO",
+            "PIX/CARTÃO DEBITO"});
+            this.cboTipoPagamento.Location = new System.Drawing.Point(87, 74);
+            this.cboTipoPagamento.Name = "cboTipoPagamento";
+            this.cboTipoPagamento.Size = new System.Drawing.Size(206, 23);
+            this.cboTipoPagamento.TabIndex = 2;
+            this.cboTipoPagamento.SelectedIndexChanged += new System.EventHandler(this.CboTipoPagamento_SelectedIndexChanged);
+            // 
+            // labelJCS2
+            // 
+            this.labelJCS2.AutoSize = true;
+            this.labelJCS2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS2.Location = new System.Drawing.Point(23, 77);
+            this.labelJCS2.Name = "labelJCS2";
+            this.labelJCS2.Size = new System.Drawing.Size(57, 17);
+            this.labelJCS2.TabIndex = 71;
+            this.labelJCS2.Text = "Tipo PG:";
             // 
             // frmDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 178);
+            this.ClientSize = new System.Drawing.Size(311, 214);
+            this.Controls.Add(this.labelJCS2);
+            this.Controls.Add(this.cboTipoPagamento);
             this.Controls.Add(this.btnHistorico);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.labelJCS1);
@@ -152,7 +181,6 @@
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnSalvar);
-            this.MaximumSize = new System.Drawing.Size(327, 217);
             this.MinimumSize = new System.Drawing.Size(327, 191);
             this.Name = "frmDespesa";
             this.Text = "Despesas fora do Caixa";
@@ -171,5 +199,7 @@
         private Componentes.LabelJCS lblValor;
         private Componentes.ButtonJCS btnSalvar;
         private Componentes.ButtonJCS btnHistorico;
+        private Componentes.ComboBoxJCS cboTipoPagamento;
+        private Componentes.LabelJCS labelJCS2;
     }
 }

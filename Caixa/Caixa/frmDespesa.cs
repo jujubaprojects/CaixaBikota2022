@@ -17,6 +17,7 @@ namespace Caixa.Caixa
         private SqlConnection conn;
         private dal.Conexao conexao = new dal.Conexao();
         private SQL.SQL auxSQL = new SQL.SQL();
+        private int pTipoPG = 0;
         public frmDespesa()
         {
             InitializeComponent();
@@ -30,12 +31,13 @@ namespace Caixa.Caixa
                 {
 
                     conn = conexao.retornaConexao();
-                    string sql = "INSERT INTO DESPESA (VALOR,DESCRICAO,DATA) VALUES (@pValor, @pDescricao, @pData)";
+                    string sql = "INSERT INTO DESPESA (VALOR,DESCRICAO,DATA,TIPO_PAGAMENTO) VALUES (@pValor, @pDescricao, @pData, @pTipoPG)";
                     SqlCommand sqlc = new SqlCommand(sql, conn);
                     sqlc.CommandType = CommandType.Text;
                     sqlc.Parameters.AddWithValue("@pDescricao", txtDescricao.Text.ToUpper());
                     sqlc.Parameters.AddWithValue("@pValor", double.Parse(txtValor.Text.Trim().Replace("R$", "")));
                     sqlc.Parameters.AddWithValue("@pData", DateTime.Parse(dtpData.Text));
+                    sqlc.Parameters.AddWithValue("@pTipoPG", pTipoPG);
                     auxSQL.executaQueryTransaction(conn, sqlc);
 
                     MessageBox.Show("Informação salva na base de dados!", "Salvo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -43,7 +45,8 @@ namespace Caixa.Caixa
                     txtDescricao.Text = "";
                     txtValor.Text = "";
                     dtpData.Value = DateTime.Now;
-
+                    cboTipoPagamento.SelectedIndex = 0;
+                    txtDescricao.Focus();
                 }
                 catch (Exception er)
                 {
@@ -65,7 +68,8 @@ namespace Caixa.Caixa
                 return false;
             if (string.IsNullOrEmpty(txtValor.Text.Trim()) || double.Parse(txtValor.Text.Trim().Replace("R$", "")) <= 0)
                 return false;
-
+            if (pTipoPG == 0)
+                return false;
 
             return true;
         }
@@ -76,6 +80,22 @@ namespace Caixa.Caixa
             sql.Append("SELECT * FROM DESPESA ORDER BY ID DESC");
             frmBusca frm = new frmBusca(sql, "Histórico de Despesas");
             frm.ShowDialog();
+        }
+
+        private void CboTipoPagamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboTipoPagamento.SelectedIndex)
+            {
+                case 1:
+                    pTipoPG = 1;
+                    break;
+                case 2:
+                    pTipoPG = 2;
+                    break;
+                default:
+                    pTipoPG = 0;
+                    break;
+            }
         }
     }
 }

@@ -111,7 +111,6 @@
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnSalvar);
-            this.MaximumSize = new System.Drawing.Size(323, 155);
             this.MinimumSize = new System.Drawing.Size(323, 155);
             this.Name = "frmRetiradaCaixa";
             this.Text = "Retirada de Caixa";
