@@ -21,6 +21,8 @@ namespace Caixa.Caixa
         public frmDespesa()
         {
             InitializeComponent();
+            cboTipoPagamento.SelectedIndex = 0;
+            dtpData.Value = DateTime.Now;
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace Caixa.Caixa
                     txtValor.Text = "";
                     dtpData.Value = DateTime.Now;
                     cboTipoPagamento.SelectedIndex = 0;
-                    txtDescricao.Focus();
+                    txtValor.Focus();
                 }
                 catch (Exception er)
                 {
@@ -95,7 +97,7 @@ namespace Caixa.Caixa
                 default:
                     pTipoPG = 0;
                     break;
-            }
+            } 
         }
     }
 }

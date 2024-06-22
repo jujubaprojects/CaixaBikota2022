@@ -147,7 +147,7 @@
             this.cboTipoPagamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboTipoPagamento.FormattingEnabled = true;
             this.cboTipoPagamento.Items.AddRange(new object[] {
-            "SELECIONE AQUI",
+            "SELECIONE O PAGAMENTO AQUI",
             "DINHEIRO",
             "PIX/CARTÃO DEBITO"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(87, 74);

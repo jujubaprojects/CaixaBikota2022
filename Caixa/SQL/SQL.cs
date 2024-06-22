@@ -254,6 +254,62 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertColaborador(string pNome, string pCPF, string pLogradouro, string pNumero, string pBairro, string pCidade, string pEstado, string pContato, string pEmail, DateTime pDTNascimento, DateTime pDTEntrada, DateTime pDTSaida, double pVlSalario, string pBeneficios, int pAtivo)
+        {
+            string sql = queryInsertColaborador();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pNome", pNome);
+            sqlc.Parameters.AddWithValue("@pCPF", pCPF);
+            sqlc.Parameters.AddWithValue("@pLogradouro", pLogradouro);
+            sqlc.Parameters.AddWithValue("@pNumero", pNumero);
+            sqlc.Parameters.AddWithValue("@pBairro", pBairro);
+            sqlc.Parameters.AddWithValue("@pCidade", pCidade);
+            sqlc.Parameters.AddWithValue("@pEstado", pEstado);
+            sqlc.Parameters.AddWithValue("@pContato", pContato);
+            sqlc.Parameters.AddWithValue("@pEmail", pEmail);
+            sqlc.Parameters.AddWithValue("@pDTNascimento", pDTNascimento);
+            sqlc.Parameters.AddWithValue("@pDTEntrada", pDTEntrada);
+            sqlc.Parameters.AddWithValue("@pDTSaida", pDTSaida);
+            sqlc.Parameters.AddWithValue("@pVlSalario", pVlSalario);
+            sqlc.Parameters.AddWithValue("@pBeneficios", pBeneficios);
+            sqlc.Parameters.AddWithValue("@pAtivo", pAtivo);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertColaborador()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO COLABORADOR (NOME, CPF, END_LOGRA, END_NUM, END_BAIRRO, END_CIDADE, END_ESTADO, CONTATO, EMAIL, DT_NASCIMENTO, DT_ENTRADA, DT_SAIDA, VL_SALARIO, BENEFICIOS, ATIVO) ");
+            sql.Append("VALUES(@pNome, @pCPF, @pLogradouro, @pNumero, @pBairro, @pCidade, @pEstado, @pContato, @pEmail, @pDTNascimento, @pDTEntrada, @pDTSaida, @pVlSalario, @pBeneficios, @pAtivo)");
+
+            return sql.ToString();
+        }
+        public void insertColaboradorOcorrencia(string pColaborador, string pDescricao, DateTime pData)
+        {
+            string sql = queryInsertColaboradorOcorrencia();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pColaborador", pColaborador);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pData", pData);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertColaboradorOcorrencia()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO COLABORADOR_OCORRENCIA (ID_COLABORADOR, DESCRICAO, DATA)");
+            sql.Append("VALUES((SELECT ID FROM COLABORADOR WHERE NOME LIKE @pColaborador), @pDescricao, @pData)");
+
+            return sql.ToString();
+        }
         public void insertFornecedor(string pCNPJ, string pNome, string pIE, string pFone, string pFantasia, int pCep, string pEnd, string pNum, string pBairro, string pCidade, string pEstado)
         {
             string sql = queryInsertFornecedor();
@@ -1092,6 +1148,47 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void updateColaborador(int pID, string pNome, string pCPF, string pLogradouro, string pNumero, string pBairro, string pCidade, string pEstado, string pContato, string pEmail, DateTime pDTNascimento, DateTime pDTEntrada, DateTime pDTSaida, double pVlSalario, string pBeneficios, int pAtivo)
+        {
+            string sql = queryUpdatoColaborador();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pNome", pNome);
+            sqlc.Parameters.AddWithValue("@pCPF", pCPF);
+            sqlc.Parameters.AddWithValue("@pLogradouro", pLogradouro);
+            sqlc.Parameters.AddWithValue("@pNumero", pNumero);
+            sqlc.Parameters.AddWithValue("@pBairro", pBairro);
+            sqlc.Parameters.AddWithValue("@pCidade", pCidade);
+            sqlc.Parameters.AddWithValue("@pEstado", pEstado);
+            sqlc.Parameters.AddWithValue("@pContato", pContato);
+            sqlc.Parameters.AddWithValue("@pEmail", pEmail);
+            sqlc.Parameters.AddWithValue("@pDTNascimento", pDTNascimento);
+            sqlc.Parameters.AddWithValue("@pDTEntrada", pDTEntrada);
+            sqlc.Parameters.AddWithValue("@pDTSaida", pDTSaida);
+            sqlc.Parameters.AddWithValue("@pVlSalario", pVlSalario);
+            sqlc.Parameters.AddWithValue("@pBeneficios", pBeneficios);
+            sqlc.Parameters.AddWithValue("@pAtivo", pAtivo);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdatoColaborador()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE PRODUTO SET DESCRICAO = @pDescricao, ");
+            sql.Append("TIPO = @pTipo,");
+            sql.Append("VALOR = @pValor, ");
+            sql.Append("QT_DESCRICAO = @pQtDesc, ");
+            sql.Append("EXIBIR_APP = @pExibirApp, ");
+            sql.Append("QT_SUB_ESTOQUE = @pQtSubEstoque ");
+            sql.Append("WHERE ID = @pID ");
+
+            return sql.ToString();
+        }
         public void updateFornecedor(int pID, string pCNPJ, string pNome, string pIE, string pFone, string pFantasia, int pCep, string pEnd, string pNum, string pBairro, string pCidade, string pEstado)
         {
             string sql = queryUpdateFornecedor();
@@ -1630,6 +1727,27 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT ID, DESCRICAO, TIPO, VALOR, QT_DESCRICAO, MOSTRAR_LIST, EXIBIR_APP, QT_SUB_ESTOQUE FROM PRODUTO WHERE ID = @pID ");
+
+            return sql.ToString();
+        }
+        public DataTable buscaColaborador(int pID)
+        {
+            string sql = queryBuscaColaborador();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+
+            return conexao.executarSelect(sqlc, conn);
+        }
+        private string queryBuscaColaborador()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ID, NOME, CPF, END_LOGRA, END_NUM, END_BAIRRO, END_CIDADE, END_ESTADO, CONTATO, EMAIL, DT_NASCIMENTO, DT_ENTRADA, DT_SAIDA, VL_SALARIO, BENEFICIOS, ATIVO ");
+            sql.Append("FROM COLABORADOR ");
+            sql.Append("WHERE ID = @pID");
 
             return sql.ToString();
         }

@@ -20,11 +20,12 @@ namespace Caixa.Cadastro
         ToolStripButton btnDeletar = new ToolStripButton();
         ToolStripButton btnSalvar = new ToolStripButton();
 
-        int id = 0;
+        int id = 0, status = 0;
         string nome = "", cpf = "", logradouro = "", numero = "", bairro = "", cidade = "", estado = "", contato = "";
-        string email = "", saida = "", beneficios = "", nomeForm = "";
+        string email = "", beneficios = "", nomeForm = "";
         DateTime dtNascimento, dtInicio, dtSaida;
         double salario;
+        
         public frmCadastroColaborador()
         {
 
@@ -43,6 +44,8 @@ namespace Caixa.Cadastro
 
             InitializeComponent();
             nomeForm = this.Text;
+
+            preencherCampos();
         }
 
         public void toolStripVoltarJCS_Click(object sender, EventArgs e)
@@ -67,18 +70,39 @@ namespace Caixa.Cadastro
         }
         public void toolStripSalvarJCS_Click(object sender, EventArgs e)
         {
+            if (!validarCampos())
+            {
+                MessageBox.Show("Confira os campos, está faltando informações para preencher!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            nome = txtNome.Text;
+            cpf = txtCPF.Text;
+            logradouro = txtLogradouro.Text;
+            numero = txtNumero.Text;
+            bairro = txtBairro.Text;
+            cidade = txtCidade.Text;
+            estado = txtEstado.Text;
+            contato = txtContato.Text;
+            email = txtEmail.Text;
+            beneficios = txtBeneficios.Text;
+            dtNascimento = dtpNascimento.Value;
+            dtInicio = dtpInicio.Value;
+            dtSaida = dtpSaida.Value;
+            salario = double.Parse(txtSalario.Text);
+            status = cboStatus.SelectedIndex == 1 ? 1 : 0;
 
             if (clickBtns.Equals("Novo"))
             {
-                //validaCampos();
+
                 DialogResult result = MessageBox.Show("Deseja salvar o novo produto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
                     if (result == DialogResult.Yes)
                     {
-                        //auxSQL.insertProduto(produto, tipo, valor, qtDesc, exibirApp, qtSubEstoque);
-                        //preencherCampos();
+                        auxSQL.insertColaborador(nome, cpf, logradouro, numero, bairro, cidade, estado, contato, email, dtNascimento, dtInicio, DateTime.Parse("01/01/2050"), salario, beneficios, 1);
+                        preencherCampos();
                     }
-                }
+                }                   
             }
             else if (clickBtns.Equals("Editar"))
             {
@@ -87,7 +111,7 @@ namespace Caixa.Cadastro
                 {
                     if (result == DialogResult.Yes)
                     {
-                        //auxSQL.updateProduto(id, produto, tipo, valor, qtDesc, exibirApp, qtSubEstoque);
+                        auxSQL.updateColaborador(id, nome, cpf, logradouro, numero, bairro, cidade, estado, contato, email, dtNascimento, dtInicio, dtSaida, salario, beneficios, status);
                         //MessageBox.Show("Produto alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         //preencherCampos();
@@ -116,7 +140,7 @@ namespace Caixa.Cadastro
                 }
                 else
                 {
-                    DataTable dt = auxSQL.buscaProduto(id);
+                    DataTable dt = auxSQL.buscaColaborador(id);
 
                     txtID.Text = dt.Rows[0]["ID"].ToString();
 
@@ -141,8 +165,7 @@ namespace Caixa.Cadastro
         }
         private void preencherCampos()
         {
-            dgvColaboradores.DataSource = auxSQL.retornaDataTable("SELECT ID, NOME, CPF, LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, CONTATO, EMAIL, DT_NASCIMENTO, DT_INICIO, DT_SAIDA, SALARIO, BENEFICIOS, STATUS FROM COLABORADOR");
-
+            dgvColaboradores.DataSource = auxSQL.retornaDataTable("SELECT ID, NOME, CPF, END_LOGRA, END_NUM, END_BAIRRO, END_CIDADE, END_ESTADO, CONTATO, EMAIL, DT_NASCIMENTO, DT_ENTRADA, DT_SAIDA, VL_SALARIO, BENEFICIOS, ATIVO FROM COLABORADOR");
         }
 
         private void DgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -153,6 +176,17 @@ namespace Caixa.Cadastro
                 nome = dgvColaboradores["colNome", e.RowIndex].Value.ToString();
             }
 
+        }
+
+        private bool validarCampos ()
+        {
+            if (string.IsNullOrEmpty(txtBairro.Text) || string.IsNullOrEmpty(txtBeneficios.Text) || string.IsNullOrEmpty(txtCidade.Text)
+                 || string.IsNullOrEmpty(txtContato.Text) || string.IsNullOrEmpty(txtCPF.Text) || string.IsNullOrEmpty(txtEmail.Text)
+                  || string.IsNullOrEmpty(txtEstado.Text) || string.IsNullOrEmpty(txtLogradouro.Text) || string.IsNullOrEmpty(txtNome.Text)
+                   || string.IsNullOrEmpty(txtSalario.Text) || cboStatus.SelectedIndex == 0)
+                return false;
+
+            return true;
         }
 
 

@@ -155,6 +155,12 @@
     <Compile Include="Cadastro\frmCadastroNFe.Designer.cs">
       <DependentUpon>frmCadastroNFe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cadastro\frmCadastroOcorrenciaColaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroOcorrenciaColaborador.Designer.cs">
+      <DependentUpon>frmCadastroOcorrenciaColaborador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro\frmCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroNFe.resx">
       <DependentUpon>frmCadastroNFe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro\frmCadastroOcorrenciaColaborador.resx">
+      <DependentUpon>frmCadastroOcorrenciaColaborador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroProduto.resx">
       <DependentUpon>frmCadastroProduto.cs</DependentUpon>

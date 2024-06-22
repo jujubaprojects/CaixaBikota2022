@@ -87,6 +87,11 @@ namespace Caixa
                     txtVlRecebido.Enabled = false;
                     tipoPagamento = 2;
                     break;
+                case 2:
+                    txtVlRecebido.Text = txtVlNota.Text;
+                    txtVlRecebido.Enabled = false;
+                    tipoPagamento = 9;
+                    break;
             }
         }
 
@@ -127,12 +132,30 @@ namespace Caixa
 
             return true;
         }
+        private bool acessoFrmsRestrito()
+        {
+            frmInputBoxJCS frm = new frmInputBoxJCS("Informe a senha.", 3, true);
+            frm.ShowDialog();
+            if (frm.retorno != "acessobikota")
+            {
+                MessageBox.Show("Senha incorreta!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
+        }
 
         private void BtnFinalizarPagamento_Click(object sender, EventArgs e)
         {
             if (validaCampos())
             {
-                auxSQL.insertPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString(), "LEVAR", 4);
+                if (cboTipoPagamento.SelectedIndex == 2)
+                {
+                    if (!acessoFrmsRestrito())
+                        return;
+
+                }
+                    auxSQL.insertPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString(), "LEVAR", 4);
 
                 int pedidoID = int.Parse(auxSQL.buscaUltimoPedido("PAGAMENTO DE NOTA - " + cboAnotar.SelectedItem.ToString()).Rows[0][0].ToString());
 
@@ -140,19 +163,20 @@ namespace Caixa
 
                 int pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
 
-                if (double.Parse(txtVlRecebido.Text) > double.Parse(txtVlNota.Text))
-                {
-                    if (chkValorHaver.Checked)
+                    if (double.Parse(txtVlRecebido.Text) > double.Parse(txtVlNota.Text))
                     {
-                        auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
-                        auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                        if (chkValorHaver.Checked)
+                        {
+                            auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
+                            auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                        }
+                        else
+                        {
+                            auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
+                            auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
+                        }
                     }
-                    else
-                    {
-                        auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
-                        auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
-                    }
-                }
+                
                 else
                 {
                     auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);

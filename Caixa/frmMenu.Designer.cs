@@ -50,6 +50,8 @@
             this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recebimentoDeNotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarNotasClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.despesasForaDoCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
@@ -72,8 +74,6 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
-            this.despesasForaDoCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -268,6 +268,19 @@
             this.consultarNotasClientesToolStripMenuItem.Text = "Consultar Notas de Clientes";
             this.consultarNotasClientesToolStripMenuItem.Click += new System.EventHandler(this.ConsultarNotasClientesToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(264, 6);
+            // 
+            // despesasForaDoCaixaToolStripMenuItem
+            // 
+            this.despesasForaDoCaixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.despesasForaDoCaixaToolStripMenuItem.Name = "despesasForaDoCaixaToolStripMenuItem";
+            this.despesasForaDoCaixaToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.despesasForaDoCaixaToolStripMenuItem.Text = "Despesas Fora do Caixa";
+            this.despesasForaDoCaixaToolStripMenuItem.Click += new System.EventHandler(this.DespesasForaDoCaixaToolStripMenuItem_Click);
+            // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -459,19 +472,7 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Name = "informaçõesRegistrosDeColaboradoresToolStripMenuItem";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(264, 6);
-            // 
-            // despesasForaDoCaixaToolStripMenuItem
-            // 
-            this.despesasForaDoCaixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.despesasForaDoCaixaToolStripMenuItem.Name = "despesasForaDoCaixaToolStripMenuItem";
-            this.despesasForaDoCaixaToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
-            this.despesasForaDoCaixaToolStripMenuItem.Text = "Despesas Fora do Caixa";
-            this.despesasForaDoCaixaToolStripMenuItem.Click += new System.EventHandler(this.DespesasForaDoCaixaToolStripMenuItem_Click);
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

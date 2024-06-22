@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvColaboradores = new Componentes.DataGridViewJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtID = new Componentes.TextBoxJCS(this.components);
@@ -44,7 +44,7 @@
             this.cboStatus = new Componentes.ComboBoxJCS(this.components);
             this.labelJCS5 = new Componentes.LabelJCS(this.components);
             this.txtLogradouro = new Componentes.TextBoxJCS(this.components);
-            this.ttxNumero = new Componentes.TextBoxJCS(this.components);
+            this.txtNumero = new Componentes.TextBoxJCS(this.components);
             this.txtBairro = new Componentes.TextBoxJCS(this.components);
             this.txtCidade = new Componentes.TextBoxJCS(this.components);
             this.txtEstado = new Componentes.TextBoxJCS(this.components);
@@ -57,13 +57,16 @@
             this.txtSalario = new Componentes.TextBoxJCS(this.components);
             this.txtBeneficios = new Componentes.TextBoxJCS(this.components);
             this.labelJCS9 = new Componentes.LabelJCS(this.components);
+            this.txtCPF = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS10 = new Componentes.LabelJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +75,6 @@
             this.colSalario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBeneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtCPF = new Componentes.TextBoxJCS(this.components);
-            this.labelJCS10 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,23 +84,24 @@
             this.dgvColaboradores.AllowUserToDeleteRows = false;
             this.dgvColaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvColaboradores.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvColaboradores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColaboradores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColaboradores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colNome,
+            this.colCPF,
             this.colRua,
             this.colNumero,
             this.colBairro,
             this.colCidade,
-            this.Estado,
+            this.UF,
             this.colContato,
             this.colEmail,
             this.colDataNascimento,
@@ -108,27 +110,27 @@
             this.colSalario,
             this.colBeneficios,
             this.colStatus});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvColaboradores.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvColaboradores.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvColaboradores.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvColaboradores.EnableHeadersVisualStyles = false;
             this.dgvColaboradores.Location = new System.Drawing.Point(0, 199);
             this.dgvColaboradores.Name = "dgvColaboradores";
             this.dgvColaboradores.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvColaboradores.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColaboradores.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvColaboradores.RowHeadersVisible = false;
             this.dgvColaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvColaboradores.Size = new System.Drawing.Size(800, 251);
@@ -261,19 +263,19 @@
             this.txtLogradouro.Text = "RUA/AVENIDA/LOGRADOURO";
             this.txtLogradouro.TipoCampo = null;
             // 
-            // ttxNumero
+            // txtNumero
             // 
-            this.ttxNumero.BackColor = System.Drawing.Color.White;
-            this.ttxNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttxNumero.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.ttxNumero.IconeKeyDown = null;
-            this.ttxNumero.Location = new System.Drawing.Point(324, 72);
-            this.ttxNumero.Name = "ttxNumero";
-            this.ttxNumero.Preenchimento = null;
-            this.ttxNumero.Size = new System.Drawing.Size(89, 24);
-            this.ttxNumero.TabIndex = 4;
-            this.ttxNumero.Text = "NUMERO/APT";
-            this.ttxNumero.TipoCampo = null;
+            this.txtNumero.BackColor = System.Drawing.Color.White;
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumero.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtNumero.IconeKeyDown = null;
+            this.txtNumero.Location = new System.Drawing.Point(324, 72);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Preenchimento = null;
+            this.txtNumero.Size = new System.Drawing.Size(89, 24);
+            this.txtNumero.TabIndex = 4;
+            this.txtNumero.Text = "NUMERO/APT";
+            this.txtNumero.TipoCampo = null;
             // 
             // txtBairro
             // 
@@ -424,114 +426,6 @@
             this.labelJCS9.TabIndex = 39;
             this.labelJCS9.Text = "Benefícios:";
             // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            this.colID.Width = 27;
-            // 
-            // colNome
-            // 
-            this.colNome.HeaderText = "Nome";
-            this.colNome.Name = "colNome";
-            this.colNome.ReadOnly = true;
-            this.colNome.Width = 68;
-            // 
-            // colRua
-            // 
-            this.colRua.HeaderText = "Logradouro";
-            this.colRua.Name = "colRua";
-            this.colRua.ReadOnly = true;
-            this.colRua.Width = 103;
-            // 
-            // colNumero
-            // 
-            this.colNumero.HeaderText = "Nº";
-            this.colNumero.Name = "colNumero";
-            this.colNumero.ReadOnly = true;
-            this.colNumero.Width = 48;
-            // 
-            // colBairro
-            // 
-            this.colBairro.HeaderText = "Bairro";
-            this.colBairro.Name = "colBairro";
-            this.colBairro.ReadOnly = true;
-            this.colBairro.Width = 69;
-            // 
-            // colCidade
-            // 
-            this.colCidade.HeaderText = "Cidade";
-            this.colCidade.Name = "colCidade";
-            this.colCidade.ReadOnly = true;
-            this.colCidade.Width = 73;
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "ESTADO";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 74;
-            // 
-            // colContato
-            // 
-            this.colContato.HeaderText = "Telefone";
-            this.colContato.Name = "colContato";
-            this.colContato.ReadOnly = true;
-            this.colContato.Width = 83;
-            // 
-            // colEmail
-            // 
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 64;
-            // 
-            // colDataNascimento
-            // 
-            this.colDataNascimento.HeaderText = "Nascimento";
-            this.colDataNascimento.Name = "colDataNascimento";
-            this.colDataNascimento.ReadOnly = true;
-            this.colDataNascimento.Width = 103;
-            // 
-            // colDtInicio
-            // 
-            this.colDtInicio.HeaderText = "Inicio";
-            this.colDtInicio.Name = "colDtInicio";
-            this.colDtInicio.ReadOnly = true;
-            this.colDtInicio.Width = 65;
-            // 
-            // colDtSaida
-            // 
-            this.colDtSaida.HeaderText = "Saída";
-            this.colDtSaida.Name = "colDtSaida";
-            this.colDtSaida.ReadOnly = true;
-            this.colDtSaida.Width = 65;
-            // 
-            // colSalario
-            // 
-            this.colSalario.HeaderText = "Salário";
-            this.colSalario.Name = "colSalario";
-            this.colSalario.ReadOnly = true;
-            this.colSalario.Width = 73;
-            // 
-            // colBeneficios
-            // 
-            this.colBeneficios.HeaderText = "Benefícios";
-            this.colBeneficios.Name = "colBeneficios";
-            this.colBeneficios.ReadOnly = true;
-            this.colBeneficios.Width = 94;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            this.colStatus.Width = 52;
-            // 
             // txtCPF
             // 
             this.txtCPF.BackColor = System.Drawing.Color.White;
@@ -556,6 +450,138 @@
             this.labelJCS10.TabIndex = 42;
             this.labelJCS10.Text = "CPF:";
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            this.colID.Width = 27;
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "NOME";
+            this.colNome.HeaderText = "Nome";
+            this.colNome.Name = "colNome";
+            this.colNome.ReadOnly = true;
+            this.colNome.Width = 68;
+            // 
+            // colCPF
+            // 
+            this.colCPF.DataPropertyName = "CPF";
+            this.colCPF.HeaderText = "CPF";
+            this.colCPF.Name = "colCPF";
+            this.colCPF.ReadOnly = true;
+            this.colCPF.Width = 53;
+            // 
+            // colRua
+            // 
+            this.colRua.DataPropertyName = "END_LOGRA";
+            this.colRua.HeaderText = "Logradouro";
+            this.colRua.Name = "colRua";
+            this.colRua.ReadOnly = true;
+            this.colRua.Width = 103;
+            // 
+            // colNumero
+            // 
+            this.colNumero.DataPropertyName = "END_NUM";
+            this.colNumero.HeaderText = "Nº";
+            this.colNumero.Name = "colNumero";
+            this.colNumero.ReadOnly = true;
+            this.colNumero.Width = 48;
+            // 
+            // colBairro
+            // 
+            this.colBairro.DataPropertyName = "END_BAIRRO";
+            this.colBairro.HeaderText = "Bairro";
+            this.colBairro.Name = "colBairro";
+            this.colBairro.ReadOnly = true;
+            this.colBairro.Width = 69;
+            // 
+            // colCidade
+            // 
+            this.colCidade.DataPropertyName = "END_CIDADE";
+            this.colCidade.HeaderText = "Cidade";
+            this.colCidade.Name = "colCidade";
+            this.colCidade.ReadOnly = true;
+            this.colCidade.Width = 73;
+            // 
+            // UF
+            // 
+            this.UF.DataPropertyName = "END_ESTADO";
+            this.UF.HeaderText = "UF";
+            this.UF.Name = "UF";
+            this.UF.ReadOnly = true;
+            this.UF.Width = 48;
+            // 
+            // colContato
+            // 
+            this.colContato.DataPropertyName = "CONTATO";
+            this.colContato.HeaderText = "Telefone";
+            this.colContato.Name = "colContato";
+            this.colContato.ReadOnly = true;
+            this.colContato.Width = 83;
+            // 
+            // colEmail
+            // 
+            this.colEmail.DataPropertyName = "EMAIL";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 64;
+            // 
+            // colDataNascimento
+            // 
+            this.colDataNascimento.DataPropertyName = "DT_NASCIMENTO";
+            this.colDataNascimento.HeaderText = "Nascimento";
+            this.colDataNascimento.Name = "colDataNascimento";
+            this.colDataNascimento.ReadOnly = true;
+            this.colDataNascimento.Width = 103;
+            // 
+            // colDtInicio
+            // 
+            this.colDtInicio.DataPropertyName = "DT_ENTRADA";
+            this.colDtInicio.HeaderText = "Inicio";
+            this.colDtInicio.Name = "colDtInicio";
+            this.colDtInicio.ReadOnly = true;
+            this.colDtInicio.Width = 65;
+            // 
+            // colDtSaida
+            // 
+            this.colDtSaida.DataPropertyName = "DT_SAIDA";
+            this.colDtSaida.HeaderText = "Saída";
+            this.colDtSaida.Name = "colDtSaida";
+            this.colDtSaida.ReadOnly = true;
+            this.colDtSaida.Width = 65;
+            // 
+            // colSalario
+            // 
+            this.colSalario.DataPropertyName = "VL_SALARIO";
+            this.colSalario.HeaderText = "Salário";
+            this.colSalario.Name = "colSalario";
+            this.colSalario.ReadOnly = true;
+            this.colSalario.Width = 73;
+            // 
+            // colBeneficios
+            // 
+            this.colBeneficios.DataPropertyName = "BENEFICIOS";
+            this.colBeneficios.HeaderText = "Benefícios";
+            this.colBeneficios.Name = "colBeneficios";
+            this.colBeneficios.ReadOnly = true;
+            this.colBeneficios.Width = 94;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "ATIVO";
+            this.colStatus.FalseValue = "0";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.IndeterminateValue = "0";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.TrueValue = "1";
+            this.colStatus.Width = 52;
+            // 
             // frmCadastroColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,7 +601,7 @@
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.txtBairro);
-            this.Controls.Add(this.ttxNumero);
+            this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.txtLogradouro);
             this.Controls.Add(this.labelJCS5);
             this.Controls.Add(this.cboStatus);
@@ -590,7 +616,7 @@
             this.Controls.Add(this.dgvColaboradores);
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.Name = "frmCadastroColaborador";
-            this.Text = "frmCadastroColaborador";
+            this.Text = "Cadastro de Colaborador";
             this.Controls.SetChildIndex(this.dgvColaboradores, 0);
             this.Controls.SetChildIndex(this.labelJCS1, 0);
             this.Controls.SetChildIndex(this.txtID, 0);
@@ -603,7 +629,7 @@
             this.Controls.SetChildIndex(this.cboStatus, 0);
             this.Controls.SetChildIndex(this.labelJCS5, 0);
             this.Controls.SetChildIndex(this.txtLogradouro, 0);
-            this.Controls.SetChildIndex(this.ttxNumero, 0);
+            this.Controls.SetChildIndex(this.txtNumero, 0);
             this.Controls.SetChildIndex(this.txtBairro, 0);
             this.Controls.SetChildIndex(this.txtCidade, 0);
             this.Controls.SetChildIndex(this.txtEstado, 0);
@@ -627,21 +653,6 @@
         #endregion
 
         private Componentes.DataGridViewJCS dgvColaboradores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRua;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colContato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDataNascimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDtInicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDtSaida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSalario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBeneficios;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colStatus;
         private Componentes.LabelJCS labelJCS1;
         private Componentes.TextBoxJCS txtID;
         private Componentes.TextBoxJCS txtNome;
@@ -653,7 +664,7 @@
         private Componentes.ComboBoxJCS cboStatus;
         private Componentes.LabelJCS labelJCS5;
         private Componentes.TextBoxJCS txtLogradouro;
-        private Componentes.TextBoxJCS ttxNumero;
+        private Componentes.TextBoxJCS txtNumero;
         private Componentes.TextBoxJCS txtBairro;
         private Componentes.TextBoxJCS txtCidade;
         private Componentes.TextBoxJCS txtEstado;
@@ -668,5 +679,21 @@
         private Componentes.LabelJCS labelJCS9;
         private Componentes.TextBoxJCS txtCPF;
         private Componentes.LabelJCS labelJCS10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCPF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colContato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataNascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDtInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDtSaida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSalario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBeneficios;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colStatus;
     }
 }

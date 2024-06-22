@@ -514,6 +514,8 @@ namespace Caixa
 
         private void ColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            /*CODIGO FUNCIONANDO ABAIXO*
             if (AbrePorta(CONSTANTES.porta, CONSTANTES.baudRate, CONSTANTES.dataBits, CONSTANTES.paridade) == 1)
             {
                 MessageBox.Show(this, "Porta aberta!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -533,6 +535,8 @@ namespace Caixa
             }
             else
                 MessageBox.Show(this, "Atenção! Porta fechada.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            */
+
 
             //SerialPort mySerialPort = new SerialPort("COM9", 2400, Parity.None, 8, StopBits.One);
             //mySerialPort.Handshake = Handshake.None;
@@ -568,7 +572,11 @@ namespace Caixa
 
         private void CadastroDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (acessoFrmsRestrito())
+            {
+                frmCadastroColaborador frm = new frmCadastroColaborador();
+                frm.ShowDialog();
+            }
         }
 
         private void DespesasForaDoCaixaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -578,6 +586,12 @@ namespace Caixa
                 frmDespesa frm = new frmDespesa();
                 frm.ShowDialog();
             }
+        }
+
+        private void InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroOcorrenciaColaborador frm = new frmCadastroOcorrenciaColaborador();
+            frm.ShowDialog();
         }
     }
     

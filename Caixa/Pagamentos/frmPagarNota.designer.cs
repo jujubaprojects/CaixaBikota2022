@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkValorHaver = new Componentes.CheckBoxJCS(this.components);
             this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.txtProduto = new Componentes.TextBoxJCS(this.components);
             this.cboTipoPagamento = new Componentes.ComboBoxJCS(this.components);
@@ -42,7 +43,6 @@
             this.txtVlNota = new Componentes.TextBoxJCS(this.components);
             this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
-            this.chkValorHaver = new Componentes.CheckBoxJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,18 @@
             this.panel2.Size = new System.Drawing.Size(453, 141);
             this.panel2.TabIndex = 8;
             // 
+            // chkValorHaver
+            // 
+            this.chkValorHaver.AutoSize = true;
+            this.chkValorHaver.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.chkValorHaver.Location = new System.Drawing.Point(216, 43);
+            this.chkValorHaver.Name = "chkValorHaver";
+            this.chkValorHaver.Size = new System.Drawing.Size(195, 21);
+            this.chkValorHaver.TabIndex = 4;
+            this.chkValorHaver.Text = "Deixar valor a mais em haver";
+            this.chkValorHaver.UseVisualStyleBackColor = true;
+            this.chkValorHaver.CheckedChanged += new System.EventHandler(this.ChkValorHaver_CheckedChanged);
+            // 
             // cboAnotar
             // 
             this.cboAnotar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -123,7 +135,8 @@
             this.cboTipoPagamento.FormattingEnabled = true;
             this.cboTipoPagamento.Items.AddRange(new object[] {
             "DINHEIRO",
-            "PIX"});
+            "PIX",
+            "DESCONTO"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 72);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
             this.cboTipoPagamento.Size = new System.Drawing.Size(109, 23);
@@ -209,18 +222,6 @@
             this.labelJCS1.Size = new System.Drawing.Size(61, 17);
             this.labelJCS1.TabIndex = 6;
             this.labelJCS1.Text = "Produto:";
-            // 
-            // chkValorHaver
-            // 
-            this.chkValorHaver.AutoSize = true;
-            this.chkValorHaver.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.chkValorHaver.Location = new System.Drawing.Point(216, 43);
-            this.chkValorHaver.Name = "chkValorHaver";
-            this.chkValorHaver.Size = new System.Drawing.Size(195, 21);
-            this.chkValorHaver.TabIndex = 4;
-            this.chkValorHaver.Text = "Deixar valor a mais em haver";
-            this.chkValorHaver.UseVisualStyleBackColor = true;
-            this.chkValorHaver.CheckedChanged += new System.EventHandler(this.ChkValorHaver_CheckedChanged);
             // 
             // frmPagarNota
             // 
