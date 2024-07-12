@@ -23,6 +23,16 @@ namespace Caixa.Cadastro
         int id = 0, status = 0;
         string nome = "", cpf = "", logradouro = "", numero = "", bairro = "", cidade = "", estado = "", contato = "";
         string email = "", beneficios = "", nomeForm = "";
+
+        private void DgvColaboradores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                id = int.Parse(dgvColaboradores["colID", e.RowIndex].Value.ToString());
+                nome = dgvColaboradores["colNome", e.RowIndex].Value.ToString();
+            }
+        }
+
         DateTime dtNascimento, dtInicio, dtSaida;
         double salario;
         
@@ -33,7 +43,7 @@ namespace Caixa.Cadastro
             btnEditar = toolStripEditarJCS;
             btnDeletar = toolStripDeletarJCS;
             btnSalvar = toolStripSalvarJCS;
-
+            this.limparCampos = false;
 
             //tStrip.click += new EventHandler(toolStripNovoJCS_Click);
             //btnNovo.Click += new EventHandler(toolStripNovoJCS_Click);
@@ -114,7 +124,7 @@ namespace Caixa.Cadastro
                         auxSQL.updateColaborador(id, nome, cpf, logradouro, numero, bairro, cidade, estado, contato, email, dtNascimento, dtInicio, dtSaida, salario, beneficios, status);
                         //MessageBox.Show("Produto alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        //preencherCampos();
+                        preencherCampos();
                     }
                 }
             }
@@ -144,19 +154,19 @@ namespace Caixa.Cadastro
 
                     txtID.Text = dt.Rows[0]["ID"].ToString();
 
-                    txtBairro.Text = dt.Rows[0]["BAIRRO"].ToString();
+                    txtBairro.Text = dt.Rows[0]["END_BAIRRO"].ToString();
                     txtBeneficios.Text = dt.Rows[0]["BENEFICIOS"].ToString();
-                    txtCidade.Text = dt.Rows[0]["CIDADE"].ToString();
+                    txtCidade.Text = dt.Rows[0]["END_CIDADE"].ToString();
                     txtContato.Text = dt.Rows[0]["CONTATO"].ToString();
                     txtCPF.Text = dt.Rows[0]["CPF"].ToString();
                     txtEmail.Text = dt.Rows[0]["EMAIL"].ToString();
-                    txtEstado.Text = dt.Rows[0]["ESTADO"].ToString();
-                    txtLogradouro.Text = dt.Rows[0]["LOGRADOURO"].ToString();
+                    txtEstado.Text = dt.Rows[0]["END_ESTADO"].ToString();
+                    txtLogradouro.Text = dt.Rows[0]["END_LOGRA"].ToString();
                     txtNome.Text = dt.Rows[0]["NOME"].ToString();
-                    txtSalario.Text = dt.Rows[0]["SALARIO"].ToString();
+                    txtSalario.Text = dt.Rows[0]["VL_SALARIO"].ToString();
 
-                    cboStatus.SelectedIndex = dt.Rows[0]["STATUS"].ToString().Equals("True") ? 1 : 0;
-                    dtpInicio.Text = dt.Rows[0]["DT_INICIO"].ToString();
+                    cboStatus.SelectedIndex = dt.Rows[0]["ATIVO"].ToString().Equals("True") ? 1 : 0;
+                    dtpInicio.Text = dt.Rows[0]["DT_ENTRADA"].ToString();
                     dtpNascimento.Text = dt.Rows[0]["DT_NASCIMENTO"].ToString();
                     dtpSaida.Text = dt.Rows[0]["DT_SAIDA"].ToString();
                 }

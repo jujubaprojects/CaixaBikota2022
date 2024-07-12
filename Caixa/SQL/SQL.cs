@@ -1179,12 +1179,22 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
 
-            sql.Append("UPDATE PRODUTO SET DESCRICAO = @pDescricao, ");
-            sql.Append("TIPO = @pTipo,");
-            sql.Append("VALOR = @pValor, ");
-            sql.Append("QT_DESCRICAO = @pQtDesc, ");
-            sql.Append("EXIBIR_APP = @pExibirApp, ");
-            sql.Append("QT_SUB_ESTOQUE = @pQtSubEstoque ");
+            sql.Append("UPDATE COLABORADOR SET ");
+            sql.Append("NOME = @pNome, ");
+            sql.Append("CPF = @pCPF, ");
+            sql.Append("END_LOGRA = @pLogradouro, ");
+            sql.Append("END_NUM = @pNumero, ");
+            sql.Append("END_BAIRRO = @pBairro, ");
+            sql.Append("END_CIDADE = @pCidade, ");
+            sql.Append("END_ESTADO = @pEstado, ");
+            sql.Append("CONTATO = @pContato, ");
+            sql.Append("EMAIL = @pEmail, ");
+            sql.Append("DT_NASCIMENTO = @pDTNascimento, ");
+            sql.Append("DT_ENTRADA = @pDTEntrada, ");
+            sql.Append("DT_SAIDA = @pDTSaida, ");
+            sql.Append("VL_SALARIO = @pVlSalario, ");
+            sql.Append("BENEFICIOS = @pBeneficios, ");
+            sql.Append("ATIVO = @pAtivo ");
             sql.Append("WHERE ID = @pID ");
 
             return sql.ToString();
