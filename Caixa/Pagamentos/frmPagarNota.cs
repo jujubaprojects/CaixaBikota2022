@@ -88,8 +88,10 @@ namespace Caixa
                     tipoPagamento = 2;
                     break;
                 case 2:
-                    txtVlRecebido.Text = txtVlNota.Text;
-                    txtVlRecebido.Enabled = false;
+                    //txtVlRecebido.Text = txtVlNota.Text;
+                    //txtVlRecebido.Enabled = false;
+                    txtVlRecebido.Enabled = true;
+                    txtVlRecebido.Text = "";
                     tipoPagamento = 9;
                     break;
             }
@@ -163,20 +165,32 @@ namespace Caixa
 
                 int pedidoProdutoID = int.Parse(auxSQL.retornaDataTable("SELECT MAX(ID) FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID).Rows[0][0].ToString());
 
-                    if (double.Parse(txtVlRecebido.Text) > double.Parse(txtVlNota.Text))
+                if (double.Parse(txtVlRecebido.Text) > double.Parse(txtVlNota.Text))
+                {
+                    if (chkValorHaver.Checked)
                     {
-                        if (chkValorHaver.Checked)
+                        auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
+                        auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("O valor informado é maior que o da Nota, você esqueceu de marcar a Opção deixar em Haver?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         {
-                            auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
-                            auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
-                        }
-                        else
-                        {
-                            auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
-                            auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
+                            if (result == DialogResult.Yes)
+                            {
+                                auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
+                                auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                            }
+                            else
+                            {
+
+                                auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
+                                auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
+                            }
                         }
                     }
-                
+                }
+
                 else
                 {
                     auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
