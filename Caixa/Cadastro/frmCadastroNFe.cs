@@ -27,6 +27,10 @@ namespace Caixa.Cadastro
         public frmCadastroNFe()
         {
             InitializeComponent();
+
+            //rbtCupomNFiscal.Checked = true;
+            //txtIDFornecedor.Text = "68";
+            //TxtIDFornecedor_Leave(new object(), new EventArgs());
         }
         private void BtnBuscarFornecedor_Click(object sender, EventArgs e)
         {
@@ -365,7 +369,7 @@ namespace Caixa.Cadastro
                     }
 
                     sql.Clear();
-                    if (chkProdSemCod.Checked)
+                    if (chkProdSemCod.Checked && string.IsNullOrEmpty(txtCodProduto.Text))
                     {
                         sql.Append("SELECT ISNULL(MAX(NFP.COD_PROD),0) + 1 ");
                         sql.Append("FROM NF_PROD NFP ");
@@ -421,15 +425,32 @@ namespace Caixa.Cadastro
 
         private void BtnBuscarProd_Click(object sender, EventArgs e)
         {
+            frmBusca frm;
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT DISTINCT NFP.COD_PROD CODIGO, NFP.DESC_PROD PRODUTO ");
+            sql.Append("FROM NF_PROD NFP ");
+            sql.Append("JOIN NF ON(NF.ID = NFP.NF) ");
+
             if (!string.IsNullOrEmpty(txtFornecedor.Text))
             {
-                StringBuilder sql = new StringBuilder();
-                sql.Append("SELECT DISTINCT NFP.COD_PROD CODIGO, NFP.DESC_PROD PRODUTO ");
-                sql.Append("FROM NF_PROD NFP ");
-                sql.Append("JOIN NF ON(NF.ID = NFP.NF) ");
-                sql.Append("WHERE NF.FORNECEDOR = " + txtIDFornecedor.Text);
-                frmBusca frm = new frmBusca(sql, "Busca Produtos " + txtFornecedor.Text);
-                frm.ShowDialog();
+                if (transacao != null)
+                {
+                    sql.Append("WHERE NF.FORNECEDOR = @pFornecedor ");
+
+                    SqlCommand sqlProdFornecedor = new SqlCommand(sql.ToString(), conn, transacao);
+                    sqlProdFornecedor.Parameters.AddWithValue("@pFornecedor", txtIDFornecedor.Text);
+                    DataTable dtAux = auxSQL.retornaDataTableTransaction(conn, sqlProdFornecedor);
+
+                    frm = new frmBusca(sql, "Busca Produtos " + txtFornecedor.Text, dtAux);
+                }
+                else
+                {
+                    sql.Append("WHERE NF.FORNECEDOR = " + txtIDFornecedor.Text);
+                    frm = new frmBusca(sql, "Busca Produtos " + txtFornecedor.Text);
+                }
+
+
+                    frm.ShowDialog();
 
                 if (frm.retorno != null)
                 {
