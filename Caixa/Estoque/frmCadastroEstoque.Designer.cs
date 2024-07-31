@@ -1,6 +1,6 @@
 ﻿namespace Caixa.Estoque
 {
-    partial class frmLinkEstoqueProduto
+    partial class frmCadastroEstoque
     {
         /// <summary>
         /// Required designer variable.

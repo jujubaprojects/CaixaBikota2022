@@ -11,7 +11,7 @@ using Componentes;
 
 namespace Caixa.Estoque
 {
-    public partial class frmLinkEstoqueProduto : frmCadastroJCS
+    public partial class frmCadastroEstoque : frmCadastroJCS
     {
         private SQL.SQL auxSQL = new SQL.SQL();
         private int id = 0, qtEstoque = 0, qtEstIdeal = 0;
@@ -22,7 +22,7 @@ namespace Caixa.Estoque
         ToolStripButton btnDeletar = new ToolStripButton();
         ToolStripButton btnSalvar = new ToolStripButton();
 
-        public frmLinkEstoqueProduto()
+        public frmCadastroEstoque()
         {
             btnVoltar = toolStripVoltarJCS;
             btnEditar = toolStripEditarJCS;

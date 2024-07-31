@@ -44,6 +44,29 @@ namespace Caixa.Estoque
                 auxSQL.insertLinkNFxProdXfor(int.Parse(txtIDProd.Text), int.Parse(txtIDFornecedor.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtCaixa.Text));
                 MessageBox.Show("Link criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 preencherCampos();
+
+                //DialogResult result = MessageBox.Show("Você deseja adicionar ao estoque a quantidade de produtos das NFes do produto que você acabou de linkar?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //if (result == DialogResult.Yes)
+                //{
+                sql.Clear();
+                sql.Append("SELECT NFP.* ");
+                sql.Append("FROM NF_PROD NFP ");
+                sql.Append("JOIN NF ON(NFP.NF = NF.id) ");
+                sql.Append("WHERE NFP.COD_PROD = " + int.Parse(txtIDProd.Text) + " AND NF.FORNECEDOR = " + int.Parse(txtIDFornecedor.Text));
+                DataTable dtProdAddEstoque = auxSQL.retornaDataTable(sql.ToString());
+                    if (dtProdAddEstoque.Rows.Count == 1)
+                    {
+                    int auxQtAdd;
+                        if (dtProdAddEstoque.Rows[0]["UN_COMERCIAL"].ToString().Equals("CX"))
+                            auxQtAdd = int.Parse(txtQtCaixa.Text) * int.Parse(dtProdAddEstoque.Rows[0]["QT_COM"].ToString());
+                        else
+                            auxQtAdd = int.Parse(dtProdAddEstoque.Rows[0]["QT_COM"].ToString());
+
+                    auxSQL.retornaDataTable("UPDATE CONTROLE_ESTOQUE SET QT_ESTOQUE = QT_ESTOQUE + " + auxQtAdd + " WHERE ID = " + txtIdEstoque.Text);
+                    }
+                //}
+
+
                 limparCampos();
             }
             else

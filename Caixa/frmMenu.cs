@@ -341,7 +341,7 @@ namespace Caixa
         {
             if (acessoFrmsRestrito())
             {
-                frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
+                frmCadastroEstoque frm = new frmCadastroEstoque();
                 frm.ShowDialog();
             }
         }
@@ -350,7 +350,7 @@ namespace Caixa
         {
             //if (acessoFrmsRestrito())
             //{
-            frmLinkEstoqueProduto frm = new frmLinkEstoqueProduto();
+            frmCadastroEstoque frm = new frmCadastroEstoque();
             frm.ShowDialog();
             //}
         }
@@ -380,7 +380,7 @@ namespace Caixa
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("");
-            sql.Append("SELECT F.NOME FORNECEDOR, P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, P.UN_COMERCIAL, VL_UNIT, N.DT_ENTREGA ");
+            sql.Append("SELECT N.COD_NF AS NF, F.NOME FORNECEDOR, P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, P.UN_COMERCIAL, VL_UNIT, N.DT_ENTREGA ");
             sql.Append("FROM NF N ");
             sql.Append("JOIN NF_PROD P ON(P.NF = N.ID) ");
             sql.Append("JOIN fornecedor F ON(N.FORNECEDOR = F.ID) ");

@@ -217,11 +217,11 @@
     <Compile Include="Estoque\frmImportXML.Designer.cs">
       <DependentUpon>frmImportXML.cs</DependentUpon>
     </Compile>
-    <Compile Include="Estoque\frmLinkEstoqueProduto.cs">
+    <Compile Include="Estoque\frmCadastroEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estoque\frmLinkEstoqueProduto.Designer.cs">
-      <DependentUpon>frmLinkEstoqueProduto.cs</DependentUpon>
+    <Compile Include="Estoque\frmCadastroEstoque.Designer.cs">
+      <DependentUpon>frmCadastroEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Estoque\frmLinkProdNFFornecedor.cs">
       <SubType>Form</SubType>
@@ -378,8 +378,8 @@
     <EmbeddedResource Include="Estoque\frmImportXML.resx">
       <DependentUpon>frmImportXML.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estoque\frmLinkEstoqueProduto.resx">
-      <DependentUpon>frmLinkEstoqueProduto.cs</DependentUpon>
+    <EmbeddedResource Include="Estoque\frmCadastroEstoque.resx">
+      <DependentUpon>frmCadastroEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\frmLinkProdNFFornecedor.resx">
       <DependentUpon>frmLinkProdNFFornecedor.cs</DependentUpon>
