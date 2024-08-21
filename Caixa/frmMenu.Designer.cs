@@ -74,6 +74,8 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.lembretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,7 +119,9 @@
             this.estoqueBaldesToolStripMenuItem,
             this.toolStripMenuItem2,
             this.fornecedorToolStripMenuItem,
-            this.nFCupomManualToolStripMenuItem});
+            this.nFCupomManualToolStripMenuItem,
+            this.toolStripMenuItem9,
+            this.lembretesToolStripMenuItem});
             this.pedidosToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.pedidosToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_contabilidade_48;
             this.pedidosToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -474,6 +478,19 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(195, 6);
+            // 
+            // lembretesToolStripMenuItem
+            // 
+            this.lembretesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lembretesToolStripMenuItem.Name = "lembretesToolStripMenuItem";
+            this.lembretesToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.lembretesToolStripMenuItem.Text = "Lembretes";
+            this.lembretesToolStripMenuItem.Click += new System.EventHandler(this.LembretesToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,6 +556,8 @@
         private System.Windows.Forms.ToolStripMenuItem informaçõesRegistrosDeColaboradoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem despesasForaDoCaixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem lembretesToolStripMenuItem;
     }
 }
 

@@ -36,6 +36,32 @@ namespace Caixa
         public frmMenu()
         {
             InitializeComponent();
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM LEMBRETE /*REPETIR MENSALMENTE*/ ");
+            sql.Append("WHERE DAY(DATA) = DAY(GETDATE()) AND REPETIR = 4 ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT * FROM LEMBRETE /*REPETIR DIARIAMENTE*/ ");
+            sql.Append("WHERE REPETIR = 1 ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT * FROM LEMBRETE /*REPETIR SEMANALMENTE*/ ");
+            sql.Append("WHERE REPETIR = 2 AND DATENAME(WEEKDAY, DATA) = DATENAME(WEEKDAY, GETDATE()) ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT * FROM LEMBRETE /*REPETIR UNICA VEZ*/ ");
+            sql.Append("WHERE REPETIR = 9 AND DATA = CONVERT(date, GETDATE()) ");
+            sql.Append("UNION ALL ");
+            sql.Append("SELECT * FROM LEMBRETE /*REPETIR QUINZENALMENTE*/ ");
+            sql.Append("WHERE REPETIR = 3 AND DATENAME(WEEKDAY, DATA) = DATENAME(WEEKDAY, GETDATE()) AND(DAY(DATA) - DAY(GETDATE())) NOT IN(7, 21, -7, -21) ");
+
+            DataTable dtLembrete = auxSQL.retornaDataTable(sql.ToString());
+            if (dtLembrete.Rows.Count > 0)
+            {
+                string msgLembrete = "";
+                for (int i = 0; i < dtLembrete.Rows.Count; i++)
+                    msgLembrete += "\n" + dtLembrete.Rows[i]["DESCRICAO"].ToString() + " - " + dtLembrete.Rows[i]["DATA"].ToString();
+
+                MessageBox.Show("Não se esqueça dos seguintes lembretes para hoje!" + msgLembrete, "Lembretes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
 
             //if (verificarImpressora())
             //{
@@ -380,7 +406,7 @@ namespace Caixa
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("");
-            sql.Append("SELECT N.COD_NF AS NF, F.NOME FORNECEDOR, P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, P.UN_COMERCIAL, VL_UNIT, N.DT_ENTREGA ");
+            sql.Append("SELECT N.N_NF AS NF, F.NOME FORNECEDOR, P.COD_PROD CODIGO, P.DESC_PROD PRODUTO, QT_COM QT_COMPRADA, P.UN_COMERCIAL, VL_UNIT, N.DT_ENTREGA ");
             sql.Append("FROM NF N ");
             sql.Append("JOIN NF_PROD P ON(P.NF = N.ID) ");
             sql.Append("JOIN fornecedor F ON(N.FORNECEDOR = F.ID) ");
@@ -591,6 +617,12 @@ namespace Caixa
         private void InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCadastroOcorrenciaColaborador frm = new frmCadastroOcorrenciaColaborador();
+            frm.ShowDialog();
+        }
+
+        private void LembretesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroLembrete frm = new frmCadastroLembrete();
             frm.ShowDialog();
         }
     }

@@ -254,6 +254,29 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertLembrete(string pDescricao, DateTime pData, int pTipoRepetir , int pStatus)
+        {
+            string sql = queryInsertLembrete();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pData", pData);
+            sqlc.Parameters.AddWithValue("@pTipoRepetir", pTipoRepetir);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertLembrete()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO LEMBRETE (DESCRICAO, DATA, REPETIR, STATUS) ");
+            sql.Append("VALUES (@pDescricao, @pData, @pTipoRepetir, @pStatus) ");
+
+            return sql.ToString();
+        }
         public void insertColaborador(string pNome, string pCPF, string pLogradouro, string pNumero, string pBairro, string pCidade, string pEstado, string pContato, string pEmail, DateTime pDTNascimento, DateTime pDTEntrada, DateTime pDTSaida, double pVlSalario, string pBeneficios, int pAtivo)
         {
             string sql = queryInsertColaborador();
@@ -1116,9 +1139,38 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void updateLembrete(int pID, string pDescricao, DateTime pData, int pTipoRepetir, int pStatus)
+        {
+            string sql = queryUpdateLembrete();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pData", pData);
+            sqlc.Parameters.AddWithValue("@pTipoRepetir", pTipoRepetir);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateLembrete()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE LEMBRETE SET DESCRICAO = @pDescricao, ");
+            sql.Append("DESCRICAO = @pDescricao,");
+            sql.Append("DATA = @pData, ");
+            sql.Append("REPETIR = @pTipoRepetir, ");
+            sql.Append("STATUS = @pStatus ");
+            sql.Append("WHERE ID = @pID ");
+
+            return sql.ToString();
+        }
         public void updateProduto(int pID, string pDescricao, int pTipo, double pValor, int pQtDesc, int pExibirApp, int pQtSubEstoque)
         {
-            string sql = queryUpdatoProduto();
+            string sql = queryUpdateProduto();
 
             SqlConnection conn = conexao.retornaConexao();
 
@@ -1134,7 +1186,7 @@ namespace Caixa.SQL
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        private string queryUpdatoProduto()
+        private string queryUpdateProduto()
         {
             StringBuilder sql = new StringBuilder();
 

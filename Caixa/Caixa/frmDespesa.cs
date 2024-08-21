@@ -46,7 +46,7 @@ namespace Caixa.Caixa
 
                     txtDescricao.Text = "";
                     txtValor.Text = "";
-                    dtpData.Value = DateTime.Now;
+                    //dtpData.Value = DateTime.Now;
                     cboTipoPagamento.SelectedIndex = 0;
                     txtValor.Focus();
                 }
