@@ -272,6 +272,7 @@ namespace Caixa
             double vlInserir = 0;
             double vlPago = double.Parse(txtVlRecebido.Text);
             double vlAberto = double.Parse(txtValorAberto.Text);
+            double vlInserido = 0;
             for (int i = 0; i < dgvPedProdAberto.Rows.Count; i++)
             {
                 if (auxVl > 0)
@@ -289,20 +290,21 @@ namespace Caixa
                             if (qtLinhaSel >= i + 1)
                             {
                                 if (vlHaver)
-                                    vlInserir = (double.Parse(txtVlRecebido.Text) - vlProdutosSemHaver) / qtLinhaSel;
+                                    vlInserir = Math.Round((double.Parse(txtVlRecebido.Text) - vlProdutosSemHaver) / qtLinhaSel,4);
                                 else
-                                    vlInserir = vlDividido / qtLinhaSel;
+                                    vlInserir = Math.Round(vlDividido / qtLinhaSel,4);
                             }
                             else
-                                vlInserir = double.Parse(dgvPedProdAberto["colValor", i].Value.ToString());
+                                vlInserir = Math.Round(double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()), 4);
 
                             //vlInserir = Math.Floor(vlInserir);// Math.Round(vlInserir, );
                             auxVl -= vlInserir;
+                            vlInserido += vlInserir;
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
 
                             //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
                             //if (vlDividido >= auxVlAberto || vlAberto >= auxVlAberto)
-                                //auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
+                            //auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
                         }
                         else
                         {

@@ -384,7 +384,80 @@ namespace Caixa
                             auxSQL.insertPedidoProduto(pedidoID, dtGrid.Rows[i]["PRODUTO"].ToString(), double.Parse(dtGrid.Rows[i]["QT"].ToString()), "COMANDA RÁPIDA", "", 2);
 
                         }
-                       this.Close();
+
+
+                        //INICIO PARA COLOCAR O SABOR DOS POTES DE SORVETE NA COMANDA
+                        bool updatePote = false;
+                        for (int i = 0; i < dtGrid.Rows.Count; i++)
+                        {
+                            if (dtGrid.Rows[i]["TIPO"].ToString().Equals("POTES"))
+                            {
+                                List<string> potes = new List<string>();
+                                potes.Add("POTE 04L");
+                                potes.Add("POTE 05L");
+                                potes.Add("POTE 10L");
+
+                                if (potes.Contains(dtGrid.Rows[i]["PRODUTO"].ToString()))
+                                    updatePote = true;
+                            }
+                        }
+
+                        if (updatePote)
+                        { 
+                            if (result == DialogResult.Yes)
+                            {
+
+                                StringBuilder sql = new StringBuilder();
+                                sql.Append("SELECT PP.* ");
+                                sql.Append("FROM PEDIDO P ");
+                                sql.Append("JOIN PEDIDO_PRODUTO PP ON(P.ID = PP.PEDIDO) ");
+                                sql.Append("WHERE PP.DESCRICAO LIKE 'COMANDA RÁPIDA' AND PP.PRODUTO IN (1100, 43, 44)  ");
+                                sql.Append("AND P.SITUACAO = 1 AND P.DESCRICAO LIKE '" + frm.retorno.ToUpper() + "' ");
+                                sql.Append("AND convert(varchar, P.DT_INICIAL, 103) = '" + DateTime.Now.Date.ToShortDateString() + "'");
+                                DataTable dtPotes = auxSQL.retornaDataTable(sql.ToString());
+
+                                for (int i = 0; i < dtPotes.Rows.Count; i++)
+                                {
+
+                                    sql.Clear();
+                                    sql.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE  ");
+                                    sql.Append("FROM ESTOQUE_POTE EP ");
+                                    sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+                                    sql.Append("WHERE EP.QT_EST > 0 AND P.ID = " + dtPotes.Rows[i]["PRODUTO"].ToString() + " ");
+                                    sql.Append("ORDER BY P.DESCRICAO, 3");
+
+                                    int aux = 0;
+                                    while (true)
+                                    {
+                                        aux++;
+                                        frmBusca frm2 = new frmBusca(sql, "Escolha o sabor do pote");
+                                        frm2.ShowDialog();
+                                        if (frm2.retorno != null)
+                                        {
+                                            string auxDescricao = frm2.retorno["DESCRICAO"].ToString();
+                                            auxDescricao = auxDescricao.Substring(0, auxDescricao.Length - 2).Replace(";", ",");
+                                            //auxSQL.updateAddEstoquePote(int.Parse(frm2.retorno["ID"].ToString()), int.Parse(dtGrid.Rows[listPosicaoGrid[i]]["QT"].ToString()) * -1);
+                                            auxSQL.updatePedidoProdutoInt(int.Parse(dtPotes.Rows[i]["ID"].ToString()), int.Parse(dtPotes.Rows[i]["PRODUTO"].ToString()), double.Parse(dtPotes.Rows[i]["QT_PRODUTO"].ToString()), auxDescricao);
+
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("É obrigatório escolher o pote de sorvete!\n\nCaso você tenha clicado em sim incorretamente, saia desta tela mais uma vez sem clicar em nenhum campo para voltar a tela anterior!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+
+                                    if (aux > 1)
+                                        return;
+                                }
+
+
+                            }
+
+                        }
+                        //FINAL DO METODO DOS SABORES NA COMANDA
+
+                        this.Close();
                     }
                 }
             }

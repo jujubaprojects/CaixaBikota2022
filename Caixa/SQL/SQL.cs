@@ -1382,6 +1382,35 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+
+        public void updatePedidoProdutoInt(int pPedidoProdutoID, int pProduto, double pQuantidade, string pDescricao)//, string pTipoPedido)
+        {
+            string sql = queryUpdatePedidoProdutoInt(pPedidoProdutoID, pProduto, pQuantidade, pDescricao);//, pTipoPedido);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pPedidoProdutoID", pPedidoProdutoID);
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+            sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            //sqlc.Parameters.AddWithValue("@pTipoPedido", pTipoPedido);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdatePedidoProdutoInt(int pPedidoProdutoID, int pProduto, double pQuantidade, string pDescricao)//, string pTipoPedido)
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE PEDIDO_PRODUTO SET PRODUTO = @pProduto, ");
+            sql.Append("QT_PRODUTO = @pQuantidade, ");
+            sql.Append("DESCRICAO = @pDescricao ");
+            //sql.Append("TIPO = (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido) ");
+            sql.Append("WHERE ID = @pPedidoProdutoID");
+
+            return sql.ToString();
+        }
         public void updateControleEstoqueCusto(int pID, string pProduto = "", int pQtEstoque= -1, int pQtEstoqueIdeal = 0, int pQtEnviadoFor = 0, double pCusto = 0, string pUnidade = "", string pFornecedor = "",string pDataEntrega = "" , int pSituacao = -1, int pAddEstoque = 0)
         {
             string sql = queryupdateControleEstoqueCusto(pID, pProduto, pQtEstoque, pQtEstoqueIdeal, pQtEnviadoFor, pCusto, pUnidade,  pFornecedor, pDataEntrega, pSituacao, pAddEstoque);
@@ -1715,7 +1744,7 @@ namespace Caixa.SQL
             //sql.Append("LEFT JOIN PRODUTO P ON(P.ID = PP.PRODUTO) ");
             //sql.Append("GROUP BY AUX.PED_PROD_ID, AUX.QT_PRODUTO, AUX.VL_PAGO,  AUX.ORDEM, P.DESCRICAO, PP.DESCRICAO ");
 
-            sql.Append("SELECT AUX.PED_PROD_ID, P.DESCRICAO PRODUTO, coalesce(dbo.retorna_adicionais(AUX.PED_PROD_ID),PP.DESCRICAO) DESC_PRODUTO, AUX.QT_PRODUTO, SUM(VL_PRODUTO) VL_PRODUTO, SUM(AUX.VL_TOTAL) VL_TOTAL, sum(AUX.VL_PAGO) VL_PAGO, SUM(AUX.VL_TOTAL) - SUM(AUX.VL_PAGO)  VL_ABERTO /*SUM(AUX.VL_ABERTO) VL_ABERTO, AUX.ORDEM*/ ");
+            sql.Append("SELECT AUX.PED_PROD_ID, P.DESCRICAO PRODUTO, coalesce(dbo.retorna_adicionais(AUX.PED_PROD_ID),PP.DESCRICAO) DESC_PRODUTO, AUX.QT_PRODUTO, SUM(VL_PRODUTO) VL_PRODUTO, CONVERT(DECIMAL(6,2), SUM(AUX.VL_TOTAL)) VL_TOTAL, sum(AUX.VL_PAGO) VL_PAGO, CONVERT(DECIMAL(6,2), SUM(AUX.VL_TOTAL)) - SUM(AUX.VL_PAGO)  VL_ABERTO /*SUM(AUX.VL_ABERTO) VL_ABERTO, AUX.ORDEM*/ ");
             sql.Append("FROM ( ");
             sql.Append("SELECT PP.ID AS PED_PROD_ID, P.DESCRICAO PRODUTO, PP.DESCRICAO DESC_PRODUTO, PP.QT_PRODUTO, ");
             sql.Append(" P.VALOR VL_PRODUTO, (PP.QT_PRODUTO * P.VALOR) VL_TOTAL,  ");
