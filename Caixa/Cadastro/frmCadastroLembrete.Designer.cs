@@ -106,6 +106,7 @@
             this.dgvLembretes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLembretes.Size = new System.Drawing.Size(569, 338);
             this.dgvLembretes.TabIndex = 28;
+            this.dgvLembretes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLembretes_CellClick);
             // 
             // colID
             // 

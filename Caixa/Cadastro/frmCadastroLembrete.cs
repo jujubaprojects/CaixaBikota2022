@@ -85,6 +85,15 @@ namespace Caixa.Cadastro
         {
 
         }
+
+        private void DgvLembretes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                id = int.Parse(dgvLembretes["colID", e.RowIndex].Value.ToString());
+            }
+        }
+
         public void toolStripSalvarJCS_Click(object sender, EventArgs e)
         {
 
@@ -136,7 +145,7 @@ namespace Caixa.Cadastro
                 }
                 else
                 {
-                    DataTable dt = auxSQL.buscaProduto(id);
+                    DataTable dt = auxSQL.retornaDataTable("SELECT * FROM LEMBRETE WHERE ID = " + id);
                     txtID.Text = dt.Rows[0]["ID"].ToString();
                     txtDescricao.Text = dt.Rows[0]["DESCRICAO"].ToString();
                     dtpData.Value = DateTime.Parse(dt.Rows[0]["DATA"].ToString());

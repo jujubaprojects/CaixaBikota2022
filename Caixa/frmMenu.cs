@@ -502,6 +502,9 @@ namespace Caixa
 
         private void SubtrairEstoqueToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            //frmSubEstoque frm = new frmSubEstoque();
+            //frm.ShowDialog();
+
             if (DateTime.Now.Hour >= 20 && DateTime.Now.Hour < 23)
             {
                 frmSubEstoque frm = new frmSubEstoque();
@@ -629,6 +632,21 @@ namespace Caixa
         {
             frmCadastroLembrete frm = new frmCadastroLembrete();
             frm.ShowDialog();
+        }
+
+        private void AlertasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroAlerta frm = new frmCadastroAlerta();
+            frm.ShowDialog();
+        }
+
+        private void BloqueioEstoqueManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (acessoFrmsRestrito())
+            {
+                frmCadastroBloqueioEstoqueSubManual frm = new frmCadastroBloqueioEstoqueSubManual();
+                frm.ShowDialog();
+            }
         }
     }
     

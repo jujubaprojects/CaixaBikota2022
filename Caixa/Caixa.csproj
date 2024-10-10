@@ -131,6 +131,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastro\frmCadastroAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroAlerta.Designer.cs">
+      <DependentUpon>frmCadastroAlerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroBloqueioEstoqueSubManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroBloqueioEstoqueSubManual.Designer.cs">
+      <DependentUpon>frmCadastroBloqueioEstoqueSubManual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro\frmCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +359,12 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SQL\SQL.cs" />
+    <EmbeddedResource Include="Cadastro\frmCadastroAlerta.resx">
+      <DependentUpon>frmCadastroAlerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro\frmCadastroBloqueioEstoqueSubManual.resx">
+      <DependentUpon>frmCadastroBloqueioEstoqueSubManual.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroCliente.resx">
       <DependentUpon>frmCadastroCliente.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -45,6 +45,9 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.fornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nFCupomManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.lembretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recebimentoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retiradaCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,8 +77,7 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
-            this.lembretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloqueioEstoqueManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,15 +115,17 @@
             this.toolStripMenuItem6,
             this.baldesToolStripMenuItem,
             this.clienteToolStripMenuItem,
-            this.estoqueToolStripMenuItem,
             this.produtosToolStripMenuItem1,
             this.toolStripMenuItem5,
+            this.estoqueToolStripMenuItem,
             this.estoqueBaldesToolStripMenuItem,
+            this.bloqueioEstoqueManualToolStripMenuItem,
             this.toolStripMenuItem2,
             this.fornecedorToolStripMenuItem,
             this.nFCupomManualToolStripMenuItem,
             this.toolStripMenuItem9,
-            this.lembretesToolStripMenuItem});
+            this.lembretesToolStripMenuItem,
+            this.alertasToolStripMenuItem});
             this.pedidosToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.pedidosToolStripMenuItem1.Image = global::Caixa.Properties.Resources.icons8_contabilidade_48;
             this.pedidosToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -134,7 +138,7 @@
             this.novoPedidoToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.novoPedidoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.novoPedidoToolStripMenuItem1.Name = "novoPedidoToolStripMenuItem1";
-            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(198, 24);
+            this.novoPedidoToolStripMenuItem1.Size = new System.Drawing.Size(237, 24);
             this.novoPedidoToolStripMenuItem1.Text = "Novo Pedido";
             this.novoPedidoToolStripMenuItem1.Click += new System.EventHandler(this.NovoPedidoToolStripMenuItem_Click);
             // 
@@ -143,21 +147,21 @@
             this.pedidosAbertoToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.pedidosAbertoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pedidosAbertoToolStripMenuItem1.Name = "pedidosAbertoToolStripMenuItem1";
-            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(198, 24);
+            this.pedidosAbertoToolStripMenuItem1.Size = new System.Drawing.Size(237, 24);
             this.pedidosAbertoToolStripMenuItem1.Text = "Pedidos Aberto";
             this.pedidosAbertoToolStripMenuItem1.Click += new System.EventHandler(this.PedidosAbertoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(195, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(234, 6);
             // 
             // baldesToolStripMenuItem
             // 
             this.baldesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.baldesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.baldesToolStripMenuItem.Name = "baldesToolStripMenuItem";
-            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.baldesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.baldesToolStripMenuItem.Text = "Baldes";
             this.baldesToolStripMenuItem.Click += new System.EventHandler(this.BaldesToolStripMenuItem_Click_1);
             // 
@@ -166,7 +170,7 @@
             this.clienteToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.clienteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
             // 
@@ -174,7 +178,7 @@
             // 
             this.estoqueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.EstoqueToolStripMenuItem_Click);
             // 
@@ -182,33 +186,33 @@
             // 
             this.produtosToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
-            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(198, 24);
+            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(237, 24);
             this.produtosToolStripMenuItem1.Text = "Produtos";
             this.produtosToolStripMenuItem1.Click += new System.EventHandler(this.ProdutosToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(195, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(234, 6);
             // 
             // estoqueBaldesToolStripMenuItem
             // 
             this.estoqueBaldesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.estoqueBaldesToolStripMenuItem.Name = "estoqueBaldesToolStripMenuItem";
-            this.estoqueBaldesToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.estoqueBaldesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.estoqueBaldesToolStripMenuItem.Text = "Estoque Baldes";
             this.estoqueBaldesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueBaldesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(195, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(234, 6);
             // 
             // fornecedorToolStripMenuItem
             // 
             this.fornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.FornecedorToolStripMenuItem_Click);
             // 
@@ -216,9 +220,30 @@
             // 
             this.nFCupomManualToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.nFCupomManualToolStripMenuItem.Name = "nFCupomManualToolStripMenuItem";
-            this.nFCupomManualToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.nFCupomManualToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.nFCupomManualToolStripMenuItem.Text = "NF/Cupom Manual";
             this.nFCupomManualToolStripMenuItem.Click += new System.EventHandler(this.NFCupomManualToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(234, 6);
+            // 
+            // lembretesToolStripMenuItem
+            // 
+            this.lembretesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lembretesToolStripMenuItem.Name = "lembretesToolStripMenuItem";
+            this.lembretesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.lembretesToolStripMenuItem.Text = "Lembretes";
+            this.lembretesToolStripMenuItem.Click += new System.EventHandler(this.LembretesToolStripMenuItem_Click);
+            // 
+            // alertasToolStripMenuItem
+            // 
+            this.alertasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.alertasToolStripMenuItem.Name = "alertasToolStripMenuItem";
+            this.alertasToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.alertasToolStripMenuItem.Text = "Alertas";
+            this.alertasToolStripMenuItem.Click += new System.EventHandler(this.AlertasToolStripMenuItem_Click);
             // 
             // caixaToolStripMenuItem
             // 
@@ -478,18 +503,13 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem9
+            // bloqueioEstoqueManualToolStripMenuItem
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(195, 6);
-            // 
-            // lembretesToolStripMenuItem
-            // 
-            this.lembretesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lembretesToolStripMenuItem.Name = "lembretesToolStripMenuItem";
-            this.lembretesToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
-            this.lembretesToolStripMenuItem.Text = "Lembretes";
-            this.lembretesToolStripMenuItem.Click += new System.EventHandler(this.LembretesToolStripMenuItem_Click);
+            this.bloqueioEstoqueManualToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.bloqueioEstoqueManualToolStripMenuItem.Name = "bloqueioEstoqueManualToolStripMenuItem";
+            this.bloqueioEstoqueManualToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.bloqueioEstoqueManualToolStripMenuItem.Text = "Bloqueio Estoque Manual";
+            this.bloqueioEstoqueManualToolStripMenuItem.Click += new System.EventHandler(this.BloqueioEstoqueManualToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -558,6 +578,8 @@
         private System.Windows.Forms.ToolStripMenuItem despesasForaDoCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem lembretesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alertasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloqueioEstoqueManualToolStripMenuItem;
     }
 }
 

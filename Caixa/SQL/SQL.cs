@@ -254,7 +254,7 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
-        public void insertLembrete(string pDescricao, DateTime pData, int pTipoRepetir , int pStatus)
+        public void insertLembrete(string pDescricao, DateTime pData, int pTipoRepetir, int pStatus)
         {
             string sql = queryInsertLembrete();
 
@@ -274,6 +274,48 @@ namespace Caixa.SQL
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO LEMBRETE (DESCRICAO, DATA, REPETIR, STATUS) ");
             sql.Append("VALUES (@pDescricao, @pData, @pTipoRepetir, @pStatus) ");
+
+            return sql.ToString();
+        }
+        public void insertAlerta(string pDescricao, int pStatus)
+        {
+            string sql = queryInsertAlerta();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertAlerta()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO ALERTA (DESCRICAO, STATUS) ");
+            sql.Append("VALUES (@pDescricao, @pStatus) ");
+
+            return sql.ToString();
+        }
+        public void insertBloqueioSubEst(int pIDEst, int pTipo)
+        {
+            string sql = queryInsertBloqueioSubEst();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pIDEst", pIDEst);
+            sqlc.Parameters.AddWithValue("@pTipo", pTipo);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertBloqueioSubEst()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO BLOQUEIO_EST_SUB (ID_ESTOQUE, TIPO_EST) ");
+            sql.Append("VALUES (@pIDEst, @pTipo) ");
 
             return sql.ToString();
         }
@@ -1163,6 +1205,30 @@ namespace Caixa.SQL
             sql.Append("DESCRICAO = @pDescricao,");
             sql.Append("DATA = @pData, ");
             sql.Append("REPETIR = @pTipoRepetir, ");
+            sql.Append("STATUS = @pStatus ");
+            sql.Append("WHERE ID = @pID ");
+
+            return sql.ToString();
+        }
+        public void updateAlerta(int pID, string pDescricao, int pStatus)
+        {
+            string sql = queryUpdateAlerta();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateAlerta()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE ALERTA SET DESCRICAO = @pDescricao, ");
             sql.Append("STATUS = @pStatus ");
             sql.Append("WHERE ID = @pID ");
 

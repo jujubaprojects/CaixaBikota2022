@@ -107,14 +107,14 @@ namespace Caixa.Estoque
                 sql.Append("SELECT EP.ID, P.DESCRICAO PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE, DATA  ");
                 sql.Append("FROM ESTOQUE_POTE EP  ");
                 sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID)  ");
-                sql.Append("WHERE EP.QT_EST > 0  ");
+                sql.Append("WHERE EP.QT_EST > 0 AND EP.ID NOT IN (SELECT ID_ESTOQUE FROM BLOQUEIO_EST_SUB WHERE TIPO_EST = 1) ");
                 sql.Append("ORDER BY 2,3  ");
             }
             else
             {
                 sql.Append("SELECT ID, DESCRICAO, QT_ESTOQUE QT_RESTANTE ");
                 sql.Append("FROM CONTROLE_ESTOQUE ");
-                sql.Append("WHERE QT_ESTOQUE > 0 AND STATUS = 1 ");
+                sql.Append("WHERE QT_ESTOQUE > 0 AND STATUS = 1  AND ID NOT IN (SELECT ID_ESTOQUE FROM BLOQUEIO_EST_SUB WHERE TIPO_EST = 2) ");
                 sql.Append("ORDER BY DESCRICAO ");
             }
 
