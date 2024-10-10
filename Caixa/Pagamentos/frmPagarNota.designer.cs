@@ -217,11 +217,11 @@
             // 
             this.labelJCS1.AutoSize = true;
             this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS1.Location = new System.Drawing.Point(34, 19);
+            this.labelJCS1.Location = new System.Drawing.Point(43, 15);
             this.labelJCS1.Name = "labelJCS1";
-            this.labelJCS1.Size = new System.Drawing.Size(61, 17);
+            this.labelJCS1.Size = new System.Drawing.Size(52, 17);
             this.labelJCS1.TabIndex = 6;
-            this.labelJCS1.Text = "Produto:";
+            this.labelJCS1.Text = "Cliente:";
             // 
             // frmPagarNota
             // 

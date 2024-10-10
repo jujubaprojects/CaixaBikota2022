@@ -33,6 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtEstoqueIdeal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.txtDescricao = new Componentes.TextBoxJCS(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -45,13 +51,8 @@
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
             this.txtFiltroDescricao = new Componentes.TextBoxJCS(this.components);
             this.labelJCS6 = new Componentes.LabelJCS(this.components);
-            this.chkVerificarEst = new Componentes.CheckBoxJCS(this.components);
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtEstoqueIdeal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVerificarEst = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.labelJCS4 = new Componentes.LabelJCS(this.components);
+            this.txtObservacao = new Componentes.TextBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +81,7 @@
             this.colDescricao,
             this.colQtEst,
             this.colQtEstoqueIdeal,
-            this.colVerificarEst,
+            this.colObservacao,
             this.colAtivo});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -91,7 +92,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLink.EnableHeadersVisualStyles = false;
-            this.dgvLink.Location = new System.Drawing.Point(0, 183);
+            this.dgvLink.Location = new System.Drawing.Point(0, 201);
             this.dgvLink.Name = "dgvLink";
             this.dgvLink.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -104,9 +105,60 @@
             this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLink.RowHeadersVisible = false;
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLink.Size = new System.Drawing.Size(695, 379);
+            this.dgvLink.Size = new System.Drawing.Size(695, 361);
             this.dgvLink.TabIndex = 47;
             this.dgvLink.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLink_CellClick);
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            this.colID.Width = 27;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            // 
+            // colQtEst
+            // 
+            this.colQtEst.DataPropertyName = "QT_ESTOQUE";
+            this.colQtEst.HeaderText = "QT. Estoque";
+            this.colQtEst.Name = "colQtEst";
+            this.colQtEst.ReadOnly = true;
+            this.colQtEst.Width = 105;
+            // 
+            // colQtEstoqueIdeal
+            // 
+            this.colQtEstoqueIdeal.DataPropertyName = "QT_ESTOQUE_IDEAL";
+            this.colQtEstoqueIdeal.HeaderText = "QT. Ideal";
+            this.colQtEstoqueIdeal.Name = "colQtEstoqueIdeal";
+            this.colQtEstoqueIdeal.ReadOnly = true;
+            this.colQtEstoqueIdeal.Width = 85;
+            // 
+            // colObservacao
+            // 
+            this.colObservacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colObservacao.DataPropertyName = "OBSERVACAO";
+            this.colObservacao.HeaderText = "Observação";
+            this.colObservacao.Name = "colObservacao";
+            this.colObservacao.ReadOnly = true;
+            this.colObservacao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // colAtivo
+            // 
+            this.colAtivo.DataPropertyName = "STATUS";
+            this.colAtivo.FalseValue = "";
+            this.colAtivo.HeaderText = "Status";
+            this.colAtivo.Name = "colAtivo";
+            this.colAtivo.ReadOnly = true;
+            this.colAtivo.Width = 52;
             // 
             // labelJCS1
             // 
@@ -221,7 +273,7 @@
             this.groupBoxJCS1.Controls.Add(this.txtFiltroDescricao);
             this.groupBoxJCS1.Controls.Add(this.labelJCS6);
             this.groupBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxJCS1.Location = new System.Drawing.Point(12, 102);
+            this.groupBoxJCS1.Location = new System.Drawing.Point(12, 144);
             this.groupBoxJCS1.Name = "groupBoxJCS1";
             this.groupBoxJCS1.Size = new System.Drawing.Size(671, 51);
             this.groupBoxJCS1.TabIndex = 60;
@@ -252,74 +304,38 @@
             this.labelJCS6.TabIndex = 17;
             this.labelJCS6.Text = "Descrição:";
             // 
-            // chkVerificarEst
+            // labelJCS4
             // 
-            this.chkVerificarEst.AutoSize = true;
-            this.chkVerificarEst.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.chkVerificarEst.Location = new System.Drawing.Point(446, 72);
-            this.chkVerificarEst.Name = "chkVerificarEst";
-            this.chkVerificarEst.Size = new System.Drawing.Size(133, 21);
-            this.chkVerificarEst.TabIndex = 61;
-            this.chkVerificarEst.Text = "Verificar Estoque?";
-            this.chkVerificarEst.UseVisualStyleBackColor = true;
+            this.labelJCS4.AutoSize = true;
+            this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS4.Location = new System.Drawing.Point(12, 105);
+            this.labelJCS4.Name = "labelJCS4";
+            this.labelJCS4.Size = new System.Drawing.Size(82, 17);
+            this.labelJCS4.TabIndex = 61;
+            this.labelJCS4.Text = "Observação:";
             // 
-            // colID
+            // txtObservacao
             // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            this.colID.Width = 27;
+            this.txtObservacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtObservacao.BackColor = System.Drawing.Color.White;
+            this.txtObservacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtObservacao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtObservacao.IconeKeyDown = null;
+            this.txtObservacao.Location = new System.Drawing.Point(100, 102);
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Preenchimento = "";
+            this.txtObservacao.Size = new System.Drawing.Size(583, 24);
+            this.txtObservacao.TabIndex = 62;
+            this.txtObservacao.TipoCampo = "STRING";
             // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            // 
-            // colQtEst
-            // 
-            this.colQtEst.DataPropertyName = "QT_ESTOQUE";
-            this.colQtEst.HeaderText = "QT. Estoque";
-            this.colQtEst.Name = "colQtEst";
-            this.colQtEst.ReadOnly = true;
-            this.colQtEst.Width = 105;
-            // 
-            // colQtEstoqueIdeal
-            // 
-            this.colQtEstoqueIdeal.DataPropertyName = "QT_ESTOQUE_IDEAL";
-            this.colQtEstoqueIdeal.HeaderText = "QT. Ideal";
-            this.colQtEstoqueIdeal.Name = "colQtEstoqueIdeal";
-            this.colQtEstoqueIdeal.ReadOnly = true;
-            this.colQtEstoqueIdeal.Width = 85;
-            // 
-            // colVerificarEst
-            // 
-            this.colVerificarEst.HeaderText = "Ver Est";
-            this.colVerificarEst.Name = "colVerificarEst";
-            this.colVerificarEst.ReadOnly = true;
-            this.colVerificarEst.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colVerificarEst.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colVerificarEst.Width = 73;
-            // 
-            // colAtivo
-            // 
-            this.colAtivo.DataPropertyName = "STATUS";
-            this.colAtivo.FalseValue = "";
-            this.colAtivo.HeaderText = "Status";
-            this.colAtivo.Name = "colAtivo";
-            this.colAtivo.ReadOnly = true;
-            this.colAtivo.Width = 52;
-            // 
-            // frmLinkEstoqueProduto
+            // frmCadastroEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 562);
-            this.Controls.Add(this.chkVerificarEst);
+            this.Controls.Add(this.txtObservacao);
+            this.Controls.Add(this.labelJCS4);
             this.Controls.Add(this.groupBoxJCS1);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.chkAtivo);
@@ -330,7 +346,7 @@
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.dgvLink);
             this.Controls.Add(this.labelJCS1);
-            this.Name = "frmLinkEstoqueProduto";
+            this.Name = "frmCadastroEstoque";
             this.Text = "Cadastro de Controle de Estoque";
             this.Controls.SetChildIndex(this.labelJCS1, 0);
             this.Controls.SetChildIndex(this.dgvLink, 0);
@@ -342,7 +358,8 @@
             this.Controls.SetChildIndex(this.chkAtivo, 0);
             this.Controls.SetChildIndex(this.txtID, 0);
             this.Controls.SetChildIndex(this.groupBoxJCS1, 0);
-            this.Controls.SetChildIndex(this.chkVerificarEst, 0);
+            this.Controls.SetChildIndex(this.labelJCS4, 0);
+            this.Controls.SetChildIndex(this.txtObservacao, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).EndInit();
             this.groupBoxJCS1.ResumeLayout(false);
             this.groupBoxJCS1.PerformLayout();
@@ -366,12 +383,13 @@
         private Componentes.GroupBoxJCS groupBoxJCS1;
         private Componentes.TextBoxJCS txtFiltroDescricao;
         private Componentes.LabelJCS labelJCS6;
-        private Componentes.CheckBoxJCS chkVerificarEst;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtEst;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtEstoqueIdeal;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colVerificarEst;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colAtivo;
+        private Componentes.LabelJCS labelJCS4;
+        private Componentes.TextBoxJCS txtObservacao;
     }
 }

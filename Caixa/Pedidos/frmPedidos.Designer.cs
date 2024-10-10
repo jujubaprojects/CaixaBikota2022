@@ -55,12 +55,13 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.cboSituacao = new Componentes.ComboBoxJCS(this.components);
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAtualizar = new Componentes.ButtonJCS(this.components);
+            this.chkDataEspec = new Componentes.CheckBoxJCS(this.components);
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnNovoPedido = new Componentes.ButtonJCS(this.components);
-            this.btnAtualizar = new Componentes.ButtonJCS(this.components);
-            this.chkDataEspec = new Componentes.CheckBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -124,7 +125,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPedidos.EnableHeadersVisualStyles = false;
-            this.dgvPedidos.Location = new System.Drawing.Point(0, 121);
+            this.dgvPedidos.Location = new System.Drawing.Point(0, 104);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -136,7 +137,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(912, 329);
+            this.dgvPedidos.Size = new System.Drawing.Size(912, 150);
             this.dgvPedidos.TabIndex = 4;
             this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellClick);
             // 
@@ -343,50 +344,6 @@
             this.dataGridViewImageColumn4.ReadOnly = true;
             this.dataGridViewImageColumn4.Width = 5;
             // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.FillWeight = 11.5073F;
-            this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::Caixa.Properties.Resources.icons8_editar_24;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.ReadOnly = true;
-            this.dataGridViewImageColumn3.Width = 5;
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.FillWeight = 11.5073F;
-            this.dataGridViewImageColumn5.HeaderText = "Cancelar";
-            this.dataGridViewImageColumn5.Image = global::Caixa.Properties.Resources.icons8_cancelar_16;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            this.dataGridViewImageColumn5.Width = 64;
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.FillWeight = 11.5073F;
-            this.dataGridViewImageColumn6.HeaderText = "Cancelar";
-            this.dataGridViewImageColumn6.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ReadOnly = true;
-            this.dataGridViewImageColumn6.Width = 64;
-            // 
-            // btnNovoPedido
-            // 
-            this.btnNovoPedido.BackColor = System.Drawing.Color.Gold;
-            this.btnNovoPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnNovoPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNovoPedido.Image = global::Caixa.Properties.Resources.icons8_mais_48;
-            this.btnNovoPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNovoPedido.Location = new System.Drawing.Point(748, 18);
-            this.btnNovoPedido.Name = "btnNovoPedido";
-            this.btnNovoPedido.Size = new System.Drawing.Size(152, 53);
-            this.btnNovoPedido.TabIndex = 8;
-            this.btnNovoPedido.Text = "Novo Pedido";
-            this.btnNovoPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoPedido.UseVisualStyleBackColor = false;
-            this.btnNovoPedido.Click += new System.EventHandler(this.BtnNovoPedido_Click);
-            // 
             // btnAtualizar
             // 
             this.btnAtualizar.BackColor = System.Drawing.Color.Gold;
@@ -415,6 +372,58 @@
             this.chkDataEspec.Text = "Pedidos em Aberto antigo";
             this.chkDataEspec.UseVisualStyleBackColor = true;
             this.chkDataEspec.CheckedChanged += new System.EventHandler(this.ChkDataEspec_CheckedChanged);
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.FillWeight = 11.5073F;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::Caixa.Properties.Resources.icons8_editar_24;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Width = 5;
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.FillWeight = 11.5073F;
+            this.dataGridViewImageColumn5.HeaderText = "Cancelar";
+            this.dataGridViewImageColumn5.Image = global::Caixa.Properties.Resources.icons8_cancelar_16;
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            this.dataGridViewImageColumn5.Width = 64;
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.FillWeight = 11.5073F;
+            this.dataGridViewImageColumn6.HeaderText = "Cancelar";
+            this.dataGridViewImageColumn6.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ReadOnly = true;
+            this.dataGridViewImageColumn6.Width = 64;
+            // 
+            // dataGridViewImageColumn7
+            // 
+            this.dataGridViewImageColumn7.HeaderText = "Reimprimir";
+            this.dataGridViewImageColumn7.Image = global::Caixa.Properties.Resources.impressora_20x20;
+            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
+            this.dataGridViewImageColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn7.Width = 78;
+            // 
+            // btnNovoPedido
+            // 
+            this.btnNovoPedido.BackColor = System.Drawing.Color.Gold;
+            this.btnNovoPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnNovoPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNovoPedido.Image = global::Caixa.Properties.Resources.icons8_mais_48;
+            this.btnNovoPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNovoPedido.Location = new System.Drawing.Point(748, 18);
+            this.btnNovoPedido.Name = "btnNovoPedido";
+            this.btnNovoPedido.Size = new System.Drawing.Size(152, 53);
+            this.btnNovoPedido.TabIndex = 8;
+            this.btnNovoPedido.Text = "Novo Pedido";
+            this.btnNovoPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovoPedido.UseVisualStyleBackColor = false;
+            this.btnNovoPedido.Click += new System.EventHandler(this.BtnNovoPedido_Click);
             // 
             // frmPedidos
             // 
@@ -474,5 +483,6 @@
         private System.Windows.Forms.DataGridViewImageColumn colPagar;
         private System.Windows.Forms.DataGridViewImageColumn colCancelar;
         private System.Windows.Forms.DataGridViewImageColumn colReimprimir;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn7;
     }
 }

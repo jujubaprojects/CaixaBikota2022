@@ -277,6 +277,12 @@
     <Compile Include="Pagamentos\frmPagarNota.designer.cs">
       <DependentUpon>frmPagarNota.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\EfeitoScrollAlertas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pedidos\EfeitoScrollAlertas.Designer.cs">
+      <DependentUpon>EfeitoScrollAlertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedidos\frmNovoPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pagamentos\frmPagarNota.resx">
       <DependentUpon>frmPagarNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\EfeitoScrollAlertas.resx">
+      <DependentUpon>EfeitoScrollAlertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmNovoPedido.resx">
       <DependentUpon>frmNovoPedido.cs</DependentUpon>

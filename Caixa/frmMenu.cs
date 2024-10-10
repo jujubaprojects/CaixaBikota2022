@@ -502,8 +502,13 @@ namespace Caixa
 
         private void SubtrairEstoqueToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmSubEstoque frm = new frmSubEstoque();
-            frm.ShowDialog();
+            if (DateTime.Now.Hour >= 20 && DateTime.Now.Hour < 23)
+            {
+                frmSubEstoque frm = new frmSubEstoque();
+                frm.ShowDialog();
+            }
+            else
+                MessageBox.Show("Permitido utilizar esta tela apenas após as 20:00hrs. \n\nColoque a informação no grupo!!! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
