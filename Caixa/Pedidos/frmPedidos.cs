@@ -24,6 +24,15 @@ namespace Caixa
 
             cboSituacao.SelectedIndex = 0;
             this.WindowState = FormWindowState.Maximized;
+
+
+            DataTable dt = sqlAux.retornaDataTable("SELECT CONCAT( ID, ' - ' ,  DESCRICAO) as DESCRICAO FROM ALERTA WHERE STATUS = 1");
+            if (dt.Rows.Count > 0)
+            {
+                efcAlerta.Text = "";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    efcAlerta.Text += "                                                " + dt.Rows[i]["DESCRICAO"].ToString() + "                                                ";
+            }
         }
 
         private void CboSituacao_SelectedIndexChanged(object sender, EventArgs e)

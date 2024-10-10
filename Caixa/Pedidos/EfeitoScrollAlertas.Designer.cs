@@ -38,7 +38,7 @@
             // 
             // EfeitoScrollAlertas
             // 
-            this.Name = "EfeitoScrollAlertas";
+            this.Size = new System.Drawing.Size(1000, 23);
             this.ResumeLayout(false);
 
         }

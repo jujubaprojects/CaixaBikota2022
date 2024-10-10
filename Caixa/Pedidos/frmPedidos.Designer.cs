@@ -62,6 +62,7 @@
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnNovoPedido = new Componentes.ButtonJCS(this.components);
+            this.efcAlerta = new Pedidos.EfeitoScrollAlertas();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +126,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPedidos.EnableHeadersVisualStyles = false;
-            this.dgvPedidos.Location = new System.Drawing.Point(0, 104);
+            this.dgvPedidos.Location = new System.Drawing.Point(0, 108);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -137,7 +138,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(912, 150);
+            this.dgvPedidos.Size = new System.Drawing.Size(912, 337);
             this.dgvPedidos.TabIndex = 4;
             this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellClick);
             // 
@@ -425,11 +426,28 @@
             this.btnNovoPedido.UseVisualStyleBackColor = false;
             this.btnNovoPedido.Click += new System.EventHandler(this.BtnNovoPedido_Click);
             // 
+            // efcAlerta
+            // 
+            this.efcAlerta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.efcAlerta.AutoSize = true;
+            this.efcAlerta.BackColor = System.Drawing.Color.White;
+            this.efcAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.efcAlerta.ForeColor = System.Drawing.Color.Red;
+            this.efcAlerta.Location = new System.Drawing.Point(267, 77);
+            this.efcAlerta.Name = "efcAlerta";
+            this.efcAlerta.Set_Velocidade = 7;
+            this.efcAlerta.Size = new System.Drawing.Size(520, 29);
+            this.efcAlerta.TabIndex = 11;
+            this.efcAlerta.Text = "TESTE DO JUBA TESTE DO JUBA TESTE DO JUBA ";
+            this.efcAlerta.UseCompatibleTextRendering = true;
+            // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 450);
+            this.Controls.Add(this.efcAlerta);
             this.Controls.Add(this.chkDataEspec);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnNovoPedido);
@@ -484,5 +502,6 @@
         private System.Windows.Forms.DataGridViewImageColumn colCancelar;
         private System.Windows.Forms.DataGridViewImageColumn colReimprimir;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn7;
+        private Pedidos.EfeitoScrollAlertas efcAlerta;
     }
 }

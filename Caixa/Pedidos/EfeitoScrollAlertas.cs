@@ -18,6 +18,7 @@ namespace Caixa.Pedidos
             UseCompatibleTextRendering = true;
             this.BackColor = Color.White;
             timer1.Start();
+            this.AutoSize = true;
         }
         int posicao, velocidade;
         public int Set_Velocidade { get { return velocidade; } set { velocidade = value; Invalidate(); } }
