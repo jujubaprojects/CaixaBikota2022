@@ -63,8 +63,8 @@ namespace Caixa.Estoque
                     {
                         if (arquivos[l].ToUpper().Contains(".XML"))// || arquivos[l].ToUpper().Contains(".XLSX"))//APENAS XMLs e Excel
                         {
-                            if (arquivos[l].Equals(@"C:\Users\Jujuba\Downloads\NFe31240410975945000859550010004644311849623671.xml"))
-                                teste = "";
+                            //if (arquivos[l].Equals(@"C:\Users\Jujuba\Downloads\NFe31240410975945000859550010004644311849623671.xml"))
+                            //    teste = "";
 
                             dtExcelNFe = new DataTable();
                             //if (arquivos[l].ToUpper().Contains(".XML"))
@@ -197,9 +197,13 @@ namespace Caixa.Estoque
                                             sqlComInsert.Parameters.AddWithValue("@COD_PROD", dtExcelNFe.Rows[j]["cProd"].ToString());
                                             sqlComInsert.Parameters.AddWithValue("@DESC_PROD", dtExcelNFe.Rows[j]["xProd"].ToString());
                                             qtCompra = (int)double.Parse(dtExcelNFe.Rows[j]["qCom"].ToString().Replace(".", ","));
-                                            sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);
                                             sqlComInsert.Parameters.AddWithValue("@VL_UNIT", double.Parse(dtExcelNFe.Rows[j]["vUnCom"].ToString().Replace(".", ",")));
-                                            sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString());
+                                            if (dtExcelNFe.Rows[j]["uCom"].ToString().Length > 2)
+                                                sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString().Substring(0, 2).ToUpper());
+                                            else
+                                                sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString());
+
+                                            sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);
                                             auxSQL.executaQueryTransaction(conn, sqlComInsert);
                                         }
                                         else

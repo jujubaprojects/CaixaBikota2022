@@ -38,10 +38,11 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.baldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueBaldesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloqueioEstoqueManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.fornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nFCupomManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +78,6 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloqueioEstoqueManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,14 +174,6 @@
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.ClienteToolStripMenuItem_Click);
             // 
-            // estoqueToolStripMenuItem
-            // 
-            this.estoqueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
-            this.estoqueToolStripMenuItem.Text = "Estoque";
-            this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.EstoqueToolStripMenuItem_Click);
-            // 
             // produtosToolStripMenuItem1
             // 
             this.produtosToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -195,6 +187,14 @@
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(234, 6);
             // 
+            // estoqueToolStripMenuItem
+            // 
+            this.estoqueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.estoqueToolStripMenuItem.Text = "Estoque";
+            this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.EstoqueToolStripMenuItem_Click);
+            // 
             // estoqueBaldesToolStripMenuItem
             // 
             this.estoqueBaldesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -202,6 +202,14 @@
             this.estoqueBaldesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.estoqueBaldesToolStripMenuItem.Text = "Estoque Baldes";
             this.estoqueBaldesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueBaldesToolStripMenuItem_Click);
+            // 
+            // bloqueioEstoqueManualToolStripMenuItem
+            // 
+            this.bloqueioEstoqueManualToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.bloqueioEstoqueManualToolStripMenuItem.Name = "bloqueioEstoqueManualToolStripMenuItem";
+            this.bloqueioEstoqueManualToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.bloqueioEstoqueManualToolStripMenuItem.Text = "Bloqueio Estoque Manual";
+            this.bloqueioEstoqueManualToolStripMenuItem.Click += new System.EventHandler(this.BloqueioEstoqueManualToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -378,7 +386,7 @@
             this.produtosParaComprarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.produtosParaComprarToolStripMenuItem.Name = "produtosParaComprarToolStripMenuItem";
             this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
-            this.produtosParaComprarToolStripMenuItem.Text = "Produtos para Comprar";
+            this.produtosParaComprarToolStripMenuItem.Text = "Adicionar Produtos para Próxima Comprar";
             this.produtosParaComprarToolStripMenuItem.Click += new System.EventHandler(this.ProdutosParaComprarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
@@ -502,14 +510,6 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
-            // 
-            // bloqueioEstoqueManualToolStripMenuItem
-            // 
-            this.bloqueioEstoqueManualToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.bloqueioEstoqueManualToolStripMenuItem.Name = "bloqueioEstoqueManualToolStripMenuItem";
-            this.bloqueioEstoqueManualToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
-            this.bloqueioEstoqueManualToolStripMenuItem.Text = "Bloqueio Estoque Manual";
-            this.bloqueioEstoqueManualToolStripMenuItem.Click += new System.EventHandler(this.BloqueioEstoqueManualToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

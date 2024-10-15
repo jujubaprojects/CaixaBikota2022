@@ -417,7 +417,11 @@ namespace Caixa
 
         private void ProdutosParaComprarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            {
+                frmPedidoCompra frm = new frmPedidoCompra();
+                frm.ShowDialog();
+            }
         }
 
         private void LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click(object sender, EventArgs e)

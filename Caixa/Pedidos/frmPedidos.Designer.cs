@@ -436,7 +436,7 @@
             this.efcAlerta.ForeColor = System.Drawing.Color.Red;
             this.efcAlerta.Location = new System.Drawing.Point(267, 77);
             this.efcAlerta.Name = "efcAlerta";
-            this.efcAlerta.Set_Velocidade = 7;
+            this.efcAlerta.Set_Velocidade = 5;
             this.efcAlerta.Size = new System.Drawing.Size(520, 29);
             this.efcAlerta.TabIndex = 11;
             this.efcAlerta.Text = "TESTE DO JUBA TESTE DO JUBA TESTE DO JUBA ";
