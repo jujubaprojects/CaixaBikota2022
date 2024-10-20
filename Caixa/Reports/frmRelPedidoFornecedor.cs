@@ -112,15 +112,14 @@ namespace Caixa.Reports
             sql.Append("JOIN NF_PROD NFP ON(NFP.COD_PROD = NFPCE.COD_PROD_NF) ");
             sql.Append("JOIN NF ON(NF.id = NFP.NF) JOIN fornecedor F ON(F.id = NF.FORNECEDOR AND NFPCE.FOR_ID = F.ID) ");
             sql.Append("WHERE(CE.QT_ESTOQUE <= CE.QT_ESTOQUE_IDEAL) ");
-            sql.Append("AND CE.STATUS = 1 AND CE.ID IN(SELECT A.COD_CONTRESTQ ");
-            sql.Append("FROM NFPROD_CONTROLESTQ A ");
-            sql.Append("WHERE A.FOR_ID = (SELECT ID FROM FORNECEDOR WHERE NOME LIKE 'RIBERFOODS IMP. E DISTR. DE PRODUTOS ALIMENTICIOS LTDA')) ");
+            sql.Append("AND CE.STATUS = 1 ");
             if (cboFornecedor.SelectedIndex > 0)
                 sql.Append("AND CE.ID IN (SELECT A.COD_CONTRESTQ FROM NFPROD_CONTROLESTQ A WHERE A.FOR_ID = (SELECT ID FROM FORNECEDOR WHERE NOME LIKE '" + cboFornecedor.SelectedItem + "'))");
             sql.Append("ORDER BY CE.DESCRICAO ASC, NF.DT_ENTREGA DESC ");
 
             DataTable dt = auxSQL.retornaDataTable(sql.ToString());
-            frmRelatorio frm = new frmRelatorio(dt, "relPedidoFornecedor.rdlc", "dsRel", "frmRelVendasDia");
+            //frmRelatorio frm = new frmRelatorio(dt, "relPedidoFornecedor.rdlc", "dsRel", "frmRelPedidoFornecedor");
+            frmRelatorio frm = new frmRelatorio(dt, "relPedidoCompra.rdlc", "dsRel", "frmRelVendasDia");
             frm.ShowDialog();
         }
     }

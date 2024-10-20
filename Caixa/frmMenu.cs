@@ -422,6 +422,8 @@ namespace Caixa
                 frmPedidoCompra frm = new frmPedidoCompra();
                 frm.ShowDialog();
             }
+            else
+                MessageBox.Show("Esta opção só é permitida nas segundas-feiras!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click(object sender, EventArgs e)

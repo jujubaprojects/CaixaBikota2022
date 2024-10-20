@@ -29,25 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLink = new Componentes.DataGridViewJCS(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
+            this.btnHistorico = new Componentes.ButtonJCS(this.components);
             this.txtFiltroQT = new Componentes.TextBoxJCS(this.components);
             this.labelJCS5 = new Componentes.LabelJCS(this.components);
-            this.txtFiltroSabor = new Componentes.TextBoxJCS(this.components);
-            this.labelJCS4 = new Componentes.LabelJCS(this.components);
+            this.txtDescricao = new Componentes.TextBoxJCS(this.components);
+            this.lblDescricao = new Componentes.LabelJCS(this.components);
             this.cboFiltroProduto = new Componentes.ComboBoxJCS(this.components);
-            this.labelJCS3 = new Componentes.LabelJCS(this.components);
+            this.lblProduto = new Componentes.LabelJCS(this.components);
+            this.rbtEstoquePote = new Componentes.RadioButtonJCScs(this.components);
+            this.rbtEstMatPrima = new Componentes.RadioButtonJCScs(this.components);
+            this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.colIDEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHistorico = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnHistorico = new Componentes.ButtonJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).BeginInit();
             this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
@@ -62,14 +65,14 @@
             this.dgvLink.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLink.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLink.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLink.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLink.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIDEstoque,
@@ -78,29 +81,29 @@
             this.colQt,
             this.colData,
             this.colHistorico});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLink.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvLink.EnableHeadersVisualStyles = false;
-            this.dgvLink.Location = new System.Drawing.Point(0, 57);
+            this.dgvLink.Location = new System.Drawing.Point(0, 96);
             this.dgvLink.Name = "dgvLink";
             this.dgvLink.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLink.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLink.RowHeadersVisible = false;
             this.dgvLink.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLink.Size = new System.Drawing.Size(800, 393);
+            this.dgvLink.Size = new System.Drawing.Size(800, 354);
             this.dgvLink.TabIndex = 64;
             this.dgvLink.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLink_CellClick);
             // 
@@ -114,21 +117,40 @@
             // groupBoxJCS1
             // 
             this.groupBoxJCS1.BackColor = System.Drawing.Color.White;
+            this.groupBoxJCS1.Controls.Add(this.labelJCS1);
+            this.groupBoxJCS1.Controls.Add(this.rbtEstMatPrima);
+            this.groupBoxJCS1.Controls.Add(this.rbtEstoquePote);
             this.groupBoxJCS1.Controls.Add(this.btnHistorico);
             this.groupBoxJCS1.Controls.Add(this.txtFiltroQT);
             this.groupBoxJCS1.Controls.Add(this.labelJCS5);
-            this.groupBoxJCS1.Controls.Add(this.txtFiltroSabor);
-            this.groupBoxJCS1.Controls.Add(this.labelJCS4);
+            this.groupBoxJCS1.Controls.Add(this.txtDescricao);
+            this.groupBoxJCS1.Controls.Add(this.lblDescricao);
             this.groupBoxJCS1.Controls.Add(this.cboFiltroProduto);
-            this.groupBoxJCS1.Controls.Add(this.labelJCS3);
+            this.groupBoxJCS1.Controls.Add(this.lblProduto);
             this.groupBoxJCS1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.groupBoxJCS1.Location = new System.Drawing.Point(0, 0);
             this.groupBoxJCS1.Name = "groupBoxJCS1";
-            this.groupBoxJCS1.Size = new System.Drawing.Size(800, 51);
+            this.groupBoxJCS1.Size = new System.Drawing.Size(800, 90);
             this.groupBoxJCS1.TabIndex = 65;
             this.groupBoxJCS1.TabStop = false;
             this.groupBoxJCS1.Text = "Filtros";
+            // 
+            // btnHistorico
+            // 
+            this.btnHistorico.BackColor = System.Drawing.Color.Gold;
+            this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorico.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHistorico.Image = global::Caixa.Properties.Resources.icons8_termos_e_condições_24;
+            this.btnHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorico.Location = new System.Drawing.Point(617, 17);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(171, 54);
+            this.btnHistorico.TabIndex = 22;
+            this.btnHistorico.Text = "Histórico Completo";
+            this.btnHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHistorico.UseVisualStyleBackColor = false;
+            this.btnHistorico.Click += new System.EventHandler(this.BtnHistorico_Click);
             // 
             // txtFiltroQT
             // 
@@ -154,29 +176,29 @@
             this.labelJCS5.TabIndex = 21;
             this.labelJCS5.Text = "QT:";
             // 
-            // txtFiltroSabor
+            // txtDescricao
             // 
-            this.txtFiltroSabor.BackColor = System.Drawing.Color.White;
-            this.txtFiltroSabor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltroSabor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtFiltroSabor.IconeKeyDown = null;
-            this.txtFiltroSabor.Location = new System.Drawing.Point(227, 17);
-            this.txtFiltroSabor.Name = "txtFiltroSabor";
-            this.txtFiltroSabor.Preenchimento = null;
-            this.txtFiltroSabor.Size = new System.Drawing.Size(151, 24);
-            this.txtFiltroSabor.TabIndex = 19;
-            this.txtFiltroSabor.TipoCampo = null;
-            this.txtFiltroSabor.TextChanged += new System.EventHandler(this.TxtFiltroSabor_TextChanged);
+            this.txtDescricao.BackColor = System.Drawing.Color.White;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.txtDescricao.IconeKeyDown = null;
+            this.txtDescricao.Location = new System.Drawing.Point(227, 17);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Preenchimento = null;
+            this.txtDescricao.Size = new System.Drawing.Size(151, 24);
+            this.txtDescricao.TabIndex = 19;
+            this.txtDescricao.TipoCampo = null;
+            this.txtDescricao.TextChanged += new System.EventHandler(this.TxtFiltroSabor_TextChanged);
             // 
-            // labelJCS4
+            // lblDescricao
             // 
-            this.labelJCS4.AutoSize = true;
-            this.labelJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS4.Location = new System.Drawing.Point(174, 20);
-            this.labelJCS4.Name = "labelJCS4";
-            this.labelJCS4.Size = new System.Drawing.Size(47, 17);
-            this.labelJCS4.TabIndex = 18;
-            this.labelJCS4.Text = "Sabor:";
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDescricao.Location = new System.Drawing.Point(177, 20);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(44, 17);
+            this.lblDescricao.TabIndex = 18;
+            this.lblDescricao.Text = "Desc.:";
             // 
             // cboFiltroProduto
             // 
@@ -189,15 +211,53 @@
             this.cboFiltroProduto.TabIndex = 16;
             this.cboFiltroProduto.SelectedIndexChanged += new System.EventHandler(this.CboFiltroProduto_SelectedIndexChanged);
             // 
-            // labelJCS3
+            // lblProduto
             // 
-            this.labelJCS3.AutoSize = true;
-            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(11, 20);
-            this.labelJCS3.Name = "labelJCS3";
-            this.labelJCS3.Size = new System.Drawing.Size(61, 17);
-            this.labelJCS3.TabIndex = 17;
-            this.labelJCS3.Text = "Produto:";
+            this.lblProduto.AutoSize = true;
+            this.lblProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblProduto.Location = new System.Drawing.Point(11, 20);
+            this.lblProduto.Name = "lblProduto";
+            this.lblProduto.Size = new System.Drawing.Size(61, 17);
+            this.lblProduto.TabIndex = 17;
+            this.lblProduto.Text = "Produto:";
+            // 
+            // rbtEstoquePote
+            // 
+            this.rbtEstoquePote.AutoSize = true;
+            this.rbtEstoquePote.BackColor = System.Drawing.Color.White;
+            this.rbtEstoquePote.Checked = true;
+            this.rbtEstoquePote.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.rbtEstoquePote.Location = new System.Drawing.Point(78, 51);
+            this.rbtEstoquePote.Name = "rbtEstoquePote";
+            this.rbtEstoquePote.Size = new System.Drawing.Size(105, 21);
+            this.rbtEstoquePote.TabIndex = 23;
+            this.rbtEstoquePote.TabStop = true;
+            this.rbtEstoquePote.Text = "Estoque Pote";
+            this.rbtEstoquePote.UseVisualStyleBackColor = false;
+            this.rbtEstoquePote.CheckedChanged += new System.EventHandler(this.RbtEstoquePote_CheckedChanged);
+            // 
+            // rbtEstMatPrima
+            // 
+            this.rbtEstMatPrima.AutoSize = true;
+            this.rbtEstMatPrima.BackColor = System.Drawing.Color.White;
+            this.rbtEstMatPrima.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.rbtEstMatPrima.Location = new System.Drawing.Point(371, 51);
+            this.rbtEstMatPrima.Name = "rbtEstMatPrima";
+            this.rbtEstMatPrima.Size = new System.Drawing.Size(160, 21);
+            this.rbtEstMatPrima.TabIndex = 24;
+            this.rbtEstMatPrima.Text = "Estoque Matéria Prima";
+            this.rbtEstMatPrima.UseVisualStyleBackColor = false;
+            this.rbtEstMatPrima.CheckedChanged += new System.EventHandler(this.RbtEstMatPrima_CheckedChanged);
+            // 
+            // labelJCS1
+            // 
+            this.labelJCS1.AutoSize = true;
+            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS1.Location = new System.Drawing.Point(34, 54);
+            this.labelJCS1.Name = "labelJCS1";
+            this.labelJCS1.Size = new System.Drawing.Size(38, 17);
+            this.labelJCS1.TabIndex = 25;
+            this.labelJCS1.Text = "Tipo:";
             // 
             // colIDEstoque
             // 
@@ -210,20 +270,20 @@
             // 
             // colProduto
             // 
-            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colProduto.DataPropertyName = "PRODUTO";
             this.colProduto.HeaderText = "Produto";
             this.colProduto.Name = "colProduto";
             this.colProduto.ReadOnly = true;
-            this.colProduto.Width = 82;
             // 
             // colDescricao
             // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colDescricao.DataPropertyName = "DESCRICAO";
             this.colDescricao.HeaderText = "Descrição";
             this.colDescricao.Name = "colDescricao";
             this.colDescricao.ReadOnly = true;
+            this.colDescricao.Width = 90;
             // 
             // colQt
             // 
@@ -252,22 +312,6 @@
             this.colHistorico.Text = "";
             this.colHistorico.Width = 86;
             // 
-            // btnHistorico
-            // 
-            this.btnHistorico.BackColor = System.Drawing.Color.Gold;
-            this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorico.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnHistorico.Image = global::Caixa.Properties.Resources.icons8_termos_e_condições_24;
-            this.btnHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorico.Location = new System.Drawing.Point(617, 17);
-            this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Size = new System.Drawing.Size(171, 24);
-            this.btnHistorico.TabIndex = 22;
-            this.btnHistorico.Text = "Histórico Completo";
-            this.btnHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHistorico.UseVisualStyleBackColor = false;
-            this.btnHistorico.Click += new System.EventHandler(this.BtnHistorico_Click);
-            // 
             // frmConsultaEstoquePotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,7 +320,7 @@
             this.Controls.Add(this.groupBoxJCS1);
             this.Controls.Add(this.dgvLink);
             this.Name = "frmConsultaEstoquePotes";
-            this.Text = "Consulta de Potes";
+            this.Text = "Consulta de Estoque";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLink)).EndInit();
             this.groupBoxJCS1.ResumeLayout(false);
             this.groupBoxJCS1.PerformLayout();
@@ -291,16 +335,19 @@
         private Componentes.GroupBoxJCS groupBoxJCS1;
         private Componentes.TextBoxJCS txtFiltroQT;
         private Componentes.LabelJCS labelJCS5;
-        private Componentes.TextBoxJCS txtFiltroSabor;
-        private Componentes.LabelJCS labelJCS4;
+        private Componentes.TextBoxJCS txtDescricao;
+        private Componentes.LabelJCS lblDescricao;
         private Componentes.ComboBoxJCS cboFiltroProduto;
-        private Componentes.LabelJCS labelJCS3;
+        private Componentes.LabelJCS lblProduto;
+        private Componentes.ButtonJCS btnHistorico;
+        private Componentes.LabelJCS labelJCS1;
+        private Componentes.RadioButtonJCScs rbtEstMatPrima;
+        private Componentes.RadioButtonJCScs rbtEstoquePote;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDEstoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colData;
         private System.Windows.Forms.DataGridViewButtonColumn colHistorico;
-        private Componentes.ButtonJCS btnHistorico;
     }
 }

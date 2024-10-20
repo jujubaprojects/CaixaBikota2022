@@ -24,7 +24,7 @@ namespace Caixa.Estoque
         private void preencherCampos()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ID, DESCRICAO, OBSERVACAO, 'COMPRAR' PEDIDO_COMPRA ");
+            sql.Append("SELECT ID, DESCRICAO, OBSERVACAO, 'ADICIONAR' PEDIDO_COMPRA ");
             sql.Append("FROM CONTROLE_ESTOQUE ");
             sql.Append("WHERE QT_ESTOQUE = QT_ESTOQUE_IDEAL AND QT_ESTOQUE = 1 AND PEDIDO_COMPRA = 0");
             dgvPedidoCompra.DataSource = sqlAux.retornaDataTable(sql.ToString());

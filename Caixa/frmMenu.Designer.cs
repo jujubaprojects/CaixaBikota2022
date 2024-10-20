@@ -343,20 +343,20 @@
             // 
             this.importarXMLToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.importarXMLToolStripMenuItem.Name = "importarXMLToolStripMenuItem";
-            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.importarXMLToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.importarXMLToolStripMenuItem.Text = "Importar XML";
             this.importarXMLToolStripMenuItem.Click += new System.EventHandler(this.ImportarXMLToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(343, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(354, 6);
             // 
             // linkarEstoqueXProdutoXFornecedorToolStripMenuItem
             // 
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Name = "linkarEstoqueXProdutoXFornecedorToolStripMenuItem";
-            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Text = "Linkar Estoque x Produto NFe x Fornecedor";
             this.linkarEstoqueXProdutoXFornecedorToolStripMenuItem.Click += new System.EventHandler(this.LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click);
             // 
@@ -364,20 +364,20 @@
             // 
             this.linkarProdutoFinalXEstoqueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.linkarProdutoFinalXEstoqueToolStripMenuItem.Name = "linkarProdutoFinalXEstoqueToolStripMenuItem";
-            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.linkarProdutoFinalXEstoqueToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.linkarProdutoFinalXEstoqueToolStripMenuItem.Text = "Linkar Produto Final x Estoque";
             this.linkarProdutoFinalXEstoqueToolStripMenuItem.Click += new System.EventHandler(this.LinkarProdutoFinalXEstoqueToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(343, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(354, 6);
             // 
             // notasFiscaisEntradasToolStripMenuItem
             // 
             this.notasFiscaisEntradasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.notasFiscaisEntradasToolStripMenuItem.Name = "notasFiscaisEntradasToolStripMenuItem";
-            this.notasFiscaisEntradasToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.notasFiscaisEntradasToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.notasFiscaisEntradasToolStripMenuItem.Text = "Consulta de Notas Fiscais Entradas";
             this.notasFiscaisEntradasToolStripMenuItem.Click += new System.EventHandler(this.NotasFiscaisEntradasToolStripMenuItem_Click);
             // 
@@ -385,28 +385,28 @@
             // 
             this.produtosParaComprarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.produtosParaComprarToolStripMenuItem.Name = "produtosParaComprarToolStripMenuItem";
-            this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.produtosParaComprarToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.produtosParaComprarToolStripMenuItem.Text = "Adicionar Produtos para Próxima Comprar";
             this.produtosParaComprarToolStripMenuItem.Click += new System.EventHandler(this.ProdutosParaComprarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(343, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(354, 6);
             // 
             // estoqueDePotesDeSorvetesToolStripMenuItem
             // 
             this.estoqueDePotesDeSorvetesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.estoqueDePotesDeSorvetesToolStripMenuItem.Name = "estoqueDePotesDeSorvetesToolStripMenuItem";
-            this.estoqueDePotesDeSorvetesToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
-            this.estoqueDePotesDeSorvetesToolStripMenuItem.Text = "Consulta de Estoque de Potes de Sorvetes";
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
+            this.estoqueDePotesDeSorvetesToolStripMenuItem.Text = "Consulta de Estoque Potes e Matérias Primas";
             this.estoqueDePotesDeSorvetesToolStripMenuItem.Click += new System.EventHandler(this.EstoqueDePotesDeSorvetesToolStripMenuItem_Click);
             // 
             // sorvetes10lEmFaltaToolStripMenuItem
             // 
             this.sorvetes10lEmFaltaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.sorvetes10lEmFaltaToolStripMenuItem.Name = "sorvetes10lEmFaltaToolStripMenuItem";
-            this.sorvetes10lEmFaltaToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.sorvetes10lEmFaltaToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.sorvetes10lEmFaltaToolStripMenuItem.Text = "Consulta de Sorvetes 10l Em Falta";
             this.sorvetes10lEmFaltaToolStripMenuItem.Click += new System.EventHandler(this.Sorvetes10lEmFaltaToolStripMenuItem_Click);
             // 
@@ -414,7 +414,7 @@
             // 
             this.subtrairEstoqueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.subtrairEstoqueToolStripMenuItem.Name = "subtrairEstoqueToolStripMenuItem";
-            this.subtrairEstoqueToolStripMenuItem.Size = new System.Drawing.Size(346, 24);
+            this.subtrairEstoqueToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.subtrairEstoqueToolStripMenuItem.Text = "Subtrair Estoque";
             this.subtrairEstoqueToolStripMenuItem.Click += new System.EventHandler(this.SubtrairEstoqueToolStripMenuItem_Click_1);
             // 

@@ -83,7 +83,7 @@
             this.dgvPedidoCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPedidoCompra.RowHeadersVisible = false;
             this.dgvPedidoCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidoCompra.Size = new System.Drawing.Size(800, 450);
+            this.dgvPedidoCompra.Size = new System.Drawing.Size(963, 450);
             this.dgvPedidoCompra.TabIndex = 0;
             this.dgvPedidoCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidoCompra_CellClick);
             // 
@@ -98,11 +98,12 @@
             // 
             // colDescricao
             // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colDescricao.DataPropertyName = "DESCRICAO";
             this.colDescricao.HeaderText = "Descrição";
             this.colDescricao.Name = "colDescricao";
             this.colDescricao.ReadOnly = true;
+            this.colDescricao.Width = 90;
             // 
             // colObs
             // 
@@ -118,17 +119,17 @@
             this.colComprar.HeaderText = "Comprar?";
             this.colComprar.Name = "colComprar";
             this.colComprar.ReadOnly = true;
-            this.colComprar.Text = "Sim";
+            this.colComprar.Text = "";
             this.colComprar.Width = 71;
             // 
             // frmPedidoCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(963, 450);
             this.Controls.Add(this.dgvPedidoCompra);
             this.Name = "frmPedidoCompra";
-            this.Text = "Pedido De Compra";
+            this.Text = "Produtos para adicionar no próximo Pedido De Compra";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoCompra)).EndInit();
             this.ResumeLayout(false);
 
