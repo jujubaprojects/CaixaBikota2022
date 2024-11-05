@@ -105,21 +105,29 @@ namespace Caixa.Reports
             //sql.Append("JOIN NF ON(NF.id = NFP.NF) ");
             //sql.Append("JOIN fornecedor F ON (F.id = NF.FORNECEDOR AND NFPCE.FOR_ID = F.ID) ");
             //sql.Append("WHERE ((CE.VERIFICAR_EST = 1 AND CE.QT_ESTOQUE <= CE.QT_ESTOQUE_IDEAL) OR (CE.QT_ESTOQUE < CE.QT_ESTOQUE_IDEAL))  AND CE.STATUS = 1 ");
-            sql.Append("SELECT CE.ID ID_EST, NF.id ID_NF, CE.DESCRICAO DESC_ESTOQUE, CE.QT_ESTOQUE AS QT_EST, CE.QT_ESTOQUE_IDEAL AS EST_IDEAL, CE.QT_ESTOQUE_IDEAL -  CE.QT_ESTOQUE QT_COMPRAR , CE.OBSERVACAO, ");
-            sql.Append("CONCAT('Data: ', convert(varchar, NF.DT_ENTREGA, 103), ' - VL UNIT: R$', NFP.VL_UNIT, ' - ', F.NOME_FANTASIA) INFORMACAO ");
+            //sql.Append("SELECT CE.ID ID_EST, NF.id ID_NF, CE.DESCRICAO DESC_ESTOQUE, CE.QT_ESTOQUE AS QT_EST, CE.QT_ESTOQUE_IDEAL AS EST_IDEAL, CE.QT_ESTOQUE_IDEAL -  CE.QT_ESTOQUE QT_COMPRAR , CE.OBSERVACAO, ");
+            //sql.Append("CONCAT('Data: ', convert(varchar, NF.DT_ENTREGA, 103), ' - VL UNIT: R$', NFP.VL_UNIT, ' - ', F.NOME_FANTASIA) INFORMACAO ");
+            //sql.Append("FROM CONTROLE_ESTOQUE CE ");
+            //sql.Append("JOIN NFPROD_CONTROLESTQ NFPCE ON(NFPCE.COD_CONTRESTQ = CE.ID) ");
+            //sql.Append("JOIN NF_PROD NFP ON(NFP.COD_PROD = NFPCE.COD_PROD_NF) ");
+            //sql.Append("JOIN NF ON(NF.id = NFP.NF) JOIN fornecedor F ON(F.id = NF.FORNECEDOR AND NFPCE.FOR_ID = F.ID) ");
+            //sql.Append("WHERE(CE.QT_ESTOQUE <= CE.QT_ESTOQUE_IDEAL) ");
+            //sql.Append("AND CE.STATUS = 1 ");
+
+            sql.Append("SELECT CE.ID ID_EST, NF.id ID_NF, CE.DESCRICAO DESC_ESTOQUE, CE.QT_ESTOQUE AS QT_EST, CE.QT_ESTOQUE_IDEAL, CE.QT_ESTOQUE_IDEAL - CE.QT_ESTOQUE QT_COMPRAR , CE.OBSERVACAO ");
             sql.Append("FROM CONTROLE_ESTOQUE CE ");
             sql.Append("JOIN NFPROD_CONTROLESTQ NFPCE ON(NFPCE.COD_CONTRESTQ = CE.ID) ");
             sql.Append("JOIN NF_PROD NFP ON(NFP.COD_PROD = NFPCE.COD_PROD_NF) ");
-            sql.Append("JOIN NF ON(NF.id = NFP.NF) JOIN fornecedor F ON(F.id = NF.FORNECEDOR AND NFPCE.FOR_ID = F.ID) ");
-            sql.Append("WHERE(CE.QT_ESTOQUE <= CE.QT_ESTOQUE_IDEAL) ");
-            sql.Append("AND CE.STATUS = 1 ");
+            sql.Append("JOIN NF ON(NF.id = NFP.NF) ");
+            sql.Append("JOIN fornecedor F ON(F.id = NF.FORNECEDOR AND NFPCE.FOR_ID = F.ID) ");
+            sql.Append("WHERE CE.STATUS = 1 AND (CE.PEDIDO_COMPRA = 1 OR (CE.QT_ESTOQUE < CE.QT_ESTOQUE_IDEAL)) ");
             if (cboFornecedor.SelectedIndex > 0)
                 sql.Append("AND CE.ID IN (SELECT A.COD_CONTRESTQ FROM NFPROD_CONTROLESTQ A WHERE A.FOR_ID = (SELECT ID FROM FORNECEDOR WHERE NOME LIKE '" + cboFornecedor.SelectedItem + "'))");
             sql.Append("ORDER BY CE.DESCRICAO ASC, NF.DT_ENTREGA DESC ");
 
             DataTable dt = auxSQL.retornaDataTable(sql.ToString());
             //frmRelatorio frm = new frmRelatorio(dt, "relPedidoFornecedor.rdlc", "dsRel", "frmRelPedidoFornecedor");
-            frmRelatorio frm = new frmRelatorio(dt, "relPedidoCompra.rdlc", "dsRel", "frmRelVendasDia");
+            frmRelatorio frm = new frmRelatorio(dt, "relPedidoCompraSimples.rdlc", "dsRel", "frmRelPedidoFornecedor");
             frm.ShowDialog();
         }
     }

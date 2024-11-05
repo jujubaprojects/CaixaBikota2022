@@ -417,13 +417,13 @@ namespace Caixa
 
         private void ProdutosParaComprarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
-            {
-                frmPedidoCompra frm = new frmPedidoCompra();
-                frm.ShowDialog();
-            }
-            else
-                MessageBox.Show("Esta opção só é permitida nas segundas-feiras!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            //{
+            frmPedidoCompra frm = new frmPedidoCompra();
+            frm.ShowDialog();
+            //}
+            //else
+            //    MessageBox.Show("Esta opção só é permitida nas segundas-feiras!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void LinkarEstoqueXProdutoXFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -630,8 +630,11 @@ namespace Caixa
 
         private void InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastroOcorrenciaColaborador frm = new frmCadastroOcorrenciaColaborador();
-            frm.ShowDialog();
+            if (acessoFrmsRestrito())
+            {
+                frmCadastroOcorrenciaColaborador frm = new frmCadastroOcorrenciaColaborador();
+                frm.ShowDialog();
+            }
         }
 
         private void LembretesToolStripMenuItem_Click(object sender, EventArgs e)

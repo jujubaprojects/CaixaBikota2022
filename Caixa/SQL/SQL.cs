@@ -1202,7 +1202,6 @@ namespace Caixa.SQL
             StringBuilder sql = new StringBuilder();
 
             sql.Append("UPDATE LEMBRETE SET DESCRICAO = @pDescricao, ");
-            sql.Append("DESCRICAO = @pDescricao,");
             sql.Append("DATA = @pData, ");
             sql.Append("REPETIR = @pTipoRepetir, ");
             sql.Append("STATUS = @pStatus ");

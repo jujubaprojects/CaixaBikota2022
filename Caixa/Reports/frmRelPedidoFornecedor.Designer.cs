@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
-            this.labelJCS1 = new Componentes.LabelJCS(this.components);
-            this.cboFornecedor = new Componentes.ComboBoxJCS(this.components);
             this.btnRelatorio = new Componentes.ButtonJCS(this.components);
+            this.cboFornecedor = new Componentes.ComboBoxJCS(this.components);
+            this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,28 +51,6 @@
             this.groupBoxJCS1.TabStop = false;
             this.groupBoxJCS1.Text = "Filtro";
             // 
-            // labelJCS1
-            // 
-            this.labelJCS1.AutoSize = true;
-            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS1.Location = new System.Drawing.Point(12, 20);
-            this.labelJCS1.Name = "labelJCS1";
-            this.labelJCS1.Size = new System.Drawing.Size(80, 17);
-            this.labelJCS1.TabIndex = 0;
-            this.labelJCS1.Text = "Fornecedor:";
-            // 
-            // cboFornecedor
-            // 
-            this.cboFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.cboFornecedor.FormattingEnabled = true;
-            this.cboFornecedor.Location = new System.Drawing.Point(98, 17);
-            this.cboFornecedor.Name = "cboFornecedor";
-            this.cboFornecedor.Size = new System.Drawing.Size(469, 23);
-            this.cboFornecedor.TabIndex = 1;
-            // 
             // btnRelatorio
             // 
             this.btnRelatorio.BackColor = System.Drawing.Color.Gold;
@@ -88,6 +66,28 @@
             this.btnRelatorio.UseVisualStyleBackColor = false;
             this.btnRelatorio.Click += new System.EventHandler(this.BtnRelatorio_Click);
             // 
+            // cboFornecedor
+            // 
+            this.cboFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFornecedor.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.cboFornecedor.FormattingEnabled = true;
+            this.cboFornecedor.Location = new System.Drawing.Point(98, 17);
+            this.cboFornecedor.Name = "cboFornecedor";
+            this.cboFornecedor.Size = new System.Drawing.Size(469, 23);
+            this.cboFornecedor.TabIndex = 1;
+            // 
+            // labelJCS1
+            // 
+            this.labelJCS1.AutoSize = true;
+            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS1.Location = new System.Drawing.Point(12, 20);
+            this.labelJCS1.Name = "labelJCS1";
+            this.labelJCS1.Size = new System.Drawing.Size(80, 17);
+            this.labelJCS1.TabIndex = 0;
+            this.labelJCS1.Text = "Fornecedor:";
+            // 
             // frmRelPedidoFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,7 +95,7 @@
             this.ClientSize = new System.Drawing.Size(579, 89);
             this.Controls.Add(this.groupBoxJCS1);
             this.Name = "frmRelPedidoFornecedor";
-            this.Text = "Pedido de Produtos para os Fornecedores";
+            this.Text = "Pedido de Compra Simples para os Fornecedores";
             this.Load += new System.EventHandler(this.FrmRelPedidoFornecedor_Load);
             this.groupBoxJCS1.ResumeLayout(false);
             this.groupBoxJCS1.PerformLayout();

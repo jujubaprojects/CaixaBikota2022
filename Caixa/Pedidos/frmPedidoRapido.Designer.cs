@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnFinalizarPagamento = new Componentes.ButtonJCS(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddComanda = new Componentes.ButtonJCS(this.components);
             this.cboAnotar = new Componentes.ComboBoxJCS(this.components);
             this.cboProdutoPai = new Componentes.ComboBoxJCS(this.components);
             this.cboProdutoFilho = new Componentes.ComboBoxJCS(this.components);
@@ -58,7 +59,6 @@
             this.colVlTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddComanda = new Componentes.ButtonJCS(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,7 +71,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 314);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(471, 30);
+            this.panel1.Size = new System.Drawing.Size(530, 30);
             this.panel1.TabIndex = 7;
             // 
             // btnFinalizarPagamento
@@ -84,7 +84,7 @@
             this.btnFinalizarPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFinalizarPagamento.Location = new System.Drawing.Point(0, 0);
             this.btnFinalizarPagamento.Name = "btnFinalizarPagamento";
-            this.btnFinalizarPagamento.Size = new System.Drawing.Size(471, 30);
+            this.btnFinalizarPagamento.Size = new System.Drawing.Size(530, 30);
             this.btnFinalizarPagamento.TabIndex = 0;
             this.btnFinalizarPagamento.Text = "Finalizar Pagamento";
             this.btnFinalizarPagamento.UseVisualStyleBackColor = false;
@@ -110,8 +110,23 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(471, 166);
+            this.panel2.Size = new System.Drawing.Size(530, 166);
             this.panel2.TabIndex = 8;
+            // 
+            // btnAddComanda
+            // 
+            this.btnAddComanda.BackColor = System.Drawing.Color.Gold;
+            this.btnAddComanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddComanda.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddComanda.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
+            this.btnAddComanda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddComanda.Location = new System.Drawing.Point(275, 101);
+            this.btnAddComanda.Name = "btnAddComanda";
+            this.btnAddComanda.Size = new System.Drawing.Size(243, 24);
+            this.btnAddComanda.TabIndex = 26;
+            this.btnAddComanda.Text = "Criar Comanda";
+            this.btnAddComanda.UseVisualStyleBackColor = false;
+            this.btnAddComanda.Click += new System.EventHandler(this.BtnAddComanda_Click);
             // 
             // cboAnotar
             // 
@@ -124,7 +139,7 @@
             "CARTÃO CRÉDITO",
             "PIX",
             "ANOTAR"});
-            this.cboAnotar.Location = new System.Drawing.Point(216, 72);
+            this.cboAnotar.Location = new System.Drawing.Point(275, 72);
             this.cboAnotar.Name = "cboAnotar";
             this.cboAnotar.Size = new System.Drawing.Size(243, 23);
             this.cboAnotar.TabIndex = 25;
@@ -136,7 +151,7 @@
             this.cboProdutoPai.FormattingEnabled = true;
             this.cboProdutoPai.Location = new System.Drawing.Point(101, 9);
             this.cboProdutoPai.Name = "cboProdutoPai";
-            this.cboProdutoPai.Size = new System.Drawing.Size(109, 23);
+            this.cboProdutoPai.Size = new System.Drawing.Size(168, 23);
             this.cboProdutoPai.TabIndex = 0;
             this.cboProdutoPai.SelectedIndexChanged += new System.EventHandler(this.CboProdutoPai_SelectedIndexChanged);
             // 
@@ -145,7 +160,7 @@
             this.cboProdutoFilho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProdutoFilho.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.cboProdutoFilho.FormattingEnabled = true;
-            this.cboProdutoFilho.Location = new System.Drawing.Point(216, 9);
+            this.cboProdutoFilho.Location = new System.Drawing.Point(275, 9);
             this.cboProdutoFilho.Name = "cboProdutoFilho";
             this.cboProdutoFilho.Size = new System.Drawing.Size(243, 23);
             this.cboProdutoFilho.TabIndex = 1;
@@ -165,7 +180,7 @@
             "DESCONTO"});
             this.cboTipoPagamento.Location = new System.Drawing.Point(101, 72);
             this.cboTipoPagamento.Name = "cboTipoPagamento";
-            this.cboTipoPagamento.Size = new System.Drawing.Size(109, 23);
+            this.cboTipoPagamento.Size = new System.Drawing.Size(168, 23);
             this.cboTipoPagamento.TabIndex = 4;
             this.cboTipoPagamento.SelectedIndexChanged += new System.EventHandler(this.CboTipoPagamento_SelectedIndexChanged);
             // 
@@ -174,7 +189,7 @@
             this.lblTroco.AutoSize = true;
             this.lblTroco.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTroco.ForeColor = System.Drawing.Color.Red;
-            this.lblTroco.Location = new System.Drawing.Point(270, 128);
+            this.lblTroco.Location = new System.Drawing.Point(329, 128);
             this.lblTroco.Name = "lblTroco";
             this.lblTroco.Size = new System.Drawing.Size(189, 33);
             this.lblTroco.TabIndex = 24;
@@ -199,7 +214,7 @@
             this.txtVlRecebido.Location = new System.Drawing.Point(101, 131);
             this.txtVlRecebido.Name = "txtVlRecebido";
             this.txtVlRecebido.Preenchimento = null;
-            this.txtVlRecebido.Size = new System.Drawing.Size(109, 24);
+            this.txtVlRecebido.Size = new System.Drawing.Size(168, 24);
             this.txtVlRecebido.TabIndex = 6;
             this.txtVlRecebido.TipoCampo = "DOUBLE";
             this.txtVlRecebido.TextChanged += new System.EventHandler(this.TxtVlRecebido_TextChanged);
@@ -224,7 +239,7 @@
             this.txtVlTotal.Location = new System.Drawing.Point(101, 101);
             this.txtVlTotal.Name = "txtVlTotal";
             this.txtVlTotal.Preenchimento = null;
-            this.txtVlTotal.Size = new System.Drawing.Size(109, 24);
+            this.txtVlTotal.Size = new System.Drawing.Size(168, 24);
             this.txtVlTotal.TabIndex = 16;
             this.txtVlTotal.Text = "0";
             this.txtVlTotal.TipoCampo = null;
@@ -246,7 +261,7 @@
             this.btnAdddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.btnAdddProduto.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
             this.btnAdddProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdddProduto.Location = new System.Drawing.Point(216, 42);
+            this.btnAdddProduto.Location = new System.Drawing.Point(275, 42);
             this.btnAdddProduto.Name = "btnAdddProduto";
             this.btnAdddProduto.Size = new System.Drawing.Size(243, 24);
             this.btnAdddProduto.TabIndex = 3;
@@ -263,7 +278,7 @@
             this.txtQuantidade.Location = new System.Drawing.Point(101, 42);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Preenchimento = null;
-            this.txtQuantidade.Size = new System.Drawing.Size(109, 24);
+            this.txtQuantidade.Size = new System.Drawing.Size(168, 24);
             this.txtQuantidade.TabIndex = 2;
             this.txtQuantidade.Text = "1";
             this.txtQuantidade.TipoCampo = "INTEIRO";
@@ -294,7 +309,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 166);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(471, 148);
+            this.panel3.Size = new System.Drawing.Size(530, 148);
             this.panel3.TabIndex = 9;
             // 
             // dgvProdutos
@@ -303,14 +318,14 @@
             this.dgvProdutos.AllowUserToDeleteRows = false;
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProdutoID,
@@ -320,29 +335,29 @@
             this.colVlTotal,
             this.colExcluir,
             this.colTipo});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
             this.dgvProdutos.Location = new System.Drawing.Point(0, 0);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutos.Size = new System.Drawing.Size(471, 148);
+            this.dgvProdutos.Size = new System.Drawing.Size(530, 148);
             this.dgvProdutos.TabIndex = 0;
             this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellContentClick);
             // 
@@ -408,26 +423,11 @@
             this.colTipo.Visible = false;
             this.colTipo.Width = 59;
             // 
-            // btnAddComanda
-            // 
-            this.btnAddComanda.BackColor = System.Drawing.Color.Gold;
-            this.btnAddComanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddComanda.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddComanda.Image = global::Caixa.Properties.Resources.icons8_adicionar_regra_24;
-            this.btnAddComanda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddComanda.Location = new System.Drawing.Point(216, 101);
-            this.btnAddComanda.Name = "btnAddComanda";
-            this.btnAddComanda.Size = new System.Drawing.Size(243, 24);
-            this.btnAddComanda.TabIndex = 26;
-            this.btnAddComanda.Text = "Criar Comanda";
-            this.btnAddComanda.UseVisualStyleBackColor = false;
-            this.btnAddComanda.Click += new System.EventHandler(this.BtnAddComanda_Click);
-            // 
             // frmPedidoRapido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 344);
+            this.ClientSize = new System.Drawing.Size(530, 344);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

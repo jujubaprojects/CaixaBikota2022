@@ -482,6 +482,8 @@
     <EmbeddedResource Include="Reports\frmRelVendas.resx">
       <DependentUpon>frmRelVendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\relPedidoCompraSimples.rdlc" />
+    <EmbeddedResource Include="Reports\relPedidoCompraDetalhado.rdlc" />
     <EmbeddedResource Include="Reports\relPedidoFornecedor.rdlc" />
     <EmbeddedResource Include="Reports\relVendasDia.rdlc" />
     <EmbeddedResource Include="Reports\relVendas.rdlc" />

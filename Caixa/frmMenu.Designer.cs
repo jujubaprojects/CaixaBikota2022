@@ -438,7 +438,7 @@
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
@@ -458,14 +458,14 @@
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(191, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(241, 6);
             // 
             // pedidoParaFornecedorToolStripMenuItem
             // 
             this.pedidoParaFornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.pedidoParaFornecedorToolStripMenuItem.Name = "pedidoParaFornecedorToolStripMenuItem";
-            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido de Compra";
+            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido de Compra Simples";
             this.pedidoParaFornecedorToolStripMenuItem.Click += new System.EventHandler(this.PedidoParaFornecedorToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
