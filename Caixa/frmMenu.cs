@@ -487,8 +487,9 @@ namespace Caixa
             sql.Append("FROM ESTOQUE_POTE EP ");
             sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
             sql.Append("JOIN SABOR_ESTOQUE SE ON(SE.ID_EST_POTE = EP.ID) ");
-            sql.Append("JOIN(SELECT SE.ID_EST_POTE, COUNT(ID_SABOR) QT_SABOR FROM SABOR_ESTOQUE SE GROUP BY SE.ID_EST_POTE) AUX ON(AUX.ID_EST_POTE = EP.ID) ");
-            sql.Append("WHERE P.TIPO = 4 AND P.DESCRICAO = 'POTE 10L' AND EP.QT_EST = 0 AND AUX.QT_SABOR = 1 ");
+            sql.Append("JOIN SABOR S ON(S.ID = SE.ID_SABOR) ");
+            sql.Append("JOIN (SELECT SE.ID_EST_POTE, COUNT(ID_SABOR) QT_SABOR FROM SABOR_ESTOQUE SE GROUP BY SE.ID_EST_POTE) AUX ON(AUX.ID_EST_POTE = EP.ID) ");
+            sql.Append("WHERE S.ATIVO = 1 AND P.TIPO = 4 AND P.DESCRICAO = 'POTE 10L' AND EP.QT_EST = 0 AND AUX.QT_SABOR = 1 ");
             sql.Append("ORDER BY DESCRICAO ");
             frmBusca frm = new frmBusca(sql, "Potes 10L Em Falta");
             frm.ShowDialog();

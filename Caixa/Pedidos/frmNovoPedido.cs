@@ -134,6 +134,43 @@ namespace Caixa
                     if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO CASCAO/CASQUINHA"))
                         qt = qt - 0.088;
 
+                    List<string> potes = new List<string>();
+                    potes.Add("POTE 04L");
+                    potes.Add("POTE 05L");
+                    potes.Add("POTE 10L");
+
+                    if (potes.Contains(cboProdutoFilho.SelectedItem.ToString()))
+                    {
+                        if (string.IsNullOrEmpty(auxDesc))
+                        {
+                            StringBuilder sqlPote = new StringBuilder();
+                            sqlPote.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE  ");
+                            sqlPote.Append("FROM ESTOQUE_POTE EP ");
+                            sqlPote.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+                            sqlPote.Append("WHERE EP.QT_EST > 0 AND     P.DESCRICAO = '" + cboProdutoFilho.SelectedItem.ToString() + "' ");
+                            sqlPote.Append("ORDER BY DESCRICAO");
+
+                            while (true)
+                            {
+                                frmBusca frm = new frmBusca(sqlPote, "Estoque dos Sabores de " + cboProdutoFilho.SelectedItem.ToString());
+                                frm.ShowDialog();
+                                if (frm.retorno != null)
+                                {
+                                    auxDesc = frm.retorno["DESCRICAO"].ToString();
+                                    //auxSQL.updateAddEstoquePote(int.Parse(frm.retorno["ID"].ToString()), int.Parse(dtGrid.Rows[listPosicaoGrid[i]]["QT"].ToString()) * -1);
+                                    break;
+                                }
+                                else
+                                {
+
+                                    MessageBox.Show("É obrigatório escolher o pote de sorvete!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                        
+                    
+
                     auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), qt, auxDesc, obsProduto, 1);
 
                     cboTipo.Enabled = false;
