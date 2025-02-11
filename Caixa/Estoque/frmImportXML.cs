@@ -82,7 +82,7 @@ namespace Caixa.Estoque
                                                 tagCNPJ = false;
                                                 reader.Read();
                                                 reader.Read();
-                                                if (reader.Value.Equals("20172949000186"))
+                                                if (reader.Value.Equals("20172949000186") || reader.Value.Equals("12279510600"))
                                                 {
                                                     dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
                                                 }
@@ -188,23 +188,43 @@ namespace Caixa.Estoque
                                     {
                                         if (dtExcelNFe.Rows.Count > j && dtExcelNFe.Rows[i]["INFNFE"].ToString().Equals(dtExcelNFe.Rows[j]["INFNFE"].ToString()))
                                         {
-                                            //INSERINDO O PRODUTO DA NF NO SISTEMA
-                                            sqlInsert.Clear();
-                                            sqlInsert.Append("INSERT INTO NF_PROD(NF, COD_PROD, DESC_PROD, QT_COM, VL_UNIT, UN_COMERCIAL) ");
-                                            sqlInsert.Append("VALUES ((SELECT ID FROM NF WHERE INF_NFE = @INF_NFE),@COD_PROD, @DESC_PROD, @QT_COM, @VL_UNIT, @UN_COM )  ");
-                                            sqlComInsert = new SqlCommand(sqlInsert.ToString(), conn, transacao);
-                                            sqlComInsert.Parameters.AddWithValue("@INF_NFE", dtExcelNFe.Rows[j]["infNFe"].ToString());
-                                            sqlComInsert.Parameters.AddWithValue("@COD_PROD", dtExcelNFe.Rows[j]["cProd"].ToString());
-                                            sqlComInsert.Parameters.AddWithValue("@DESC_PROD", dtExcelNFe.Rows[j]["xProd"].ToString());
-                                            qtCompra = (int)double.Parse(dtExcelNFe.Rows[j]["qCom"].ToString().Replace(".", ","));
-                                            sqlComInsert.Parameters.AddWithValue("@VL_UNIT", double.Parse(dtExcelNFe.Rows[j]["vUnCom"].ToString().Replace(".", ",")));
-                                            if (dtExcelNFe.Rows[j]["uCom"].ToString().Length > 2)
-                                                sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString().Substring(0, 2).ToUpper());
+                                            sqlSelect.Clear();
+                                            sqlSelect.Append("SELECT * FROM NF_PROD WHERE NF = (SELECT ID FROM NF WHERE INF_NFE = @INF_NFE) AND COD_PROD = @COD_PROD");
+                                            sqlComSelect = new SqlCommand(sqlSelect.ToString(), conn, transacao);
+                                            sqlComSelect.CommandType = CommandType.Text;
+                                            sqlComSelect.Parameters.AddWithValue("@INF_NFE", dtExcelNFe.Rows[j]["infNFe"].ToString());
+                                            sqlComSelect.Parameters.AddWithValue("@COD_PROD", dtExcelNFe.Rows[j]["cProd"].ToString());
+                                            if (auxSQL.retornaDataTableTransaction(conn, sqlComSelect).Rows.Count > 0)
+                                            {
+                                                sqlInsert.Clear();
+                                                sqlInsert.Append("UPDATE NF_PROD SET QT_COM = QT_COM + @QT_COM ");
+                                                sqlInsert.Append("WHERE NF = (SELECT ID FROM NF WHERE INF_NFE = @INF_NFE) AND COD_PROD = @COD_PROD ");
+                                                sqlComInsert = new SqlCommand(sqlInsert.ToString(), conn, transacao);
+                                                sqlComInsert.Parameters.AddWithValue("@INF_NFE", dtExcelNFe.Rows[j]["infNFe"].ToString());
+                                                sqlComInsert.Parameters.AddWithValue("@COD_PROD", dtExcelNFe.Rows[j]["cProd"].ToString());
+                                                sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);
+                                                auxSQL.executaQueryTransaction(conn, sqlComInsert);
+                                            }
                                             else
-                                                sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString());
+                                            {
+                                                //INSERINDO O PRODUTO DA NF NO SISTEMA
+                                                sqlInsert.Clear();
+                                                sqlInsert.Append("INSERT INTO NF_PROD(NF, COD_PROD, DESC_PROD, QT_COM, VL_UNIT, UN_COMERCIAL) ");
+                                                sqlInsert.Append("VALUES ((SELECT ID FROM NF WHERE INF_NFE = @INF_NFE),@COD_PROD, @DESC_PROD, @QT_COM, @VL_UNIT, @UN_COM )  ");
+                                                sqlComInsert = new SqlCommand(sqlInsert.ToString(), conn, transacao);
+                                                sqlComInsert.Parameters.AddWithValue("@INF_NFE", dtExcelNFe.Rows[j]["infNFe"].ToString());
+                                                sqlComInsert.Parameters.AddWithValue("@COD_PROD", dtExcelNFe.Rows[j]["cProd"].ToString());
+                                                sqlComInsert.Parameters.AddWithValue("@DESC_PROD", dtExcelNFe.Rows[j]["xProd"].ToString());
+                                                qtCompra = (int)double.Parse(dtExcelNFe.Rows[j]["qCom"].ToString().Replace(".", ","));
+                                                sqlComInsert.Parameters.AddWithValue("@VL_UNIT", double.Parse(dtExcelNFe.Rows[j]["vUnCom"].ToString().Replace(".", ",")));
+                                                if (dtExcelNFe.Rows[j]["uCom"].ToString().Length > 2)
+                                                    sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString().Substring(0, 2).ToUpper());
+                                                else
+                                                    sqlComInsert.Parameters.AddWithValue("@UN_COM", dtExcelNFe.Rows[j]["uCom"].ToString());
 
-                                            sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);
-                                            auxSQL.executaQueryTransaction(conn, sqlComInsert);
+                                                sqlComInsert.Parameters.AddWithValue("@QT_COM", qtCompra);
+                                                auxSQL.executaQueryTransaction(conn, sqlComInsert);
+                                            }
                                         }
                                         else
                                         {
