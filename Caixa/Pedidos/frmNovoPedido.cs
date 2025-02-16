@@ -157,6 +157,7 @@ namespace Caixa
                                 if (frm.retorno != null)
                                 {
                                     auxDesc = frm.retorno["DESCRICAO"].ToString();
+                                    auxDesc = auxDesc.Substring(0, auxDesc.Length - 2).Replace(";", ",");
                                     //auxSQL.updateAddEstoquePote(int.Parse(frm.retorno["ID"].ToString()), int.Parse(dtGrid.Rows[listPosicaoGrid[i]]["QT"].ToString()) * -1);
                                     break;
                                 }
