@@ -170,6 +170,7 @@ namespace Caixa
                         }
                     }
                         
+
                     
 
                     auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), qt, auxDesc, obsProduto, 1);

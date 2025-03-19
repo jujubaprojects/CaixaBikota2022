@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOcorrencias = new Componentes.DataGridViewJCS(this.components);
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColaborador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.dtpData = new Componentes.dateTimePickerJCS(this.components);
             this.txtDesOcorrencia = new Componentes.TextBoxJCS(this.components);
@@ -42,10 +46,6 @@
             this.btnAdd = new Componentes.ButtonJCS(this.components);
             this.groupBoxJCS1 = new Componentes.GroupBoxJCS(this.components);
             this.cboFiltroColaborador = new Componentes.ComboBoxJCS(this.components);
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColaborador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcorrencias)).BeginInit();
             this.groupBoxJCS1.SuspendLayout();
             this.SuspendLayout();
@@ -56,44 +56,74 @@
             this.dgvOcorrencias.AllowUserToDeleteRows = false;
             this.dgvOcorrencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOcorrencias.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOcorrencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOcorrencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOcorrencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOcorrencias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colColaborador,
             this.colDescricao,
             this.colData});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOcorrencias.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOcorrencias.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOcorrencias.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvOcorrencias.EnableHeadersVisualStyles = false;
             this.dgvOcorrencias.Location = new System.Drawing.Point(0, 221);
             this.dgvOcorrencias.Name = "dgvOcorrencias";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOcorrencias.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOcorrencias.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOcorrencias.RowHeadersVisible = false;
             this.dgvOcorrencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOcorrencias.Size = new System.Drawing.Size(484, 164);
             this.dgvOcorrencias.TabIndex = 0;
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.Visible = false;
+            this.colID.Width = 27;
+            // 
+            // colColaborador
+            // 
+            this.colColaborador.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colColaborador.DataPropertyName = "NOME";
+            this.colColaborador.HeaderText = "Colaborador";
+            this.colColaborador.Name = "colColaborador";
+            this.colColaborador.Width = 107;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Ocorrência";
+            this.colDescricao.Name = "colDescricao";
+            // 
+            // colData
+            // 
+            this.colData.DataPropertyName = "DATA";
+            this.colData.HeaderText = "Data";
+            this.colData.Name = "colData";
+            this.colData.Width = 61;
             // 
             // labelJCS1
             // 
@@ -194,36 +224,7 @@
             this.cboFiltroColaborador.Name = "cboFiltroColaborador";
             this.cboFiltroColaborador.Size = new System.Drawing.Size(370, 23);
             this.cboFiltroColaborador.TabIndex = 9;
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Visible = false;
-            this.colID.Width = 27;
-            // 
-            // colColaborador
-            // 
-            this.colColaborador.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colColaborador.DataPropertyName = "NOME";
-            this.colColaborador.HeaderText = "Colaborador";
-            this.colColaborador.Name = "colColaborador";
-            this.colColaborador.Width = 107;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Ocorrência";
-            this.colDescricao.Name = "colDescricao";
-            // 
-            // colData
-            // 
-            this.colData.DataPropertyName = "DATA";
-            this.colData.HeaderText = "Data";
-            this.colData.Name = "colData";
-            this.colData.Width = 61;
+            this.cboFiltroColaborador.SelectedIndexChanged += new System.EventHandler(this.CboFiltroColaborador_SelectedIndexChanged);
             // 
             // frmCadastroOcorrenciaColaborador
             // 

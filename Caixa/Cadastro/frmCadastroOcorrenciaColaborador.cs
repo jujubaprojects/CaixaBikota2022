@@ -62,6 +62,11 @@ namespace Caixa.Cadastro
 
         }
 
+        private void CboFiltroColaborador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            preencherCampos();
+        }
+
         private void preencherCampos()
         {
             StringBuilder sql = new StringBuilder();
@@ -70,7 +75,7 @@ namespace Caixa.Cadastro
             sql.Append("JOIN COLABORADOR C ON(CO.ID_COLABORADOR = C.ID) ");
             if (cboFiltroColaborador.SelectedIndex > 0)
                 sql.Append(" WHERE C.NOME LIKE '" + cboFiltroColaborador.SelectedItem.ToString() + "'");
-
+            sql.Append("ORDER BY DATA DESC ");
                 dgvOcorrencias.DataSource = auxSQL.retornaDataTable(sql.ToString());
         }
     }

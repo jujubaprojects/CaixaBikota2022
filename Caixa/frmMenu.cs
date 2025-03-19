@@ -37,20 +37,22 @@ namespace Caixa
         {
             InitializeComponent();
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT * FROM LEMBRETE /*REPETIR MENSALMENTE*/ ");
-            sql.Append("WHERE DAY(DATA) = DAY(GETDATE()) AND REPETIR = 4 ");
-            sql.Append("UNION ALL ");
-            sql.Append("SELECT * FROM LEMBRETE /*REPETIR DIARIAMENTE*/ ");
-            sql.Append("WHERE REPETIR = 1 ");
-            sql.Append("UNION ALL ");
-            sql.Append("SELECT * FROM LEMBRETE /*REPETIR SEMANALMENTE*/ ");
-            sql.Append("WHERE REPETIR = 2 AND DATENAME(WEEKDAY, DATA) = DATENAME(WEEKDAY, GETDATE()) ");
-            sql.Append("UNION ALL ");
-            sql.Append("SELECT * FROM LEMBRETE /*REPETIR UNICA VEZ*/ ");
-            sql.Append("WHERE REPETIR = 9 AND DATA = CONVERT(date, GETDATE()) ");
-            sql.Append("UNION ALL ");
-            sql.Append("SELECT * FROM LEMBRETE /*REPETIR QUINZENALMENTE*/ ");
-            sql.Append("WHERE REPETIR = 3 AND DATENAME(WEEKDAY, DATA) = DATENAME(WEEKDAY, GETDATE()) AND(DAY(DATA) - DAY(GETDATE())) NOT IN(7, 21, -7, -21) ");
+            sql.Append("SELECT ID, DESCRICAO, DATA, REPETIR, STATUS ");
+            sql.Append("FROM LEMBRETE ");
+            sql.Append("WHERE STATUS = 1 ");
+            sql.Append("AND( ");
+            //sql.Append("--Caso seja diário ");
+            sql.Append("REPETIR = 1 ");
+            //sql.Append("-- Caso seja semanal e o dia da semana seja o mesmo da data original ");
+            sql.Append("OR(REPETIR = 2 AND DATEPART(WEEKDAY, DATA) = DATEPART(WEEKDAY, GETDATE())) ");
+            //sql.Append("-- Caso seja quinzenal e a diferença em dias seja múltipla de 14 ");
+            sql.Append("OR(REPETIR = 3 AND DATEDIFF(DAY, DATA, GETDATE()) % 14 = 0) ");
+            //sql.Append("-- Caso seja mensal e o dia do mês seja o mesmo da data original ");
+            sql.Append("OR(REPETIR = 4 AND DAY(DATA) = DAY(GETDATE())) ");
+            //sql.Append("-- Caso seja anual e o dia e mês sejam os mesmos da data original ");
+            sql.Append("OR(REPETIR = 5 AND FORMAT(DATA, 'MM-dd') = FORMAT(GETDATE(), 'MM-dd')) ");
+            sql.Append(") ");
+
 
             DataTable dtLembrete = auxSQL.retornaDataTable(sql.ToString());
             if (dtLembrete.Rows.Count > 0)

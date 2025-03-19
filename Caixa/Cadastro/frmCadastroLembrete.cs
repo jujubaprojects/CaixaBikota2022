@@ -51,6 +51,7 @@ namespace Caixa.Cadastro
             cboRepetir.Items.Add("SEMANALMENTE");//2
             cboRepetir.Items.Add("QUINZENALMENTE");//3
             cboRepetir.Items.Add("MENSALMENTE");//4
+            cboRepetir.Items.Add("ANUALMENTE"); //5
 
 
             cboStatus.Items.Add("INATIVO");//0
@@ -78,7 +79,7 @@ namespace Caixa.Cadastro
             else
                 repetir = cboRepetir.SelectedIndex;
 
-            status = cboRepetir.SelectedIndex;
+            status = cboStatus.SelectedIndex;
             data = dtpData.Value;
         }
         public void toolStripDeletarJCS_Click(object sender, EventArgs e)
@@ -169,6 +170,7 @@ namespace Caixa.Cadastro
             sql.Append("WHEN 2 THEN 'SEMANALMENTE' ");
             sql.Append("WHEN 3 THEN 'QUINZENALMENTE' ");
             sql.Append("WHEN 4 THEN 'MENSALMENTE' ");
+            sql.Append("WHEN 5 THEN 'ANUALMENTE' ");
             sql.Append("ELSE 'ERRO' END REPETIR, ");
             sql.Append("CASE STATUS WHEN 0 THEN 'INATIVO' ELSE 'ATIVO' END STATUS ");
             sql.Append("FROM LEMBRETE ");
