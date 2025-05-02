@@ -298,6 +298,29 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertPesoAutomatico(double pPeso)
+        {
+            string sql = queryInsertPesoAutomatico();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pPeso", pPeso);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertPesoAutomatico()
+        {
+            StringBuilder sql = new StringBuilder();
+            //sql.Append("INSERT INTO PESO_BALANCA_AUT (QT_PESO, DT_ALTERACAO, PEDIDO_PRODUTO) ");
+            //sql.Append("VALUES (@pPeso, getdate(), 0) ");
+            sql.Append("IF @pPeso != (SELECT TOP 1 QT_PESO FROM PESO_BALANCA_AUT ORDER BY ID DESC)  ");
+            sql.Append("BEGIN ");
+            sql.Append("INSERT INTO PESO_BALANCA_AUT (QT_PESO, DT_ALTERACAO, PEDIDO_PRODUTO) VALUES (@pPeso, GETDATE(), 0) END ");
+
+            return sql.ToString();
+        }
         public void insertBloqueioSubEst(int pIDEst, int pTipo)
         {
             string sql = queryInsertBloqueioSubEst();

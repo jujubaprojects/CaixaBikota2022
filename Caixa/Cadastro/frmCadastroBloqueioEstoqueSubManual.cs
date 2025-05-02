@@ -130,6 +130,11 @@ namespace Caixa.Cadastro
             }
         }
 
+        private void CboFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            preencherCampos();
+        }
+
         private void BtnSalvarEstoque_Click(object sender, EventArgs e)
         {
             if (validaCampos())

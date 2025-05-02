@@ -34,6 +34,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpFiltro = new Componentes.GroupBoxJCS(this.components);
             this.dgvBloqueioEstoque = new Componentes.DataGridViewJCS(this.components);
+            this.colIDEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApagar = new System.Windows.Forms.DataGridViewImageColumn();
             this.cboFiltro = new Componentes.ComboBoxJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.cboTipo = new Componentes.ComboBoxJCS(this.components);
@@ -42,10 +46,6 @@
             this.txtDescEstoque = new Componentes.TextBoxJCS(this.components);
             this.btnBuscar = new Componentes.ButtonJCS(this.components);
             this.btnSalvarEstoque = new Componentes.ButtonJCS(this.components);
-            this.colIDEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApagar = new System.Windows.Forms.DataGridViewImageColumn();
             this.grpFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBloqueioEstoque)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +110,35 @@
             this.dgvBloqueioEstoque.TabIndex = 1;
             this.dgvBloqueioEstoque.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBloqueioEstoque_CellClick);
             // 
+            // colIDEstoque
+            // 
+            this.colIDEstoque.DataPropertyName = "ID_ESTOQUE";
+            this.colIDEstoque.HeaderText = "ID Estoque";
+            this.colIDEstoque.Name = "colIDEstoque";
+            this.colIDEstoque.Width = 98;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "DESCRICAO";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            // 
+            // colTipoEst
+            // 
+            this.colTipoEst.DataPropertyName = "TIPO_EST";
+            this.colTipoEst.HeaderText = "TipoEst";
+            this.colTipoEst.Name = "colTipoEst";
+            this.colTipoEst.Visible = false;
+            this.colTipoEst.Width = 77;
+            // 
+            // colApagar
+            // 
+            this.colApagar.HeaderText = "Apagar";
+            this.colApagar.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.colApagar.Name = "colApagar";
+            this.colApagar.Width = 56;
+            // 
             // cboFiltro
             // 
             this.cboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -123,6 +152,7 @@
             this.cboFiltro.Name = "cboFiltro";
             this.cboFiltro.Size = new System.Drawing.Size(782, 23);
             this.cboFiltro.TabIndex = 0;
+            this.cboFiltro.SelectedIndexChanged += new System.EventHandler(this.CboFiltro_SelectedIndexChanged);
             // 
             // labelJCS1
             // 
@@ -216,35 +246,6 @@
             this.btnSalvarEstoque.Text = "Salvar Estoque";
             this.btnSalvarEstoque.UseVisualStyleBackColor = false;
             this.btnSalvarEstoque.Click += new System.EventHandler(this.BtnSalvarEstoque_Click);
-            // 
-            // colIDEstoque
-            // 
-            this.colIDEstoque.DataPropertyName = "ID_ESTOQUE";
-            this.colIDEstoque.HeaderText = "ID Estoque";
-            this.colIDEstoque.Name = "colIDEstoque";
-            this.colIDEstoque.Width = 98;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "DESCRICAO";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.Name = "colDescricao";
-            // 
-            // colTipoEst
-            // 
-            this.colTipoEst.DataPropertyName = "TIPO_EST";
-            this.colTipoEst.HeaderText = "TipoEst";
-            this.colTipoEst.Name = "colTipoEst";
-            this.colTipoEst.Visible = false;
-            this.colTipoEst.Width = 77;
-            // 
-            // colApagar
-            // 
-            this.colApagar.HeaderText = "Apagar";
-            this.colApagar.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.colApagar.Name = "colApagar";
-            this.colApagar.Width = 56;
             // 
             // frmCadastroBloqueioEstoqueSubManual
             // 

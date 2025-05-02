@@ -78,6 +78,7 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -423,7 +424,8 @@
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vendasToolStripMenuItem,
             this.toolStripMenuItem7,
-            this.pedidoParaFornecedorToolStripMenuItem});
+            this.pedidoParaFornecedorToolStripMenuItem,
+            this.testeToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.relatóriosToolStripMenuItem.Image = global::Caixa.Properties.Resources.metrica64x64;
             this.relatóriosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -438,7 +440,7 @@
             this.valorPorDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // vendasPedidosDetalhadoToolStripMenuItem
@@ -464,7 +466,7 @@
             // 
             this.pedidoParaFornecedorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.pedidoParaFornecedorToolStripMenuItem.Name = "pedidoParaFornecedorToolStripMenuItem";
-            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.pedidoParaFornecedorToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.pedidoParaFornecedorToolStripMenuItem.Text = "Pedido de Compra Simples";
             this.pedidoParaFornecedorToolStripMenuItem.Click += new System.EventHandler(this.PedidoParaFornecedorToolStripMenuItem_Click);
             // 
@@ -510,6 +512,13 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
+            // 
+            // testeToolStripMenuItem
+            // 
+            this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
+            this.testeToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.testeToolStripMenuItem.Text = "Teste";
+            this.testeToolStripMenuItem.Click += new System.EventHandler(this.TesteToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -580,6 +589,7 @@
         private System.Windows.Forms.ToolStripMenuItem lembretesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alertasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloqueioEstoqueManualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
     }
 }
 
