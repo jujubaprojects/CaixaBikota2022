@@ -257,7 +257,7 @@ namespace Caixa
 
                 }
 
-                verificaPesoInseriDBAutomatico();
+                //verificaPesoInseriDBAutomatico();
                 Thread.Sleep(1000);
 
 
@@ -265,7 +265,7 @@ namespace Caixa
             }
         }
 
-        private void verificaPesoInseriDBAutomatico()
+        public void verificaPesoInseriDBAutomatico(int pPedidoProduto = 0)
         {
 
             /*CODIGO FUNCIONANDO ABAIXO */
@@ -302,7 +302,7 @@ namespace Caixa
                     {
                         //MessageBox.Show("Peso: " + ListaBytesParaString(DadosPeso));
                         PortaAberta = false;
-                        auxSQL.insertPesoAutomatico(aux);
+                        auxSQL.insertPesoAutomatico(aux, pPedidoProduto);
 
                     }
                 }
@@ -719,74 +719,11 @@ namespace Caixa
         private void TesteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             /*CODIGO FUNCIONANDO ABAIXO */
-            //try
-            //{
-            //    if (!PortaAberta && AbrePorta(CONSTANTES.porta, CONSTANTES.baudRate, CONSTANTES.dataBits, CONSTANTES.paridade) == 1)
-            //    {
-            //        //MessageBox.Show(this, "Porta aberta!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        PortaAberta = true;
-            //    }
-
-            //    if (PortaAberta)
-            //    {
-            //        byte[] DadosPeso = new byte[6]; //5 bytes + nulo
-
-            //        String caminho = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-
-            //        if (PegaPeso(0, DadosPeso, caminho) == 1)
-            //        {
-            //            double aux = double.Parse(ListaBytesParaString(DadosPeso).Replace(",", "."));
-            //            if (aux > 0.09)
-            //            {
-            //                //MessageBox.Show("Peso: " + ListaBytesParaString(DadosPeso));
-            //                PortaAberta = false;
-            //                auxSQL.insertPesoAutomatico(aux);
-
-            //            }
-            //        }
-            //        //else
-            //        //MessageBox.Show("Error!");
-            //    }
-            //    //else
-            //    //MessageBox.Show(this, "Atenção! Porta fechada.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //}
-            //catch (Exception err)
-            //{
-            //    MessageBox.Show("Contate o suporte! \nErro: " + err.InnerException.Message);
-            //    PortaAberta = false;
-            //}
-
-            //SerialPort mySerialPort = new SerialPort("COM9", 2400, Parity.None, 8, StopBits.One);
-            //mySerialPort.Handshake = Handshake.None;
-            //mySerialPort.WriteTimeout = 500;
-            ////PortChat.Porta();
-            //try
-            //{
-            //    mySerialPort.Open();
-            //    //String str = mySerialPort.ReadExisting();
-            //    if (mySerialPort.BytesToRead > 0)
-            //    {
-            //        string str = mySerialPort.ReadLine();
-            //        MessageBox.Show("Valor: " + str);
-            //    }
-            //    mySerialPort.Close();
-            //}
-            //catch (InvalidOperationException err)
-            //{
-            //    MessageBox.Show(err.InnerException.Message);
-            //}
-            //finally
-            //{
-            //    mySerialPort.Close();
-            //}
-
-
             try
             {
                 if (!PortaAberta && AbrePorta(CONSTANTES.porta, CONSTANTES.baudRate, CONSTANTES.dataBits, CONSTANTES.paridade) == 1)
                 {
-                    //MessageBox.Show(this, "Porta aberta!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "Porta aberta!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     PortaAberta = true;
                 }
 
@@ -798,20 +735,20 @@ namespace Caixa
 
                     if (PegaPeso(0, DadosPeso, caminho) == 1)
                     {
-                        double aux = double.Parse(ListaBytesParaString(DadosPeso).Replace(",","."));
+                        double aux = double.Parse(ListaBytesParaString(DadosPeso).Replace(",", "."));
                         if (aux > 0.09)
                         {
                             //MessageBox.Show("Peso: " + ListaBytesParaString(DadosPeso));
                             PortaAberta = false;
                             auxSQL.insertPesoAutomatico(aux);
-                            
+
                         }
                     }
-                    //else
-                    //MessageBox.Show("Error!");
+                    else
+                        MessageBox.Show("Error!");
                 }
-                //else
-                //MessageBox.Show(this, "Atenção! Porta fechada.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(this, "Atenção! Porta fechada.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             catch (Exception err)
@@ -819,6 +756,33 @@ namespace Caixa
                 MessageBox.Show("Contate o suporte! \nErro: " + err.InnerException.Message);
                 PortaAberta = false;
             }
+
+            SerialPort mySerialPort = new SerialPort("COM9", 2400, Parity.None, 8, StopBits.One);
+            mySerialPort.Handshake = Handshake.None;
+            mySerialPort.WriteTimeout = 500;
+            //PortChat.Porta();
+            try
+            {
+                mySerialPort.Open();
+                //String str = mySerialPort.ReadExisting();
+                if (mySerialPort.BytesToRead > 0)
+                {
+                    string str = mySerialPort.ReadLine();
+                    MessageBox.Show("Valor: " + str);
+                }
+                mySerialPort.Close();
+            }
+            catch (InvalidOperationException err)
+            {
+                MessageBox.Show(err.InnerException.Message);
+            }
+            finally
+            {
+                mySerialPort.Close();
+            }
+
+
+
         }
     }
     

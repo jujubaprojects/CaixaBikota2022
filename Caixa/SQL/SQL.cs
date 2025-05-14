@@ -298,7 +298,7 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
-        public void insertPesoAutomatico(double pPeso)
+        public void insertPesoAutomatico(double pPeso, int pPedProd = 0)
         {
             string sql = queryInsertPesoAutomatico();
 
@@ -307,6 +307,7 @@ namespace Caixa.SQL
             SqlCommand sqlc = new SqlCommand(sql);
             sqlc.CommandType = CommandType.Text;
             sqlc.Parameters.AddWithValue("@pPeso", pPeso);
+            sqlc.Parameters.AddWithValue("@pPedProd", pPedProd);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
@@ -315,9 +316,9 @@ namespace Caixa.SQL
             StringBuilder sql = new StringBuilder();
             //sql.Append("INSERT INTO PESO_BALANCA_AUT (QT_PESO, DT_ALTERACAO, PEDIDO_PRODUTO) ");
             //sql.Append("VALUES (@pPeso, getdate(), 0) ");
-            sql.Append("IF @pPeso != (SELECT TOP 1 QT_PESO FROM PESO_BALANCA_AUT ORDER BY ID DESC)  ");
+            sql.Append("IF @pPeso != ISNULL((SELECT TOP 1 QT_PESO FROM PESO_BALANCA_AUT ORDER BY ID DESC),0)  ");
             sql.Append("BEGIN ");
-            sql.Append("INSERT INTO PESO_BALANCA_AUT (QT_PESO, DT_ALTERACAO, PEDIDO_PRODUTO) VALUES (@pPeso, GETDATE(), 0) END ");
+            sql.Append("INSERT INTO PESO_BALANCA_AUT (QT_PESO, DT_ALTERACAO, PEDIDO_PRODUTO) VALUES (@pPeso, GETDATE(), @pPedProd) END ");
 
             return sql.ToString();
         }
@@ -709,7 +710,7 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        public void insertLinkNFxProdXfor(int pProduto, int pFornecedor, int pControle, int pQtCaixa)
+        public void insertLinkNFxProdXfor(int pProduto, int pFornecedor, int pControle, int pQtCaixa, int pQtVariavel = 0)
         {
             string sql = queryinsertLinkNFxProdXfor();
 
@@ -721,14 +722,15 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pFornecedor", pFornecedor);
             sqlc.Parameters.AddWithValue("@pControle", pControle);
             sqlc.Parameters.AddWithValue("@pQtCaixa", pQtCaixa);
+            sqlc.Parameters.AddWithValue("@pQtVariavel", pQtVariavel);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
         private string queryinsertLinkNFxProdXfor()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO NFPROD_CONTROLESTQ (COD_PROD_NF, FOR_ID, COD_CONTRESTQ, QT_CAIXA) ");
-            sql.Append("VALUES (@pProduto, @pFornecedor, @pControle, @pQtCaixa)");
+            sql.Append("INSERT INTO NFPROD_CONTROLESTQ (COD_PROD_NF, FOR_ID, COD_CONTRESTQ, QT_CAIXA, QT_VARIAVEL) ");
+            sql.Append("VALUES (@pProduto, @pFornecedor, @pControle, @pQtCaixa, @pQtVariavel)");
 
             return sql.ToString();
         }

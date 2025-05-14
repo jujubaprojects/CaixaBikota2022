@@ -129,8 +129,12 @@ namespace Caixa
                 dtGrid.Rows.Add(row);
 
                 preencherDgv(dtGrid);
+
+                //new frmMenu().verificaPesoInseriDBAutomatico();
             }
         }
+
+
 
         private bool validaCamposNota()
         {

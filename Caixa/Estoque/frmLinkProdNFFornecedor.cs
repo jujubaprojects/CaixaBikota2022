@@ -41,7 +41,7 @@ namespace Caixa.Estoque
                     return;
                 }
                 //if ()
-                auxSQL.insertLinkNFxProdXfor(int.Parse(txtIDProd.Text), int.Parse(txtIDFornecedor.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtCaixa.Text));
+                auxSQL.insertLinkNFxProdXfor(int.Parse(txtIDProd.Text), int.Parse(txtIDFornecedor.Text), int.Parse(txtIdEstoque.Text), int.Parse(txtQtCaixa.Text), int.Parse(txtQtVariavel.Text));
                 MessageBox.Show("Link criado na base de dados.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 preencherCampos();
 
@@ -185,7 +185,7 @@ namespace Caixa.Estoque
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT DISTINCT A.ID, A.COD_PROD_NF COD_PROD, P.DESC_PROD DESC_PROD, ");
             sql.Append("C.ID COD_EST, C.DESCRICAO DESC_EST, ");
-            sql.Append("F.ID COD_FOR, F.NOME DESC_FOR, A.QT_CAIXA ");
+            sql.Append("F.ID COD_FOR, F.NOME DESC_FOR, A.QT_CAIXA, A.QT_VARIAVEL ");
             sql.Append("FROM NFPROD_CONTROLESTQ A ");
             sql.Append("JOIN FORNECEDOR F ON(A.FOR_ID = F.id) ");
             sql.Append("JOIN NF_PROD P ON(P.COD_PROD = A.COD_PROD_NF) ");
