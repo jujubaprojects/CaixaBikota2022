@@ -784,6 +784,12 @@ namespace Caixa
 
 
         }
+
+        private void ProdutosDiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelProdutosDia frm = new frmRelProdutosDia();
+            frm.ShowDialog();
+        }
     }
     
 }
