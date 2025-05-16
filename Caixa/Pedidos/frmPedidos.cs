@@ -94,7 +94,7 @@ namespace Caixa
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.InnerException.Message);
+                MessageBox.Show(err.Message);
             }
         }
 

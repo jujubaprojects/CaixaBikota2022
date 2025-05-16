@@ -72,6 +72,7 @@
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.pedidoParaFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +80,7 @@
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -459,6 +460,13 @@
             this.valorPorDiaToolStripMenuItem.Text = "Valor Dia";
             this.valorPorDiaToolStripMenuItem.Click += new System.EventHandler(this.ValorPorDiaToolStripMenuItem_Click);
             // 
+            // produtosDiaToolStripMenuItem
+            // 
+            this.produtosDiaToolStripMenuItem.Name = "produtosDiaToolStripMenuItem";
+            this.produtosDiaToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.produtosDiaToolStripMenuItem.Text = "Produtos Dia";
+            this.produtosDiaToolStripMenuItem.Click += new System.EventHandler(this.ProdutosDiaToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
@@ -497,7 +505,8 @@
             // 
             this.colaboradoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroDeColaboradoresToolStripMenuItem,
-            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem});
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem,
+            this.cadastroDeFolgasToolStripMenuItem});
             this.colaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.colaboradoresToolStripMenuItem.Image = global::Caixa.Properties.Resources.funcionario;
             this.colaboradoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -522,12 +531,13 @@
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
             // 
-            // produtosDiaToolStripMenuItem
+            // cadastroDeFolgasToolStripMenuItem
             // 
-            this.produtosDiaToolStripMenuItem.Name = "produtosDiaToolStripMenuItem";
-            this.produtosDiaToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-            this.produtosDiaToolStripMenuItem.Text = "Produtos Dia";
-            this.produtosDiaToolStripMenuItem.Click += new System.EventHandler(this.ProdutosDiaToolStripMenuItem_Click);
+            this.cadastroDeFolgasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cadastroDeFolgasToolStripMenuItem.Name = "cadastroDeFolgasToolStripMenuItem";
+            this.cadastroDeFolgasToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
+            this.cadastroDeFolgasToolStripMenuItem.Text = "Cadastro de Folgas";
+            this.cadastroDeFolgasToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeFolgasToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -600,6 +610,7 @@
         private System.Windows.Forms.ToolStripMenuItem bloqueioEstoqueManualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosDiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeFolgasToolStripMenuItem;
     }
 }
 

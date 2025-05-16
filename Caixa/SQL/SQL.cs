@@ -2168,8 +2168,17 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
-        
 
+
+        public void executaQuerySemRetorno(string pSQL)
+        {
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(pSQL);
+            sqlc.CommandType = CommandType.Text;
+
+             conexao.executarInsUpDel(sqlc, conn);
+        }
         public DataTable retornaDataTable(string pSQL)
             {
             SqlConnection conn = conexao.retornaConexao();

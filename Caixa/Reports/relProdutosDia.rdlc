@@ -59,16 +59,16 @@
                   <Width>5.3cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5cm</Width>
+                  <Width>4.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.8cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.2cm</Width>
+                  <Width>2cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.2cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>

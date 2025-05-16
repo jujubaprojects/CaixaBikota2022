@@ -51,9 +51,12 @@ namespace Caixa
             sql.Append("OR(REPETIR = 4 AND DAY(DATA) = DAY(GETDATE())) ");
             //sql.Append("-- Caso seja anual e o dia e mês sejam os mesmos da data original ");
             sql.Append("OR(REPETIR = 5 AND FORMAT(DATA, 'MM-dd') = FORMAT(GETDATE(), 'MM-dd')) ");
+            //caso seja uma unica vez.
+            sql.Append("OR (REPETIR = 9 AND DATA = CAST(GETDATE() AS DATE)) ");
             sql.Append(") ");
 
 
+            //EXECUTAR PROCEDURE PARA FOLGA
             DataTable dtLembrete = auxSQL.retornaDataTable(sql.ToString());
             if (dtLembrete.Rows.Count > 0)
             {
@@ -789,6 +792,15 @@ namespace Caixa
         {
             frmRelProdutosDia frm = new frmRelProdutosDia();
             frm.ShowDialog();
+        }
+
+        private void CadastroDeFolgasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (acessoFrmsRestrito())
+            //{
+                frmCadastroFolgasColaboradores frm = new frmCadastroFolgasColaboradores();
+                frm.ShowDialog();
+            //}
         }
     }
     
