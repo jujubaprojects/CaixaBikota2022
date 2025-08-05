@@ -49,7 +49,7 @@ namespace Caixa.Cadastro
             preencherGrid();
         }
 
-        private void preencherGrid ()
+        private void preencherGrid()
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT C.ID ID_COLABORADOR, C.NOME, LF.DATA_FOLGA ");
@@ -79,7 +79,9 @@ namespace Caixa.Cadastro
                         auxSQL.executaQuerySemRetorno("DELETE FROM LEMBRETE_FOLGA WHERE DATA = '" + dgvFolgas["colData", e.RowIndex].Value.ToString() + "' AND ID_FUNCIONARIO = " + dgvFolgas["colColaboradorID", e.RowIndex].Value.ToString());
                         preencherGrid();
                     }
+                }
             }
         }
+
     }
 }
