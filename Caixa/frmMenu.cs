@@ -802,6 +802,11 @@ namespace Caixa
                 frm.ShowDialog();
             //}
         }
+
+        private void fluxoDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

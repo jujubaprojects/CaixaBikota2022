@@ -81,6 +81,7 @@
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fluxoDeCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -264,7 +265,8 @@
             this.recebimentoDeNotaToolStripMenuItem,
             this.consultarNotasClientesToolStripMenuItem,
             this.toolStripMenuItem8,
-            this.despesasForaDoCaixaToolStripMenuItem});
+            this.despesasForaDoCaixaToolStripMenuItem,
+            this.fluxoDeCaixaToolStripMenuItem});
             this.caixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.caixaToolStripMenuItem.Image = global::Caixa.Properties.Resources.black_and_white_credit_cards;
             this.caixaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -539,11 +541,19 @@
             this.cadastroDeFolgasToolStripMenuItem.Text = "Cadastro de Folgas";
             this.cadastroDeFolgasToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeFolgasToolStripMenuItem_Click);
             // 
+            // fluxoDeCaixaToolStripMenuItem
+            // 
+            this.fluxoDeCaixaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.fluxoDeCaixaToolStripMenuItem.Name = "fluxoDeCaixaToolStripMenuItem";
+            this.fluxoDeCaixaToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.fluxoDeCaixaToolStripMenuItem.Text = "Fluxo de Caixa";
+            this.fluxoDeCaixaToolStripMenuItem.Click += new System.EventHandler(this.fluxoDeCaixaToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 1020);
+            this.ClientSize = new System.Drawing.Size(1300, 788);
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
@@ -611,6 +621,7 @@
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosDiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFolgasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fluxoDeCaixaToolStripMenuItem;
     }
 }
 

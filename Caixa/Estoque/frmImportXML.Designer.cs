@@ -43,7 +43,7 @@
             this.txtXML.Name = "txtXML";
             this.txtXML.Size = new System.Drawing.Size(406, 20);
             this.txtXML.TabIndex = 23;
-            this.txtXML.Text = "C:\\Users\\Jujuba\\Downloads";
+            this.txtXML.Text = "Caminho da pasta do XML";
             // 
             // label1
             // 
@@ -64,6 +64,7 @@
             this.btnXML.Size = new System.Drawing.Size(40, 23);
             this.btnXML.TabIndex = 22;
             this.btnXML.UseVisualStyleBackColor = true;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
             // bntImportar
             // 

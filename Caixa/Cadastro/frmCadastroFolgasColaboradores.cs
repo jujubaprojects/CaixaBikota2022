@@ -18,6 +18,14 @@ namespace Caixa.Cadastro
         {
             InitializeComponent();
             preencherGrid();
+            preencherCombo();
+        }
+
+        private void preencherCombo()
+        {
+            DataTable dt = auxSQL.retornaDataTable("SELECT * FROM COLABORADOR ORDER BY NOME");
+            for (int i = 0; i < dt.Rows.Count; i++)
+                cboColaborador.Items.Add(dt.Rows[i]["NOME"].ToString());
         }
 
         private void CboMes_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,19 +60,19 @@ namespace Caixa.Cadastro
         private void preencherGrid()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT C.ID ID_COLABORADOR, C.NOME, LF.DATA_FOLGA ");
+            sql.Append("SELECT C.ID ID_COLABORADOR, C.NOME, LF.DATA_FOLGA DATA ");
             sql.Append("FROM COLABORADOR C ");
             sql.Append("JOIN LEMBRETE_FOLGA LF ON(C.ID = LF.ID_FUNCIONARIO) ");
             sql.Append("WHERE 1 = 1 ");
 
-            DataTable dt = auxSQL.retornaDataTable("");
-            if (cboColaborador.SelectedIndex > 0)
-                sql.Append("AND C.NOME LIKE " + cboColaborador.SelectedItem);
+            //DataTable dt = auxSQL.retornaDataTable("");
+            if (cboColaborador.SelectedIndex > -1)
+                sql.Append("AND C.NOME LIKE '" + cboColaborador.SelectedItem + "' ");
             if (cboMes.SelectedIndex > 0)
                 sql.Append("AND MONTH(LF.DATA_FOLGA) = " + cboMes.SelectedIndex + 1 + " ");
 
-            sql.Append("ORDER BY NOME, DATA_FOLGA DESC ");
-
+            sql.Append("ORDER BY DATA DESC, NOME ASC ");
+            dgvFolgas.DataSource = auxSQL.retornaDataTable(sql.ToString());
         }
 
         private void DgvFolgas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +90,5 @@ namespace Caixa.Cadastro
                 }
             }
         }
-
     }
 }

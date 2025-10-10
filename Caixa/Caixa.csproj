@@ -212,6 +212,12 @@
     <Compile Include="Caixa\frmDespesa.Designer.cs">
       <DependentUpon>frmDespesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Caixa\frmFluxoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caixa\frmFluxoCaixa.Designer.cs">
+      <DependentUpon>frmFluxoCaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caixa\frmRetiradaCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmDespesa.resx">
       <DependentUpon>frmDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caixa\frmFluxoCaixa.resx">
+      <DependentUpon>frmFluxoCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caixa\frmRetiradaCaixa.resx">
       <DependentUpon>frmRetiradaCaixa.cs</DependentUpon>

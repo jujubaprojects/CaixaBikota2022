@@ -37,6 +37,8 @@ namespace Caixa.Estoque
         public frmImportXML()
         {
             InitializeComponent();
+
+            txtXML.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
         }
         private void BntImportar_Click(object sender, EventArgs e)
         {
@@ -82,7 +84,10 @@ namespace Caixa.Estoque
                                                 tagCNPJ = false;
                                                 reader.Read();
                                                 reader.Read();
-                                                if (reader.Value.Equals("20172949000186") || reader.Value.Equals("12279510600"))
+                                            if (reader.Value.ToString().Length == 0)
+                                                reader.Read();
+
+                                            if (reader.Value.Equals("20172949000186") || reader.Value.Equals("12279510600"))
                                                 {
                                                     dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
                                                 }
@@ -448,6 +453,23 @@ namespace Caixa.Estoque
 
 
             return dtRetorno;
+        }
+
+        private void btnXML_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "Selecione uma pasta";
+                folderDialog.ShowNewFolderButton = true;
+
+                DialogResult result = folderDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
+                {
+                    string caminhoSelecionado = folderDialog.SelectedPath;
+                    txtXML.Text = caminhoSelecionado;
+                }
+            }
         }
     }
 }
