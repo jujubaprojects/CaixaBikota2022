@@ -1966,7 +1966,7 @@ namespace Caixa.SQL
         private string queryBuscaSabor(string pDescricao)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT * FROM SABOR WHERE TIPO = @pDescricao ");
+            sql.Append("SELECT * FROM SABOR WHERE TIPO = @pDescricao AND ATIVO = 1 ");
             sql.Append("ORDER BY DESCRICAO ");
 
             return sql.ToString();

@@ -141,7 +141,7 @@ namespace Caixa.Estoque
                 sabores += " " + listaOrdernada[i] + ";";
 
 
-            if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) >= 0)
+            if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) > 0)
                 qtPotes = double.Parse(txtQT.Text);
             else
                 return false;
@@ -185,7 +185,7 @@ namespace Caixa.Estoque
                     }
                 }
                 else
-                    MessageBox.Show("Informe todos o Pote e o(s) Sabor(es)!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Informações incorreta! Verifique todas as informações, e lembre sempre de colocar quantidade maior que 0!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (clickBtns.Equals("Editar"))
             {

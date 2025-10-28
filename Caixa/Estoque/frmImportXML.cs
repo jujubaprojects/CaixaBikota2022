@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Data;
 using ExcelDataReader;
+using System.Xml.Linq;
 
 namespace Caixa.Estoque
 {
@@ -89,8 +90,10 @@ namespace Caixa.Estoque
 
                                             if (reader.Value.Equals("20172949000186") || reader.Value.Equals("12279510600"))
                                                 {
-                                                    dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
-                                                }
+                                                //dtExcelNFe = buscaTudo(arquivos[l].ToUpper());
+                                                dtExcelNFe = LerXML(arquivos[l].ToUpper());
+
+                                            }
                                             }
 
                                             break;
@@ -268,6 +271,77 @@ namespace Caixa.Estoque
                 MessageBox.Show("Por favor, informe os caminhos corretos.");
             }
         }
+
+
+        public DataTable LerXML(string caminhoArquivo)
+        {
+            XDocument xml = XDocument.Load(caminhoArquivo);
+            XNamespace ns = "http://www.portalfiscal.inf.br/nfe";
+
+            var inf = xml.Descendants(ns + "infNFe").First();
+            var ide = inf.Element(ns + "ide");
+            var emit = inf.Element(ns + "emit");
+            var dest = inf.Element(ns + "dest");
+            var total = inf.Element(ns + "total")?.Element(ns + "ICMSTot");
+
+            // ✅ Mantém a ordem idêntica à do seu código original
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new[]
+            {
+            new DataColumn("infNFe"), new DataColumn("cNF"), new DataColumn("nNF"),
+            new DataColumn("dhEmi"), new DataColumn("dhSaiEnt"), new DataColumn("CNPJ"),
+            new DataColumn("xNome"), new DataColumn("xFant"), new DataColumn("xLgr"),
+            new DataColumn("nro"), new DataColumn("xBairro"), new DataColumn("xMun"),
+            new DataColumn("UF"), new DataColumn("CEP"), new DataColumn("fone"),
+            new DataColumn("IE"), new DataColumn("cProd"), new DataColumn("xProd"),
+            new DataColumn("qCom"), new DataColumn("uCom"), new DataColumn("vUnCom"),
+            new DataColumn("vLiq")
+        });
+
+            // 🔹 Cabeçalho da NF
+            string idNFe = (string)inf.Attribute("Id");
+            string cNF = (string)ide?.Element(ns + "cNF");
+            string nNF = (string)ide?.Element(ns + "nNF");
+            string dhEmi = (string)ide?.Element(ns + "dhEmi");
+            string dhSaiEnt = (string)ide?.Element(ns + "dhSaiEnt") ?? dhEmi; // usa dhEmi se dhSaiEnt não existir
+
+            // 🔹 Captura CNPJ ou CPF (preenche em "CNPJ")
+            string cnpj = (string)dest.Element(ns + "CNPJ") ?? (string)dest.Element(ns + "CPF");
+            string nome = (string)dest.Element(ns + "xNome");
+            string xFant = (string)emit.Element(ns + "xFant");
+            string vLiq = (string)xml.Descendants(ns + "vLiq").FirstOrDefault() ?? (string)total?.Element(ns + "vNF");
+
+            // 🔹 Endereço do destinatário
+            var end = dest.Element(ns + "enderDest");
+            string xLgr = (string)end?.Element(ns + "xLgr");
+            string nro = (string)end?.Element(ns + "nro");
+            string xBairro = (string)end?.Element(ns + "xBairro");
+            string xMun = (string)end?.Element(ns + "xMun");
+            string UF = (string)end?.Element(ns + "UF");
+            string CEP = (string)end?.Element(ns + "CEP");
+            string fone = (string)end?.Element(ns + "fone");
+            string IE = (string)dest.Element(ns + "IE");
+
+            // 🔹 Percorre produtos
+            foreach (var prod in xml.Descendants(ns + "det"))
+            {
+                var p = prod.Element(ns + "prod");
+
+                dt.Rows.Add(
+                    idNFe, cNF, nNF, dhEmi, dhSaiEnt,
+                    cnpj, nome, xFant, xLgr, nro, xBairro, xMun, UF, CEP, fone, IE,
+                    (string)p.Element(ns + "cProd"),
+                    (string)p.Element(ns + "xProd"),
+                    (string)p.Element(ns + "qCom"),
+                    (string)p.Element(ns + "uCom"),
+                    (string)p.Element(ns + "vUnCom"),
+                    vLiq
+                );
+            }
+
+            return dt;
+        }
+
 
         private DataTable buscaExcel(string pArquivo)
         {
