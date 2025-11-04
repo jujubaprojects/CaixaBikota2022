@@ -368,6 +368,8 @@ namespace Caixa
             {
                 txtQuantidade.TipoCampo = "INTEIRO";
             }
+
+            txtQuantidade.Text = "1";
         }
 
         private void BtnAddComanda_Click(object sender, EventArgs e)

@@ -281,10 +281,9 @@ namespace Caixa.Estoque
             var inf = xml.Descendants(ns + "infNFe").First();
             var ide = inf.Element(ns + "ide");
             var emit = inf.Element(ns + "emit");
-            var dest = inf.Element(ns + "dest");
             var total = inf.Element(ns + "total")?.Element(ns + "ICMSTot");
 
-            // ✅ Mantém a ordem idêntica à do seu código original
+            // 🧩 Mantém a mesma ordem que seu sistema original usa
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new[]
             {
@@ -303,16 +302,16 @@ namespace Caixa.Estoque
             string cNF = (string)ide?.Element(ns + "cNF");
             string nNF = (string)ide?.Element(ns + "nNF");
             string dhEmi = (string)ide?.Element(ns + "dhEmi");
-            string dhSaiEnt = (string)ide?.Element(ns + "dhSaiEnt") ?? dhEmi; // usa dhEmi se dhSaiEnt não existir
+            string dhSaiEnt = (string)ide?.Element(ns + "dhSaiEnt") ?? dhEmi;
 
-            // 🔹 Captura CNPJ ou CPF (preenche em "CNPJ")
-            string cnpj = (string)dest.Element(ns + "CNPJ") ?? (string)dest.Element(ns + "CPF");
-            string nome = (string)dest.Element(ns + "xNome");
+            // 🔹 Dados do fornecedor (emitente)
+            string cnpj = (string)emit.Element(ns + "CNPJ") ?? (string)emit.Element(ns + "CPF");
+            string nome = (string)emit.Element(ns + "xNome");
             string xFant = (string)emit.Element(ns + "xFant");
-            string vLiq = (string)xml.Descendants(ns + "vLiq").FirstOrDefault() ?? (string)total?.Element(ns + "vNF");
+            string IE = (string)emit.Element(ns + "IE");
 
-            // 🔹 Endereço do destinatário
-            var end = dest.Element(ns + "enderDest");
+            // 🔹 Endereço do fornecedor
+            var end = emit.Element(ns + "enderEmit");
             string xLgr = (string)end?.Element(ns + "xLgr");
             string nro = (string)end?.Element(ns + "nro");
             string xBairro = (string)end?.Element(ns + "xBairro");
@@ -320,12 +319,14 @@ namespace Caixa.Estoque
             string UF = (string)end?.Element(ns + "UF");
             string CEP = (string)end?.Element(ns + "CEP");
             string fone = (string)end?.Element(ns + "fone");
-            string IE = (string)dest.Element(ns + "IE");
 
-            // 🔹 Percorre produtos
-            foreach (var prod in xml.Descendants(ns + "det"))
+            // 🔹 Valor total da nota
+            string vLiq = (string)xml.Descendants(ns + "vLiq").FirstOrDefault() ?? (string)total?.Element(ns + "vNF");
+
+            // 🔹 Produtos
+            foreach (var det in xml.Descendants(ns + "det"))
             {
-                var p = prod.Element(ns + "prod");
+                var p = det.Element(ns + "prod");
 
                 dt.Rows.Add(
                     idNFe, cNF, nNF, dhEmi, dhSaiEnt,
