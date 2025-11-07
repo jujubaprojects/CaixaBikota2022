@@ -20,8 +20,9 @@ namespace Caixa
             //Application.Run(new frmPagamentos(9, "LB2"));
             //Application.Run(new frmPedidos());
             //Application.Run(new frmNovoPedido(2, 30));
-            //Application.Run(new frmMenu()); 
-            Application.Run(new frmTesteAPI());
+            
+            Application.Run(new frmMenu()); 
+            
         }
     }
 }

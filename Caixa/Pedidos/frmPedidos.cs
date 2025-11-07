@@ -22,7 +22,8 @@ namespace Caixa
         {
             InitializeComponent();
 
-            cboSituacao.SelectedIndex = 0;
+            //chkDataEspec.Checked = false;//COMENTAR EM PRODUÇÃO
+            cboSituacao.SelectedIndex = 0;//DESCOMENTAR EM PRODUÇÃO
             this.WindowState = FormWindowState.Maximized;
 
 
@@ -197,6 +198,7 @@ namespace Caixa
 
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
+            cboSituacao.SelectedIndex = 0;
             preencherPedidos();
             //sqlAux.alteraSituacaoPedProdPago();
         }

@@ -17,8 +17,10 @@ using Caixa.Cadastro;
 using Caixa.Caixa;
 using Caixa.Estoque;
 using Caixa.Pagamentos;
+using Caixa.Pedidos;
 using Caixa.Reports;
 using Componentes;
+using dal;
 using Npgsql;
 
 namespace Caixa
@@ -32,6 +34,8 @@ namespace Caixa
         private dal.Conexao conexao = new dal.Conexao();
         private int pedidoID = 0;
         private bool acessarFrmSenha = false;
+        private static System.Timers.Timer timer45S;
+
 
         public frmMenu()
         {
@@ -68,18 +72,48 @@ namespace Caixa
             }
 
 
-            //if (verificarImpressora())
-            //{
-            Thread trd = new Thread(new ThreadStart(this.ThreadTarefa));
-            trd.IsBackground = true;
-            trd.Start();
-            //}
+            if (verificarImpressora())
+            {
+                Thread trd = new Thread(new ThreadStart(this.ThreadTarefa));
+                trd.IsBackground = true;
+                trd.Start();
+            }
 
+
+            buscaPedidosAPIDelivery();//BUSCA PEDIDOS A CADA 45S
 
             frmPedidos frm = new frmPedidos();
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private static void buscaPedidosAPIDelivery()
+        {
+            timer45S = new System.Timers.Timer(45000); // 45 segundos
+
+            timer45S.Elapsed += async (s, e) =>
+            {
+                timer45S.Stop(); // Evita duas execuções simultâneas
+
+                try
+                {
+                    //Console.WriteLine(">> Iniciando tarefa de 45 segundos...");
+                    new PedidosAPI();
+                    //Console.WriteLine(">> Tarefa de 45 segundos concluída!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro na tarefa de Pedidos Delivery: " + ex.Message);
+                }
+                finally
+                {
+                    timer45S.Start();
+                }
+            };
+
+            timer45S.Start();
+        }
+
 
         private Boolean verificarImpressora()
         {
@@ -804,6 +838,11 @@ namespace Caixa
         }
 
         private void fluxoDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMenu_Shown(object sender, EventArgs e)
         {
 
         }

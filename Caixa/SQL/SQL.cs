@@ -2440,5 +2440,19 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
+
+        public object retornaValorScalarTransaction(SqlConnection conn, SqlCommand cmd)
+        {
+            try
+            {
+                cmd.Connection = conn;
+                return cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao executar ScalarTransaction: " + ex.Message, ex);
+            }
+        }
+
     }
 }

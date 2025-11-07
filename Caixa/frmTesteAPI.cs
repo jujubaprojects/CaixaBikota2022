@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Text.Json;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 
 namespace Caixa
@@ -21,10 +23,7 @@ namespace Caixa
     {
         public frmTesteAPI()
         {
-            InitializeComponent();
-
-
-            var connStr = "Server=localhost;Database=pedidosdb;Uid=root;Pwd=;";
+            var connStr = "Server=sh00082.hostgator.com.br;Database=hg640183_pedidosdb;Uid=hg640183_jujuba;Pwd=102030@Br;";
 
             var repo = new RepositorioPedidos(connStr);
 
@@ -45,13 +44,113 @@ namespace Caixa
                 ExtrairDadosDoJson5(pedido.Json, out teste1, out teste2);
                 TratarEInserirPedido(teste1);
 
-                repo.MarcarComoProcessado(pedido.Id); // Marca como importado
+                List<string> listaAtual = new List<string>();
+
+                foreach (var linha in teste2)
+                {
+                    // Linha de separação de produtos
+                    if (linha.StartsWith("---------------------------"))
+                    {
+                        if (listaAtual.Count > 0)
+                        {
+                            TratarEInserirPedidoProduto(0, listaAtual);
+                            listaAtual.Clear();
+                        }
+                    }
+                    else
+                    {
+                        listaAtual.Add(linha);
+                    }
+                }
+
+                // Processa o último bloco (caso não tenha linha de separação no final)
+                if (listaAtual.Count > 0)
+                {
+                    TratarEInserirPedidoProduto(0, listaAtual);
+                }
+
+
+                //repo.MarcarComoProcessado(pedido.Id); // Marca como importado
             }
         }
 
         private string GetValue(Dictionary<string, string> dict, string key, string defaultValue = "")
         {
             return dict.ContainsKey(key) ? dict[key] : defaultValue;
+        }
+        public void TratarEInserirPedidoProduto(int pedidoID, List<string> lista2)
+        {
+            // Converte lista para dicionário
+            var dados = new Dictionary<string, string>();
+            foreach (var linha in lista2)
+            {
+                if (linha.Contains(":"))
+                {
+                    var partes = linha.Split(':');
+                    string chave = partes[0].Trim().ToLower();
+                    string valor = string.Join(":", partes.Skip(1)).Trim();
+                    dados[chave] = valor;
+                }
+            }
+
+            // Produto (nome) - ainda usando Name como chave
+            string produto = GetValue(dados, "external_code");
+            string amountStr = GetValue(dados, "amount", "1");
+
+            double quantidade = 1;
+            double.TryParse(amountStr, NumberStyles.Any, CultureInfo.InvariantCulture, out quantidade);
+
+            // --- Trata "detalhes" ---
+            string detalhesBruto = GetValue(dados, "detalhes");
+            string descricaoItens = "";
+
+            if (!string.IsNullOrWhiteSpace(detalhesBruto))
+            {
+                string t = detalhesBruto;
+
+                // Remove título opcional
+                t = Regex.Replace(t, "Sabores \\(Máximo: 4\\)", "", RegexOptions.IgnoreCase).Trim();
+
+                // Normaliza vírgulas duplas
+                while (t.Contains(",,"))
+                    t = t.Replace(",,", ",");
+
+                // Quebra em itens
+                var itensBrutos = t.Split(',')
+                                   .Select(s => s.Trim())
+                                   .Where(s => !string.IsNullOrWhiteSpace(s))
+                                   .ToList();
+
+                List<string> listaFinal = new List<string>();
+
+                foreach (var item in itensBrutos)
+                {
+                    // Captura quantidade (ex: "2x | Abacaxi")
+                    var match = Regex.Match(item, @"(\d+)\s*x\s*\|\s*(.+)", RegexOptions.IgnoreCase);
+
+                    if (match.Success)
+                    {
+                        int qtd = int.Parse(match.Groups[1].Value);
+                        string sabor = match.Groups[2].Value.Trim();
+
+                        for (int i = 0; i < qtd; i++)
+                            listaFinal.Add(sabor);
+                    }
+                    else
+                    {
+                        // Caso não tenha formato Nx | Sabor, adiciona direto
+                        listaFinal.Add(item);
+                    }
+                }
+
+                descricaoItens = string.Join(", ", listaFinal);
+            }
+
+            int situacao = 1;
+            string obs = "";
+
+            // Insere no banco
+            //insertPedidoProduto(pedidoID, produto, quantidade, descricaoItens, obs, situacao);
         }
 
         public void TratarEInserirPedido(List<string> lista1)
@@ -89,6 +188,8 @@ namespace Caixa
             string endereco = $"{street}, Nº {number}, {district}".Trim().TrimEnd(',');
             if (!string.IsNullOrWhiteSpace(reference))
                 endereco += $" (REFERÊNCIA: {reference})";
+            if (endereco.Length < 10)
+                endereco = "";
 
             // ------ 4. Observação ------
             var obsList = new List<string>();
@@ -98,13 +199,13 @@ namespace Caixa
             int paymentMethod = Convert.ToInt32(GetValue(dados, "payment_method", "0"));
 
             if (exchanged == 1)
-                obsList.Add($"PRECISA DE TROCO PARA R$ {priceExchanged:n2}");
+                obsList.Add($"TROCO PARA R$ {priceExchanged:n2}");
 
             if (paymentMethod != 0)
                 obsList.Add("PAGAMENTO NO CARTÃO");
 
             if (paymentMethod == 0 && exchanged == 0)
-                obsList.Add("NÃO PRECISA DE TROCO");
+                obsList.Add("DINHEIRO - NÃO PRECISA DE TROCO");
 
             string observacao = string.Join(" ; ", obsList);
 
@@ -240,72 +341,6 @@ namespace Caixa
                 }
             }
         }     
-
-
-
-
-        public DeliveryPopOrder ObterPedidoDoBanco(int idPedido)
-        {
-            string json;
-            var pedidoObj = new DeliveryPopOrder();
-
-            string connectionString = "Server=localhost;Database=pedidosdb;Uid=root;Pwd=;";
-
-            using (var conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-
-                string sql = "SELECT json FROM pedidos_brutos WHERE id = @id";
-
-                using (var cmd = new MySqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", idPedido);
-                    json = cmd.ExecuteScalar()?.ToString();
-                }
-            }
-
-            if (json == null)
-                throw new Exception("Nenhum registro encontrado com esse ID.");
-
-            // Remove prefixo "result="
-            if (json.StartsWith("result="))
-                json = json.Replace("result=", "");
-
-            // Remove [ ] do array
-            json = json.Trim();
-            if (json.StartsWith("[") && json.EndsWith("]"))
-                json = json.Substring(1, json.Length - 2);
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-            // 1️⃣ Primeiro desserializamos somente o JSON externo
-            using (JsonDocument doc = JsonDocument.Parse(json))
-            {
-                var root = doc.RootElement;
-
-                pedidoObj.Id = root.GetProperty("id").GetInt32();
-                pedidoObj.User_Company_Id = root.GetProperty("user_company_id").GetInt32();
-                pedidoObj.Company_Id = root.GetProperty("company_id").GetInt32();
-                pedidoObj.Code = root.GetProperty("code").GetString();
-                pedidoObj.Price_Total = root.GetProperty("price_total").GetString();
-
-                // 2️⃣ order_data é um JSON dentro de uma string → precisamos desserializar agora
-                string orderDataStr = root.GetProperty("order_data").GetString();
-
-                // orderDataStr ainda vem com barras invertidas, então removemos
-                orderDataStr = orderDataStr.Replace("\\\"", "\"").Replace("\\\\", "\\");
-
-                pedidoObj.Order_Data = JsonSerializer.Deserialize<OrderData>(orderDataStr, options);
-
-                // 3️⃣ delivery_address também é string contendo JSON
-                string deliveryAddressStr = root.GetProperty("delivery_address").GetString();
-                deliveryAddressStr = deliveryAddressStr.Replace("\\\"", "\"").Replace("\\\\", "\\");
-
-                pedidoObj.Delivery_Address = JsonSerializer.Deserialize<List<DeliveryAddress>>(deliveryAddressStr, options);
-            }
-
-            return pedidoObj;
-        }
 
     }
 }

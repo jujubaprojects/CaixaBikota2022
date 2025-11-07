@@ -560,6 +560,7 @@
             this.MainMenuStrip = this.menu;
             this.Name = "frmMenu";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.frmMenu_Shown);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
