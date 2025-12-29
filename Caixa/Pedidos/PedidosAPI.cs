@@ -10,6 +10,11 @@ using System.Data.SqlClient;
 using Caixa.SQL;
 using System.Data;
 using dal;
+using System.Net.Http;
+using Auxiliar;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Caixa.Pedidos
 {
@@ -19,10 +24,19 @@ namespace Caixa.Pedidos
         private SqlTransaction transacao;
         private dal.Conexao conexao = new dal.Conexao();
         private SQL.SQL auxSQL = new SQL.SQL();
-
+        private bool temInternet;
+        public async Task TestaInternet()
+        {
+            temInternet = await NetHelper.TemInternetAsync();
+        }
 
         public PedidosAPI()
         {
+            Task.Run(async () => await TestaInternet()).Wait();
+
+            if (!temInternet)
+                return;
+
             var connStr = "Server=sh00082.hostgator.com.br;Database=hg640183_pedidosdb;Uid=hg640183_jujuba;Pwd=102030@Br;";
 
             var repo = new RepositorioPedidos(connStr);
@@ -53,40 +67,46 @@ namespace Caixa.Pedidos
 
                             string condicaoBusca = TratarEInserirPedido(teste1, conn, transacao);
 
-                            // Buscar ID do pedido
-                            var sql = new StringBuilder();
-                            sql.Append("SELECT ID FROM PEDIDO WHERE DESCRICAO = @pCondicaoBusca");
-
-                            using (var sqlc = new SqlCommand(sql.ToString(), conn, transacao))
+                            if (condicaoBusca != null)
                             {
-                                sqlc.CommandType = CommandType.Text;
-                                sqlc.Parameters.AddWithValue("@pCondicaoBusca", condicaoBusca);
+                                // Buscar ID do pedido
+                                var sql = new StringBuilder();
+                                sql.Append("SELECT ID FROM PEDIDO WHERE DESCRICAO = @pCondicaoBusca");
 
-                                var dt = auxSQL.retornaDataTableTransaction(conn, sqlc);
-                                int pedidoInserido = int.Parse(dt.Rows[0]["ID"].ToString());
-
-                                // Monta blocos de itens
-                                var listaAtual = new List<string>();
-                                foreach (var linha in teste2)
+                                using (var sqlc = new SqlCommand(sql.ToString(), conn, transacao))
                                 {
-                                    if (linha.StartsWith("---------------------------"))
+                                    sqlc.CommandType = CommandType.Text;
+                                    sqlc.Parameters.AddWithValue("@pCondicaoBusca", condicaoBusca);
+
+                                    var dt = auxSQL.retornaDataTableTransaction(conn, sqlc);
+                                    int pedidoInserido = int.Parse(dt.Rows[0]["ID"].ToString());
+
+                                    // Monta blocos de itens
+                                    var listaAtual = new List<string>();
+                                    foreach (var linha in teste2)
                                     {
-                                        if (listaAtual.Count > 0)
+                                        if (linha.StartsWith("---------------------------"))
                                         {
-                                            TratarEInserirPedidoProduto(pedidoInserido, listaAtual, conn, transacao);
-                                            listaAtual.Clear();
+                                            if (listaAtual.Count > 0)
+                                            {
+                                                TratarEInserirPedidoProduto(pedidoInserido, listaAtual, conn, transacao);
+                                                listaAtual.Clear();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            listaAtual.Add(linha);
                                         }
                                     }
-                                    else
-                                    {
-                                        listaAtual.Add(linha);
-                                    }
+                                    if (listaAtual.Count > 0)
+                                        TratarEInserirPedidoProduto(pedidoInserido, listaAtual, conn, transacao);
                                 }
-                                if (listaAtual.Count > 0)
-                                    TratarEInserirPedidoProduto(pedidoInserido, listaAtual, conn, transacao);
-                            }
 
-                            transacao.Commit();                 // commit só se tudo deu certo
+                                transacao.Commit();                 // commit só se tudo deu certo
+                            }
+                            else
+                            { transacao.Rollback(); }
+
                             repo.MarcarComoProcessado(pedido.Id);
                         }
                         catch
@@ -94,86 +114,11 @@ namespace Caixa.Pedidos
                             transacao.Rollback();
                             throw;
                         }
+
                     } // transacao.Dispose()
                 }     // conn.Dispose()
 
             }
-
-
-
-
-
-
-
-
-
-            //foreach (var pedido in pedidos)
-            //{
-            //    //txtTest.Text += ($"ID: {pedido.Id}");
-            //    //txtTest.Text += ($"Recebido: {pedido.RecebidoEm}");
-
-            //    if (pedido.Json == null)
-            //    {
-            //        MessageBox.Show("Nenhum JSON encontrado");
-            //        return;
-            //    }
-            //    conn = conexao.retornaConexao();
-            //    transacao = conexao.startTransaction(conn);
-            //    StringBuilder sql = new StringBuilder();
-
-            //    try
-            //    {
-            //        List<string> teste1, teste2 = new List<string>();
-            //        ExtrairDadosDoJson5(pedido.Json, out teste1, out teste2);
-            //        string condicaoBusca = TratarEInserirPedido(teste1, conn, transacao);
-            //        int pedidoInserido = 0;
-
-            //        sql.Append("SELECT ID FROM PEDIDO WHERE DESCRICAO = @pCondicaoBusca");
-            //        SqlCommand sqlc = new SqlCommand(sql.ToString(), conn, transacao);
-            //        sqlc.CommandType = CommandType.Text;
-            //        sqlc.Parameters.AddWithValue("@pCondicaoBusca", condicaoBusca);
-            //        DataTable dtTeste = auxSQL.retornaDataTableTransaction(conn, sqlc);
-            //        pedidoInserido = int.Parse(auxSQL.retornaDataTableTransaction(conn, sqlc).Rows[0]["ID"].ToString()); //DESCOMENTAR DEPOIS
-
-
-            //        List<string> listaAtual = new List<string>();
-
-            //        foreach (var linha in teste2)
-            //        {
-            //            // Linha de separação de produtos
-            //            if (linha.StartsWith("---------------------------"))
-            //            {
-            //                if (listaAtual.Count > 0)
-            //                {
-            //                    TratarEInserirPedidoProduto(pedidoInserido, listaAtual, conn, transacao);
-            //                    listaAtual.Clear();
-            //                }
-            //            }
-            //            else
-            //            {
-            //                listaAtual.Add(linha);
-            //            }
-            //        }
-
-            //        // Processa o último bloco (caso não tenha linha de separação no final)
-            //        if (listaAtual.Count > 0)
-            //        {
-            //            TratarEInserirPedidoProduto(pedidoInserido, listaAtual, conn, transacao);
-            //        }
-            //    }
-            //    catch(Exception ex)
-            //    {
-            //        transacao.Rollback();
-            //        MessageBox.Show("Erro na inserção de dados API DeliveryPop", "Contate o Suporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //    }
-            //    finally
-            //    {
-            //        transacao.Commit();
-            //        repo.MarcarComoProcessado(pedido.Id); // Marca como importado
-            //    }
-
-            //}
         }
         private string GetValue(Dictionary<string, string> dict, string key, string defaultValue = "")
         {
@@ -205,7 +150,7 @@ namespace Caixa.Pedidos
             double.TryParse(amountStr, NumberStyles.Any, CultureInfo.InvariantCulture, out quantidade);
 
             string detalhesBruto = GetValue(dados, "detalhes");
-            int situacao = 1;
+            int situacao = 8;
             string obs = "";
 
             // ============================================
@@ -302,6 +247,7 @@ namespace Caixa.Pedidos
         "Adicionais Pagos",
         "Sabores de Picolés",
         "Sabores (Máximo:",
+        "Adicionais (Máximo:",
         "Coberturas (Máximo:"
                 };
 
@@ -342,6 +288,9 @@ namespace Caixa.Pedidos
 
                         else if (chaveAtual.StartsWith("Sabores", StringComparison.OrdinalIgnoreCase))
                             saboresList.AddRange(itens);
+                        
+                        else if (chaveAtual.StartsWith("Adicionais (Máximo:", StringComparison.OrdinalIgnoreCase))
+                                saboresList.AddRange(itens);
                     }
                 }
             }
@@ -510,6 +459,24 @@ namespace Caixa.Pedidos
 
         }
 
+        //public string RemoverAcentos(string texto)
+        //{
+        //    if (string.IsNullOrWhiteSpace(texto))
+        //        return texto;
+
+        //    var normalized = texto.Normalize(NormalizationForm.FormD);
+        //    var sb = new StringBuilder();
+
+        //    foreach (var c in normalized)
+        //    {
+        //        var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+        //        if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+        //            sb.Append(c);
+        //    }
+
+        //    return sb.ToString().Normalize(NormalizationForm.FormC);
+        //}
+
 
         public string TratarEInserirPedido(List<string> lista1, SqlConnection pConexao, SqlTransaction pTransaction)
         {
@@ -554,7 +521,7 @@ namespace Caixa.Pedidos
             var obsList = new List<string>();
 
             int exchanged = Convert.ToInt32(GetValue(dados, "exchanged", "0"));
-            decimal priceExchanged = Convert.ToDecimal(GetValue(dados, "price_exchanged", "0"));
+            decimal priceExchanged = Convert.ToDecimal(GetValue(dados, "price_exchanged", "0").Replace(".",","));
             int paymentMethod = Convert.ToInt32(GetValue(dados, "payment_method", "0"));
 
             if (exchanged == 1)
@@ -576,20 +543,37 @@ namespace Caixa.Pedidos
             // ------ 6. Chama seu método já existente ------
             //insertPedido(descricao, tipoPedido, 1, endereco, observacao, inseridoPor);
 
-            StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO PEDIDO (DESCRICAO, TIPO, SITUACAO, DT_INICIAL, ENDERECO, OBSERVACAO, INSERIDO_POR) VALUES ( ");
-            sql.Append("UPPER(@pDescricao), @pTipoPedido, @pSituacao, getdate(), @pEndereco, @pObservacao, @pInseridoPor)");
+            StringBuilder sqlVerifica = new StringBuilder();
+            sqlVerifica.Append("SELECT COUNT(1) FROM PEDIDO WHERE DESCRICAO = @pDescricao AND SITUACAO != 0");
 
-            SqlCommand sqlc = new SqlCommand(sql.ToString(), pConexao, pTransaction);
-            sqlc.CommandType = CommandType.Text;
-            sqlc.Parameters.AddWithValue("@pTipoPedido", tipoPedido);
-            sqlc.Parameters.AddWithValue("@pDescricao", descricao);
-            sqlc.Parameters.AddWithValue("@pSituacao", 1);
-            sqlc.Parameters.AddWithValue("@pEndereco", endereco);
-            sqlc.Parameters.AddWithValue("@pObservacao", observacao);
-            sqlc.Parameters.AddWithValue("@pInseridoPor", inseridoPor);
-            auxSQL.executaQueryTransaction(pConexao, sqlc);
+            SqlCommand cmdVerifica = new SqlCommand(sqlVerifica.ToString(), pConexao, pTransaction);
+            cmdVerifica.CommandType = CommandType.Text;
+            cmdVerifica.Parameters.AddWithValue("@pDescricao", descricao);
 
+            int existe = Convert.ToInt32(auxSQL.retornaValorScalarTransaction(pConexao, cmdVerifica));
+
+            // Se existir, limpa a descrição
+            if (existe > 0)
+            {
+                descricao = null;
+            }
+            else
+            {
+
+                StringBuilder sql = new StringBuilder();
+                sql.Append("INSERT INTO PEDIDO (DESCRICAO, TIPO, SITUACAO, DT_INICIAL, ENDERECO, OBSERVACAO, INSERIDO_POR) VALUES ");
+                sql.Append("(UPPER(@pDescricao), @pTipoPedido, @pSituacao, getdate(), @pEndereco, @pObservacao, @pInseridoPor)");
+
+                SqlCommand sqlc = new SqlCommand(sql.ToString(), pConexao, pTransaction);
+                sqlc.CommandType = CommandType.Text;
+                sqlc.Parameters.AddWithValue("@pTipoPedido", tipoPedido);
+                sqlc.Parameters.AddWithValue("@pDescricao", descricao);
+                sqlc.Parameters.AddWithValue("@pSituacao", 1);
+                sqlc.Parameters.AddWithValue("@pEndereco", endereco);
+                sqlc.Parameters.AddWithValue("@pObservacao", observacao);
+                sqlc.Parameters.AddWithValue("@pInseridoPor", inseridoPor);
+                auxSQL.executaQueryTransaction(pConexao, sqlc);
+            }
 
             return descricao;
         }
@@ -609,8 +593,70 @@ namespace Caixa.Pedidos
             if (json.StartsWith("[") && json.EndsWith("]"))
                 json = json.Substring(1, json.Length - 2);
 
+
+            try
+            {
+                JToken firstToken = null;
+                using (var sr = new StringReader(json))
+                using (var reader = new JsonTextReader(sr) { SupportMultipleContent = true })
+                {
+                    while (reader.Read())
+                    {
+                        // pegar o primeiro objeto ou array encontrado
+                        if (reader.TokenType == JsonToken.StartObject || reader.TokenType == JsonToken.StartArray)
+                        {
+                            firstToken = JToken.ReadFrom(reader);
+                            break;
+                        }
+                    }
+                }
+
+                if (firstToken != null)
+                {
+                    // Substitui 'json' pela representação textual do primeiro token
+                    // (usando Formatting.None para manter em uma única linha e evitar espaços estranhos)
+                    json = firstToken.ToString(Formatting.None);
+                }
+                else
+                {
+                    // Se não encontrou token (ex: string vazia ou só texto inválido),
+                    // aplicamos uma sanitização simples: trim + remover vírgulas finais e sequências ",]" ",}"
+                    json = (json ?? string.Empty).Trim();
+                    json = RemoveTrailingCommas(json);
+                }
+            }
+            catch (JsonReaderException)
+            {
+                // Se algo deu errado na tentativa de leitura, fazemos sanitização conservadora
+                json = (json ?? string.Empty).Trim();
+                json = RemoveTrailingCommas(json);
+            }
+
+            // Função auxiliar local (pode mover para util se quiser)
+            string RemoveTrailingCommas(string s)
+            {
+                if (string.IsNullOrEmpty(s)) return s;
+
+                // remove BOM se houver
+                if (s.Length > 0 && s[0] == '\uFEFF') s = s.Substring(1);
+
+                // remover vírgulas finais repetidamente
+                s = s.Trim();
+                while (s.EndsWith(","))
+                {
+                    s = s.Substring(0, s.Length - 1).TrimEnd();
+                }
+
+                // corrigir ocorrências problemáticas comuns
+                s = s.Replace(",]", "]").Replace(",}", "}");
+
+                return s;
+            }
+
+
             // Converte para objeto dinâmico
             var root = Newtonsoft.Json.Linq.JObject.Parse(json);
+
 
             // ========== LISTA 1: DADOS DO PEDIDO ==========
 

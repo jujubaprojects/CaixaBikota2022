@@ -173,21 +173,26 @@ namespace Caixa
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("O valor informado é maior que o da Nota, você esqueceu de marcar a Opção deixar em Haver?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        {
-                            if (result == DialogResult.Yes)
-                            {
-                                auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
-                                auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
-                            }
-                            else
-                            {
-
-                                auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
-                                auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
-                            }
-                        }
+                        auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
+                        auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
                     }
+                    //else
+                    //{
+                    //    DialogResult result = MessageBox.Show("O valor informado é maior que o da Nota, você esqueceu de marcar a Opção deixar em Haver?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //    {
+                    //        if (result == DialogResult.Yes)
+                    //        {
+                    //            auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlRecebido.Text), tipoPagamento);
+                    //            auxSQL.updateNotaCliente(0, double.Parse(txtVlRecebido.Text), cboAnotar.SelectedItem.ToString());
+                    //        }
+                    //        else
+                    //        {
+
+                    //            auxSQL.insertPagamentoPedidoID(pedidoProdutoID, double.Parse(txtVlNota.Text), tipoPagamento);
+                    //            auxSQL.updateNotaCliente(0, double.Parse(txtVlNota.Text), cboAnotar.SelectedItem.ToString());
+                    //        }
+                    //    }
+                    //}
                 }
 
                 else

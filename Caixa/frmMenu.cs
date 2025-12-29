@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -86,6 +87,24 @@ namespace Caixa
             frm.MdiParent = this;
             frm.Show();
         }
+        private string RemoverAcentos(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                return texto;
+
+            var normalized = texto.Normalize(NormalizationForm.FormD);
+            var sb = new StringBuilder();
+
+            foreach (var c in normalized)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                    sb.Append(c);
+            }
+
+            return sb.ToString().Normalize(NormalizationForm.FormC);
+        }
+
 
         private static void buscaPedidosAPIDelivery()
         {
@@ -203,14 +222,14 @@ namespace Caixa
                                     }
 
                                     if (!string.IsNullOrEmpty(descricao.Trim()))
-                                        sImpressao.Append("           " + descricao + "\r\n");
+                                        sImpressao.Append("           " + RemoverAcentos(descricao) + "\r\n");
 
                                     if (!string.IsNullOrEmpty(cobertura))
                                         sImpressao.Append("           " + cobertura + "\r\n");
                                 }
 
                                 if (!string.IsNullOrEmpty(observacao))
-                                    sImpressao.Append("           OBS.: " + observacao + "\r\n");
+                                    sImpressao.Append("           OBS.: " + RemoverAcentos(observacao) + "\r\n");
 
 
                                 dtAdds = auxSQL.retornaPedidosAdds(int.Parse(dt.Rows[i]["PED_PROD_ID"].ToString()));
@@ -219,7 +238,7 @@ namespace Caixa
                                 {
                                     valor += double.Parse(dtAdds.Rows[j]["VALOR"].ToString());
                                     if (!string.IsNullOrEmpty(dtAdds.Rows[j]["DESCRICAO"].ToString()))
-                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x " + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + dtAdds.Rows[j]["DESCRICAO"].ToString());
+                                        sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x " + dtAdds.Rows[j]["PRODUTO"].ToString() + " - " + RemoverAcentos(dtAdds.Rows[j]["DESCRICAO"].ToString()));
                                     else
                                         sImpressao.Append("Adicional: " + dtAdds.Rows[j]["QT_PRODUTO"].ToString() + "x " + dtAdds.Rows[j]["PRODUTO"].ToString());
                                     sImpressao.Append("\r\n");
@@ -239,9 +258,9 @@ namespace Caixa
 
                             if (tipo == 3)
                             {
-                                sImpressao.Append("ENDEREÇO: " + endereco + "\r\n");
+                                sImpressao.Append("ENDEREÇO: " + RemoverAcentos(endereco) + "\r\n");
                                 if (!string.IsNullOrEmpty(observacaoPed))
-                                    sImpressao.Append("OBSERVAÇÃO: " + observacaoPed + "\r\n");
+                                    sImpressao.Append("OBSERVAÇÃO: " + RemoverAcentos(observacaoPed) + "\r\n");
 
 
                             }

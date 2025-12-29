@@ -25,7 +25,7 @@ public class RepositorioPedidos
         using (var conn = new MySqlConnection(_connectionString))
         {
             conn.Open();
-            var cmd = new MySqlCommand("SELECT id, json, recebido_em FROM pedidos_brutos WHERE processado = 0 ORDER BY ID ", conn);
+            var cmd = new MySqlCommand("SELECT id, json, recebido_em FROM pedidos_brutos WHERE processado = 0 ORDER BY 1 LIMIT 1 ", conn);
 
             using (var reader = cmd.ExecuteReader())
             {
