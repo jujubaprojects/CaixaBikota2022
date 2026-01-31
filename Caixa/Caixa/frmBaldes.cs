@@ -14,6 +14,7 @@ namespace Caixa.Caixa
     public partial class frmBaldes : FormJCS
     {
         private SQL.SQL auxSQL = new SQL.SQL();
+       
 
         public frmBaldes()
         {
@@ -33,14 +34,6 @@ namespace Caixa.Caixa
                     string end = txtEnd.Text;
                     string tel = txtTelefone.Text;
                     string balde = cboBalde.SelectedItem.ToString();
-
-                    if (cboBalde.SelectedIndex != 3)
-                    {
-                        if (string.IsNullOrEmpty(txtNumero.Text))
-                            balde += " - SEM Nº ";
-                        else
-                            balde += " - Nº " + int.Parse(txtNumero.Text).ToString("00");
-                    }
 
                     int colher = string.IsNullOrEmpty(txtColher.Text) ? 0 : int.Parse(txtColher.Text);
 
@@ -67,7 +60,6 @@ namespace Caixa.Caixa
         {
             txtNome.Text = "";
             txtEnd.Text = "";
-            txtNumero.Text = "";
             txtTelefone.Text = "";
             cboBalde.SelectedIndex = -1;
             txtColher.Text = "";
@@ -75,6 +67,8 @@ namespace Caixa.Caixa
 
         private bool validaCampos()
         {
+            if (string.IsNullOrEmpty(txtTelefone.Text))
+                return false;
             if (string.IsNullOrEmpty(txtNome.Text.Trim()))
                 return false;
             if (string.IsNullOrEmpty(txtEnd.Text.Trim()))
@@ -153,6 +147,26 @@ namespace Caixa.Caixa
                 txtTelefone.TipoCampo = "STRING";
                 txtTelefone.Text =  AplicarMascaraTelefone(txtTelefone.Text);
                 txtTelefone.TipoCampo = "INTEIRO";
+
+                if (txtTelefone.Text.Length < 14)
+                {
+                    if (txtTelefone.Text.Length == 13)
+                    {
+                        DialogResult result = MessageBox.Show("O numero informado é de telefone fixo?", "Telefone Fixo?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        {
+                            if (result == DialogResult.No)
+                            {
+                                MessageBox.Show("O formato do numero telefonico está incorreto. Por favor informe DD + numero com o 9 antes, se for celular.", "Formato (34)9 9999-9999", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtTelefone.Text = "";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("O formato do numero telefonico está incorreto. Por favor informe DD + numero com o 9 antes, se for celular.", "Formato (34)9 9999-9999", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtTelefone.Text = "";
+                    }
+                }
             }
         }
 

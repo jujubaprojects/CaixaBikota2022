@@ -4,13 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +26,7 @@ using Caixa.Reports;
 using Componentes;
 using dal;
 using Npgsql;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace Caixa
 {
@@ -117,7 +121,7 @@ namespace Caixa
                 try
                 {
                     //Console.WriteLine(">> Iniciando tarefa de 45 segundos...");
-                    new PedidosAPI();
+                    //new PedidosAPI();
                     //Console.WriteLine(">> Tarefa de 45 segundos concluída!");
                 }
                 catch (Exception ex)
@@ -734,7 +738,7 @@ namespace Caixa
         }
 
         private void DespesasForaDoCaixaToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
             if (acessoFrmsRestrito())
             {
                 frmDespesa frm = new frmDespesa();
@@ -851,8 +855,8 @@ namespace Caixa
         {
             //if (acessoFrmsRestrito())
             //{
-                frmCadastroFolgasColaboradores frm = new frmCadastroFolgasColaboradores();
-                frm.ShowDialog();
+            frmCadastroFolgasColaboradores frm = new frmCadastroFolgasColaboradores();
+            frm.ShowDialog();
             //}
         }
 
@@ -865,6 +869,77 @@ namespace Caixa
         {
 
         }
+
+        private void enviarMensagensBaldesEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTime agora = DateTime.Now;
+            if (DayOfWeek.Monday == agora.DayOfWeek && agora.TimeOfDay <= new TimeSpan(11, 0, 0))
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append("SELECT ID, NOME, ENDERECO, BALDE, TELEFONE, COLHER, DATA ");
+                sql.Append("FROM BALDES ");
+                sql.Append("WHERE ENTREGUE = 0 AND DATEADD(DAY, 7,DATA) < GETDATE() ");
+                sql.Append("ORDER BY DATA ASC ");
+                DataTable dt = auxSQL.retornaDataTable(sql.ToString());
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    string telefone = "553434121486";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                        string mensagem =
+                $@"Olá, {dt.Rows[i]["NOME"].ToString()}! Tudo bem?  
+Notei aqui que está em aberto um  emprestado no dia {DateTime.Parse(dt.Rows[i]["DATA"].ToString()).ToString("dd/MM/yyyy")} em seu nome.  
+Estamos precisando de baldes/colheres, se possível me fale uma data para buscarmos ou você trazer.  
+
+*Se você ainda não desocupou, fique tranquilo(a), esta mensagem automática do sistema é apenas um lembrete.*  
+Estamos com o estoque bem reduzido e estamos precisando.  
+
+Agradeço sua atenção! Tenha um ótimo dia!";
+
+                        //Codifica a mensagem para URL
+                        string mensagemCodificada = WebUtility.UrlEncode(mensagem);
+                        telefone = Regex.Replace(dt.Rows[i]["TELEFONE"].ToString(), @"\D", "");
+
+                        // Monta o link do WhatsApp
+                        string url = $"https://wa.me/55{telefone}?text={mensagemCodificada}";
+
+                        // Abre no navegador padrão
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = url,
+                            UseShellExecute = true
+                        });
+                        Thread.Sleep(5000);
+
+                        // 3️⃣ 12 TABs (200ms entre cada)
+                        for (int j = 0; j < 12; j++)
+                        {
+                            SendKeys.SendWait("{TAB}");
+                            Thread.Sleep(200);
+                        }
+
+                        // 4️⃣ ENTER (clicar no botão)
+                        SendKeys.SendWait("{ENTER}");
+
+                        Thread.Sleep(20000);
+                        SendKeys.SendWait("{ENTER}");
+                        Thread.Sleep(60000);
+
+
+                        //WhatsAppSelenium.EnviarMensagem(telefone, mensagem);
+
+                    }
+
+                    MessageBox.Show("Processo de envio de mensagens finalizado!", "Processo concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            else
+                MessageBox.Show("Este metodo só pode ser executado na segunda-feira no período da manhã.", "Liberado apenas nas Segunda-Feiras", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
-    
 }

@@ -82,6 +82,8 @@
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -344,7 +346,9 @@
             this.toolStripMenuItem4,
             this.estoqueDePotesDeSorvetesToolStripMenuItem,
             this.sorvetes10lEmFaltaToolStripMenuItem,
-            this.subtrairEstoqueToolStripMenuItem});
+            this.subtrairEstoqueToolStripMenuItem,
+            this.toolStripMenuItem10,
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem});
             this.produtosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.produtosToolStripMenuItem.Image = global::Caixa.Properties.Resources.armazem64x64;
             this.produtosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -549,6 +553,19 @@
             this.cadastroDeFolgasToolStripMenuItem.Text = "Cadastro de Folgas";
             this.cadastroDeFolgasToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeFolgasToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(354, 6);
+            // 
+            // enviarMensagensBaldesEmAbertoToolStripMenuItem
+            // 
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Name = "enviarMensagensBaldesEmAbertoToolStripMenuItem";
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Text = "Enviar Mensagens Baldes em Aberto";
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Click += new System.EventHandler(this.enviarMensagensBaldesEmAbertoToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,6 +640,8 @@
         private System.Windows.Forms.ToolStripMenuItem produtosDiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFolgasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fluxoDeCaixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem enviarMensagensBaldesEmAbertoToolStripMenuItem;
     }
 }
 

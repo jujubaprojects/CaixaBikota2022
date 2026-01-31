@@ -527,11 +527,14 @@ namespace Caixa.Pedidos
             if (exchanged == 1)
                 obsList.Add($"TROCO PARA R$ {priceExchanged:n2}");
 
-            if (paymentMethod != 0)
+            if (paymentMethod != 0 && paymentMethod != 2)
                 obsList.Add("PAGAMENTO NO CARTÃO");
 
             if (paymentMethod == 0 && exchanged == 0)
                 obsList.Add("DINHEIRO - NÃO PRECISA DE TROCO");
+
+            if (paymentMethod == 2)
+                obsList.Add("PAGAMENTO NO PIX");
 
             string observacao = string.Join(" ; ", obsList);
 

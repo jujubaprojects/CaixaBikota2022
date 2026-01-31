@@ -1,4 +1,6 @@
 ﻿using Componentes;
+using MySqlX.XDevAPI.Common;
+using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +54,12 @@ namespace Caixa
 
         private void preencherCampos()
         {
+            List<string> potesComSabores = new List<string>();
+            potesComSabores.Add("POTE 04L");
+            potesComSabores.Add("POTE 05L");
+            potesComSabores.Add("POTE 10L");
+            bool auxPreencherCampos = false;
+
             while (sqlAux.retornaDataTable("SELECT * FROM PEDIDO_PRODUTO WHERE PEDIDO = " + pedidoID + " AND SITUACAO = 8").Rows.Count > 0)
             {
                 MessageBox.Show("Pedido ainda não foi impresso, clique em ok e aguarde o programa voltar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -69,6 +77,48 @@ namespace Caixa
                 {
                     auxVlAberto += double.Parse(dgvProdutosAbertos["colVlAberto", i].Value.ToString());
                     auxVlPago += double.Parse(dgvProdutosAbertos["colValorPago", i].Value.ToString());
+
+                    if (potesComSabores.Contains(dgvProdutosAbertos["colProduto", i].Value.ToString()) && string.IsNullOrEmpty(dgvProdutosAbertos["colDescricao", i].Value.ToString()))
+                    {
+                        DialogResult result = MessageBox.Show("O pote de sorvete é dos prontos?\nSe sim, escolha o sabor na tela seguinte!", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        {
+                            if (result == DialogResult.Yes)
+                            {
+                                    StringBuilder sql = new StringBuilder();
+                                    sql.Append("SELECT EP.ID, EP.PRODUTO, DBO.RETORNA_SABORES(EP.ID) DESCRICAO, EP.QT_EST QT_RESTANTE  ");
+                                    sql.Append("FROM ESTOQUE_POTE EP ");
+                                    sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+                                    sql.Append("WHERE EP.QT_EST > 0 AND     P.DESCRICAO = '" + dgvProdutosAbertos["colProduto", i].Value.ToString() + "' ");
+                                    sql.Append("ORDER BY DESCRICAO");
+
+                                    int aux = 0;
+                                    while (true)
+                                    {
+                                        aux++;
+                                        frmBusca frm = new frmBusca(sql, "Estoque dos Sabores de " + dgvProdutosAbertos["colDescricao", i].Value.ToString());
+                                        frm.ShowDialog();
+                                        if (frm.retorno != null)
+                                        {
+                                        sqlAux.updatePedidoProduto(int.Parse(dgvProdutosAbertos["colPedidoProdutoID", i].Value.ToString()), dgvProdutosAbertos["colProduto", i].Value.ToString(), Convert.ToInt32(dgvProdutosAbertos["colQuantidade", i].Value), frm.retorno["DESCRICAO"].ToString().Substring(0, frm.retorno["DESCRICAO"].ToString().Length - 2), "");
+                                        auxPreencherCampos = true;    
+                                        break;
+                                        }
+                                        else
+                                        {
+                                            if (aux > 1)
+                                                break;
+
+                                            MessageBox.Show("É obrigatório escolher o pote de sorvete!\n\nCaso você tenha clicado em sim incorretamente, saia desta tela mais uma vez sem clicar em nenhum campo para voltar a tela anterior!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+
+                                    if (aux > 1)
+                                        return;
+                                }
+                            }
+
+                        
+                    }
                 }
             }
 
@@ -79,6 +129,10 @@ namespace Caixa
 
             lblSituacao.Text = "PEDIDO: " + dtInfPedido.Rows[0]["DESC_SITUACAO"].ToString();
             txtEndereco.Text =  dtInfPedido.Rows[0]["END_OBS"].ToString();
+
+
+            if (auxPreencherCampos)
+                preencherCampos();
         }
 
         private void DgvProdutosAbertos_CellContentClick(object sender, DataGridViewCellEventArgs e)

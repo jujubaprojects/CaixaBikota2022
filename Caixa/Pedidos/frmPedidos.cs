@@ -172,7 +172,8 @@ namespace Caixa
             {
                 DialogResult result = MessageBox.Show("Deseja reimprimir este pedido?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 {
-                    sqlAux.reimprimirPedido(int.Parse(dgvPedidos["colPedido", e.RowIndex].Value.ToString()));
+                    if (result == DialogResult.Yes)
+                        sqlAux.reimprimirPedido(int.Parse(dgvPedidos["colPedido", e.RowIndex].Value.ToString()));
                 }
             }
         }

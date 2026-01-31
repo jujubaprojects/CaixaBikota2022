@@ -141,7 +141,7 @@ namespace Caixa.Estoque
                 sabores += " " + listaOrdernada[i] + ";";
 
 
-            if (!string.IsNullOrEmpty(txtQT.Text) && double.Parse(txtQT.Text) > 0)
+            if (!string.IsNullOrEmpty(txtQT.Text) && (double.Parse(txtQT.Text) > 0) || clickBtns.Equals("Editar"))
                 qtPotes = double.Parse(txtQT.Text);
             else
                 return false;
@@ -152,9 +152,9 @@ namespace Caixa.Estoque
         public void toolStripSalvarJCS_Click(object sender, EventArgs e)
         {
 
-            if (clickBtns.Equals("Novo"))
+            if (validaCampos())
             {
-                if (validaCampos())
+                if (clickBtns.Equals("Novo"))
                 {
                     DialogResult result = MessageBox.Show("Deseja salvar o novo Estoque de Potes?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     {
@@ -184,29 +184,31 @@ namespace Caixa.Estoque
                         }
                     }
                 }
-                else
-                    MessageBox.Show("Informações incorreta! Verifique todas as informações, e lembre sempre de colocar quantidade maior que 0!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (clickBtns.Equals("Editar"))
-            {
-                validaCampos();
-                DialogResult result = MessageBox.Show("Deseja salvar as alterações do Controle de Estoque de Potes do: " + descricao + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                else if (clickBtns.Equals("Editar"))
                 {
-                    if (result == DialogResult.Yes)
-                    {                       
-                        auxSQL.updateEstoquePote(id, int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), qtPotes);
-                        auxSQL.deleteEstoquePoteSabor(id);
-                        for (int i = 0; i < listaOrdernada.Count; i++)
+                    validaCampos();
+                    DialogResult result = MessageBox.Show("Deseja salvar as alterações do Controle de Estoque de Potes do: " + descricao + " ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    {
+                        if (result == DialogResult.Yes)
                         {
-                            descricao += listaOrdernada[i] + ", ";
-                            auxSQL.insertEstoquePoteSabor(id, listaOrdernada[i]);
-                        }
-                        MessageBox.Show("Controle de Estoque de Potes alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            auxSQL.updateEstoquePote(id, int.Parse(dtProduto.Rows[cboProduto.SelectedIndex]["ID"].ToString()), qtPotes);
+                            auxSQL.deleteEstoquePoteSabor(id);
+                            for (int i = 0; i < listaOrdernada.Count; i++)
+                            {
+                                descricao += listaOrdernada[i] + ", ";
+                                auxSQL.insertEstoquePoteSabor(id, listaOrdernada[i]);
+                            }
+                            MessageBox.Show("Controle de Estoque de Potes alterado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        preencherCampos();
+                            preencherCampos();
+                        }
                     }
                 }
+
             }
+            else
+                MessageBox.Show("Informações incorreta! Verifique todas as informações, e lembre sempre de colocar quantidade maior que 0!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
 
 
         }

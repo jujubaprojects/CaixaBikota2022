@@ -1456,18 +1456,20 @@ namespace Caixa.SQL
             sqlc.Parameters.AddWithValue("@pProduto", pProduto);
             sqlc.Parameters.AddWithValue("@pQuantidade", pQuantidade);
             sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
-            sqlc.Parameters.AddWithValue("@pTipoPedido", pTipoPedido);
+            if (!string.IsNullOrEmpty(pTipoPedido))
+                sqlc.Parameters.AddWithValue("@pTipoPedido", pTipoPedido);
 
             conexao.executarInsUpDel(sqlc, conn);
         }
-        private string queryUpdatePedidoProduto(int pPedidoProdutoID, string pProduto, int pQuantidade, string pDescricao, string pTipoPedido)
+        private string queryUpdatePedidoProduto(int pPedidoProdutoID, string pProduto, int pQuantidade = 1, string pDescricao = "", string pTipoPedido = "")
         {
             StringBuilder sql = new StringBuilder();
 
-            sql.Append("UPDATE PEDIDO_PRODUTO SET PRODUTO = (SELECT ID FROM PRODUTO WHERE UPPER(DESCRICAO) = @pProduto), ");
-            sql.Append("QT_PRODUTO = @pQuantidade, ");
-            sql.Append("DESCRICAO = @pDescricao, ");
-            sql.Append("TIPO = (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido) ");
+            sql.Append("UPDATE PEDIDO_PRODUTO SET PRODUTO = (SELECT ID FROM PRODUTO WHERE UPPER(DESCRICAO) = @pProduto) ");
+            sql.Append(",QT_PRODUTO = @pQuantidade ");
+            sql.Append(",DESCRICAO = @pDescricao ");
+            if (!string.IsNullOrEmpty(pTipoPedido))
+                sql.Append(",TIPO = (SELECT ID FROM TIPO_PEDIDO WHERE DESCRICAO = @pTipoPedido) ");
             sql.Append("WHERE ID = @pPedidoProdutoID");
 
             return sql.ToString();

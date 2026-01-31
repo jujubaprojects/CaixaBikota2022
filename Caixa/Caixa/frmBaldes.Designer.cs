@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNome = new Componentes.TextBoxJCS(this.components);
             this.lblValor = new Componentes.LabelJCS(this.components);
             this.btnSalvar = new Componentes.ButtonJCS(this.components);
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.labelJCS2 = new Componentes.LabelJCS(this.components);
-            this.labelJCS3 = new Componentes.LabelJCS(this.components);
             this.txtEnd = new Componentes.TextBoxJCS(this.components);
             this.cboBalde = new Componentes.ComboBoxJCS(this.components);
-            this.txtNumero = new Componentes.TextBoxJCS(this.components);
             this.dgvBaldes = new Componentes.DataGridViewJCS(this.components);
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +54,8 @@
             this.txtTelefone = new Componentes.TextBoxJCS(this.components);
             this.cboFiltro = new Componentes.ComboBoxJCS(this.components);
             this.lblFiltro = new Componentes.LabelJCS(this.components);
-            this.labelJCS5 = new Componentes.LabelJCS(this.components);
             this.txtColher = new Componentes.TextBoxJCS(this.components);
+            this.labelJCS5 = new Componentes.LabelJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaldes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,16 +118,6 @@
             this.labelJCS2.TabIndex = 60;
             this.labelJCS2.Text = "Balde:";
             // 
-            // labelJCS3
-            // 
-            this.labelJCS3.AutoSize = true;
-            this.labelJCS3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS3.Location = new System.Drawing.Point(251, 99);
-            this.labelJCS3.Name = "labelJCS3";
-            this.labelJCS3.Size = new System.Drawing.Size(27, 17);
-            this.labelJCS3.TabIndex = 61;
-            this.labelJCS3.Text = "Nº:";
-            // 
             // txtEnd
             // 
             this.txtEnd.BackColor = System.Drawing.Color.White;
@@ -158,19 +146,6 @@
             this.cboBalde.Size = new System.Drawing.Size(165, 23);
             this.cboBalde.TabIndex = 3;
             // 
-            // txtNumero
-            // 
-            this.txtNumero.BackColor = System.Drawing.Color.White;
-            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumero.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.txtNumero.IconeKeyDown = null;
-            this.txtNumero.Location = new System.Drawing.Point(284, 96);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Preenchimento = null;
-            this.txtNumero.Size = new System.Drawing.Size(105, 24);
-            this.txtNumero.TabIndex = 4;
-            this.txtNumero.TipoCampo = "INTEIRO";
-            // 
             // dgvBaldes
             // 
             this.dgvBaldes.AllowUserToAddRows = false;
@@ -180,14 +155,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBaldes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvBaldes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBaldes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaldes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvBaldes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBaldes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -201,29 +176,29 @@
             this.colEntregue,
             this.colEditar});
             this.dgvBaldes.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBaldes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBaldes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvBaldes.EnableHeadersVisualStyles = false;
-            this.dgvBaldes.Location = new System.Drawing.Point(0, 169);
+            this.dgvBaldes.Location = new System.Drawing.Point(0, 126);
             this.dgvBaldes.Name = "dgvBaldes";
             this.dgvBaldes.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBaldes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaldes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvBaldes.RowHeadersVisible = false;
             this.dgvBaldes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBaldes.Size = new System.Drawing.Size(1103, 281);
+            this.dgvBaldes.Size = new System.Drawing.Size(1103, 324);
             this.dgvBaldes.TabIndex = 101;
             this.dgvBaldes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBaldes_CellClick);
             this.dgvBaldes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvBaldes_CellFormatting);
@@ -331,6 +306,7 @@
             this.txtTelefone.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtTelefone.IconeKeyDown = null;
             this.txtTelefone.Location = new System.Drawing.Point(80, 36);
+            this.txtTelefone.MaxLength = 11;
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Preenchimento = null;
             this.txtTelefone.Size = new System.Drawing.Size(309, 24);
@@ -349,7 +325,7 @@
             "BALDES NÃO ENTREGUES",
             "BALDES ENTREGUES",
             "TODOS OS BALDES"});
-            this.cboFiltro.Location = new System.Drawing.Point(907, 126);
+            this.cboFiltro.Location = new System.Drawing.Point(907, 93);
             this.cboFiltro.Name = "cboFiltro";
             this.cboFiltro.Size = new System.Drawing.Size(184, 23);
             this.cboFiltro.TabIndex = 7;
@@ -361,21 +337,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.lblFiltro.Location = new System.Drawing.Point(859, 129);
+            this.lblFiltro.Location = new System.Drawing.Point(859, 96);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(42, 17);
             this.lblFiltro.TabIndex = 104;
             this.lblFiltro.Text = "Filtro:";
-            // 
-            // labelJCS5
-            // 
-            this.labelJCS5.AutoSize = true;
-            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS5.Location = new System.Drawing.Point(154, 129);
-            this.labelJCS5.Name = "labelJCS5";
-            this.labelJCS5.Size = new System.Drawing.Size(124, 17);
-            this.labelJCS5.TabIndex = 105;
-            this.labelJCS5.Text = "Quantidade Colher:";
             // 
             // txtColher
             // 
@@ -383,12 +349,22 @@
             this.txtColher.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColher.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.txtColher.IconeKeyDown = null;
-            this.txtColher.Location = new System.Drawing.Point(284, 126);
+            this.txtColher.Location = new System.Drawing.Point(330, 96);
             this.txtColher.Name = "txtColher";
             this.txtColher.Preenchimento = null;
-            this.txtColher.Size = new System.Drawing.Size(105, 24);
+            this.txtColher.Size = new System.Drawing.Size(59, 24);
             this.txtColher.TabIndex = 5;
             this.txtColher.TipoCampo = "INTEIRO";
+            // 
+            // labelJCS5
+            // 
+            this.labelJCS5.AutoSize = true;
+            this.labelJCS5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS5.Location = new System.Drawing.Point(251, 99);
+            this.labelJCS5.Name = "labelJCS5";
+            this.labelJCS5.Size = new System.Drawing.Size(73, 17);
+            this.labelJCS5.TabIndex = 105;
+            this.labelJCS5.Text = "QT. Colher:";
             // 
             // frmBaldes
             // 
@@ -402,10 +378,8 @@
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.labelJCS4);
             this.Controls.Add(this.dgvBaldes);
-            this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.cboBalde);
             this.Controls.Add(this.txtEnd);
-            this.Controls.Add(this.labelJCS3);
             this.Controls.Add(this.labelJCS2);
             this.Controls.Add(this.labelJCS1);
             this.Controls.Add(this.txtNome);
@@ -427,16 +401,13 @@
         private Componentes.ButtonJCS btnSalvar;
         private Componentes.LabelJCS labelJCS1;
         private Componentes.LabelJCS labelJCS2;
-        private Componentes.LabelJCS labelJCS3;
         private Componentes.TextBoxJCS txtEnd;
         private Componentes.ComboBoxJCS cboBalde;
-        private Componentes.TextBoxJCS txtNumero;
         private Componentes.DataGridViewJCS dgvBaldes;
         private Componentes.LabelJCS labelJCS4;
         private Componentes.TextBoxJCS txtTelefone;
         private Componentes.ComboBoxJCS cboFiltro;
         private Componentes.LabelJCS lblFiltro;
-        private Componentes.LabelJCS labelJCS5;
         private Componentes.TextBoxJCS txtColher;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
@@ -448,5 +419,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DT_DEVOLUCAO;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colEntregue;
         private System.Windows.Forms.DataGridViewImageColumn colEditar;
+        private Componentes.LabelJCS labelJCS5;
     }
 }
