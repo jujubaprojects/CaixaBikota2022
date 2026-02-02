@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNovoPedido));
             this.lblProduto = new Componentes.LabelJCS(this.components);
             this.cboProdutoFilho = new Componentes.ComboBoxJCS(this.components);
@@ -74,6 +74,8 @@
             this.txtEndereco = new Componentes.TextBoxJCS(this.components);
             this.txtObservacaoPedido = new Componentes.TextBoxJCS(this.components);
             this.btnEnviarPedidoSemImprimir = new Componentes.ButtonJCS(this.components);
+            this.dtpAgendamento = new Componentes.dateTimePickerJCS(this.components);
+            this.chkAgendamento = new Componentes.CheckBoxJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,7 +156,7 @@
             this.txtDescPedido.Location = new System.Drawing.Point(228, 12);
             this.txtDescPedido.Name = "txtDescPedido";
             this.txtDescPedido.Preenchimento = null;
-            this.txtDescPedido.Size = new System.Drawing.Size(858, 24);
+            this.txtDescPedido.Size = new System.Drawing.Size(551, 24);
             this.txtDescPedido.TabIndex = 1;
             this.txtDescPedido.TipoCampo = "STRING";
             this.txtDescPedido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescPedido_KeyDown);
@@ -238,14 +240,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPedidoProdutoID,
@@ -259,26 +261,26 @@
             this.colAddAdicionais,
             this.colExcluir});
             this.dgvProdutos.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
             this.dgvProdutos.Location = new System.Drawing.Point(0, 226);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(1098, 273);
@@ -591,11 +593,36 @@
             this.btnEnviarPedidoSemImprimir.Visible = false;
             this.btnEnviarPedidoSemImprimir.Click += new System.EventHandler(this.BtnEnviarPedidoSemImprimir_Click);
             // 
+            // dtpAgendamento
+            // 
+            this.dtpAgendamento.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpAgendamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpAgendamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAgendamento.Location = new System.Drawing.Point(808, 12);
+            this.dtpAgendamento.Name = "dtpAgendamento";
+            this.dtpAgendamento.Size = new System.Drawing.Size(151, 24);
+            this.dtpAgendamento.TabIndex = 105;
+            this.dtpAgendamento.Visible = false;
+            // 
+            // chkAgendamento
+            // 
+            this.chkAgendamento.AutoSize = true;
+            this.chkAgendamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.chkAgendamento.Location = new System.Drawing.Point(965, 15);
+            this.chkAgendamento.Name = "chkAgendamento";
+            this.chkAgendamento.Size = new System.Drawing.Size(121, 21);
+            this.chkAgendamento.TabIndex = 106;
+            this.chkAgendamento.Text = "Agendar Pedido";
+            this.chkAgendamento.UseVisualStyleBackColor = true;
+            this.chkAgendamento.CheckedChanged += new System.EventHandler(this.chkAgendamento_CheckedChanged);
+            // 
             // frmNovoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 499);
+            this.Controls.Add(this.chkAgendamento);
+            this.Controls.Add(this.dtpAgendamento);
             this.Controls.Add(this.btnEnviarPedidoSemImprimir);
             this.Controls.Add(this.txtObservacaoPedido);
             this.Controls.Add(this.txtEndereco);
@@ -679,5 +706,7 @@
         private System.Windows.Forms.DataGridViewImageColumn colAddAdicionais;
         private System.Windows.Forms.DataGridViewImageColumn colExcluir;
         private Componentes.ButtonJCS btnEnviarPedidoSemImprimir;
+        private Componentes.dateTimePickerJCS dtpAgendamento;
+        private Componentes.CheckBoxJCS chkAgendamento;
     }
 }

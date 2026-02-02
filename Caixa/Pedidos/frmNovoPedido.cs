@@ -38,6 +38,8 @@ namespace Caixa
             {
                 modoUpdate(pPedido);
             }
+
+            this.dtpAgendamento.Value = DateTime.Today;
         }
 
         private void modoUpdate (int pPedido)
@@ -230,10 +232,22 @@ namespace Caixa
                             }
                         }
 
+                        criarAgendamento();
                         enviarPedido(8);
                         Close();
                     }
                 }
+            }
+        }
+
+        private void criarAgendamento ()
+        {
+            if (chkAgendamento.Checked)
+            {
+                StringBuilder sqlInserirAgendamento = new StringBuilder();
+                sqlInserirAgendamento.Append("INSERT INTO AGENDAMENTO_PEDIDO (PEDIDO, DT_AGENDAMENTO) ");
+                sqlInserirAgendamento.Append("VALUES (" + int.Parse(txtPedidoID.Text) + ", '" + dtpAgendamento.Value.ToString() + "' )");
+                auxSQL.executaQuerySemRetorno(sqlInserirAgendamento.ToString());
             }
         }
 
@@ -605,11 +619,20 @@ namespace Caixa
                             }
                         }
 
+                        criarAgendamento();
                         enviarPedido(2);
                         Close();
                     }
                 }
             }
+        }
+
+        private void chkAgendamento_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAgendamento.Checked)
+                dtpAgendamento.Visible = true;
+            else
+                dtpAgendamento.Visible = false;
         }
 
         private void CboDesc5_SelectedIndexChanged(object sender, EventArgs e)

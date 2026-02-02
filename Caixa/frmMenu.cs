@@ -26,6 +26,7 @@ using Caixa.Reports;
 using Componentes;
 using dal;
 using Npgsql;
+using OpenQA.Selenium.BiDi.Input;
 using Org.BouncyCastle.Asn1.X509;
 
 namespace Caixa
@@ -90,7 +91,31 @@ namespace Caixa
             frmPedidos frm = new frmPedidos();
             frm.MdiParent = this;
             frm.Show();
+
+            verificaAgendamentos();
         }
+
+        private void verificaAgendamentos ()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT CONCAT(P.ID, ' - ' , P.DESCRICAO) DESCRICAO, TP.DESCRICAO TIPO,  AP.ID ID_AGENDAMENTO, FORMAT(AP.DT_AGENDAMENTO, 'dd/MM/yyyy HH:mm:ss') DT_AGENDAMENTO ");
+            sql.Append("FROM PEDIDO P ");
+            sql.Append("JOIN AGENDAMENTO_PEDIDO AP ON(P.ID = AP.PEDIDO) ");
+            sql.Append("JOIN TIPO_PEDIDO TP ON (TP.ID = P.TIPO) ");
+            sql.Append("WHERE AP.LEMBRETE_CRIADO = 0 AND P.SITUACAO != 0 AND CAST(AP.DT_AGENDAMENTO AS DATE) = CAST(GETDATE() AS DATE) ");
+            DataTable dt = auxSQL.retornaDataTable(sql.ToString());
+            if (dt.Rows.Count > 0)
+            {
+                string descricaoPedido;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    descricaoPedido = "LEMBRETE PEDIDO PARA HOJE " + dt.Rows[i]["DESCRICAO"].ToString() + " TIPO: " + dt.Rows[i]["TIPO"].ToString() + " - " + dt.Rows[i]["DT_AGENDAMENTO"].ToString();
+                    auxSQL.insertPedido(descricaoPedido, dt.Rows[i]["TIPO"].ToString(), 1);
+                    auxSQL.executaQuerySemRetorno("UPDATE AGENDAMENTO_PEDIDO SET LEMBRETE_CRIADO = 1 WHERE ID = " + dt.Rows[i]["ID_AGENDAMENTO"].ToString());
+                        }
+            }
+        }
+
         private string RemoverAcentos(string texto)
         {
             if (string.IsNullOrWhiteSpace(texto))
