@@ -49,6 +49,7 @@ namespace Caixa.Estoque
                     sql.Append("AND  CE.DESCRICAO LIKE '%" + txtDescricao.Text.Replace(" ", "%") + "%' ");
                 if (!string.IsNullOrEmpty(txtFiltroQT.Text))
                     sql.Append("AND CE.QT_ESTOQUE = " + txtFiltroQT.Text + " ");
+                sql.Append("ORDER BY PRODUTO ");
             }
 
             dgvLink.DataSource = auxSQL.retornaDataTable(sql.ToString());

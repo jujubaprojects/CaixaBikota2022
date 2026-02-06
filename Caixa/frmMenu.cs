@@ -95,7 +95,7 @@ namespace Caixa
             verificaAgendamentos();
         }
 
-        private void verificaAgendamentos ()
+        private void verificaAgendamentos (int pID = 0)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT CONCAT(P.ID, ' - ' , P.DESCRICAO) DESCRICAO, TP.DESCRICAO TIPO,  AP.ID ID_AGENDAMENTO, FORMAT(AP.DT_AGENDAMENTO, 'dd/MM/yyyy HH:mm:ss') DT_AGENDAMENTO ");
@@ -146,7 +146,7 @@ namespace Caixa
                 try
                 {
                     //Console.WriteLine(">> Iniciando tarefa de 45 segundos...");
-                    //new PedidosAPI();
+                    new PedidosAPI();
                     //Console.WriteLine(">> Tarefa de 45 segundos concluída!");
                 }
                 catch (Exception ex)
@@ -194,13 +194,13 @@ namespace Caixa
         {
             while (true)
             {
-                DataTable dt = auxSQL.retornaTeste();
+                DataTable dt = auxSQL.retornaPedidosImprimir();
                 DataTable dtAdds;
                 StringBuilder sImpressao = new StringBuilder();
                 int indexAux;
                 double valor = 0, vlTotal = 0;
                 string descricao, observacao, observacaoPed = "", endereco = "", cobertura;
-                string auxDescPedido = "";
+                string auxDescPedido = "", agendamento = "";
                 int tipo = 0;
 
 
@@ -221,7 +221,7 @@ namespace Caixa
                             auxDescPedido = dt.Rows[0]["DESC_PEDIDO"].ToString();
                             sImpressao.Append("Desc. Ped.: " + dt.Rows[0]["DESC_PEDIDO"].ToString() + "\r\n\r\n");
                             sImpressao.Append("ORDEM      PRODUTO" + "\r\n");
-
+                            agendamento = dt.Rows[0]["AGENDAMENTO"].ToString();
                             for (int i = 0; i < dt.Rows.Count; i++)
                             {
 
@@ -290,20 +290,25 @@ namespace Caixa
                                 sImpressao.Append("ENDEREÇO: " + RemoverAcentos(endereco) + "\r\n");
                                 if (!string.IsNullOrEmpty(observacaoPed))
                                     sImpressao.Append("OBSERVAÇÃO: " + RemoverAcentos(observacaoPed) + "\r\n");
-
-
                             }
                             if (tipo == 2)
                             {
                                 sImpressao.Append("*********************LEVAR*********************" + "\r\n");
-
-
                             }
+
+                            if (!string.IsNullOrEmpty(agendamento))
+                                sImpressao.Append("**"+ agendamento + "**" + "\r\n");
+
                             sImpressao.Append("VALOR TOTAL:" + vlTotal + "\r\n");
 
                             sImpressao.Append("PAGAMENTO SOMENTE NO CAIXA!!!" + "\r\n");
                             sImpressao.Append("\r\n\r\n\r\n");
                             //iRetorno = MP2032.FormataTX(sImpressao + "\r\n\r\n", 1, 1, 0, 0, 0);
+                            
+                            //if (auxSQL.retornaDataTable("SELECT * FROM AGENDAMENTO_PEDIDO WHERE PEDIDO = " + pedidoID)
+                            //{
+
+                            //}
 
                             iRetorno = MP2032.ImprimeBitmap("C:\\Impressora\\Logo\\BikotaBmp24.bmp", 0);
                             if (iRetorno <= 0)

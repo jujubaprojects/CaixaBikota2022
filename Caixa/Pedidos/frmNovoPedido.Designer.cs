@@ -147,8 +147,6 @@
             // 
             // txtDescPedido
             // 
-            this.txtDescPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescPedido.BackColor = System.Drawing.Color.White;
             this.txtDescPedido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -595,10 +593,11 @@
             // 
             // dtpAgendamento
             // 
+            this.dtpAgendamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAgendamento.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dtpAgendamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.dtpAgendamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAgendamento.Location = new System.Drawing.Point(808, 12);
+            this.dtpAgendamento.Location = new System.Drawing.Point(785, 12);
             this.dtpAgendamento.Name = "dtpAgendamento";
             this.dtpAgendamento.Size = new System.Drawing.Size(151, 24);
             this.dtpAgendamento.TabIndex = 105;
@@ -606,9 +605,10 @@
             // 
             // chkAgendamento
             // 
+            this.chkAgendamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkAgendamento.AutoSize = true;
             this.chkAgendamento.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.chkAgendamento.Location = new System.Drawing.Point(965, 15);
+            this.chkAgendamento.Location = new System.Drawing.Point(942, 15);
             this.chkAgendamento.Name = "chkAgendamento";
             this.chkAgendamento.Size = new System.Drawing.Size(121, 21);
             this.chkAgendamento.TabIndex = 106;
