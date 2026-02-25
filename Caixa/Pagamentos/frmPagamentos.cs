@@ -128,7 +128,7 @@ namespace Caixa
             DataTable dtInfPedido = sqlAux.buscaInformacoesPedido(pedidoID);
 
             lblSituacao.Text = "PEDIDO: " + dtInfPedido.Rows[0]["DESC_SITUACAO"].ToString();
-            txtEndereco.Text =  dtInfPedido.Rows[0]["END_OBS"].ToString();
+            txtEndereco.Text =  dtInfPedido.Rows[0]["ENDERECO"].ToString() + " - " + dtInfPedido.Rows[0]["OBSERVACAO"].ToString();
 
 
             if (auxPreencherCampos)

@@ -69,6 +69,8 @@
             this.estoqueDePotesDeSorvetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sorvetes10lEmFaltaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subtrairEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,8 +84,6 @@
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
-            this.enviarMensagensBaldesEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,7 +109,7 @@
             this.colaboradoresToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1300, 72);
+            this.menu.Size = new System.Drawing.Size(1280, 72);
             this.menu.TabIndex = 3;
             this.menu.Text = "menuStrip2";
             // 
@@ -435,6 +435,19 @@
             this.subtrairEstoqueToolStripMenuItem.Text = "Subtrair Estoque";
             this.subtrairEstoqueToolStripMenuItem.Click += new System.EventHandler(this.SubtrairEstoqueToolStripMenuItem_Click_1);
             // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(354, 6);
+            // 
+            // enviarMensagensBaldesEmAbertoToolStripMenuItem
+            // 
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Name = "enviarMensagensBaldesEmAbertoToolStripMenuItem";
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Text = "Enviar Mensagens Baldes em Aberto";
+            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Click += new System.EventHandler(this.enviarMensagensBaldesEmAbertoToolStripMenuItem_Click);
+            // 
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -553,31 +566,17 @@
             this.cadastroDeFolgasToolStripMenuItem.Text = "Cadastro de Folgas";
             this.cadastroDeFolgasToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeFolgasToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(354, 6);
-            // 
-            // enviarMensagensBaldesEmAbertoToolStripMenuItem
-            // 
-            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Name = "enviarMensagensBaldesEmAbertoToolStripMenuItem";
-            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
-            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Text = "Enviar Mensagens Baldes em Aberto";
-            this.enviarMensagensBaldesEmAbertoToolStripMenuItem.Click += new System.EventHandler(this.enviarMensagensBaldesEmAbertoToolStripMenuItem_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 700);
+            this.ClientSize = new System.Drawing.Size(1280, 749);
             this.Controls.Add(this.menu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menu;
             this.Name = "frmMenu";
-            this.Text = "Form1";
-            this.Shown += new System.EventHandler(this.frmMenu_Shown);
+            this.Text = "Menu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);

@@ -117,7 +117,7 @@ namespace Caixa
                 row["PRODUTO"] = cboProdutoFilho.SelectedItem.ToString();
                 row["QT"] = txtQuantidade.Text;
                 if (cboProdutoFilho.SelectedItem.ToString().Equals("SORVETE KILO CASCAO/CASQUINHA"))
-                    row["QT"] = double.Parse(txtQuantidade.Text) - 0.088;
+                    row["QT"] = double.Parse(txtQuantidade.Text) - 0.09;
 
                 row["VL_PRODUTO"] = vlProd.ToString("0.00");
                 //row["VL_TOTAL"] = (int.Parse(txtQuantidade.Text) * vlProd).ToString("0.00");

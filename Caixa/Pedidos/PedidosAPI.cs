@@ -247,6 +247,7 @@ namespace Caixa.Pedidos
         "Adicionais Pagos",
         "Sabores de Picolés",
         "Sabores (Máximo:",
+        "Sabores 5L Padrões",
         "Adicionais (Máximo:",
         "Coberturas (Máximo:"
                 };

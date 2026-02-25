@@ -134,7 +134,7 @@ namespace Caixa
                     //auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), cboProdutoFilho.SelectedItem.ToString(), int.Parse(txtQuantidade.Text), auxDesc, obsProduto, 1);
                     double qt = double.Parse(txtQuantidade.Text);
                     if (cboProdutoFilho.SelectedItem.Equals("SORVETE KILO CASCAO/CASQUINHA"))
-                        qt = qt - 0.088;
+                        qt = qt - 0.09;
 
                     List<string> potes = new List<string>();
                     potes.Add("POTE 04L");
@@ -361,6 +361,8 @@ namespace Caixa
                 txtDescPedido.Text = dt.Rows[0]["DESCRICAO"].ToString();
                 cboTipo.SelectedItem = dt.Rows[0]["TIPO"].ToString();
                 tipoOperacao = 2;
+                txtEndereco.Text = dt.Rows[0]["ENDERECO"].ToString();
+                txtObservacaoPedido.Text = dt.Rows[0]["OBSERVACAO"].ToString();
             }
         }
 

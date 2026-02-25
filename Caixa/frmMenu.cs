@@ -46,6 +46,9 @@ namespace Caixa
         public frmMenu()
         {
             InitializeComponent();
+
+            this.Bounds = Screen.PrimaryScreen.WorkingArea;
+
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT ID, DESCRICAO, DATA, REPETIR, STATUS ");
             sql.Append("FROM LEMBRETE ");
@@ -93,6 +96,8 @@ namespace Caixa
             frm.Show();
 
             verificaAgendamentos();
+
+
         }
 
         private void verificaAgendamentos (int pID = 0)
@@ -296,7 +301,7 @@ namespace Caixa
                                 sImpressao.Append("*********************LEVAR*********************" + "\r\n");
                             }
 
-                            if (!string.IsNullOrEmpty(agendamento))
+                            if (!string.IsNullOrEmpty(agendamento) && agendamento.Length > 10)
                                 sImpressao.Append("**"+ agendamento + "**" + "\r\n");
 
                             sImpressao.Append("VALOR TOTAL:" + vlTotal + "\r\n");
@@ -895,11 +900,6 @@ namespace Caixa
 
         }
 
-        private void frmMenu_Shown(object sender, EventArgs e)
-        {
-
-        }
-
         private void enviarMensagensBaldesEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DateTime agora = DateTime.Now;
@@ -914,14 +914,14 @@ namespace Caixa
 
                 if (dt.Rows.Count > 0)
                 {
-
+                    List<string> listTel = new List<string>();
                     string telefone = "553434121486";
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
 
                         string mensagem =
                 $@"Olá, {dt.Rows[i]["NOME"].ToString()}! Tudo bem?  
-Notei aqui que está em aberto um  emprestado no dia {DateTime.Parse(dt.Rows[i]["DATA"].ToString()).ToString("dd/MM/yyyy")} em seu nome.  
+Notei aqui que está em aberto um balde ou/e colher emprestado no dia {DateTime.Parse(dt.Rows[i]["DATA"].ToString()).ToString("dd/MM/yyyy")} em seu nome.  
 Estamos precisando de baldes/colheres, se possível me fale uma data para buscarmos ou você trazer.  
 
 *Se você ainda não desocupou, fique tranquilo(a), esta mensagem automática do sistema é apenas um lembrete.*  
@@ -933,31 +933,37 @@ Agradeço sua atenção! Tenha um ótimo dia!";
                         string mensagemCodificada = WebUtility.UrlEncode(mensagem);
                         telefone = Regex.Replace(dt.Rows[i]["TELEFONE"].ToString(), @"\D", "");
 
-                        // Monta o link do WhatsApp
-                        string url = $"https://wa.me/55{telefone}?text={mensagemCodificada}";
-
-                        // Abre no navegador padrão
-                        Process.Start(new ProcessStartInfo
+                        if (!listTel.Contains(telefone))
                         {
-                            FileName = url,
-                            UseShellExecute = true
-                        });
-                        Thread.Sleep(5000);
+                            // Monta o link do WhatsApp
+                            string url = $"https://wa.me/55{telefone}?text={mensagemCodificada}";
 
-                        // 3️⃣ 12 TABs (200ms entre cada)
-                        for (int j = 0; j < 12; j++)
-                        {
-                            SendKeys.SendWait("{TAB}");
-                            Thread.Sleep(200);
+                            // Abre no navegador padrão
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = url,
+                                UseShellExecute = true
+                            });
+                            Thread.Sleep(10000);
+
+                            // 3️⃣ 12 TABs (200ms entre cada)
+                            for (int j = 0; j < 7; j++)
+                            {
+                                SendKeys.SendWait("{TAB}");
+                                Thread.Sleep(200);
+                            }
+
+                            // 4️⃣ ENTER (clicar no botão)
+                            SendKeys.SendWait("{ENTER}");
+
+                            Thread.Sleep(20000);
+                            SendKeys.SendWait("{ENTER}");
+                            Thread.Sleep(10000);
+                            SendKeys.SendWait("{ENTER}");
+                            Thread.Sleep(50000);
+
+                            listTel.Add(telefone);
                         }
-
-                        // 4️⃣ ENTER (clicar no botão)
-                        SendKeys.SendWait("{ENTER}");
-
-                        Thread.Sleep(20000);
-                        SendKeys.SendWait("{ENTER}");
-                        Thread.Sleep(60000);
-
 
                         //WhatsAppSelenium.EnviarMensagem(telefone, mensagem);
 
@@ -966,7 +972,7 @@ Agradeço sua atenção! Tenha um ótimo dia!";
                     MessageBox.Show("Processo de envio de mensagens finalizado!", "Processo concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-            }
+        }
             else
                 MessageBox.Show("Este metodo só pode ser executado na segunda-feira no período da manhã.", "Liberado apenas nas Segunda-Feiras", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
