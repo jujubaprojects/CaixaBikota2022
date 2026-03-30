@@ -37,11 +37,12 @@ namespace Caixa.Pedidos
             if (!temInternet)
                 return;
 
-            var connStr = "Server=sh00082.hostgator.com.br;Database=hg640183_pedidosdb;Uid=hg640183_jujuba;Pwd=102030@Br;";
+            var connStr = "Server=sh00082.hostgator.com.br;Database=hg640183_pedidosdb;Uid=hg640183_jujuba;Pwd=102030@Br;Connection Timeout=5;";
 
             var repo = new RepositorioPedidos(connStr);
 
             var pedidos = repo.ObterPedidosNaoProcessados();
+
 
             foreach (var pedido in pedidos)
             {

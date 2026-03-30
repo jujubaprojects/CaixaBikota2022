@@ -35,7 +35,8 @@ namespace Caixa
             //        efcAlerta.Text += "                                                " + dt.Rows[i]["DESCRICAO"].ToString() + "                                                ";
             //}
 
-            efcAlerta.Text = "";
+            //efcAlerta.Text = "";
+            btnDeliveryPopCor();
         }
 
         private void CboSituacao_SelectedIndexChanged(object sender, EventArgs e)
@@ -209,5 +210,25 @@ namespace Caixa
             preencherPedidos();
         }
 
+        private void btnDeliveryPop_Click(object sender, EventArgs e)
+        {
+            sqlAux.executaQuerySemRetorno("UPDATE PEDIDOS_DELIVERYPOP_ATIVO SET ATIVO = 1 - ATIVO");
+            btnDeliveryPopCor();
+            Application.Restart();
+        }
+        private void btnDeliveryPopCor()
+        {
+            DataTable dt = sqlAux.retornaDataTable("SELECT ATIVO FROM PEDIDOS_DELIVERYPOP_ATIVO");
+            if (bool.Parse(dt.Rows[0]["ATIVO"].ToString()))
+            {
+                btnDeliveryPop.BackColor = Color.LightGreen;
+                btnDeliveryPop.Text = "DeliveryPop Ligado";
+            }
+            else
+            {
+                btnDeliveryPop.BackColor = Color.Red;
+                btnDeliveryPop.Text = "DeliveryPop Desligado";
+            }
+        }
     }
 }

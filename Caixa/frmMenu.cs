@@ -25,6 +25,7 @@ using Caixa.Pedidos;
 using Caixa.Reports;
 using Componentes;
 using dal;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using OpenQA.Selenium.BiDi.Input;
 using Org.BouncyCastle.Asn1.X509;
@@ -89,7 +90,8 @@ namespace Caixa
             }
 
 
-            buscaPedidosAPIDelivery();//BUSCA PEDIDOS A CADA 45S
+            if (retornaBuscaPedidosDeliveryPop())
+                buscaPedidosAPIDelivery();//BUSCA PEDIDOS A CADA 45S
 
             frmPedidos frm = new frmPedidos();
             frm.MdiParent = this;
@@ -98,6 +100,20 @@ namespace Caixa
             verificaAgendamentos();
 
 
+        }
+
+        private bool retornaBuscaPedidosDeliveryPop()
+
+        {
+            //SE TIVER DESABILITADO NO BANCO, NAO BUSCAMOS PEDIDOS NO DELIVERYPOP.
+            //ESTE METODO É UTILIZADO QUANDO TEMOS INSTABILIDADE COM O HOSTGATOR (NOSSO SERVIDOR QUE RODA A API)
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT ATIVO FROM PEDIDOS_DELIVERYPOP_ATIVO ");
+            DataTable dt = auxSQL.retornaDataTable(sql.ToString());
+            if (!bool.Parse(dt.Rows[0]["ATIVO"].ToString()))
+                return false;
+
+            return true;
         }
 
         private void verificaAgendamentos (int pID = 0)
@@ -139,10 +155,9 @@ namespace Caixa
             return sb.ToString().Normalize(NormalizationForm.FormC);
         }
 
-
         private static void buscaPedidosAPIDelivery()
         {
-            timer45S = new System.Timers.Timer(45000); // 45 segundos
+            timer45S = new System.Timers.Timer(4000); // 45 segundos
 
             timer45S.Elapsed += async (s, e) =>
             {
@@ -150,9 +165,7 @@ namespace Caixa
 
                 try
                 {
-                    //Console.WriteLine(">> Iniciando tarefa de 45 segundos...");
                     new PedidosAPI();
-                    //Console.WriteLine(">> Tarefa de 45 segundos concluída!");
                 }
                 catch (Exception ex)
                 {
