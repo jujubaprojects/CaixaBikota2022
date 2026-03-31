@@ -222,12 +222,12 @@ namespace Caixa
             if (bool.Parse(dt.Rows[0]["ATIVO"].ToString()))
             {
                 btnDeliveryPop.BackColor = Color.LightGreen;
-                btnDeliveryPop.Text = "DeliveryPop Ligado";
+                btnDeliveryPop.Text = "Busca Pedidos DeliveryPop Ligado";
             }
             else
             {
                 btnDeliveryPop.BackColor = Color.Red;
-                btnDeliveryPop.Text = "DeliveryPop Desligado";
+                btnDeliveryPop.Text = "Busca Pedidos DeliveryPop Desligado";
             }
         }
     }

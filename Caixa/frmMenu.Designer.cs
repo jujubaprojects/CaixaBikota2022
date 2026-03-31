@@ -84,6 +84,8 @@
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculoDeHorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -533,7 +535,9 @@
             this.colaboradoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroDeColaboradoresToolStripMenuItem,
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem,
-            this.cadastroDeFolgasToolStripMenuItem});
+            this.cadastroDeFolgasToolStripMenuItem,
+            this.toolStripMenuItem11,
+            this.calculoDeHorasToolStripMenuItem});
             this.colaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.colaboradoresToolStripMenuItem.Image = global::Caixa.Properties.Resources.funcionario;
             this.colaboradoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -546,7 +550,7 @@
             // 
             this.cadastroDeColaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cadastroDeColaboradoresToolStripMenuItem.Name = "cadastroDeColaboradoresToolStripMenuItem";
-            this.cadastroDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
+            this.cadastroDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
             this.cadastroDeColaboradoresToolStripMenuItem.Text = "Cadastro de Colaboradores";
             this.cadastroDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeColaboradoresToolStripMenuItem_Click);
             // 
@@ -554,7 +558,7 @@
             // 
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Name = "informaçõesRegistrosDeColaboradoresToolStripMenuItem";
-            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
+            this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Text = "Informações/Registros de Colaboradores";
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem.Click += new System.EventHandler(this.InformaçõesRegistrosDeColaboradoresToolStripMenuItem_Click);
             // 
@@ -562,9 +566,21 @@
             // 
             this.cadastroDeFolgasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cadastroDeFolgasToolStripMenuItem.Name = "cadastroDeFolgasToolStripMenuItem";
-            this.cadastroDeFolgasToolStripMenuItem.Size = new System.Drawing.Size(329, 24);
+            this.cadastroDeFolgasToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
             this.cadastroDeFolgasToolStripMenuItem.Text = "Cadastro de Folgas";
             this.cadastroDeFolgasToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeFolgasToolStripMenuItem_Click);
+            // 
+            // calculoDeHorasToolStripMenuItem
+            // 
+            this.calculoDeHorasToolStripMenuItem.Name = "calculoDeHorasToolStripMenuItem";
+            this.calculoDeHorasToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
+            this.calculoDeHorasToolStripMenuItem.Text = "Calculo de Horas";
+            this.calculoDeHorasToolStripMenuItem.Click += new System.EventHandler(this.calculoDeHorasToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(326, 6);
             // 
             // frmMenu
             // 
@@ -641,6 +657,8 @@
         private System.Windows.Forms.ToolStripMenuItem fluxoDeCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem enviarMensagensBaldesEmAbertoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculoDeHorasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
     }
 }
 

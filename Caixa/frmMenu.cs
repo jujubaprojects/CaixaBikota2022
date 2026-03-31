@@ -23,6 +23,7 @@ using Caixa.Estoque;
 using Caixa.Pagamentos;
 using Caixa.Pedidos;
 using Caixa.Reports;
+using Caixa.RH;
 using Componentes;
 using dal;
 using MySql.Data.MySqlClient;
@@ -990,5 +991,10 @@ Agradeço sua atenção! Tenha um ótimo dia!";
                 MessageBox.Show("Este metodo só pode ser executado na segunda-feira no período da manhã.", "Liberado apenas nas Segunda-Feiras", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void calculoDeHorasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCalculoHoras frm = new frmCalculoHoras();
+            frm.ShowDialog();
+        }
     }
 }
