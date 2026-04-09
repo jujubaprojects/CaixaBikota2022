@@ -197,6 +197,10 @@ namespace Caixa.Pedidos
                             {
                                 produtoId = 12;
                             }
+                            else if (sabor.Equals("Zero Açúcar - Morango", StringComparison.OrdinalIgnoreCase))
+                            {
+                                produtoId = 2164;
+                            }
                             else
                             {
                                 produtoId = 11;

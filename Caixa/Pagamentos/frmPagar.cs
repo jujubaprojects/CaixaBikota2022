@@ -300,6 +300,8 @@ namespace Caixa
                             //vlInserir = Math.Floor(vlInserir);// Math.Round(vlInserir, );
                             auxVl -= vlInserir;
                             vlInserido += vlInserir;
+
+                            verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
 
                             //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
@@ -308,6 +310,7 @@ namespace Caixa
                         }
                         else
                         {
+                            verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl); //descomentar ao colocar em producao
                             auxVl = 0;
                         }
@@ -316,6 +319,39 @@ namespace Caixa
             }
 
 
+        }
+
+        private void verificaSeExisteEstoque(string pProduto, string pDescricao)
+        {
+            try
+            {
+                if (pProduto.Equals("POTE 04L") || pProduto.Equals("POTE 05L") || pProduto.Equals("POTE 10L"))
+                {
+                    StringBuilder sql = new StringBuilder();
+                    sql.Append("SELECT EP.* ");
+                    sql.Append("FROM ESTOQUE_POTE EP ");
+                    sql.Append("JOIN PRODUTO P ON(EP.PRODUTO = P.ID) ");
+                    sql.Append("WHERE P.DESCRICAO = '" + pProduto + "' ");
+                    sql.Append("AND dbo.RETORNA_SABORES(EP.ID) LIKE '" + pDescricao + "' ");
+                    if (auxSql.retornaDataTable(sql.ToString()).Rows.Count == 0)
+                    {
+                        List<string> listaOrdernada = pDescricao.Split(',').ToList();
+                        auxSql.insertEstoquePoteZerado(pProduto);
+
+
+                        //FOI DELETADO A PK PK_SABOR_ESTOQUE -> A PK É DA COLUNA ID_EST_POTE E ID_SABOR. 1 PK PARA 2 COLUNAS
+                        for (int i = 0; i < listaOrdernada.Count; i++)
+                        {
+                            auxSql.insertEstoquePoteSaborUltimoRegistro(listaOrdernada[i]);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao criar estoque de pote zerado.", "Fale com o suporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void inserirPagamento (string pID, double pValor)

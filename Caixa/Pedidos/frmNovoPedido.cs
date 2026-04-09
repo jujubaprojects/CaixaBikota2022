@@ -189,6 +189,8 @@ namespace Caixa
                 tipoOperacao = 2;
 
                 preencherGrid(int.Parse(txtPedidoID.Text));
+
+
             }
         }
 

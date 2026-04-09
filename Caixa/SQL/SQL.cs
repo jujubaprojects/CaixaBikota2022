@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿//using DocumentFormat.OpenXml.Drawing.Charts;
+using Npgsql;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Componentes.MaskedTextBoxJCS;
 
 namespace Caixa.SQL
 {
@@ -499,6 +502,26 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertEstoquePoteZerado(string pProduto)
+        {
+            string sql = queryInsertEstoquePoteZerado();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pProduto", pProduto);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertEstoquePoteZerado()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO ESTOQUE_POTE (PRODUTO, DATA, QT_EST) ");
+            sql.Append("(SELECT ID, GETDATE(), 0 FROM PRODUTO WHERE DESCRICAO = @pProduto)");
+
+            return sql.ToString();
+        }
 
         public DataTable buscaEstoquePoteSabor(int pProduto, string pSabores)
         {
@@ -543,7 +566,7 @@ namespace Caixa.SQL
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO SABOR_ESTOQUE (ID_EST_POTE, ID_SABOR) ");
-            sql.Append("(SELECT MAX(ID), (SELECT ID FROM SABOR WHERE DESCRICAO = @pSabor AND TIPO = 'POTES') FROM ESTOQUE_POTE)");
+            sql.Append("(SELECT MAX(ID) ID_EST_POTE, (SELECT ID FROM SABOR WHERE DESCRICAO = LTRIM(RTRIM(@pSabor)) AND TIPO = 'POTES') ID_SABOR FROM ESTOQUE_POTE)");
 
             return sql.ToString();
         }
@@ -2409,6 +2432,32 @@ namespace Caixa.SQL
             sql.Append("RIGHT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
             sql.Append("WHERE PP.SITUACAO = 0 AND convert(varchar, PG.DT_PAGAMENTO, 103) = '" + pData + "' ");
             sql.Append("GROUP BY CONCAT(PFILHO.DESCRICAO, ' - ', PP.DESCRICAO) ");
+
+
+
+            SqlCommand sqlc = new SqlCommand(sql.ToString());
+            sqlc.CommandType = CommandType.Text;
+
+            dt = conexao.executarSelect(sqlc, conn);
+            conn.Close();
+
+
+            return dt;
+        }
+        public DataTable relVendasBebidas(string pData)
+        {
+            DataTable dt = null;
+            SqlConnection conn = conexao.retornaConexao();
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT PROD.DESCRICAO PRODUTO, SUM(PP.QT_PRODUTO) QUANTIDADE ");
+            sql.Append("FROM PEDIDO PED ");
+            sql.Append("JOIN PEDIDO_PRODUTO PP ON(PP.PEDIDO = PED.ID) ");
+            sql.Append("JOIN PRODUTO PROD ON(PROD.ID = PP.PRODUTO) ");
+            sql.Append("WHERE PROD.TIPO = 7 AND PED.SITUACAO != 0 AND PP.SITUACAO != 0 ");
+            sql.Append("AND convert(varchar, PP.DT_ALTERACAO, 103) = '" + pData + "' ");
+            sql.Append("GROUP BY PROD.DESCRICAO ");
+            sql.Append("ORDER BY PRODUTO ");
 
 
 

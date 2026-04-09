@@ -84,8 +84,9 @@
             this.cadastroDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaçõesRegistrosDeColaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calculoDeHorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
+            this.calculoDeHorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bebidasDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -469,7 +470,8 @@
             this.vendasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vendasPedidosDetalhadoToolStripMenuItem,
             this.valorPorDiaToolStripMenuItem,
-            this.produtosDiaToolStripMenuItem});
+            this.produtosDiaToolStripMenuItem,
+            this.bebidasDiaToolStripMenuItem});
             this.vendasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
             this.vendasToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
@@ -570,6 +572,11 @@
             this.cadastroDeFolgasToolStripMenuItem.Text = "Cadastro de Folgas";
             this.cadastroDeFolgasToolStripMenuItem.Click += new System.EventHandler(this.CadastroDeFolgasToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(326, 6);
+            // 
             // calculoDeHorasToolStripMenuItem
             // 
             this.calculoDeHorasToolStripMenuItem.Name = "calculoDeHorasToolStripMenuItem";
@@ -577,10 +584,12 @@
             this.calculoDeHorasToolStripMenuItem.Text = "Calculo de Horas";
             this.calculoDeHorasToolStripMenuItem.Click += new System.EventHandler(this.calculoDeHorasToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem11
+            // bebidasDiaToolStripMenuItem
             // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(326, 6);
+            this.bebidasDiaToolStripMenuItem.Name = "bebidasDiaToolStripMenuItem";
+            this.bebidasDiaToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.bebidasDiaToolStripMenuItem.Text = "Bebidas Dia";
+            this.bebidasDiaToolStripMenuItem.Click += new System.EventHandler(this.bebidasDiaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -659,6 +668,7 @@
         private System.Windows.Forms.ToolStripMenuItem enviarMensagensBaldesEmAbertoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculoDeHorasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem bebidasDiaToolStripMenuItem;
     }
 }
 

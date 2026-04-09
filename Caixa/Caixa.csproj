@@ -470,6 +470,12 @@
     <Compile Include="Reports\frmRelatorio.Designer.cs">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmRelBebidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRelBebidas.Designer.cs">
+      <DependentUpon>frmRelBebidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmRelPedidoFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -618,6 +624,9 @@
     <EmbeddedResource Include="Reports\frmRelatorio.resx">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRelBebidas.resx">
+      <DependentUpon>frmRelBebidas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmRelPedidoFornecedor.resx">
       <DependentUpon>frmRelPedidoFornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -634,6 +643,7 @@
     <EmbeddedResource Include="Reports\relPedidoCompraDetalhado.rdlc" />
     <EmbeddedResource Include="Reports\relPedidoFornecedor.rdlc" />
     <EmbeddedResource Include="Reports\relProdutosDia.rdlc" />
+    <EmbeddedResource Include="Reports\relBebidas.rdlc" />
     <EmbeddedResource Include="Reports\relVendasDia.rdlc" />
     <EmbeddedResource Include="Reports\relVendas.rdlc" />
     <EmbeddedResource Include="Reports\ModeloRetrato.rdlc" />

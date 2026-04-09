@@ -509,9 +509,37 @@ namespace Caixa
         {
             frmPedidoRapido frm = new frmPedidoRapido();
             frm.ShowDialog();
+
+            verificaAlertaLimparMesa();
         }
 
-        private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void verificaAlertaLimparMesa()
+        {
+            DataTable dt = new DataTable();
+            dt = auxSQL.retornaDataTable("SELECT ID, QT_PEDIDO FROM ALERTA_LIMPAR_MESA WHERE ID = 1");
+            if (int.Parse(dt.Rows[0]["QT_PEDIDO"].ToString()) > 9)
+            {
+                if (int.Parse(dt.Rows[0]["QT_PEDIDO"].ToString()) > 11)
+                {
+                    DialogResult result = MessageBox.Show("As mesas estão limpas?", "Alerta de Mesas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            auxSQL.executaQuerySemRetorno("UPDATE ALERTA_LIMPAR_MESA SET QT_PEDIDO = 0 WHERE ID = 1");
+                        }
+
+
+                        return;
+                    }
+                }
+
+
+
+                MessageBox.Show("Verificar se existem mesas para limpar!", "Alerta de Mesas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+                private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCadastroCliente frm = new frmCadastroCliente();
             frm.ShowDialog();
@@ -914,10 +942,19 @@ namespace Caixa
 
         }
 
+
+
+
+
+        [DllImport("user32.dll")]
+        static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
+
+        const int MOUSEEVENTF_LEFTDOWN = 0x0002;
+        const int MOUSEEVENTF_LEFTUP = 0x0004;
         private void enviarMensagensBaldesEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DateTime agora = DateTime.Now;
-            if (DayOfWeek.Monday == agora.DayOfWeek && agora.TimeOfDay <= new TimeSpan(11, 0, 0))
+            if (false || (DayOfWeek.Monday == agora.DayOfWeek && agora.TimeOfDay <= new TimeSpan(11, 0, 0)))
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append("SELECT ID, NOME, ENDERECO, BALDE, TELEFONE, COLHER, DATA ");
@@ -929,7 +966,7 @@ namespace Caixa
                 if (dt.Rows.Count > 0)
                 {
                     List<string> listTel = new List<string>();
-                    string telefone = "553434121486";
+                    string telefone = "34999977371";
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
 
@@ -960,28 +997,32 @@ Agradeço sua atenção! Tenha um ótimo dia!";
                             });
                             Thread.Sleep(10000);
 
-                            // 3️⃣ 12 TABs (200ms entre cada)
-                            for (int j = 0; j < 7; j++)
-                            {
-                                SendKeys.SendWait("{TAB}");
-                                Thread.Sleep(200);
-                            }
+                        // 3️⃣ 12 TABs (200ms entre cada)
+                        for (int j = 0; j < 7; j++)
+                        {
+                            SendKeys.SendWait("{TAB}");
+                            Thread.Sleep(200);
+                        }
 
-                            // 4️⃣ ENTER (clicar no botão)
-                            SendKeys.SendWait("{ENTER}");
+                        // 4️⃣ ENTER (clicar no botão)
+                        SendKeys.SendWait("{ENTER}");
 
                             Thread.Sleep(20000);
                             SendKeys.SendWait("{ENTER}");
-                            Thread.Sleep(10000);
-                            SendKeys.SendWait("{ENTER}");
-                            Thread.Sleep(50000);
+                        Cursor.Position = new System.Drawing.Point(900, 740);
+                        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                        Thread.Sleep(1000);
+                        SendKeys.SendWait("{ENTER}");
+                        Thread.Sleep(50000);
 
-                            listTel.Add(telefone);
-                        }
 
-                        //WhatsAppSelenium.EnviarMensagem(telefone, mensagem);
-
+                        listTel.Add(telefone);
                     }
+
+                    //WhatsAppSelenium.EnviarMensagem(telefone, mensagem);
+
+                }
 
                     MessageBox.Show("Processo de envio de mensagens finalizado!", "Processo concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -994,6 +1035,12 @@ Agradeço sua atenção! Tenha um ótimo dia!";
         private void calculoDeHorasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCalculoHoras frm = new frmCalculoHoras();
+            frm.ShowDialog();
+        }
+
+        private void bebidasDiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelBebidas frm = new frmRelBebidas();
             frm.ShowDialog();
         }
     }
