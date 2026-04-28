@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNovoPedido));
             this.lblProduto = new Componentes.LabelJCS(this.components);
             this.cboProdutoFilho = new Componentes.ComboBoxJCS(this.components);
@@ -54,16 +54,8 @@
             this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colAddAdicionais = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelJCS1 = new Componentes.LabelJCS(this.components);
             this.cboTipo = new Componentes.ComboBoxJCS(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnCancelarPedido = new Componentes.ButtonJCS(this.components);
-            this.btnEnviarPedido = new Componentes.ButtonJCS(this.components);
-            this.btnAddProduto = new Componentes.ButtonJCS(this.components);
             this.cboDesc1 = new Componentes.ComboBoxJCS(this.components);
             this.cboDesc2 = new Componentes.ComboBoxJCS(this.components);
             this.cboDesc3 = new Componentes.ComboBoxJCS(this.components);
@@ -73,9 +65,20 @@
             this.cboDesc4 = new Componentes.ComboBoxJCS(this.components);
             this.txtEndereco = new Componentes.TextBoxJCS(this.components);
             this.txtObservacaoPedido = new Componentes.TextBoxJCS(this.components);
-            this.btnEnviarPedidoSemImprimir = new Componentes.ButtonJCS(this.components);
             this.dtpAgendamento = new Componentes.dateTimePickerJCS(this.components);
             this.chkAgendamento = new Componentes.CheckBoxJCS(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnMudarParaEntrega = new Componentes.ButtonJCS(this.components);
+            this.btnEnviarPedidoSemImprimir = new Componentes.ButtonJCS(this.components);
+            this.btnCancelarPedido = new Componentes.ButtonJCS(this.components);
+            this.btnEnviarPedido = new Componentes.ButtonJCS(this.components);
+            this.btnAddProduto = new Componentes.ButtonJCS(this.components);
+            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colAddAdicionais = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnSalvarEnd = new Componentes.ButtonJCS(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,14 +241,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPedidoProdutoID,
@@ -259,26 +262,26 @@
             this.colAddAdicionais,
             this.colExcluir});
             this.dgvProdutos.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProdutos.EnableHeadersVisualStyles = false;
             this.dgvProdutos.Location = new System.Drawing.Point(0, 226);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(1098, 273);
@@ -345,31 +348,6 @@
             this.colValor.ReadOnly = true;
             this.colValor.Width = 63;
             // 
-            // colEditar
-            // 
-            this.colEditar.HeaderText = "Editar";
-            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_editar_20;
-            this.colEditar.Name = "colEditar";
-            this.colEditar.ReadOnly = true;
-            this.colEditar.Visible = false;
-            this.colEditar.Width = 49;
-            // 
-            // colAddAdicionais
-            // 
-            this.colAddAdicionais.HeaderText = "Add. Adicionais";
-            this.colAddAdicionais.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
-            this.colAddAdicionais.Name = "colAddAdicionais";
-            this.colAddAdicionais.ReadOnly = true;
-            this.colAddAdicionais.Width = 105;
-            // 
-            // colExcluir
-            // 
-            this.colExcluir.HeaderText = "Excluir";
-            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
-            this.colExcluir.Name = "colExcluir";
-            this.colExcluir.ReadOnly = true;
-            this.colExcluir.Width = 52;
-            // 
             // labelJCS1
             // 
             this.labelJCS1.AutoSize = true;
@@ -390,73 +368,6 @@
             this.cboTipo.Size = new System.Drawing.Size(200, 23);
             this.cboTipo.TabIndex = 14;
             this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.CboTipo_SelectedIndexChanged);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 49;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Excluir";
-            this.dataGridViewImageColumn2.Image = global::Caixa.Properties.Resources.icons8_cancelar_16;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 52;
-            // 
-            // btnCancelarPedido
-            // 
-            this.btnCancelarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarPedido.BackColor = System.Drawing.Color.Gold;
-            this.btnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCancelarPedido.Image = global::Caixa.Properties.Resources.icons8_cancelar_48;
-            this.btnCancelarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarPedido.Location = new System.Drawing.Point(785, 42);
-            this.btnCancelarPedido.Name = "btnCancelarPedido";
-            this.btnCancelarPedido.Size = new System.Drawing.Size(301, 53);
-            this.btnCancelarPedido.TabIndex = 16;
-            this.btnCancelarPedido.Text = "Cancelar Pedido";
-            this.btnCancelarPedido.UseVisualStyleBackColor = false;
-            this.btnCancelarPedido.Visible = false;
-            this.btnCancelarPedido.Click += new System.EventHandler(this.BtnCancelarPedido_Click);
-            // 
-            // btnEnviarPedido
-            // 
-            this.btnEnviarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnviarPedido.BackColor = System.Drawing.Color.Gold;
-            this.btnEnviarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviarPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEnviarPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarPedido.Image")));
-            this.btnEnviarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnviarPedido.Location = new System.Drawing.Point(785, 101);
-            this.btnEnviarPedido.Name = "btnEnviarPedido";
-            this.btnEnviarPedido.Size = new System.Drawing.Size(301, 54);
-            this.btnEnviarPedido.TabIndex = 17;
-            this.btnEnviarPedido.Text = "Enviar Pedido";
-            this.btnEnviarPedido.UseVisualStyleBackColor = false;
-            this.btnEnviarPedido.Visible = false;
-            this.btnEnviarPedido.Click += new System.EventHandler(this.BtnEnviarPedido_Click);
-            // 
-            // btnAddProduto
-            // 
-            this.btnAddProduto.BackColor = System.Drawing.Color.Gold;
-            this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddProduto.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
-            this.btnAddProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddProduto.Location = new System.Drawing.Point(114, 189);
-            this.btnAddProduto.Name = "btnAddProduto";
-            this.btnAddProduto.Size = new System.Drawing.Size(665, 24);
-            this.btnAddProduto.TabIndex = 15;
-            this.btnAddProduto.Text = "Adicionar Produto";
-            this.btnAddProduto.UseVisualStyleBackColor = false;
-            this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
             // 
             // cboDesc1
             // 
@@ -573,24 +484,6 @@
             this.txtObservacaoPedido.Visible = false;
             this.txtObservacaoPedido.Enter += new System.EventHandler(this.TxtObservacaoPedido_Enter);
             // 
-            // btnEnviarPedidoSemImprimir
-            // 
-            this.btnEnviarPedidoSemImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnviarPedidoSemImprimir.BackColor = System.Drawing.Color.Gold;
-            this.btnEnviarPedidoSemImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviarPedidoSemImprimir.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEnviarPedidoSemImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarPedidoSemImprimir.Image")));
-            this.btnEnviarPedidoSemImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnviarPedidoSemImprimir.Location = new System.Drawing.Point(785, 189);
-            this.btnEnviarPedidoSemImprimir.Name = "btnEnviarPedidoSemImprimir";
-            this.btnEnviarPedidoSemImprimir.Size = new System.Drawing.Size(301, 24);
-            this.btnEnviarPedidoSemImprimir.TabIndex = 103;
-            this.btnEnviarPedidoSemImprimir.Text = "Enviar Pedido Sem Imprimir";
-            this.btnEnviarPedidoSemImprimir.UseVisualStyleBackColor = false;
-            this.btnEnviarPedidoSemImprimir.Visible = false;
-            this.btnEnviarPedidoSemImprimir.Click += new System.EventHandler(this.BtnEnviarPedidoSemImprimir_Click);
-            // 
             // dtpAgendamento
             // 
             this.dtpAgendamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -616,11 +509,168 @@
             this.chkAgendamento.UseVisualStyleBackColor = true;
             this.chkAgendamento.CheckedChanged += new System.EventHandler(this.chkAgendamento_CheckedChanged);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::Caixa.Properties.Resources.icons8_editar_16;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Visible = false;
+            this.dataGridViewImageColumn1.Width = 49;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Excluir";
+            this.dataGridViewImageColumn2.Image = global::Caixa.Properties.Resources.icons8_cancelar_16;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 52;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "Excluir";
+            this.dataGridViewImageColumn3.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Width = 52;
+            // 
+            // btnMudarParaEntrega
+            // 
+            this.btnMudarParaEntrega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMudarParaEntrega.BackColor = System.Drawing.Color.Gold;
+            this.btnMudarParaEntrega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMudarParaEntrega.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnMudarParaEntrega.Image = global::Caixa.Properties.Resources.entrega_rapida_24x24;
+            this.btnMudarParaEntrega.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMudarParaEntrega.Location = new System.Drawing.Point(526, 157);
+            this.btnMudarParaEntrega.Name = "btnMudarParaEntrega";
+            this.btnMudarParaEntrega.Size = new System.Drawing.Size(253, 24);
+            this.btnMudarParaEntrega.TabIndex = 107;
+            this.btnMudarParaEntrega.Text = "Mudar pedido para Entregar";
+            this.btnMudarParaEntrega.UseVisualStyleBackColor = false;
+            this.btnMudarParaEntrega.Visible = false;
+            this.btnMudarParaEntrega.Click += new System.EventHandler(this.btnMudarParaEntrega_Click);
+            // 
+            // btnEnviarPedidoSemImprimir
+            // 
+            this.btnEnviarPedidoSemImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnviarPedidoSemImprimir.BackColor = System.Drawing.Color.Gold;
+            this.btnEnviarPedidoSemImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarPedidoSemImprimir.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEnviarPedidoSemImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarPedidoSemImprimir.Image")));
+            this.btnEnviarPedidoSemImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnviarPedidoSemImprimir.Location = new System.Drawing.Point(785, 189);
+            this.btnEnviarPedidoSemImprimir.Name = "btnEnviarPedidoSemImprimir";
+            this.btnEnviarPedidoSemImprimir.Size = new System.Drawing.Size(301, 24);
+            this.btnEnviarPedidoSemImprimir.TabIndex = 103;
+            this.btnEnviarPedidoSemImprimir.Text = "Enviar Pedido Sem Imprimir";
+            this.btnEnviarPedidoSemImprimir.UseVisualStyleBackColor = false;
+            this.btnEnviarPedidoSemImprimir.Visible = false;
+            this.btnEnviarPedidoSemImprimir.Click += new System.EventHandler(this.BtnEnviarPedidoSemImprimir_Click);
+            // 
+            // btnCancelarPedido
+            // 
+            this.btnCancelarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarPedido.BackColor = System.Drawing.Color.Gold;
+            this.btnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnCancelarPedido.Image = global::Caixa.Properties.Resources.icons8_cancelar_48;
+            this.btnCancelarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarPedido.Location = new System.Drawing.Point(785, 42);
+            this.btnCancelarPedido.Name = "btnCancelarPedido";
+            this.btnCancelarPedido.Size = new System.Drawing.Size(301, 53);
+            this.btnCancelarPedido.TabIndex = 16;
+            this.btnCancelarPedido.Text = "Cancelar Pedido";
+            this.btnCancelarPedido.UseVisualStyleBackColor = false;
+            this.btnCancelarPedido.Visible = false;
+            this.btnCancelarPedido.Click += new System.EventHandler(this.BtnCancelarPedido_Click);
+            // 
+            // btnEnviarPedido
+            // 
+            this.btnEnviarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnviarPedido.BackColor = System.Drawing.Color.Gold;
+            this.btnEnviarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarPedido.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEnviarPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarPedido.Image")));
+            this.btnEnviarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnviarPedido.Location = new System.Drawing.Point(785, 101);
+            this.btnEnviarPedido.Name = "btnEnviarPedido";
+            this.btnEnviarPedido.Size = new System.Drawing.Size(301, 54);
+            this.btnEnviarPedido.TabIndex = 17;
+            this.btnEnviarPedido.Text = "Enviar Pedido";
+            this.btnEnviarPedido.UseVisualStyleBackColor = false;
+            this.btnEnviarPedido.Visible = false;
+            this.btnEnviarPedido.Click += new System.EventHandler(this.BtnEnviarPedido_Click);
+            // 
+            // btnAddProduto
+            // 
+            this.btnAddProduto.BackColor = System.Drawing.Color.Gold;
+            this.btnAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduto.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddProduto.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
+            this.btnAddProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddProduto.Location = new System.Drawing.Point(114, 189);
+            this.btnAddProduto.Name = "btnAddProduto";
+            this.btnAddProduto.Size = new System.Drawing.Size(665, 24);
+            this.btnAddProduto.TabIndex = 15;
+            this.btnAddProduto.Text = "Adicionar Produto";
+            this.btnAddProduto.UseVisualStyleBackColor = false;
+            this.btnAddProduto.Click += new System.EventHandler(this.BtnAddProduto_Click);
+            // 
+            // colEditar
+            // 
+            this.colEditar.HeaderText = "Editar";
+            this.colEditar.Image = global::Caixa.Properties.Resources.icons8_editar_20;
+            this.colEditar.Name = "colEditar";
+            this.colEditar.ReadOnly = true;
+            this.colEditar.Visible = false;
+            this.colEditar.Width = 49;
+            // 
+            // colAddAdicionais
+            // 
+            this.colAddAdicionais.HeaderText = "Add. Adicionais";
+            this.colAddAdicionais.Image = global::Caixa.Properties.Resources.icons8_adicionar_20;
+            this.colAddAdicionais.Name = "colAddAdicionais";
+            this.colAddAdicionais.ReadOnly = true;
+            this.colAddAdicionais.Width = 105;
+            // 
+            // colExcluir
+            // 
+            this.colExcluir.HeaderText = "Excluir";
+            this.colExcluir.Image = global::Caixa.Properties.Resources.icons8_cancelar_20;
+            this.colExcluir.Name = "colExcluir";
+            this.colExcluir.ReadOnly = true;
+            this.colExcluir.Width = 52;
+            // 
+            // btnSalvarEnd
+            // 
+            this.btnSalvarEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvarEnd.BackColor = System.Drawing.Color.Gold;
+            this.btnSalvarEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvarEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSalvarEnd.Image = global::Caixa.Properties.Resources.icons8_salvar_e_fechar_20;
+            this.btnSalvarEnd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvarEnd.Location = new System.Drawing.Point(526, 129);
+            this.btnSalvarEnd.Name = "btnSalvarEnd";
+            this.btnSalvarEnd.Size = new System.Drawing.Size(253, 24);
+            this.btnSalvarEnd.TabIndex = 108;
+            this.btnSalvarEnd.Text = "Salvar Endereço";
+            this.btnSalvarEnd.UseVisualStyleBackColor = false;
+            this.btnSalvarEnd.Visible = false;
+            this.btnSalvarEnd.Click += new System.EventHandler(this.btnSalvarEnd_Click);
+            // 
             // frmNovoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 499);
+            this.Controls.Add(this.btnSalvarEnd);
+            this.Controls.Add(this.btnMudarParaEntrega);
             this.Controls.Add(this.chkAgendamento);
             this.Controls.Add(this.dtpAgendamento);
             this.Controls.Add(this.btnEnviarPedidoSemImprimir);
@@ -708,5 +758,8 @@
         private Componentes.ButtonJCS btnEnviarPedidoSemImprimir;
         private Componentes.dateTimePickerJCS dtpAgendamento;
         private Componentes.CheckBoxJCS chkAgendamento;
+        private Componentes.ButtonJCS btnMudarParaEntrega;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
+        private Componentes.ButtonJCS btnSalvarEnd;
     }
 }

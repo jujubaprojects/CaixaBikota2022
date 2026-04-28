@@ -1608,6 +1608,26 @@ namespace Caixa.SQL
             return sql.ToString();
         }
 
+        public void alteraPedidoLevarParaEntrega(int pPedidoID)
+        {
+            string sql = queryAlteraPedidoLevarParaEntrega(pPedidoID);
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pPedidoID", pPedidoID);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryAlteraPedidoLevarParaEntrega(int pPedidoID)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE PEDIDO SET TIPO = 3 ");
+            sql.Append("WHERE ID = @pPedidoID ");
+
+            return sql.ToString();
+        }
 
         public void updatePedido(int pPedidoID, int pSituacao, string pDescricao, string pEndereco, string pObservacao)
         {

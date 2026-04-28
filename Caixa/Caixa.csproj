@@ -806,6 +806,8 @@
     <None Include="Resources\cliente24x24.png" />
     <None Include="Resources\cliente.png" />
     <None Include="Resources\balde24x24.png" />
+    <None Include="Resources\entrega-rapida.png" />
+    <None Include="Resources\entrega-rapida 24x24.png" />
     <Content Include="Resources\fornecedor24x24.png" />
     <Content Include="Resources\NFe24x24.png" />
     <Content Include="Resources\produtos24x24.png" />

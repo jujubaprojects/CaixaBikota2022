@@ -301,7 +301,7 @@ namespace Caixa
                             auxVl -= vlInserir;
                             vlInserido += vlInserir;
 
-                            verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
+                            //verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
 
                             //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
@@ -310,7 +310,7 @@ namespace Caixa
                         }
                         else
                         {
-                            verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
+                            //verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
                             inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl); //descomentar ao colocar em producao
                             auxVl = 0;
                         }

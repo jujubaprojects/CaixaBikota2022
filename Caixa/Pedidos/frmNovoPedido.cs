@@ -346,6 +346,7 @@ namespace Caixa
             {
                 btnEnviarPedido.Visible = true;
                 btnEnviarPedidoSemImprimir.Visible = true;
+                btnSalvarEnd.Visible = false;
             }
             else
             {
@@ -362,9 +363,18 @@ namespace Caixa
             {
                 txtDescPedido.Text = dt.Rows[0]["DESCRICAO"].ToString();
                 cboTipo.SelectedItem = dt.Rows[0]["TIPO"].ToString();
-                tipoOperacao = 2;
                 txtEndereco.Text = dt.Rows[0]["ENDERECO"].ToString();
                 txtObservacaoPedido.Text = dt.Rows[0]["OBSERVACAO"].ToString();
+
+                if (cboTipo.SelectedItem.Equals("LEVAR"))
+                    btnMudarParaEntrega.Visible = true;
+                else
+                    btnMudarParaEntrega.Visible = false;
+
+                tipoOperacao = 2;
+
+                if (string.IsNullOrEmpty(txtEndereco.Text) && cboTipo.SelectedItem.Equals("ENTREGAR"))
+                    btnSalvarEnd.Visible = true;
             }
         }
 
@@ -638,6 +648,39 @@ namespace Caixa
             else
                 dtpAgendamento.Visible = false;
         }
+
+        private void btnMudarParaEntrega_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja mudar o pedido para entregar?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            {
+                if (result == DialogResult.Yes)
+                {
+                    auxSQL.alteraPedidoLevarParaEntrega(int.Parse(txtPedidoID.Text));
+                    auxSQL.insertPedidoProduto(int.Parse(txtPedidoID.Text), "TAXA DE ENTREGA", 1, "", "", 8);
+                    btnMudarParaEntrega.Visible = false;
+                    btnSalvarEnd.Visible = true;
+                    preencherCampos();
+                }
+            }
+        }
+
+        private void btnSalvarEnd_Click(object sender, EventArgs e)
+        {
+
+            if (validarCampos())
+            {
+                DialogResult result = MessageBox.Show("Deseja salvar o pedido para entregar?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        auxSQL.updatePedido(int.Parse(txtPedidoID.Text), 1, txtDescPedido.Text, txtEndereco.Text, txtObservacaoPedido.Text);                        
+
+                        this.Close();
+                    }
+                }
+            }
+        }
+
 
         private void CboDesc5_SelectedIndexChanged(object sender, EventArgs e)
         {
