@@ -27,6 +27,7 @@ namespace Caixa
         private double vlProdutosSemHaver = 0;
         private bool controleEsc = true;
         private double auxVlAberto = 0;
+        private bool vlHaverNovo = false;
 
         public frmPagar(int pPedidoID, string pPedidos, bool pTipo, double pVlAbertoTotalPedido)
         {
@@ -247,7 +248,7 @@ namespace Caixa
                 if (frm.vlRecebido > 0)
                 {
                     dgvPedProdAberto.Enabled = false;
-                    dgvPedProdAberto.Sort(dgvPedProdAberto.Columns["colChkDividir"], ListSortDirection.Descending);
+                    dgvPedProdAberto.Sort(dgvPedProdAberto.Columns["colChkDividir"], ListSortDirection.Ascending);
 
                     vlDividido = frm.vlRecebido;
                     //txtValorAberto.Text = (double.Parse(txtValorAberto.Text) - vlDividido).ToString();
@@ -258,6 +259,18 @@ namespace Caixa
                 }
             }
 
+
+            if (double.Parse(txtValorAberto.Text) > auxVlAberto)
+            {
+                DialogResult result = MessageBox.Show("Deseja pagar o valor a mais que os produtos selecionados?", "Valor em Haver?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        vlHaverNovo = true;
+                    }
+
+                }
+            }
 
         }
 
@@ -287,26 +300,32 @@ namespace Caixa
                     {
                         if (auxVl >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()) || qtLinhaSel > i)
                         {
-                            if (qtLinhaSel >= i + 1)
+                            //if (qtLinhaSel >= i + 1)
+                            //{
+                            //    if (vlHaver)
+                            //        vlInserir = Math.Round((double.Parse(txtVlRecebido.Text) - vlProdutosSemHaver) / qtLinhaSel,4);
+                            //    else
+                            //        vlInserir = Math.Round(vlDividido / qtLinhaSel,4);
+                            //}
+                            //else
+                            //    vlInserir = Math.Round(double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()), 4);
+
+                            //auxVl -= vlInserir;
+                            //vlInserido += vlInserir;                            
+                            //inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
+                            
+                            vlInserir = double.Parse(dgvPedProdAberto["colValor", i].Value.ToString());
+                            if (vlInserir > 0)
                             {
-                                if (vlHaver)
-                                    vlInserir = Math.Round((double.Parse(txtVlRecebido.Text) - vlProdutosSemHaver) / qtLinhaSel,4);
-                                else
-                                    vlInserir = Math.Round(vlDividido / qtLinhaSel,4);
+                                if (vlInserir > auxVl)
+                                    vlInserir = auxVl;
+                                auxVl -= vlInserir;
+                                vlInserido += vlInserir;
+                                inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
+
+                                if (vlHaverNovo && dgvPedProdAberto.Rows.Count == i + 1)
+                                    inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), auxVl); //descomentar ao colocar em producao
                             }
-                            else
-                                vlInserir = Math.Round(double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()), 4);
-
-                            //vlInserir = Math.Floor(vlInserir);// Math.Round(vlInserir, );
-                            auxVl -= vlInserir;
-                            vlInserido += vlInserir;
-
-                            //verificaSeExisteEstoque(dgvPedProdAberto["colProduto", i].Value.ToString(), dgvPedProdAberto["colDescricao", i].Value.ToString());
-                            inserirPagamento(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString(), vlInserir); //descomentar ao colocar em producao
-
-                            //if (vlInserir >= double.Parse(dgvPedProdAberto["colValor", i].Value.ToString()))
-                            //if (vlDividido >= auxVlAberto || vlAberto >= auxVlAberto)
-                            //auxSql.updateSituacaoPedidoProduto(int.Parse(dgvPedProdAberto["colPedidoProdutoID", i].Value.ToString()), 3, "");
                         }
                         else
                         {

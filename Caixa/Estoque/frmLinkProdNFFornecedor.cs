@@ -159,6 +159,16 @@ namespace Caixa.Estoque
             }
         }
 
+        private void txtfiltro_Click(object sender, EventArgs e)
+        {
+            txtfiltro.Text = "";
+        }
+
+        private void txtfiltro_TextChanged(object sender, EventArgs e)
+        {
+            preencherCampos();
+        }
+
         private void BtnBuscaFornecedor_Click(object sender, EventArgs e)
         {
             StringBuilder sql = new StringBuilder();
@@ -191,6 +201,12 @@ namespace Caixa.Estoque
             sql.Append("JOIN NF_PROD P ON(P.COD_PROD = A.COD_PROD_NF) ");
             sql.Append("JOIN NF ON (NF.id = P.NF AND NF.FORNECEDOR = F.id) ");
             sql.Append("JOIN CONTROLE_ESTOQUE C ON(C.ID = A.COD_CONTRESTQ) ");
+            if (!txtfiltro.Text.Equals("FILTRAR POR DESCRIÇÃO") && !string.IsNullOrEmpty(txtfiltro.Text.ToString()))
+            {
+                sql.Append("WHERE P.DESC_PROD LIKE '%" + txtfiltro.Text + "%' ");
+                sql.Append("OR C.DESCRICAO LIKE '%" + txtfiltro.Text + "%' ");
+                sql.Append("OR F.NOME LIKE '%" + txtfiltro.Text + "%' ");   
+            }
             sql.Append("ORDER BY DESC_EST ");
             dgvLink.DataSource = auxSQL.retornaDataTable(sql.ToString());
         }
