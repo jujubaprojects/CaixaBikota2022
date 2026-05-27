@@ -1043,5 +1043,11 @@ Agradeço sua atenção! Tenha um ótimo dia!";
             frmRelBebidas frm = new frmRelBebidas();
             frm.ShowDialog();
         }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            frmConsultaBaldesVendidosXRegistrados frm = new frmConsultaBaldesVendidosXRegistrados(null);
+            frm.ShowDialog();
+        }
     }
 }

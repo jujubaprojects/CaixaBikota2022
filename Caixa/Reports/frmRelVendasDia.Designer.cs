@@ -72,7 +72,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 146);
+            this.ClientSize = new System.Drawing.Size(372, 88);
             this.Controls.Add(this.btnGerarRelatorio);
             this.Controls.Add(this.dtpDataInicial);
             this.Controls.Add(this.labelJCS1);

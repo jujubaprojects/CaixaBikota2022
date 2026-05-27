@@ -76,6 +76,7 @@
             this.vendasPedidosDetalhadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valorPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bebidasDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.pedidoParaFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,7 @@
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
             this.calculoDeHorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bebidasDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -347,6 +348,7 @@
             this.notasFiscaisEntradasToolStripMenuItem,
             this.produtosParaComprarToolStripMenuItem,
             this.toolStripMenuItem4,
+            this.toolStripMenuItem12,
             this.estoqueDePotesDeSorvetesToolStripMenuItem,
             this.sorvetes10lEmFaltaToolStripMenuItem,
             this.subtrairEstoqueToolStripMenuItem,
@@ -498,6 +500,13 @@
             this.produtosDiaToolStripMenuItem.Text = "Produtos Dia";
             this.produtosDiaToolStripMenuItem.Click += new System.EventHandler(this.ProdutosDiaToolStripMenuItem_Click);
             // 
+            // bebidasDiaToolStripMenuItem
+            // 
+            this.bebidasDiaToolStripMenuItem.Name = "bebidasDiaToolStripMenuItem";
+            this.bebidasDiaToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.bebidasDiaToolStripMenuItem.Text = "Bebidas Dia";
+            this.bebidasDiaToolStripMenuItem.Click += new System.EventHandler(this.bebidasDiaToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
@@ -584,12 +593,13 @@
             this.calculoDeHorasToolStripMenuItem.Text = "Calculo de Horas";
             this.calculoDeHorasToolStripMenuItem.Click += new System.EventHandler(this.calculoDeHorasToolStripMenuItem_Click);
             // 
-            // bebidasDiaToolStripMenuItem
+            // toolStripMenuItem12
             // 
-            this.bebidasDiaToolStripMenuItem.Name = "bebidasDiaToolStripMenuItem";
-            this.bebidasDiaToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-            this.bebidasDiaToolStripMenuItem.Text = "Bebidas Dia";
-            this.bebidasDiaToolStripMenuItem.Click += new System.EventHandler(this.bebidasDiaToolStripMenuItem_Click);
+            this.toolStripMenuItem12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(357, 24);
+            this.toolStripMenuItem12.Text = "Consulta Bades Marcados x Vendidos";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // frmMenu
             // 
@@ -669,6 +679,7 @@
         private System.Windows.Forms.ToolStripMenuItem calculoDeHorasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem bebidasDiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
     }
 }
 

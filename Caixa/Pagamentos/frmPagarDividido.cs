@@ -53,7 +53,7 @@ namespace Caixa
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtQtDivisao.Text) || !string.IsNullOrEmpty(txtVlRecebido.Text.ToString()))
-            {
+            { 
                     vlRecebido = double.Parse(txtVlRecebido.Text.ToString());
                 //if (vlRecebido > vlTotal)
                 //{
