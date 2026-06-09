@@ -27,6 +27,24 @@ namespace Caixa.Reports
 
         private void BtnGerarRelatorio_Click(object sender, EventArgs e)
         {
+            StringBuilder sqlConsulta = new StringBuilder();
+            sqlConsulta.Append("SELECT 1 ");
+            sqlConsulta.Append("FROM PEDIDO_PRODUTO PP ");
+            sqlConsulta.Append("FULL JOIN PAGAMENTO PG ON (PG.PEDIDO_PRODUTO = PP.ID) ");
+            sqlConsulta.Append("WHERE PP.PRODUTO = 44 AND (CONVERT(VARCHAR, PP.DT_ALTERACAO, 103) = '" + dtpDataInicial.Value.ToString("yyyy-MM-dd") + "' OR CONVERT(VARCHAR, PG.DT_PAGAMENTO, 103) = '" + dtpDataInicial.Value.ToString("yyyy-MM-dd") + "') ");
+            sqlConsulta.Append("UNION ALL ");
+            sqlConsulta.Append("SELECT 1 ");
+            sqlConsulta.Append("FROM BALDES B ");
+            sqlConsulta.Append("WHERE CONVERT(VARCHAR, B.DATA, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "' ");
+            if (auxSQL.retornaDataTable(sqlConsulta.ToString()).Rows.Count > 0)
+            {
+                frmConsultaBaldesVendidosXRegistrados frmC = new frmConsultaBaldesVendidosXRegistrados(dtpDataInicial.Value.ToString("yyyy-MM-dd"));
+                frmC.ShowDialog();
+            }
+
+
+
+
             //VALIDO A PARTIR DO DIA 10/05/24. COMO NÃO TEMOS OS VALORES ANTIGOS PARA INSERIR, NÃO É CONFIAVEL COLOCAR VALORES ANTIGOS.
             if (dtpDataInicial.Value.Date > Convert.ToDateTime("09/05/2024") && dtpDataInicial.Value.Date <= DateTime.Now.Date && auxSQL.retornaDataTable("SELECT ID, VALOR, DATA FROM CAIXA_DIARIO WHERE DATA = '" + dtpDataInicial.Value.ToString("yyyy-MM-dd") + "'").Rows.Count <= 0)
             {
@@ -38,36 +56,10 @@ namespace Caixa.Reports
                 }
             }
 
-            frmConsultaBaldesVendidosXRegistrados frmC = new frmConsultaBaldesVendidosXRegistrados(dtpDataInicial.Value.ToString("yyyy-MM-dd"));
-            frmC.ShowDialog();
-
             DataTable dt = auxSQL.relVendasDia(dtpDataInicial.Value.ToShortDateString());
             string[] arrayParametros = new string[] { "Data", dtpDataInicial.Value.ToString("yyyy-MM-dd") }; 
             frmRelatorio frm = new frmRelatorio(dt, "relVendasDia.rdlc", "dsRel", "frmRelVendasDia", arrayParametros);
             frm.ShowDialog();
-        }
-
-        private void buscaBaldes()
-        {
-            StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ISNULL(PG.DT_PAGAMENTO, PP.DT_ALTERACAO) DATA, CONCAT('TIPO VENDIDO: ', PED.DESCRICAO) TIPO, CONCAT('', PP.QT_PRODUTO) BALDE_QT, PP.DESCRICAO, PP.SITUACAO ");
-sql.Append("FROM PEDIDO_PRODUTO PP ");
-sql.Append("JOIN PEDIDO PED ON(PED.ID = PP.PEDIDO) ");
-sql.Append("RIGHT JOIN PAGAMENTO PG ON(PG.PEDIDO_PRODUTO = PP.ID) ");
-sql.Append("WHERE PP.PRODUTO = 44 AND(convert(varchar, PG.DT_PAGAMENTO, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "' OR convert(varchar, PP.DT_ALTERACAO, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "') ");
-sql.Append("UNION ALL ");
-sql.Append("SELECT DATA, CONCAT('TIPO ANOTADO: ', NOME) , BALDE, NULL, NULL ");
-sql.Append("FROM BALDES ");
-sql.Append("WHERE convert(varchar, DATA, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "' ");
-sql.Append("ORDER BY DATA ");
-
-            frmBusca frm = new frmBusca(sql, "Baldes Anotados x Vendidos");
-            frm.ShowDialog();
-        }
-
-        private void btnVerificarBaldes_Click(object sender, EventArgs e)
-        {
-            buscaBaldes();
         }
     }
 }

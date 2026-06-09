@@ -234,6 +234,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastro\frmCadastroSabor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroSabor.Designer.cs">
+      <DependentUpon>frmCadastroSabor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro\frmCadastroAlerta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -513,6 +519,9 @@
       <DependentUpon>frmCalculoHoras.cs</DependentUpon>
     </Compile>
     <Compile Include="SQL\SQL.cs" />
+    <EmbeddedResource Include="Cadastro\frmCadastroSabor.resx">
+      <DependentUpon>frmCadastroSabor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroAlerta.resx">
       <DependentUpon>frmCadastroAlerta.cs</DependentUpon>
     </EmbeddedResource>

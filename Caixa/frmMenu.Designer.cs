@@ -66,6 +66,7 @@
             this.notasFiscaisEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosParaComprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueDePotesDeSorvetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sorvetes10lEmFaltaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subtrairEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +88,7 @@
             this.cadastroDeFolgasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
             this.calculoDeHorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,6 +127,7 @@
             this.baldesToolStripMenuItem,
             this.clienteToolStripMenuItem,
             this.produtosToolStripMenuItem1,
+            this.saborToolStripMenuItem,
             this.toolStripMenuItem5,
             this.estoqueToolStripMenuItem,
             this.estoqueBaldesToolStripMenuItem,
@@ -416,6 +418,14 @@
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(354, 6);
             // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(357, 24);
+            this.toolStripMenuItem12.Text = "Consulta Bades Marcados x Vendidos";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            // 
             // estoqueDePotesDeSorvetesToolStripMenuItem
             // 
             this.estoqueDePotesDeSorvetesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -593,13 +603,13 @@
             this.calculoDeHorasToolStripMenuItem.Text = "Calculo de Horas";
             this.calculoDeHorasToolStripMenuItem.Click += new System.EventHandler(this.calculoDeHorasToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem12
+            // saborToolStripMenuItem
             // 
-            this.toolStripMenuItem12.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(357, 24);
-            this.toolStripMenuItem12.Text = "Consulta Bades Marcados x Vendidos";
-            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            this.saborToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.saborToolStripMenuItem.Name = "saborToolStripMenuItem";
+            this.saborToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.saborToolStripMenuItem.Text = "Sabor";
+            this.saborToolStripMenuItem.Click += new System.EventHandler(this.saborToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -680,6 +690,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem bebidasDiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem saborToolStripMenuItem;
     }
 }
 

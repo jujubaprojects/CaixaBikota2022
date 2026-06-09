@@ -44,28 +44,29 @@
             this.dgvPagos = new Componentes.DataGridViewJCS(this.components);
             this.groupBoxJCS3 = new Componentes.GroupBoxJCS(this.components);
             this.dgvMarcados = new Componentes.DataGridViewJCS(this.components);
-            this.dtpData = new Componentes.dateTimePickerJCS(this.components);
-            this.groupBoxJCS4 = new Componentes.GroupBoxJCS(this.components);
-            this.chkTodos = new Componentes.CheckBoxJCS(this.components);
-            this.labelJCS1 = new Componentes.LabelJCS(this.components);
-            this.colIDPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDPedidoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDTAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDPagamentoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDPedidoProdutoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDTPagamentoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVLPagoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescProdutoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIDBaldeR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomeB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBaldeB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTelefoneB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColherR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpData = new Componentes.dateTimePickerJCS(this.components);
+            this.groupBoxJCS4 = new Componentes.GroupBoxJCS(this.components);
+            this.chkTodos = new Componentes.CheckBoxJCS(this.components);
+            this.labelJCS1 = new Componentes.LabelJCS(this.components);
+            this.colDescProdutoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVLPagoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDTPagamentoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDPedidoProdutoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDPagamentoPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDPedidoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDTAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescProdPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxJCS1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendidos)).BeginInit();
             this.groupBoxJCS2.SuspendLayout();
@@ -108,6 +109,7 @@
             this.colIDPedidoProduto,
             this.colDTAlteracao,
             this.colQtProduto,
+            this.colDescProdPP,
             this.colSituacao});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -121,6 +123,7 @@
             this.dgvVendidos.EnableHeadersVisualStyles = false;
             this.dgvVendidos.Location = new System.Drawing.Point(3, 20);
             this.dgvVendidos.Name = "dgvVendidos";
+            this.dgvVendidos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -255,142 +258,6 @@
             this.dgvMarcados.Size = new System.Drawing.Size(839, 106);
             this.dgvMarcados.TabIndex = 2;
             // 
-            // dtpData
-            // 
-            this.dtpData.CustomFormat = "dd/MM/yyyy";
-            this.dtpData.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpData.Location = new System.Drawing.Point(52, 23);
-            this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(105, 24);
-            this.dtpData.TabIndex = 3;
-            this.dtpData.Value = new System.DateTime(2026, 5, 27, 0, 0, 0, 0);
-            this.dtpData.ValueChanged += new System.EventHandler(this.dtpData_ValueChanged);
-            // 
-            // groupBoxJCS4
-            // 
-            this.groupBoxJCS4.BackColor = System.Drawing.Color.White;
-            this.groupBoxJCS4.Controls.Add(this.chkTodos);
-            this.groupBoxJCS4.Controls.Add(this.dtpData);
-            this.groupBoxJCS4.Controls.Add(this.labelJCS1);
-            this.groupBoxJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxJCS4.Location = new System.Drawing.Point(9, 7);
-            this.groupBoxJCS4.Name = "groupBoxJCS4";
-            this.groupBoxJCS4.Size = new System.Drawing.Size(309, 61);
-            this.groupBoxJCS4.TabIndex = 8;
-            this.groupBoxJCS4.TabStop = false;
-            this.groupBoxJCS4.Text = "Filtro";
-            // 
-            // chkTodos
-            // 
-            this.chkTodos.AutoSize = true;
-            this.chkTodos.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.chkTodos.Location = new System.Drawing.Point(240, 26);
-            this.chkTodos.Name = "chkTodos";
-            this.chkTodos.Size = new System.Drawing.Size(63, 21);
-            this.chkTodos.TabIndex = 4;
-            this.chkTodos.Text = "Todos";
-            this.chkTodos.UseVisualStyleBackColor = true;
-            this.chkTodos.CheckedChanged += new System.EventHandler(this.chkTodos_CheckedChanged);
-            // 
-            // labelJCS1
-            // 
-            this.labelJCS1.AutoSize = true;
-            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
-            this.labelJCS1.Location = new System.Drawing.Point(6, 30);
-            this.labelJCS1.Name = "labelJCS1";
-            this.labelJCS1.Size = new System.Drawing.Size(40, 17);
-            this.labelJCS1.TabIndex = 0;
-            this.labelJCS1.Text = "Data:";
-            // 
-            // colIDPedido
-            // 
-            this.colIDPedido.DataPropertyName = "ID_PEDIDO";
-            this.colIDPedido.HeaderText = "Pedido";
-            this.colIDPedido.Name = "colIDPedido";
-            this.colIDPedido.Width = 74;
-            // 
-            // colDescPedido
-            // 
-            this.colDescPedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescPedido.DataPropertyName = "DESC_PEDIDO";
-            this.colDescPedido.HeaderText = "Desc. Pedido";
-            this.colDescPedido.Name = "colDescPedido";
-            // 
-            // colIDPedidoProduto
-            // 
-            this.colIDPedidoProduto.DataPropertyName = "ID_PEDIDO_PRODUTO";
-            this.colIDPedidoProduto.HeaderText = "Ped. Prod.";
-            this.colIDPedidoProduto.Name = "colIDPedidoProduto";
-            this.colIDPedidoProduto.Width = 94;
-            // 
-            // colDTAlteracao
-            // 
-            this.colDTAlteracao.DataPropertyName = "DT_ALTERACAO";
-            this.colDTAlteracao.HeaderText = "Data";
-            this.colDTAlteracao.Name = "colDTAlteracao";
-            this.colDTAlteracao.Width = 61;
-            // 
-            // colQtProduto
-            // 
-            this.colQtProduto.DataPropertyName = "QT_PRODUTO";
-            this.colQtProduto.HeaderText = "QT.";
-            this.colQtProduto.Name = "colQtProduto";
-            this.colQtProduto.Width = 53;
-            // 
-            // colSituacao
-            // 
-            this.colSituacao.DataPropertyName = "SITUACAO";
-            this.colSituacao.HeaderText = "Situacao";
-            this.colSituacao.Name = "colSituacao";
-            this.colSituacao.Width = 84;
-            // 
-            // colIDPagamentoPG
-            // 
-            this.colIDPagamentoPG.DataPropertyName = "ID_PAGAMENTO";
-            this.colIDPagamentoPG.HeaderText = "Pagamento";
-            this.colIDPagamentoPG.Name = "colIDPagamentoPG";
-            this.colIDPagamentoPG.ReadOnly = true;
-            // 
-            // colTipoPagamento
-            // 
-            this.colTipoPagamento.DataPropertyName = "DESCRICAO";
-            this.colTipoPagamento.HeaderText = "Tipo";
-            this.colTipoPagamento.Name = "colTipoPagamento";
-            this.colTipoPagamento.ReadOnly = true;
-            this.colTipoPagamento.Width = 59;
-            // 
-            // colIDPedidoProdutoPG
-            // 
-            this.colIDPedidoProdutoPG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colIDPedidoProdutoPG.DataPropertyName = "ID_PEDIDO_PRODUTO";
-            this.colIDPedidoProdutoPG.HeaderText = "Ped. Prod.";
-            this.colIDPedidoProdutoPG.Name = "colIDPedidoProdutoPG";
-            this.colIDPedidoProdutoPG.ReadOnly = true;
-            // 
-            // colDTPagamentoPG
-            // 
-            this.colDTPagamentoPG.DataPropertyName = "DT_PAGAMENTO";
-            this.colDTPagamentoPG.HeaderText = "Data";
-            this.colDTPagamentoPG.Name = "colDTPagamentoPG";
-            this.colDTPagamentoPG.ReadOnly = true;
-            this.colDTPagamentoPG.Width = 61;
-            // 
-            // colVLPagoPG
-            // 
-            this.colVLPagoPG.DataPropertyName = "VL_PAGO";
-            this.colVLPagoPG.HeaderText = "Valor";
-            this.colVLPagoPG.Name = "colVLPagoPG";
-            this.colVLPagoPG.ReadOnly = true;
-            this.colVLPagoPG.Width = 63;
-            // 
-            // colDescProdutoPG
-            // 
-            this.colDescProdutoPG.DataPropertyName = "DESC_PRODUTO";
-            this.colDescProdutoPG.HeaderText = "Desc. Prod.";
-            this.colDescProdutoPG.Name = "colDescProdutoPG";
-            this.colDescProdutoPG.ReadOnly = true;
-            // 
             // colIDBaldeR
             // 
             this.colIDBaldeR.DataPropertyName = "ID_BALDE";
@@ -439,6 +306,156 @@
             this.colColherR.ReadOnly = true;
             this.colColherR.Width = 71;
             // 
+            // dtpData
+            // 
+            this.dtpData.CustomFormat = "dd/MM/yyyy";
+            this.dtpData.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpData.Location = new System.Drawing.Point(52, 23);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(105, 24);
+            this.dtpData.TabIndex = 3;
+            this.dtpData.Value = new System.DateTime(2026, 5, 27, 0, 0, 0, 0);
+            this.dtpData.ValueChanged += new System.EventHandler(this.dtpData_ValueChanged);
+            // 
+            // groupBoxJCS4
+            // 
+            this.groupBoxJCS4.BackColor = System.Drawing.Color.White;
+            this.groupBoxJCS4.Controls.Add(this.chkTodos);
+            this.groupBoxJCS4.Controls.Add(this.dtpData);
+            this.groupBoxJCS4.Controls.Add(this.labelJCS1);
+            this.groupBoxJCS4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.groupBoxJCS4.Location = new System.Drawing.Point(9, 7);
+            this.groupBoxJCS4.Name = "groupBoxJCS4";
+            this.groupBoxJCS4.Size = new System.Drawing.Size(309, 61);
+            this.groupBoxJCS4.TabIndex = 8;
+            this.groupBoxJCS4.TabStop = false;
+            this.groupBoxJCS4.Text = "Filtro";
+            // 
+            // chkTodos
+            // 
+            this.chkTodos.AutoSize = true;
+            this.chkTodos.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.chkTodos.Location = new System.Drawing.Point(240, 26);
+            this.chkTodos.Name = "chkTodos";
+            this.chkTodos.Size = new System.Drawing.Size(63, 21);
+            this.chkTodos.TabIndex = 4;
+            this.chkTodos.Text = "Todos";
+            this.chkTodos.UseVisualStyleBackColor = true;
+            this.chkTodos.CheckedChanged += new System.EventHandler(this.chkTodos_CheckedChanged);
+            // 
+            // labelJCS1
+            // 
+            this.labelJCS1.AutoSize = true;
+            this.labelJCS1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelJCS1.Location = new System.Drawing.Point(6, 30);
+            this.labelJCS1.Name = "labelJCS1";
+            this.labelJCS1.Size = new System.Drawing.Size(40, 17);
+            this.labelJCS1.TabIndex = 0;
+            this.labelJCS1.Text = "Data:";
+            // 
+            // colDescProdutoPG
+            // 
+            this.colDescProdutoPG.DataPropertyName = "DESC_PRODUTO";
+            this.colDescProdutoPG.HeaderText = "Desc. Prod.";
+            this.colDescProdutoPG.Name = "colDescProdutoPG";
+            this.colDescProdutoPG.ReadOnly = true;
+            // 
+            // colVLPagoPG
+            // 
+            this.colVLPagoPG.DataPropertyName = "VL_PAGO";
+            this.colVLPagoPG.HeaderText = "Valor";
+            this.colVLPagoPG.Name = "colVLPagoPG";
+            this.colVLPagoPG.ReadOnly = true;
+            this.colVLPagoPG.Width = 63;
+            // 
+            // colDTPagamentoPG
+            // 
+            this.colDTPagamentoPG.DataPropertyName = "DT_PAGAMENTO";
+            this.colDTPagamentoPG.HeaderText = "Data";
+            this.colDTPagamentoPG.Name = "colDTPagamentoPG";
+            this.colDTPagamentoPG.ReadOnly = true;
+            this.colDTPagamentoPG.Width = 61;
+            // 
+            // colIDPedidoProdutoPG
+            // 
+            this.colIDPedidoProdutoPG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colIDPedidoProdutoPG.DataPropertyName = "ID_PEDIDO_PRODUTO";
+            this.colIDPedidoProdutoPG.HeaderText = "Ped. Prod.";
+            this.colIDPedidoProdutoPG.Name = "colIDPedidoProdutoPG";
+            this.colIDPedidoProdutoPG.ReadOnly = true;
+            // 
+            // colTipoPagamento
+            // 
+            this.colTipoPagamento.DataPropertyName = "DESCRICAO";
+            this.colTipoPagamento.HeaderText = "Tipo";
+            this.colTipoPagamento.Name = "colTipoPagamento";
+            this.colTipoPagamento.ReadOnly = true;
+            this.colTipoPagamento.Width = 59;
+            // 
+            // colIDPagamentoPG
+            // 
+            this.colIDPagamentoPG.DataPropertyName = "ID_PAGAMENTO";
+            this.colIDPagamentoPG.HeaderText = "Pagamento";
+            this.colIDPagamentoPG.Name = "colIDPagamentoPG";
+            this.colIDPagamentoPG.ReadOnly = true;
+            // 
+            // colIDPedido
+            // 
+            this.colIDPedido.DataPropertyName = "ID_PEDIDO";
+            this.colIDPedido.HeaderText = "Pedido";
+            this.colIDPedido.Name = "colIDPedido";
+            this.colIDPedido.ReadOnly = true;
+            this.colIDPedido.Width = 74;
+            // 
+            // colDescPedido
+            // 
+            this.colDescPedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescPedido.DataPropertyName = "DESC_PEDIDO";
+            this.colDescPedido.HeaderText = "Desc. Pedido";
+            this.colDescPedido.Name = "colDescPedido";
+            this.colDescPedido.ReadOnly = true;
+            // 
+            // colIDPedidoProduto
+            // 
+            this.colIDPedidoProduto.DataPropertyName = "ID_PEDIDO_PRODUTO";
+            this.colIDPedidoProduto.HeaderText = "Ped. Prod.";
+            this.colIDPedidoProduto.Name = "colIDPedidoProduto";
+            this.colIDPedidoProduto.ReadOnly = true;
+            this.colIDPedidoProduto.Width = 94;
+            // 
+            // colDTAlteracao
+            // 
+            this.colDTAlteracao.DataPropertyName = "DT_ALTERACAO";
+            this.colDTAlteracao.HeaderText = "Data";
+            this.colDTAlteracao.Name = "colDTAlteracao";
+            this.colDTAlteracao.ReadOnly = true;
+            this.colDTAlteracao.Width = 61;
+            // 
+            // colQtProduto
+            // 
+            this.colQtProduto.DataPropertyName = "QT_PRODUTO";
+            this.colQtProduto.HeaderText = "QT.";
+            this.colQtProduto.Name = "colQtProduto";
+            this.colQtProduto.ReadOnly = true;
+            this.colQtProduto.Width = 53;
+            // 
+            // colDescProdPP
+            // 
+            this.colDescProdPP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescProdPP.DataPropertyName = "DESC_PRODUTO";
+            this.colDescProdPP.HeaderText = "Desc. Prod.";
+            this.colDescProdPP.Name = "colDescProdPP";
+            this.colDescProdPP.ReadOnly = true;
+            // 
+            // colSituacao
+            // 
+            this.colSituacao.DataPropertyName = "SITUACAO";
+            this.colSituacao.HeaderText = "Situacao";
+            this.colSituacao.Name = "colSituacao";
+            this.colSituacao.ReadOnly = true;
+            this.colSituacao.Width = 84;
+            // 
             // frmConsultaBaldesVendidosXRegistrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -474,23 +491,24 @@
         private Componentes.GroupBoxJCS groupBoxJCS4;
         private Componentes.CheckBoxJCS chkTodos;
         private Componentes.LabelJCS labelJCS1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPedidoProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDTAlteracao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQtProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPagamentoPG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPedidoProdutoPG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDTPagamentoPG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVLPagoPG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescProdutoPG;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDBaldeR;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomeB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBaldeB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDataB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTelefoneB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColherR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPagamentoPG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPedidoProdutoPG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDTPagamentoPG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVLPagoPG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescProdutoPG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDPedidoProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDTAlteracao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQtProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescProdPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
     }
 }

@@ -175,7 +175,7 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.labelJCS1);
             this.Name = "frmCadastroAlerta";
-            this.Text = "frmCadastroAlerta";
+            this.Text = "Cadastro de Alertas";
             this.Controls.SetChildIndex(this.labelJCS1, 0);
             this.Controls.SetChildIndex(this.txtID, 0);
             this.Controls.SetChildIndex(this.txtDescricao, 0);

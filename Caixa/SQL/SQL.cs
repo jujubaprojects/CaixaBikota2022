@@ -301,6 +301,29 @@ namespace Caixa.SQL
 
             return sql.ToString();
         }
+        public void insertSabor(string pDescricao, string pTipo, int pStatus)
+        {
+            string sql = queryInsertSabor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pTipo", pTipo);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryInsertSabor()
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO SABOR (DESCRICAO, TIPO, ATIVO) ");
+            sql.Append("VALUES (@pDescricao, @pTipo, @pStatus) ");
+
+            return sql.ToString();
+        }
+
         public void insertPesoAutomatico(double pPeso, int pPedProd = 0)
         {
             string sql = queryInsertPesoAutomatico();
@@ -1277,6 +1300,32 @@ namespace Caixa.SQL
 
             sql.Append("UPDATE ALERTA SET DESCRICAO = @pDescricao, ");
             sql.Append("STATUS = @pStatus ");
+            sql.Append("WHERE ID = @pID ");
+
+            return sql.ToString();
+        }
+        public void updateSabor(int pID, string pDescricao, string pTipo, int pStatus)
+        {
+            string sql = queryUpdateSabor();
+
+            SqlConnection conn = conexao.retornaConexao();
+
+            SqlCommand sqlc = new SqlCommand(sql);
+            sqlc.CommandType = CommandType.Text;
+            sqlc.Parameters.AddWithValue("@pID", pID);
+            sqlc.Parameters.AddWithValue("@pDescricao", pDescricao);
+            sqlc.Parameters.AddWithValue("@pTipo", pTipo);
+            sqlc.Parameters.AddWithValue("@pStatus", pStatus);
+
+            conexao.executarInsUpDel(sqlc, conn);
+        }
+        private string queryUpdateSabor()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE SABOR SET DESCRICAO = @pDescricao, ");
+            sql.Append("TIPO = @pTipo, ");
+            sql.Append("ATIVO = @pStatus ");
             sql.Append("WHERE ID = @pID ");
 
             return sql.ToString();

@@ -18,16 +18,17 @@ namespace Caixa.Estoque
         {
             InitializeComponent();
             if (string.IsNullOrEmpty(pData))
-                preencherCampos();
+                dtpData.Value = DateTime.Parse(DateTime.Now.ToString());
             else
                 dtpData.Value = DateTime.Parse(pData);
+
+
+            //preencherCampos();
         }
 
-        private void preencherCampos(string pParametro = null)
+        private void preencherCampos()
         {
-            string pData = "'" + dtpData.Value.ToString("yyyy-MM-dd") + "'";
-            if (pParametro != null)
-                pData = "'"+pParametro+"'";
+            string pData = "'" + dtpData.Value.ToString("dd/MM/yyyy") + "'";
             StringBuilder sql = new StringBuilder();
 
             sql.Append("SELECT PED.ID ID_PEDIDO, PED.DESCRICAO DESC_PEDIDO, PP.ID ID_PEDIDO_PRODUTO, PP.DT_ALTERACAO, ");
@@ -38,8 +39,7 @@ namespace Caixa.Estoque
             if (!chkTodos.Checked)
                 sql.Append("AND CONVERT(VARCHAR, PP.DT_ALTERACAO, 103) = " + pData);
             else
-                sql.Append("AND CONVERT(VARCHAR, PP.DT_ALTERACAO, 103) = " + pData);
-
+                sql.Append(" ORDER BY DT_ALTERACAO DESC ");
             dgvVendidos.DataSource = auxSQL.retornaDataTable(sql.ToString());
             sql.Clear();
 
@@ -54,7 +54,7 @@ namespace Caixa.Estoque
             if (!chkTodos.Checked)
                 sql.Append("AND CONVERT(VARCHAR, PG.DT_PAGAMENTO, 103) = " + pData);
             else
-                sql.Append("AND CONVERT(VARCHAR, PP.DT_ALTERACAO, 103) = " + pData);
+                sql.Append(" ORDER BY DT_PAGAMENTO DESC ");
             dgvPagos.DataSource = auxSQL.retornaDataTable(sql.ToString());
             sql.Clear();
 
@@ -64,7 +64,7 @@ namespace Caixa.Estoque
             if (!chkTodos.Checked)
                 sql.Append("WHERE CONVERT(VARCHAR, B.DATA, 103) = " + pData);
             else
-                sql.Append("AND CONVERT(VARCHAR, PP.DT_ALTERACAO, 103) = " + pData);
+                sql.Append(" ORDER BY DATA DESC ");
             dgvMarcados.DataSource = auxSQL.retornaDataTable(sql.ToString());
 
         }
