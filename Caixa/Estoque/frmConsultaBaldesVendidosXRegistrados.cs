@@ -62,7 +62,7 @@ namespace Caixa.Estoque
             sql.Append("SELECT B.ID ID_BALDE, B.NOME, B.BALDE,B.DATA,  B.TELEFONE, B.COLHER ");
             sql.Append("FROM BALDES B ");
             if (!chkTodos.Checked)
-                sql.Append("WHERE CONVERT(VARCHAR, B.DATA, 103) = " + pData);
+                sql.Append("WHERE CONVERT(VARCHAR, B.DATA, 103) = " + pData + " OR CONVERT(VARCHAR, B.DATA_ENTREGA, 103) = " + pData);
             else
                 sql.Append(" ORDER BY DATA DESC ");
             dgvMarcados.DataSource = auxSQL.retornaDataTable(sql.ToString());

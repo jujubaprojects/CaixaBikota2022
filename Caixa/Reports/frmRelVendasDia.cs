@@ -35,7 +35,7 @@ namespace Caixa.Reports
             sqlConsulta.Append("UNION ALL ");
             sqlConsulta.Append("SELECT 1 ");
             sqlConsulta.Append("FROM BALDES B ");
-            sqlConsulta.Append("WHERE CONVERT(VARCHAR, B.DATA, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "' ");
+            sqlConsulta.Append("WHERE CONVERT(VARCHAR, B.DATA, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "' OR CONVERT(VARCHAR, B.DATA_ENTREGA, 103) = '" + dtpDataInicial.Value.ToString("dd/MM/yyyy") + "'");
             if (auxSQL.retornaDataTable(sqlConsulta.ToString()).Rows.Count > 0)
             {
                 frmConsultaBaldesVendidosXRegistrados frmC = new frmConsultaBaldesVendidosXRegistrados(dtpDataInicial.Value.ToString("yyyy-MM-dd"));

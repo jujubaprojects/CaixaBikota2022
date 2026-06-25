@@ -158,7 +158,7 @@ namespace Caixa
 
         private static void buscaPedidosAPIDelivery()
         {
-            timer45S = new System.Timers.Timer(4000); // 45 segundos
+            timer45S = new System.Timers.Timer(1000); // 45000 = 45 segundos
 
             timer45S.Elapsed += async (s, e) =>
             {
@@ -166,7 +166,8 @@ namespace Caixa
 
                 try
                 {
-                    new PedidosAPI();
+                    //new PedidosAPI(); EM PRODUÇÃO É ESTA LINHA
+                    new PedidosAPI2();
                 }
                 catch (Exception ex)
                 {

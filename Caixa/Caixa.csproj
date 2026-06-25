@@ -338,6 +338,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsRelatorios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\PedidoAPI.cs" />
     <Compile Include="DataSet\PedidoBruto.cs" />
     <Compile Include="DataSet\InformacoesDeliveryBruto.cs" />
     <Compile Include="Estoque\frmConsultaBaldesVendidosXRegistrados.cs">
@@ -468,6 +469,7 @@
     <Compile Include="Pedidos\frmPedidos.Designer.cs">
       <DependentUpon>frmPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\PedidosAPI2.cs" />
     <Compile Include="Pedidos\PedidosAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
